@@ -1,0 +1,28 @@
+include README.md
+include LICENSE
+include CHANGELOG.md
+include pyproject.toml
+
+# Documentation
+recursive-include docs *.md *.rst *.txt
+recursive-include docs *.png *.jpg *.svg
+
+# Examples and test data (if any)
+recursive-include examples *.py *.md *.acd *.l5x
+recursive-include tests/test_data *.acd *.l5x *.json
+
+# Package data
+recursive-include src/plc_format_converter *.json *.yaml *.yml
+
+# Exclude development and build files
+global-exclude *.pyc
+global-exclude *.pyo
+global-exclude *.pyd
+global-exclude __pycache__
+global-exclude .git*
+global-exclude .pytest_cache
+global-exclude .coverage
+global-exclude .DS_Store
+prune build
+prune dist
+prune *.egg-info 

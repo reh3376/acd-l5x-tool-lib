@@ -1,0 +1,36 @@
+pydantic>=2.0.0
+structlog>=22.0.0
+pathlib-abc>=0.1.0
+typing-extensions>=4.0.0
+click>=8.0.0
+
+[acd-tools]
+acd-tools>=0.2.0
+
+[all]
+acd-tools>=0.2.0
+l5x>=1.6.0
+lxml>=4.9.0
+
+[all:platform_system == "Windows"]
+pywin32>=227
+
+[dev]
+pytest>=7.0.0
+pytest-cov>=4.0.0
+pytest-asyncio>=0.20.0
+ruff>=0.1.0
+mypy>=1.0.0
+black>=22.0.0
+pre-commit>=2.20.0
+twine>=4.0.0
+build>=0.8.0
+
+[l5x]
+l5x>=1.6.0
+lxml>=4.9.0
+
+[studio5000]
+
+[studio5000:platform_system == "Windows"]
+pywin32>=227

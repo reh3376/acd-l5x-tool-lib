@@ -1,0 +1,206 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "plc-format-converter"
+version = "2.0.0"
+description = "Modern ACD ↔ L5X conversion library with industrial-grade validation and motion control support"
+readme = "README.md"
+requires-python = ">=3.8"
+license = { text = "MIT" }
+authors = [
+    { name = "PLC-GPT Team", email = "plc-gpt@example.com" }
+]
+maintainers = [
+    { name = "PLC-GPT Team", email = "plc-gpt@example.com" }
+]
+keywords = [
+    "plc", 
+    "automation", 
+    "rockwell", 
+    "acd", 
+    "l5x", 
+    "format-conversion", 
+    "motion-control",
+    "safety-systems",
+    "industrial-automation"
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Manufacturing",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9", 
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Topic :: System :: Hardware",
+    "Topic :: Utilities"
+]
+dependencies = [
+    "pydantic>=2.0.0",
+    "structlog>=22.0.0",
+    "pathlib-abc>=0.1.0",
+    "typing-extensions>=4.0.0",
+    "click>=8.0.0"
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0.0",
+    "pytest-cov>=4.0.0",
+    "pytest-asyncio>=0.20.0",
+    "ruff>=0.1.0",
+    "mypy>=1.0.0",
+    "black>=22.0.0",
+    "pre-commit>=2.20.0",
+    "twine>=4.0.0",
+    "build>=0.8.0"
+]
+acd-tools = [
+    "acd-tools>=0.2.0"
+]
+l5x = [
+    "l5x>=1.6.0",
+    "lxml>=4.9.0"
+]
+studio5000 = [
+    "pywin32>=227; platform_system=='Windows'"
+]
+all = [
+    "acd-tools>=0.2.0",
+    "l5x>=1.6.0", 
+    "lxml>=4.9.0",
+    "pywin32>=227; platform_system=='Windows'"
+]
+
+[project.urls]
+Homepage = "https://github.com/plc-gpt/plc-format-converter"
+Documentation = "https://plc-format-converter.readthedocs.io"
+Repository = "https://github.com/plc-gpt/plc-format-converter.git"
+Issues = "https://github.com/plc-gpt/plc-format-converter/issues"
+Changelog = "https://github.com/plc-gpt/plc-format-converter/blob/main/CHANGELOG.md"
+
+[project.scripts]
+plc-convert = "plc_format_converter.cli:main"
+
+[tool.setuptools]
+packages = ["plc_format_converter", "plc_format_converter.core", "plc_format_converter.formats", "plc_format_converter.utils"]
+package-dir = {"" = "src"}
+
+[tool.setuptools.package-data]
+"plc_format_converter" = ["*.json", "*.yaml", "*.yml"]
+
+# Development and Quality Tools Configuration
+
+[tool.ruff]
+target-version = "py38"
+line-length = 88
+select = [
+    "E",   # pycodestyle errors
+    "W",   # pycodestyle warnings
+    "F",   # pyflakes
+    "I",   # isort
+    "B",   # flake8-bugbear
+    "C4",  # flake8-comprehensions
+    "UP",  # pyupgrade
+]
+ignore = [
+    "E501",  # line too long, handled by black
+    "B008",  # do not perform function calls in argument defaults
+    "C901",  # too complex
+]
+
+[tool.ruff.per-file-ignores]
+"__init__.py" = ["F401"]
+"tests/*" = ["S101"]
+
+[tool.ruff.isort]
+known-first-party = ["plc_format_converter"]
+
+[tool.black]
+target-version = ['py38']
+line-length = 88
+include = '\.pyi?$'
+extend-exclude = '''
+/(
+  # directories
+  \.eggs
+  | \.git
+  | \.hg
+  | \.mypy_cache
+  | \.tox
+  | \.venv
+  | build
+  | dist
+)/
+'''
+
+[tool.mypy]
+python_version = "3.8"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = true
+disallow_incomplete_defs = true
+check_untyped_defs = true
+disallow_untyped_decorators = true
+no_implicit_optional = true
+warn_redundant_casts = true
+warn_unused_ignores = true
+warn_no_return = true
+warn_unreachable = true
+strict_equality = true
+
+[[tool.mypy.overrides]]
+module = [
+    "acd.*",
+    "l5x.*", 
+    "win32com.*"
+]
+ignore_missing_imports = true
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py", "*_test.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]
+addopts = [
+    "--strict-markers",
+    "--strict-config",
+    "--cov=plc_format_converter",
+    "--cov-report=html",
+    "--cov-report=term-missing",
+    "--cov-fail-under=80"
+]
+markers = [
+    "slow: marks tests as slow (deselect with '-m \"not slow\"')",
+    "integration: marks tests as integration tests",
+    "unit: marks tests as unit tests"
+]
+
+[tool.coverage.run]
+source = ["src"]
+omit = [
+    "tests/*",
+    "src/plc_format_converter/__main__.py"
+]
+
+[tool.coverage.report]
+exclude_lines = [
+    "pragma: no cover",
+    "def __repr__",
+    "if self.debug:",
+    "if settings.DEBUG",
+    "raise AssertionError",
+    "raise NotImplementedError",
+    "if 0:",
+    "if __name__ == .__main__.:",
+    "class .*\\bProtocol\\):",
+    "@(abc\\.)?abstractmethod",
+] 

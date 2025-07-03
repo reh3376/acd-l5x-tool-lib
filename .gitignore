@@ -1,0 +1,8 @@
+# Build artifacts
+dist/
+build/
+*.egg-info/
+
+# PyPI publication artifacts
+*.whl
+*.tar.gz

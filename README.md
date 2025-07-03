@@ -1,4 +1,4 @@
-# PLC Format Converter
+# PLC Format Converter - a python library
 
 [![PyPI version](https://badge.fury.io/py/plc-format-converter.svg)](https://badge.fury.io/py/plc-format-converter)
 [![Python Support](https://img.shields.io/pypi/pyversions/plc-format-converter.svg)](https://pypi.org/project/plc-format-converter/)

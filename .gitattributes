@@ -1,0 +1,16 @@
+# GitHub language detection
+*.py linguist-language=Python
+*.md linguist-documentation
+*.toml linguist-language=TOML
+*.txt linguist-documentation
+*.yml linguist-language=YAML
+*.yaml linguist-language=YAML
+
+# Set main language
+src/plc_format_converter/* linguist-language=Python
+tests/* linguist-language=Python
+docs/* linguist-documentation=true
+
+# Binary files
+*.L5X linguist-generated=false
+*.acd binary

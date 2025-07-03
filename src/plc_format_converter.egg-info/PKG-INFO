@@ -1,6 +1,6 @@
 Metadata-Version: 2.4
 Name: plc-format-converter
-Version: 2.0.0
+Version: 2.0.1
 Summary: Modern ACD ↔ L5X conversion library with industrial-grade validation and motion control support
 Author-email: PLC-GPT Team <plc-gpt@example.com>
 Maintainer-email: PLC-GPT Team <plc-gpt@example.com>

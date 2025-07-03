@@ -346,5 +346,118 @@ def main():
     cli()
 
 
+# Individual command entry points for standalone executables
+@click.command()
+@click.argument('input_file', type=click.Path(exists=True, path_type=Path))
+@click.argument('output_file', type=click.Path(path_type=Path))
+@click.option('--validate', '-v', is_flag=True, help='Run validation before conversion')
+@click.option('--force', '-f', is_flag=True, help='Force conversion even if validation fails')
+def acd2l5x(input_file: Path, output_file: Path, validate: bool, force: bool):
+    """Convert ACD files to L5X format.
+    
+    INPUT_FILE: Source ACD file
+    OUTPUT_FILE: Target L5X file
+    """
+    try:
+        # Validate input format
+        if input_file.suffix.lower() != '.acd':
+            click.echo(f"❌ Expected ACD file, got: {input_file.suffix}")
+            sys.exit(1)
+        
+        # Set output format if not specified
+        if output_file.suffix.lower() != '.l5x':
+            output_file = output_file.with_suffix('.l5x')
+        
+        click.echo(f"Converting ACD → L5X")
+        click.echo(f"Input: {input_file}")
+        click.echo(f"Output: {output_file}")
+        
+        # Load ACD project
+        handler = ACDHandler()
+        click.echo("Loading ACD project...")
+        project = handler.load(input_file)
+        click.echo(f"✅ Loaded: {project.name}")
+        
+        # Validate if requested
+        if validate:
+            click.echo("Running validation...")
+            validator = PLCValidator()
+            result = validator.validate_project(project)
+            
+            if not result.is_valid:
+                click.echo("❌ Validation failed")
+                for error in result.get_errors()[:5]:  # Show first 5 errors
+                    click.echo(f"  • {error.message}")
+                if not force:
+                    click.echo("Use --force to continue anyway")
+                    sys.exit(1)
+            else:
+                click.echo("✅ Validation passed")
+        
+        # Save as L5X
+        click.echo("Saving L5X file...")
+        output_handler = L5XHandler()
+        output_file.parent.mkdir(parents=True, exist_ok=True)
+        output_handler.save(project, output_file)
+        click.echo(f"✅ Conversion completed: {output_file}")
+        
+    except Exception as e:
+        click.echo(f"❌ Conversion failed: {e}")
+        sys.exit(1)
+
+
+@click.command()
+@click.argument('input_file', type=click.Path(exists=True, path_type=Path))
+@click.argument('output_file', type=click.Path(path_type=Path))
+@click.option('--validate', '-v', is_flag=True, help='Run validation before conversion')
+@click.option('--force', '-f', is_flag=True, help='Force conversion even if validation fails')
+def l5x2acd(input_file: Path, output_file: Path, validate: bool, force: bool):
+    """Convert L5X files to ACD format.
+    
+    INPUT_FILE: Source L5X file
+    OUTPUT_FILE: Target ACD file
+    """
+    try:
+        # Validate input format
+        if input_file.suffix.lower() != '.l5x':
+            click.echo(f"❌ Expected L5X file, got: {input_file.suffix}")
+            sys.exit(1)
+        
+        click.echo(f"Converting L5X → ACD")
+        click.echo(f"Input: {input_file}")
+        click.echo(f"Output: {output_file}")
+        
+        # Load L5X project
+        handler = L5XHandler()
+        click.echo("Loading L5X project...")
+        project = handler.load(input_file)
+        click.echo(f"✅ Loaded: {project.name}")
+        
+        # Validate if requested
+        if validate:
+            click.echo("Running validation...")
+            validator = PLCValidator()
+            result = validator.validate_project(project)
+            
+            if not result.is_valid:
+                click.echo("❌ Validation failed")
+                for error in result.get_errors()[:5]:  # Show first 5 errors
+                    click.echo(f"  • {error.message}")
+                if not force:
+                    click.echo("Use --force to continue anyway")
+                    sys.exit(1)
+            else:
+                click.echo("✅ Validation passed")
+        
+        # ACD generation note
+        click.echo("❌ Direct ACD generation not supported.")
+        click.echo("💡 Use Studio 5000 integration or import the L5X file manually.")
+        sys.exit(1)
+        
+    except Exception as e:
+        click.echo(f"❌ Conversion failed: {e}")
+        sys.exit(1)
+
+
 if __name__ == '__main__':
     main() 

@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "plc-format-converter"
-version = "2.0.1"
+version = "2.1.0"
 description = "Modern ACD ↔ L5X conversion library with industrial-grade validation and motion control support"
 readme = "README.md"
 requires-python = ">=3.8"

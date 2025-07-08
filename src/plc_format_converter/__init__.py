@@ -5,7 +5,7 @@ PLC Format Converter - Enhanced Phase 3.9
 Modern ACD ↔ L5X conversion library with 95%+ data preservation capability.
 """
 
-__version__ = "2.1.1"
+__version__ = "2.1.2"
 __author__ = "PLC-GPT Team"
 
 # Enhanced Phase 3.9 Exports

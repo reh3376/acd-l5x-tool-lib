@@ -18,7 +18,7 @@ import os
 import structlog
 
 # Import core converter and handlers
-from .core.converter import PLCFormatConverter
+from .core.converter import PLCConverter, EnhancedPLCConverter
 from .formats.acd_handler import ACDHandler
 from .formats.l5x_handler import L5XHandler
 from .utils.validation import PLCValidator, ValidationResult
@@ -44,7 +44,7 @@ logger = structlog.get_logger()
 
 
 @click.group()
-@click.version_option(version="2.0.0", prog_name="plc-format-converter")
+@click.version_option(version="2.1.1", prog_name="plc-format-converter")
 @click.option('--verbose', '-v', is_flag=True, help='Enable verbose logging')
 @click.option('--quiet', '-q', is_flag=True, help='Suppress non-error output')
 def main(verbose: bool, quiet: bool):
@@ -273,7 +273,7 @@ def _handle_single_conversion(input_file: Optional[Path], output_file: Optional[
         conversion_result = {}
         
         # Initialize converter
-        converter = PLCFormatConverter()
+        converter = PLCConverter()
         
         # Perform conversion
         if input_file.suffix.lower() == '.acd' and output_file.suffix.lower() == '.l5x':
@@ -380,7 +380,7 @@ def _handle_batch_conversion(input_dir: Optional[Path], output_dir: Optional[Pat
             
             # Perform conversion
             start_time = time.time()
-            converter = PLCFormatConverter()
+            converter = PLCConverter()
             
             if input_file.suffix.lower() == '.acd' and target_format == 'l5x':
                 project = converter.convert_acd_to_l5x(input_file, output_file)

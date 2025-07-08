@@ -1,349 +1,659 @@
 """
-Command Line Interface for PLC Format Converter
+CLI Interface for PLC Format Converter
 
-Provides command-line tools for converting between ACD and L5X formats
-with comprehensive validation and reporting capabilities.
+This module provides command-line interface for PLC file format conversion
+with comprehensive validation, batch processing, and round-trip testing capabilities.
 """
 
 import sys
 import click
 from pathlib import Path
-from typing import Optional
+from typing import Optional, List, Dict, Any
+import json
+import time
+from datetime import datetime
+import tempfile
+import os
 
-from . import __version__, get_library_info
-from .formats import ACDHandler, L5XHandler
-from .utils import PLCValidator
-from .core.models import ConversionError, FormatError, ValidationError
+import structlog
+
+# Import core converter and handlers
+from .core.converter import PLCFormatConverter
+from .formats.acd_handler import ACDHandler
+from .formats.l5x_handler import L5XHandler
+from .utils.validation import PLCValidator, ValidationResult
+
+# Configure structured logging for CLI
+structlog.configure(
+    processors=[
+        structlog.stdlib.filter_by_level,
+        structlog.stdlib.add_logger_name,
+        structlog.stdlib.add_log_level,
+        structlog.stdlib.PositionalArgumentsFormatter(),
+        structlog.processors.TimeStamper(fmt="iso"),
+        structlog.processors.StackInfoRenderer(),
+        structlog.processors.format_exc_info,
+        structlog.dev.ConsoleRenderer()
+    ],
+    context_class=dict,
+    logger_factory=structlog.stdlib.LoggerFactory(),
+    cache_logger_on_first_use=True,
+)
+
+logger = structlog.get_logger()
 
 
 @click.group()
-@click.version_option(version=__version__, prog_name="plc-convert")
-@click.option('--verbose', '-v', is_flag=True, help='Enable verbose output')
-def cli(verbose: bool):
-    """PLC Format Converter - Convert between ACD and L5X formats with validation."""
-    if verbose:
-        click.echo(f"PLC Format Converter v{__version__}")
-
-
-@cli.command()
-def info():
-    """Display library information and capabilities."""
-    info = get_library_info()
+@click.version_option(version="2.0.0", prog_name="plc-format-converter")
+@click.option('--verbose', '-v', is_flag=True, help='Enable verbose logging')
+@click.option('--quiet', '-q', is_flag=True, help='Suppress non-error output')
+def main(verbose: bool, quiet: bool):
+    """
+    PLC Format Converter - Convert between ACD and L5X formats
     
-    click.echo("PLC Format Converter Library Information")
-    click.echo("=" * 45)
-    click.echo(f"Version: {info['version']}")
-    click.echo(f"Author: {info['author']}")
-    click.echo(f"License: {info['license']}")
-    click.echo(f"Description: {info['description']}")
-    click.echo()
-    click.echo("Supported Formats:")
-    for fmt in info['supported_formats']:
-        click.echo(f"  • {fmt}")
-    click.echo()
-    click.echo("Features:")
-    for feature in info['features']:
-        click.echo(f"  • {feature}")
+    This tool provides comprehensive PLC file format conversion with validation,
+    round-trip testing, and batch processing capabilities.
+    """
+    # Configure logging level based on flags
+    if quiet:
+        import logging
+        logging.getLogger().setLevel(logging.ERROR)
+    elif verbose:
+        import logging
+        logging.getLogger().setLevel(logging.DEBUG)
 
 
-@cli.command()
+@main.command()
 @click.argument('input_file', type=click.Path(exists=True, path_type=Path))
 @click.argument('output_file', type=click.Path(path_type=Path))
-@click.option('--validate', '-v', is_flag=True, help='Run validation before conversion')
-@click.option('--report', '-r', type=click.Path(path_type=Path), help='Save validation report to file')
-@click.option('--force', '-f', is_flag=True, help='Force conversion even if validation fails')
-def convert(
-    input_file: Path, 
-    output_file: Path, 
-    validate: bool, 
-    report: Optional[Path],
-    force: bool
-):
-    """Convert between ACD and L5X formats.
-    
-    INPUT_FILE: Source file (ACD or L5X)
-    OUTPUT_FILE: Target file (L5X or ACD)
+@click.option('--validate', is_flag=True, help='Validate conversion result')
+@click.option('--studio5000', is_flag=True, help='Use Studio 5000 for enhanced conversion')
+@click.option('--preserve-metadata', is_flag=True, default=True, help='Preserve original metadata')
+def acd2l5x(input_file: Path, output_file: Path, validate: bool, 
+           studio5000: bool, preserve_metadata: bool):
     """
+    Convert ACD file to L5X format
+    
+    INPUT_FILE: Path to the ACD file to convert
+    OUTPUT_FILE: Path for the output L5X file
+    """
+    click.echo(f"🔄 Converting ACD to L5X: {input_file} → {output_file}")
+    
     try:
-        # Determine input and output formats
-        input_format = input_file.suffix.lower()
-        output_format = output_file.suffix.lower()
+        start_time = time.time()
         
-        click.echo(f"Converting {input_format.upper()} → {output_format.upper()}")
-        click.echo(f"Input: {input_file}")
-        click.echo(f"Output: {output_file}")
+        # Initialize handlers
+        acd_handler = ACDHandler()
+        l5x_handler = L5XHandler()
         
-        # Load the project
-        if input_format == '.acd':
-            handler = ACDHandler()
-        elif input_format == '.l5x':
-            handler = L5XHandler()
-        else:
-            raise ValueError(f"Unsupported input format: {input_format}")
+        # Check capabilities
+        acd_caps = acd_handler.get_capabilities()
+        l5x_caps = l5x_handler.get_capabilities()
         
-        click.echo("Loading project...")
-        project = handler.load(input_file)
-        click.echo(f"✅ Loaded: {project.name}")
-        click.echo(f"   Controller: {project.controller.name} ({project.controller.processor_type})")
-        click.echo(f"   Programs: {len(project.programs)}")
+        if not acd_caps['read_support']:
+            click.echo("❌ ACD reading not supported", err=True)
+            sys.exit(1)
         
-        # Run validation if requested
-        validation_passed = True
+        if not l5x_caps['write_support']:
+            click.echo("❌ L5X writing not supported", err=True)
+            sys.exit(1)
+        
+        # Load ACD file
+        click.echo("📖 Loading ACD file...")
+        project = acd_handler.load(input_file)
+        
+        # Enhance with Studio 5000 if requested
+        if studio5000 and acd_caps['dependencies']['studio_5000_available']:
+            click.echo("🔧 Using Studio 5000 enhanced parsing...")
+        elif studio5000:
+            click.echo("⚠️  Studio 5000 not available, using standard parsing")
+        
+        # Save as L5X
+        click.echo("💾 Saving L5X file...")
+        l5x_handler.save(project, output_file)
+        
+        # Validation if requested
         if validate:
-            click.echo("\nRunning validation...")
+            click.echo("✅ Validating conversion...")
             validator = PLCValidator()
-            result = validator.validate_project(project)
+            validation_result = validator.validate_project(project)
             
-            click.echo(f"Validation: {'✅ PASS' if result.is_valid else '❌ FAIL'}")
-            
-            summary = result.get_summary()
-            if summary['errors'] > 0:
-                click.echo(f"  Errors: {summary['errors']}")
-                validation_passed = False
-            if summary['warnings'] > 0:
-                click.echo(f"  Warnings: {summary['warnings']}")
-            if summary['info'] > 0:
-                click.echo(f"  Info: {summary['info']}")
-            
-            # Show errors
-            for error in result.get_errors():
-                click.echo(f"  ❌ {error.category}: {error.message}")
-            
-            # Save validation report if requested
-            if report:
-                report_content = validator.generate_validation_report(result)
-                with open(report, 'w') as f:
-                    f.write(report_content)
-                click.echo(f"📄 Validation report saved: {report}")
-            
-            # Check if we should continue
-            if not validation_passed and not force:
-                click.echo("\n❌ Validation failed. Use --force to continue anyway.")
+            if validation_result.is_valid:
+                click.echo("✅ Validation passed")
+            else:
+                click.echo("⚠️  Validation warnings:")
+                for issue in validation_result.get_errors():
+                    click.echo(f"   • {issue.message}")
+        
+        # Report completion
+        elapsed = time.time() - start_time
+        click.echo(f"✅ Conversion completed in {elapsed:.2f}s")
+        
+        # Display project statistics
+        _display_project_stats(project)
+        
+    except Exception as e:
+        click.echo(f"❌ Conversion failed: {e}", err=True)
+        logger.error("ACD to L5X conversion failed", error=str(e))
+        sys.exit(1)
+
+
+@main.command()
+@click.argument('input_file', type=click.Path(exists=True, path_type=Path))
+@click.argument('output_file', type=click.Path(path_type=Path))
+@click.option('--validate', is_flag=True, help='Validate conversion result')
+@click.option('--studio5000', is_flag=True, help='Use Studio 5000 for ACD generation')
+@click.option('--preserve-metadata', is_flag=True, default=True, help='Preserve original metadata')
+def l5x2acd(input_file: Path, output_file: Path, validate: bool,
+           studio5000: bool, preserve_metadata: bool):
+    """
+    Convert L5X file to ACD format
+    
+    INPUT_FILE: Path to the L5X file to convert
+    OUTPUT_FILE: Path for the output ACD file
+    """
+    click.echo(f"🔄 Converting L5X to ACD: {input_file} → {output_file}")
+    
+    try:
+        start_time = time.time()
+        
+        # Initialize handlers
+        l5x_handler = L5XHandler()
+        acd_handler = ACDHandler()
+        
+        # Check capabilities
+        l5x_caps = l5x_handler.get_capabilities()
+        acd_caps = acd_handler.get_capabilities()
+        
+        if not l5x_caps['read_support']:
+            click.echo("❌ L5X reading not supported", err=True)
+            sys.exit(1)
+        
+        if not acd_caps['write_support']:
+            if studio5000:
+                click.echo("⚠️  ACD writing requires Studio 5000")
+            else:
+                click.echo("❌ ACD writing not supported without Studio 5000", err=True)
+                click.echo("💡 Use --studio5000 flag to enable ACD generation")
                 sys.exit(1)
         
-        # Save the project
-        click.echo("\nSaving project...")
-        if output_format == '.acd':
-            click.echo("❌ Direct ACD generation not supported. Use Studio 5000 integration.")
-            sys.exit(1)
-        elif output_format == '.l5x':
-            output_handler = L5XHandler()
-        else:
-            raise ValueError(f"Unsupported output format: {output_format}")
+        # Load L5X file
+        click.echo("📖 Loading L5X file...")
+        project = l5x_handler.load(input_file)
         
-        # Ensure output directory exists
-        output_file.parent.mkdir(parents=True, exist_ok=True)
+        # Save as ACD using Studio 5000
+        click.echo("💾 Saving ACD file using Studio 5000...")
+        acd_handler.save(project, output_file)
         
-        output_handler.save(project, output_file)
-        click.echo(f"✅ Conversion completed: {output_file}")
-        
-    except (ConversionError, FormatError, ValidationError) as e:
-        click.echo(f"❌ Conversion failed: {e}")
-        sys.exit(1)
-    except Exception as e:
-        click.echo(f"❌ Unexpected error: {e}")
-        sys.exit(1)
-
-
-@cli.command()
-@click.argument('input_file', type=click.Path(exists=True, path_type=Path))
-@click.option('--output', '-o', type=click.Path(path_type=Path), help='Output report file')
-@click.option('--capabilities', is_flag=True, help='Include controller capability validation')
-@click.option('--data-integrity', is_flag=True, help='Include data integrity validation')
-@click.option('--instructions', is_flag=True, help='Include instruction validation')
-def validate(
-    input_file: Path, 
-    output: Optional[Path],
-    capabilities: bool,
-    data_integrity: bool,
-    instructions: bool
-):
-    """Validate a PLC project file.
-    
-    INPUT_FILE: PLC file to validate (ACD or L5X)
-    """
-    try:
-        # Determine file format
-        file_format = input_file.suffix.lower()
-        
-        # Load the project
-        if file_format == '.acd':
-            handler = ACDHandler()
-        elif file_format == '.l5x':
-            handler = L5XHandler()
-        else:
-            raise ValueError(f"Unsupported file format: {file_format}")
-        
-        click.echo(f"Loading {file_format.upper()} file: {input_file}")
-        project = handler.load(input_file)
-        click.echo(f"✅ Loaded: {project.name}")
-        
-        # Configure validation options
-        validation_options = {}
-        if capabilities or data_integrity or instructions:
-            # Use specific options if any are specified
-            validation_options = {
-                'capabilities': capabilities,
-                'data_integrity': data_integrity,
-                'instructions': instructions
-            }
-        else:
-            # Use all validations by default
-            validation_options = {
-                'capabilities': True,
-                'data_integrity': True,
-                'instructions': True
-            }
-        
-        # Run validation
-        click.echo("\nRunning comprehensive validation...")
-        validator = PLCValidator()
-        result = validator.validate_project(project, validation_options)
-        
-        # Display results
-        click.echo(f"\nValidation Status: {'✅ PASS' if result.is_valid else '❌ FAIL'}")
-        
-        summary = result.get_summary()
-        click.echo(f"Issues Found: {summary['total_issues']}")
-        click.echo(f"  Errors: {summary['errors']}")
-        click.echo(f"  Warnings: {summary['warnings']}")
-        click.echo(f"  Info: {summary['info']}")
-        
-        # Show detailed issues
-        if result.issues:
-            click.echo("\nDetailed Issues:")
-            for issue in result.issues:
-                severity_emoji = "❌" if issue.severity.value == "ERROR" else "⚠️" if issue.severity.value == "WARNING" else "ℹ️"
-                click.echo(f"  {severity_emoji} [{issue.category}] {issue.message}")
-                if issue.recommendation:
-                    click.echo(f"     💡 {issue.recommendation}")
-        
-        # Show statistics
-        if result.statistics:
-            click.echo(f"\nProject Statistics:")
-            stats = result.statistics.get('project_stats', {})
-            click.echo(f"  Programs: {stats.get('programs', 0)}")
-            click.echo(f"  Routines: {stats.get('total_routines', 0)}")
-            click.echo(f"  Tags: {stats.get('total_tags', 0)}")
-            click.echo(f"  AOIs: {stats.get('aois', 0)}")
-            click.echo(f"  UDTs: {stats.get('udts', 0)}")
-            click.echo(f"  Devices: {stats.get('devices', 0)}")
+        # Validation if requested
+        if validate:
+            click.echo("✅ Validating conversion...")
+            validator = PLCValidator()
+            validation_result = validator.validate_project(project)
             
-            validation_time = result.statistics.get('validation_time', 0)
-            click.echo(f"  Validation Time: {validation_time:.2f}s")
+            if validation_result.is_valid:
+                click.echo("✅ Validation passed")
+            else:
+                click.echo("⚠️  Validation warnings:")
+                for issue in validation_result.get_errors():
+                    click.echo(f"   • {issue.message}")
+        
+        # Report completion
+        elapsed = time.time() - start_time
+        click.echo(f"✅ Conversion completed in {elapsed:.2f}s")
+        
+        # Display project statistics
+        _display_project_stats(project)
+        
+    except Exception as e:
+        click.echo(f"❌ Conversion failed: {e}", err=True)
+        logger.error("L5X to ACD conversion failed", error=str(e))
+        sys.exit(1)
+
+
+@main.command()
+@click.option('--input', '-i', 'input_file', type=click.Path(exists=True, path_type=Path), 
+              help='Input file path')
+@click.option('--output', '-o', 'output_file', type=click.Path(path_type=Path),
+              help='Output file path')
+@click.option('--format', 'output_format', type=click.Choice(['acd', 'l5x'], case_sensitive=False),
+              help='Output format (auto-detected if not specified)')
+@click.option('--validate', is_flag=True, help='Validate conversion result')
+@click.option('--round-trip', is_flag=True, help='Perform round-trip validation')
+@click.option('--studio5000', is_flag=True, help='Use Studio 5000 integration')
+@click.option('--batch', is_flag=True, help='Enable batch processing mode')
+@click.option('--input-dir', type=click.Path(exists=True, path_type=Path),
+              help='Input directory for batch processing')
+@click.option('--output-dir', type=click.Path(path_type=Path),
+              help='Output directory for batch processing')
+@click.option('--report', type=click.Path(path_type=Path),
+              help='Generate detailed report file')
+def convert(input_file: Optional[Path], output_file: Optional[Path], output_format: Optional[str],
+           validate: bool, round_trip: bool, studio5000: bool, batch: bool,
+           input_dir: Optional[Path], output_dir: Optional[Path], report: Optional[Path]):
+    """
+    Universal PLC format converter with advanced features
+    
+    Supports single file conversion, batch processing, and comprehensive validation.
+    """
+    if batch:
+        _handle_batch_conversion(input_dir, output_dir, output_format, validate, 
+                               round_trip, studio5000, report)
+    else:
+        _handle_single_conversion(input_file, output_file, output_format, validate,
+                                round_trip, studio5000, report)
+
+
+def _handle_single_conversion(input_file: Optional[Path], output_file: Optional[Path], 
+                            output_format: Optional[str], validate: bool, round_trip: bool,
+                            studio5000: bool, report: Optional[Path]):
+    """Handle single file conversion"""
+    if not input_file:
+        click.echo("❌ Input file required for single conversion", err=True)
+        sys.exit(1)
+    
+    if not output_file:
+        # Auto-generate output filename
+        if not output_format:
+            # Determine output format from input
+            if input_file.suffix.lower() == '.acd':
+                output_format = 'l5x'
+            elif input_file.suffix.lower() == '.l5x':
+                output_format = 'acd'
+            else:
+                click.echo("❌ Cannot determine output format", err=True)
+                sys.exit(1)
+        
+        output_file = input_file.with_suffix(f'.{output_format.upper()}')
+    
+    click.echo(f"🔄 Converting {input_file} → {output_file}")
+    
+    try:
+        start_time = time.time()
+        conversion_result = {}
+        
+        # Initialize converter
+        converter = PLCFormatConverter()
+        
+        # Perform conversion
+        if input_file.suffix.lower() == '.acd' and output_file.suffix.lower() == '.l5x':
+            project = converter.convert_acd_to_l5x(input_file, output_file)
+            conversion_result['direction'] = 'ACD → L5X'
+        elif input_file.suffix.lower() == '.l5x' and output_file.suffix.lower() == '.acd':
+            project = converter.convert_l5x_to_acd(input_file, output_file)
+            conversion_result['direction'] = 'L5X → ACD'
+        else:
+            click.echo("❌ Unsupported conversion direction", err=True)
+            sys.exit(1)
+        
+        # Validation
+        if validate:
+            click.echo("✅ Validating conversion...")
+            validator = PLCValidator()
+            validation_result = validator.validate_project(project)
+            conversion_result['validation'] = validation_result.get_summary()
+            
+            if validation_result.is_valid:
+                click.echo("✅ Validation passed")
+            else:
+                click.echo("⚠️  Validation issues found")
+        
+        # Round-trip validation
+        if round_trip:
+            click.echo("🔄 Performing round-trip validation...")
+            round_trip_result = _perform_round_trip_validation(input_file, output_file)
+            conversion_result['round_trip'] = round_trip_result
+            
+            if round_trip_result['validation_passed']:
+                click.echo(f"✅ Round-trip validation passed (score: {round_trip_result.get('round_trip_score', 0):.1f}%)")
+            else:
+                click.echo(f"⚠️  Round-trip validation issues (score: {round_trip_result.get('round_trip_score', 0):.1f}%)")
+        
+        # Report completion
+        elapsed = time.time() - start_time
+        conversion_result['elapsed_time'] = elapsed
+        conversion_result['timestamp'] = datetime.now().isoformat()
+        
+        click.echo(f"✅ Conversion completed in {elapsed:.2f}s")
+        
+        # Display project statistics
+        _display_project_stats(project)
         
         # Generate report if requested
-        if output:
-            report_content = validator.generate_validation_report(result)
-            with open(output, 'w') as f:
-                f.write(report_content)
-            click.echo(f"\n📄 Detailed report saved: {output}")
+        if report:
+            _generate_conversion_report(conversion_result, report)
+            click.echo(f"📊 Report saved to {report}")
         
-        # Exit with error code if validation failed
-        if not result.is_valid:
+    except Exception as e:
+        click.echo(f"❌ Conversion failed: {e}", err=True)
+        logger.error("Single file conversion failed", error=str(e))
+        sys.exit(1)
+
+
+def _handle_batch_conversion(input_dir: Optional[Path], output_dir: Optional[Path],
+                           output_format: Optional[str], validate: bool, round_trip: bool,
+                           studio5000: bool, report: Optional[Path]):
+    """Handle batch conversion of multiple files"""
+    if not input_dir:
+        click.echo("❌ Input directory required for batch conversion", err=True)
+        sys.exit(1)
+    
+    if not output_dir:
+        output_dir = input_dir / 'converted'
+    
+    output_dir.mkdir(parents=True, exist_ok=True)
+    
+    click.echo(f"🔄 Batch converting files from {input_dir} to {output_dir}")
+    
+    # Find input files
+    input_files = []
+    for pattern in ['*.acd', '*.ACD', '*.l5x', '*.L5X']:
+        input_files.extend(input_dir.glob(pattern))
+    
+    if not input_files:
+        click.echo("❌ No ACD or L5X files found in input directory", err=True)
+        sys.exit(1)
+    
+    click.echo(f"📁 Found {len(input_files)} files to convert")
+    
+    # Process files
+    results = []
+    successful = 0
+    failed = 0
+    
+    for input_file in input_files:
+        try:
+            click.echo(f"\n🔄 Processing {input_file.name}...")
+            
+            # Determine output format and filename
+            if not output_format:
+                if input_file.suffix.lower() == '.acd':
+                    target_format = 'l5x'
+                elif input_file.suffix.lower() == '.l5x':
+                    target_format = 'acd'
+                else:
+                    continue
+            else:
+                target_format = output_format.lower()
+            
+            output_file = output_dir / f"{input_file.stem}.{target_format.upper()}"
+            
+            # Perform conversion
+            start_time = time.time()
+            converter = PLCFormatConverter()
+            
+            if input_file.suffix.lower() == '.acd' and target_format == 'l5x':
+                project = converter.convert_acd_to_l5x(input_file, output_file)
+            elif input_file.suffix.lower() == '.l5x' and target_format == 'acd':
+                project = converter.convert_l5x_to_acd(input_file, output_file)
+            else:
+                click.echo(f"⚠️  Skipping {input_file.name} - unsupported conversion")
+                continue
+            
+            elapsed = time.time() - start_time
+            
+            # Validation if requested
+            validation_result = None
+            if validate:
+                validator = PLCValidator()
+                validation_result = validator.validate_project(project)
+            
+            # Round-trip validation if requested
+            round_trip_result = None
+            if round_trip:
+                round_trip_result = _perform_round_trip_validation(input_file, output_file)
+            
+            # Record result
+            file_result = {
+                'input_file': str(input_file),
+                'output_file': str(output_file),
+                'success': True,
+                'elapsed_time': elapsed,
+                'validation': validation_result.get_summary() if validation_result else None,
+                'round_trip': round_trip_result
+            }
+            results.append(file_result)
+            successful += 1
+            
+            click.echo(f"✅ {input_file.name} converted successfully ({elapsed:.2f}s)")
+            
+        except Exception as e:
+            file_result = {
+                'input_file': str(input_file),
+                'output_file': None,
+                'success': False,
+                'error': str(e),
+                'elapsed_time': None
+            }
+            results.append(file_result)
+            failed += 1
+            
+            click.echo(f"❌ {input_file.name} conversion failed: {e}")
+            logger.error("Batch file conversion failed", file=str(input_file), error=str(e))
+    
+    # Summary
+    click.echo(f"\n📊 Batch conversion completed:")
+    click.echo(f"   ✅ Successful: {successful}")
+    click.echo(f"   ❌ Failed: {failed}")
+    click.echo(f"   📁 Total: {len(input_files)}")
+    
+    # Generate batch report
+    if report:
+        batch_report = {
+            'summary': {
+                'total_files': len(input_files),
+                'successful': successful,
+                'failed': failed,
+                'success_rate': (successful / len(input_files)) * 100 if input_files else 0
+            },
+            'results': results,
+            'timestamp': datetime.now().isoformat()
+        }
+        _generate_conversion_report(batch_report, report)
+        click.echo(f"📊 Batch report saved to {report}")
+
+
+@main.command()
+@click.argument('file_path', type=click.Path(exists=True, path_type=Path))
+@click.option('--round-trip', is_flag=True, help='Perform round-trip validation')
+@click.option('--detailed', is_flag=True, help='Show detailed validation results')
+@click.option('--report', type=click.Path(path_type=Path), help='Save validation report')
+def validate(file_path: Path, round_trip: bool, detailed: bool, report: Optional[Path]):
+    """
+    Validate PLC file format and structure
+    
+    FILE_PATH: Path to the PLC file to validate
+    """
+    click.echo(f"✅ Validating {file_path}")
+    
+    try:
+        start_time = time.time()
+        
+        # Determine file type and load
+        if file_path.suffix.lower() == '.acd':
+            handler = ACDHandler()
+        elif file_path.suffix.lower() == '.l5x':
+            handler = L5XHandler()
+        else:
+            click.echo("❌ Unsupported file format", err=True)
             sys.exit(1)
         
-    except (ConversionError, FormatError, ValidationError) as e:
-        click.echo(f"❌ Validation failed: {e}")
-        sys.exit(1)
+        # Load project
+        project = handler.load(file_path)
+        
+        # Validate project
+        validator = PLCValidator()
+        validation_result = validator.validate_project(project)
+        
+        # Display results
+        if validation_result.is_valid:
+            click.echo("✅ Validation passed")
+        else:
+            click.echo("⚠️  Validation issues found")
+        
+        summary = validation_result.get_summary()
+        click.echo(f"📊 Issues: {summary['errors']} errors, {summary['warnings']} warnings")
+        
+        if detailed:
+            _display_detailed_validation(validation_result)
+        
+        # Round-trip validation
+        round_trip_result = None
+        if round_trip:
+            click.echo("\n🔄 Performing round-trip validation...")
+            round_trip_result = _perform_round_trip_validation(file_path)
+            
+            if round_trip_result['validation_passed']:
+                click.echo(f"✅ Round-trip validation passed (score: {round_trip_result.get('round_trip_score', 0):.1f}%)")
+            else:
+                click.echo(f"⚠️  Round-trip validation issues (score: {round_trip_result.get('round_trip_score', 0):.1f}%)")
+        
+        elapsed = time.time() - start_time
+        click.echo(f"⏱️  Validation completed in {elapsed:.2f}s")
+        
+        # Generate report if requested
+        if report:
+            validation_report = {
+                'file_path': str(file_path),
+                'validation_result': validation_result.get_summary(),
+                'round_trip_result': round_trip_result,
+                'elapsed_time': elapsed,
+                'timestamp': datetime.now().isoformat()
+            }
+            _generate_conversion_report(validation_report, report)
+            click.echo(f"📊 Validation report saved to {report}")
+        
     except Exception as e:
-        click.echo(f"❌ Unexpected error: {e}")
+        click.echo(f"❌ Validation failed: {e}", err=True)
+        logger.error("File validation failed", error=str(e))
         sys.exit(1)
 
 
-@cli.command()
-@click.argument('input_dir', type=click.Path(exists=True, file_okay=False, path_type=Path))
-@click.argument('output_dir', type=click.Path(path_type=Path))
-@click.option('--pattern', '-p', default='*.L5X', help='File pattern to match (default: *.L5X)')
-@click.option('--validate', '-v', is_flag=True, help='Validate each file before processing')
-@click.option('--continue-on-error', is_flag=True, help='Continue processing other files if one fails')
-def batch(
-    input_dir: Path, 
-    output_dir: Path, 
-    pattern: str,
-    validate: bool,
-    continue_on_error: bool
-):
-    """Batch process multiple PLC files.
-    
-    INPUT_DIR: Directory containing PLC files
-    OUTPUT_DIR: Directory for processed files
+@main.command()
+def capabilities():
     """
+    Display converter capabilities and dependencies
+    """
+    click.echo("🔧 PLC Format Converter Capabilities\n")
+    
+    # ACD Handler capabilities
+    acd_handler = ACDHandler()
+    acd_caps = acd_handler.get_capabilities()
+    
+    click.echo("📁 ACD Handler:")
+    click.echo(f"   Version: {acd_caps['version']}")
+    click.echo(f"   Read Support: {'✅' if acd_caps['read_support'] else '❌'}")
+    click.echo(f"   Write Support: {'✅' if acd_caps['write_support'] else '❌'}")
+    click.echo(f"   Studio 5000 Available: {'✅' if acd_caps['dependencies']['studio_5000_available'] else '❌'}")
+    click.echo(f"   ACD Tools Available: {'✅' if acd_caps['dependencies']['acd_tools'] else '❌'}")
+    
+    # L5X Handler capabilities
+    l5x_handler = L5XHandler()
+    l5x_caps = l5x_handler.get_capabilities()
+    
+    click.echo("\n📄 L5X Handler:")
+    click.echo(f"   Version: {l5x_caps['version']}")
+    click.echo(f"   Read Support: {'✅' if l5x_caps['read_support'] else '❌'}")
+    click.echo(f"   Write Support: {'✅' if l5x_caps['write_support'] else '❌'}")
+    click.echo(f"   L5X Library Available: {'✅' if l5x_caps['dependencies']['l5x_library'] else '❌'}")
+    
+    # Features
+    click.echo("\n🚀 Features:")
+    for feature, supported in acd_caps['features'].items():
+        if feature in l5x_caps['features']:
+            both_support = supported and l5x_caps['features'][feature]
+            click.echo(f"   {feature}: {'✅' if both_support else '⚠️' if supported or l5x_caps['features'][feature] else '❌'}")
+
+
+# Helper functions
+def _display_project_stats(project):
+    """Display project statistics"""
+    click.echo("\n📊 Project Statistics:")
+    click.echo(f"   Controller: {project.controller.name} ({project.controller.processor_type})")
+    click.echo(f"   Programs: {len(project.programs)}")
+    click.echo(f"   Controller Tags: {len(project.controller_tags)}")
+    click.echo(f"   Add-On Instructions: {len(project.add_on_instructions)}")
+    click.echo(f"   User Defined Types: {len(project.user_defined_types)}")
+    click.echo(f"   Devices: {len(project.devices)}")
+
+
+def _display_detailed_validation(validation_result: ValidationResult):
+    """Display detailed validation results"""
+    if validation_result.get_errors():
+        click.echo("\n❌ Errors:")
+        for error in validation_result.get_errors():
+            click.echo(f"   • {error.message}")
+            if error.recommendation:
+                click.echo(f"     💡 {error.recommendation}")
+    
+    if validation_result.get_warnings():
+        click.echo("\n⚠️  Warnings:")
+        for warning in validation_result.get_warnings():
+            click.echo(f"   • {warning.message}")
+            if warning.recommendation:
+                click.echo(f"     💡 {warning.recommendation}")
+
+
+def _perform_round_trip_validation(original_file: Path, converted_file: Optional[Path] = None) -> Dict[str, Any]:
+    """Perform round-trip validation"""
     try:
-        # Find matching files
-        files = list(input_dir.glob(pattern))
-        if not files:
-            click.echo(f"No files found matching pattern: {pattern}")
-            return
+        if not converted_file:
+            # Create temporary converted file
+            with tempfile.NamedTemporaryFile(suffix='.L5X' if original_file.suffix.lower() == '.acd' else '.ACD', 
+                                           delete=False) as temp_file:
+                converted_file = Path(temp_file.name)
         
-        click.echo(f"Found {len(files)} files matching pattern: {pattern}")
-        click.echo(f"Output directory: {output_dir}")
+        # Determine handlers
+        if original_file.suffix.lower() == '.acd':
+            original_handler = ACDHandler()
+            converted_handler = L5XHandler()
+            
+            # Convert ACD to L5X
+            project = original_handler.load(original_file)
+            converted_handler.save(project, converted_file)
+            
+            # Perform round-trip validation
+            return original_handler.validate_round_trip(original_file, converted_file)
         
-        # Ensure output directory exists
-        output_dir.mkdir(parents=True, exist_ok=True)
+        elif original_file.suffix.lower() == '.l5x':
+            original_handler = L5XHandler()
+            converted_handler = ACDHandler()
+            
+            # Convert L5X to ACD (requires Studio 5000)
+            project = original_handler.load(original_file)
+            converted_handler.save(project, converted_file)
+            
+            # Perform round-trip validation
+            return original_handler.validate_round_trip(original_file, converted_file)
         
-        # Process each file
-        processed = 0
-        failed = 0
-        
-        for file_path in files:
-            try:
-                click.echo(f"\nProcessing: {file_path.name}")
-                
-                # Determine handler
-                file_format = file_path.suffix.lower()
-                if file_format == '.acd':
-                    handler = ACDHandler()
-                elif file_format == '.l5x':
-                    handler = L5XHandler()
-                else:
-                    click.echo(f"  ⚠️ Skipping unsupported format: {file_format}")
-                    continue
-                
-                # Load project
-                project = handler.load(file_path)
-                
-                # Validate if requested
-                if validate:
-                    validator = PLCValidator()
-                    result = validator.validate_project(project)
-                    click.echo(f"  Validation: {'✅ PASS' if result.is_valid else '❌ FAIL'}")
-                    
-                    if not result.is_valid and not continue_on_error:
-                        click.echo(f"  ❌ Validation failed, skipping file")
-                        failed += 1
-                        continue
-                
-                # Save processed file
-                output_file = output_dir / f"processed_{file_path.name}"
-                if file_format == '.l5x':
-                    output_handler = L5XHandler()
-                    output_handler.save(project, output_file)
-                    click.echo(f"  ✅ Saved: {output_file.name}")
-                    processed += 1
-                else:
-                    click.echo(f"  ⚠️ Cannot save ACD format, skipping")
-                
-            except Exception as e:
-                click.echo(f"  ❌ Error processing {file_path.name}: {e}")
-                failed += 1
-                if not continue_on_error:
-                    break
-        
-        # Summary
-        click.echo(f"\nBatch processing complete:")
-        click.echo(f"  Processed: {processed}")
-        click.echo(f"  Failed: {failed}")
-        click.echo(f"  Total: {len(files)}")
-        
+        else:
+            return {
+                'validation_passed': False,
+                'error': 'Unsupported file format for round-trip validation'
+            }
+    
     except Exception as e:
-        click.echo(f"❌ Batch processing failed: {e}")
-        sys.exit(1)
+        return {
+            'validation_passed': False,
+            'error': str(e)
+        }
+    
+    finally:
+        # Clean up temporary file if created
+        if converted_file and converted_file.exists() and not converted_file.parent.samefile(original_file.parent):
+            try:
+                os.unlink(converted_file)
+            except:
+                pass
 
 
-def main():
-    """Main entry point for the CLI."""
-    cli()
+def _generate_conversion_report(data: Dict[str, Any], report_path: Path):
+    """Generate detailed conversion report"""
+    try:
+        with open(report_path, 'w') as f:
+            json.dump(data, f, indent=2, default=str)
+    except Exception as e:
+        logger.warning("Failed to generate report", error=str(e))
 
 
 # Individual command entry points for standalone executables

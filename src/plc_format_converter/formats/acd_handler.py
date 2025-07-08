@@ -21,7 +21,7 @@ import structlog
 from ..core.models import (
     PLCProject, PLCController, PLCProgram, PLCRoutine, PLCTag, PLCDevice,
     PLCAddOnInstruction, PLCUserDefinedType, PLCMetadata, DataType,
-    ConversionError, FormatError, RoutineType
+    ConversionError, FormatError, RoutineType, ComponentExtraction, BinaryDataBlock
 )
 
 # Import acd-tools library

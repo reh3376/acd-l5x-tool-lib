@@ -1,0 +1,152 @@
+{
+  "block_001_offset_0x10a0e.bin": {
+    "programs": {},
+    "modules": {},
+    "controller": {
+      "PLC100_Mashing": {
+        "encoding": "utf-16le",
+        "count": 2,
+        "positions": [
+          128,
+          896
+        ],
+        "context": {
+          "before": "6e0066006f0020004e0061006d0065003d002200",
+          "match": "50004c0043003100300030005f004d0061007300680069006e006700",
+          "after": "22003e000d000a0020003c005300630068006500"
+        }
+      }
+    },
+    "patterns": {}
+  },
+  "block_002_offset_0x11096.bin": {
+    "programs": {
+      "Main": {
+        "encoding": "utf-16le",
+        "count": 63,
+        "positions": [
+          197770,
+          228512,
+          240148,
+          1352642,
+          1365834
+        ],
+        "context": {
+          "before": "6500760065006e00740061007400690076006500",
+          "match": "4d00610069006e00",
+          "after": "740065006e0061006e0063006500460061007500"
+        }
+      }
+    },
+    "modules": {},
+    "controller": {},
+    "patterns": {}
+  },
+  "block_003_offset_0x10c95.bin": {
+    "programs": {
+      "Main": {
+        "encoding": "utf-16le",
+        "count": 120,
+        "positions": [
+          1361515,
+          1427509,
+          1453589,
+          1609952,
+          1633008
+        ],
+        "context": {
+          "before": "6500760065006e00740061007400690076006500",
+          "match": "4d00610069006e00",
+          "after": "740065006e0061006e0063006500460061007500"
+        }
+      }
+    },
+    "modules": {},
+    "controller": {
+      "PLC100_Mashing": {
+        "encoding": "utf-8",
+        "count": 1,
+        "positions": [
+          4927
+        ],
+        "context": {
+          "before": "ffffea0600000100000001000000de0600000e00",
+          "match": "504c433130305f4d617368696e67",
+          "after": "0000000000000000000000000000000000000000"
+        }
+      }
+    },
+    "patterns": {
+      "pascal_strings": {
+        "count": 1588,
+        "samples": [
+          {
+            "position": 1089,
+            "length": 67,
+            "content": ":\\Users\\RogerHenley\\AppData\\Local\\Temp\\RSLogix5000.Temp\\AB_301B\\AB_"
+          },
+          {
+            "position": 2636,
+            "length": 1,
+            "content": "\u001c"
+          },
+          {
+            "position": 3752,
+            "length": 1,
+            "content": "n"
+          },
+          {
+            "position": 16270,
+            "length": 1,
+            "content": "{"
+          },
+          {
+            "position": 20668,
+            "length": 12,
+            "content": "CTRL_FLT_1_1"
+          },
+          {
+            "position": 20709,
+            "length": 9,
+            "content": "LGX-01-01"
+          },
+          {
+            "position": 28254,
+            "length": 13,
+            "content": "CTRL_FLT_1_16"
+          },
+          {
+            "position": 28295,
+            "length": 9,
+            "content": "LGX-01-16"
+          },
+          {
+            "position": 28734,
+            "length": 13,
+            "content": "CTRL_FLT_1_40"
+          },
+          {
+            "position": 28775,
+            "length": 9,
+            "content": "LGX-01-40"
+          }
+        ]
+      },
+      "null_terminated_strings": {
+        "count": 2691,
+        "samples": [
+          "FC!DEF",
+          "C:\\Users\\RogerHenley\\AppData\\Local\\Temp\\RSLogix5000.Temp\\AB_301B\\AB_7CBD\\Comps",
+          "CompUId",
+          "CompName",
+          "CompIOI",
+          "AlternateParentUId",
+          "Ordinal",
+          ".dat",
+          ".idx",
+          "PLC100_Mashing"
+        ]
+      }
+    }
+  }
+}

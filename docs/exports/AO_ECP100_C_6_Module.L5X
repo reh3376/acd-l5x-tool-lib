@@ -1,0 +1,523 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<RSLogix5000Content SchemaRevision="1.0" SoftwareRevision="35.01" TargetName="AO_ECP100_C_6" TargetType="Module" ContainsContext="true" ExportDate="Thu Jul 24 23:20:12 2025" ExportOptions="References NoRawData L5KData DecoratedData Context Dependencies ForceProtectedEncoding AllProjDocTrans">
+<Controller Use="Context" Name="PLC100_Mashing">
+<Modules Use="Context">
+<Module Use="Target" Name="AO_ECP100_C_6" CatalogNumber="5094-OF8/A" Vendor="1" ProductType="115" ProductCode="316" Major="2" Minor="1" ParentModule="ENET_ECP100_C_0" ParentModPortId="1" Inhibited="false"
+ MajorFault="false" SafetyEnabled="false" AutoDiagsEnabled="true">
+<EKey State="CompatibleModule"/>
+<Ports>
+<Port Id="1" Address="6" Type="5094" Upstream="true"/>
+</Ports>
+<Communications>
+<ConfigTag ConfigSize="384" ExternalAccess="Read/Write">
+<Data Format="L5K">
+<![CDATA[[388,166,[5,8,-109,0,1.70000000e+000,4.00000000e+000,2.00000000e+001,0.00000000e+000,1.00000000e+002
+		,0.00000000e+000,1.00000000e+002,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000
+		],[5,0,-109,0,4.19999987e-001,4.00000000e+000,2.00000000e+001,0.00000000e+000,1.00000000e+002
+		,0.00000000e+000,1.00000000e+002,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000
+		],[5,0,-109,0,1.70000000e+000,4.00000000e+000,2.00000000e+001,0.00000000e+000,1.00000000e+002
+		,0.00000000e+000,1.00000000e+002,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000
+		],[5,0,-109,0,4.19999987e-001,4.00000000e+000,2.00000000e+001,0.00000000e+000,1.00000000e+002
+		,0.00000000e+000,1.00000000e+002,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000
+		],[5,0,-109,0,1.70000000e+000,4.00000000e+000,2.00000000e+001,0.00000000e+000,1.00000000e+002
+		,0.00000000e+000,1.00000000e+002,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000
+		],[5,0,19,0,1.04999995e+000,4.00000000e+000,2.00000000e+001,0.00000000e+000,1.00000000e+002,0.00000000e+000
+		,1.00000000e+002,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000],[5,0,19,0,1.04999995e+000
+		,4.00000000e+000,2.00000000e+001,0.00000000e+000,1.00000000e+002,0.00000000e+000,1.00000000e+002
+		,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000],[5,0,19,0,1.04999995e+000,4.00000000e+000
+		,2.00000000e+001,0.00000000e+000,1.00000000e+002,0.00000000e+000,1.00000000e+002,0.00000000e+000
+		,0.00000000e+000,0.00000000e+000,0.00000000e+000]]]]>
+</Data>
+<Data Format="Decorated">
+<Structure DataType="AB:5000_AO8:C:0">
+<StructureMember Name="Ch00" DataType="AB:5000_AO_Channel:C:0">
+<DataValueMember Name="Range" DataType="SINT" Radix="Decimal" Value="5"/>
+<DataValueMember Name="AlarmDisable" DataType="BOOL" Value="0"/>
+<DataValueMember Name="LimitAlarmLatchEn" DataType="BOOL" Value="0"/>
+<DataValueMember Name="RampAlarmLatchEn" DataType="BOOL" Value="0"/>
+<DataValueMember Name="NoLoadEn" DataType="BOOL" Value="1"/>
+<DataValueMember Name="Disable" DataType="BOOL" Value="0"/>
+<DataValueMember Name="FaultMode" DataType="BOOL" Value="1"/>
+<DataValueMember Name="ProgMode" DataType="BOOL" Value="1"/>
+<DataValueMember Name="ProgramToFaultEn" DataType="BOOL" Value="0"/>
+<DataValueMember Name="RampInRun" DataType="BOOL" Value="1"/>
+<DataValueMember Name="RampToProg" DataType="BOOL" Value="0"/>
+<DataValueMember Name="RampToFault" DataType="BOOL" Value="0"/>
+<DataValueMember Name="HoldForInit" DataType="BOOL" Value="1"/>
+<DataValueMember Name="FaultValueStateDuration" DataType="SINT" Radix="Decimal" Value="0"/>
+<DataValueMember Name="MaxRampRate" DataType="REAL" Radix="Float" Value="1.7"/>
+<DataValueMember Name="LowSignal" DataType="REAL" Radix="Float" Value="4.0"/>
+<DataValueMember Name="HighSignal" DataType="REAL" Radix="Float" Value="20.0"/>
+<DataValueMember Name="LowEngineering" DataType="REAL" Radix="Float" Value="0.0"/>
+<DataValueMember Name="HighEngineering" DataType="REAL" Radix="Float" Value="100.0"/>
+<DataValueMember Name="LowLimit" DataType="REAL" Radix="Float" Value="0.0"/>
+<DataValueMember Name="HighLimit" DataType="REAL" Radix="Float" Value="100.0"/>
+<DataValueMember Name="Offset" DataType="REAL" Radix="Float" Value="0.0"/>
+<DataValueMember Name="FaultValue" DataType="REAL" Radix="Float" Value="0.0"/>
+<DataValueMember Name="ProgValue" DataType="REAL" Radix="Float" Value="0.0"/>
+<DataValueMember Name="FaultFinalState" DataType="REAL" Radix="Float" Value="0.0"/>
+</StructureMember>
+<StructureMember Name="Ch01" DataType="AB:5000_AO_Channel:C:0">
+<DataValueMember Name="Range" DataType="SINT" Radix="Decimal" Value="5"/>
+<DataValueMember Name="AlarmDisable" DataType="BOOL" Value="0"/>
+<DataValueMember Name="LimitAlarmLatchEn" DataType="BOOL" Value="0"/>
+<DataValueMember Name="RampAlarmLatchEn" DataType="BOOL" Value="0"/>
+<DataValueMember Name="NoLoadEn" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Disable" DataType="BOOL" Value="0"/>
+<DataValueMember Name="FaultMode" DataType="BOOL" Value="1"/>
+<DataValueMember Name="ProgMode" DataType="BOOL" Value="1"/>
+<DataValueMember Name="ProgramToFaultEn" DataType="BOOL" Value="0"/>
+<DataValueMember Name="RampInRun" DataType="BOOL" Value="1"/>
+<DataValueMember Name="RampToProg" DataType="BOOL" Value="0"/>
+<DataValueMember Name="RampToFault" DataType="BOOL" Value="0"/>
+<DataValueMember Name="HoldForInit" DataType="BOOL" Value="1"/>
+<DataValueMember Name="FaultValueStateDuration" DataType="SINT" Radix="Decimal" Value="0"/>
+<DataValueMember Name="MaxRampRate" DataType="REAL" Radix="Float" Value="0.42"/>
+<DataValueMember Name="LowSignal" DataType="REAL" Radix="Float" Value="4.0"/>
+<DataValueMember Name="HighSignal" DataType="REAL" Radix="Float" Value="20.0"/>
+<DataValueMember Name="LowEngineering" DataType="REAL" Radix="Float" Value="0.0"/>
+<DataValueMember Name="HighEngineering" DataType="REAL" Radix="Float" Value="100.0"/>
+<DataValueMember Name="LowLimit" DataType="REAL" Radix="Float" Value="0.0"/>
+<DataValueMember Name="HighLimit" DataType="REAL" Radix="Float" Value="100.0"/>
+<DataValueMember Name="Offset" DataType="REAL" Radix="Float" Value="0.0"/>
+<DataValueMember Name="FaultValue" DataType="REAL" Radix="Float" Value="0.0"/>
+<DataValueMember Name="ProgValue" DataType="REAL" Radix="Float" Value="0.0"/>
+<DataValueMember Name="FaultFinalState" DataType="REAL" Radix="Float" Value="0.0"/>
+</StructureMember>
+<StructureMember Name="Ch02" DataType="AB:5000_AO_Channel:C:0">
+<DataValueMember Name="Range" DataType="SINT" Radix="Decimal" Value="5"/>
+<DataValueMember Name="AlarmDisable" DataType="BOOL" Value="0"/>
+<DataValueMember Name="LimitAlarmLatchEn" DataType="BOOL" Value="0"/>
+<DataValueMember Name="RampAlarmLatchEn" DataType="BOOL" Value="0"/>
+<DataValueMember Name="NoLoadEn" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Disable" DataType="BOOL" Value="0"/>
+<DataValueMember Name="FaultMode" DataType="BOOL" Value="1"/>
+<DataValueMember Name="ProgMode" DataType="BOOL" Value="1"/>
+<DataValueMember Name="ProgramToFaultEn" DataType="BOOL" Value="0"/>
+<DataValueMember Name="RampInRun" DataType="BOOL" Value="1"/>
+<DataValueMember Name="RampToProg" DataType="BOOL" Value="0"/>
+<DataValueMember Name="RampToFault" DataType="BOOL" Value="0"/>
+<DataValueMember Name="HoldForInit" DataType="BOOL" Value="1"/>
+<DataValueMember Name="FaultValueStateDuration" DataType="SINT" Radix="Decimal" Value="0"/>
+<DataValueMember Name="MaxRampRate" DataType="REAL" Radix="Float" Value="1.7"/>
+<DataValueMember Name="LowSignal" DataType="REAL" Radix="Float" Value="4.0"/>
+<DataValueMember Name="HighSignal" DataType="REAL" Radix="Float" Value="20.0"/>
+<DataValueMember Name="LowEngineering" DataType="REAL" Radix="Float" Value="0.0"/>
+<DataValueMember Name="HighEngineering" DataType="REAL" Radix="Float" Value="100.0"/>
+<DataValueMember Name="LowLimit" DataType="REAL" Radix="Float" Value="0.0"/>
+<DataValueMember Name="HighLimit" DataType="REAL" Radix="Float" Value="100.0"/>
+<DataValueMember Name="Offset" DataType="REAL" Radix="Float" Value="0.0"/>
+<DataValueMember Name="FaultValue" DataType="REAL" Radix="Float" Value="0.0"/>
+<DataValueMember Name="ProgValue" DataType="REAL" Radix="Float" Value="0.0"/>
+<DataValueMember Name="FaultFinalState" DataType="REAL" Radix="Float" Value="0.0"/>
+</StructureMember>
+<StructureMember Name="Ch03" DataType="AB:5000_AO_Channel:C:0">
+<DataValueMember Name="Range" DataType="SINT" Radix="Decimal" Value="5"/>
+<DataValueMember Name="AlarmDisable" DataType="BOOL" Value="0"/>
+<DataValueMember Name="LimitAlarmLatchEn" DataType="BOOL" Value="0"/>
+<DataValueMember Name="RampAlarmLatchEn" DataType="BOOL" Value="0"/>
+<DataValueMember Name="NoLoadEn" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Disable" DataType="BOOL" Value="0"/>
+<DataValueMember Name="FaultMode" DataType="BOOL" Value="1"/>
+<DataValueMember Name="ProgMode" DataType="BOOL" Value="1"/>
+<DataValueMember Name="ProgramToFaultEn" DataType="BOOL" Value="0"/>
+<DataValueMember Name="RampInRun" DataType="BOOL" Value="1"/>
+<DataValueMember Name="RampToProg" DataType="BOOL" Value="0"/>
+<DataValueMember Name="RampToFault" DataType="BOOL" Value="0"/>
+<DataValueMember Name="HoldForInit" DataType="BOOL" Value="1"/>
+<DataValueMember Name="FaultValueStateDuration" DataType="SINT" Radix="Decimal" Value="0"/>
+<DataValueMember Name="MaxRampRate" DataType="REAL" Radix="Float" Value="0.42"/>
+<DataValueMember Name="LowSignal" DataType="REAL" Radix="Float" Value="4.0"/>
+<DataValueMember Name="HighSignal" DataType="REAL" Radix="Float" Value="20.0"/>
+<DataValueMember Name="LowEngineering" DataType="REAL" Radix="Float" Value="0.0"/>
+<DataValueMember Name="HighEngineering" DataType="REAL" Radix="Float" Value="100.0"/>
+<DataValueMember Name="LowLimit" DataType="REAL" Radix="Float" Value="0.0"/>
+<DataValueMember Name="HighLimit" DataType="REAL" Radix="Float" Value="100.0"/>
+<DataValueMember Name="Offset" DataType="REAL" Radix="Float" Value="0.0"/>
+<DataValueMember Name="FaultValue" DataType="REAL" Radix="Float" Value="0.0"/>
+<DataValueMember Name="ProgValue" DataType="REAL" Radix="Float" Value="0.0"/>
+<DataValueMember Name="FaultFinalState" DataType="REAL" Radix="Float" Value="0.0"/>
+</StructureMember>
+<StructureMember Name="Ch04" DataType="AB:5000_AO_Channel:C:0">
+<DataValueMember Name="Range" DataType="SINT" Radix="Decimal" Value="5"/>
+<DataValueMember Name="AlarmDisable" DataType="BOOL" Value="0"/>
+<DataValueMember Name="LimitAlarmLatchEn" DataType="BOOL" Value="0"/>
+<DataValueMember Name="RampAlarmLatchEn" DataType="BOOL" Value="0"/>
+<DataValueMember Name="NoLoadEn" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Disable" DataType="BOOL" Value="0"/>
+<DataValueMember Name="FaultMode" DataType="BOOL" Value="1"/>
+<DataValueMember Name="ProgMode" DataType="BOOL" Value="1"/>
+<DataValueMember Name="ProgramToFaultEn" DataType="BOOL" Value="0"/>
+<DataValueMember Name="RampInRun" DataType="BOOL" Value="1"/>
+<DataValueMember Name="RampToProg" DataType="BOOL" Value="0"/>
+<DataValueMember Name="RampToFault" DataType="BOOL" Value="0"/>
+<DataValueMember Name="HoldForInit" DataType="BOOL" Value="1"/>
+<DataValueMember Name="FaultValueStateDuration" DataType="SINT" Radix="Decimal" Value="0"/>
+<DataValueMember Name="MaxRampRate" DataType="REAL" Radix="Float" Value="1.7"/>
+<DataValueMember Name="LowSignal" DataType="REAL" Radix="Float" Value="4.0"/>
+<DataValueMember Name="HighSignal" DataType="REAL" Radix="Float" Value="20.0"/>
+<DataValueMember Name="LowEngineering" DataType="REAL" Radix="Float" Value="0.0"/>
+<DataValueMember Name="HighEngineering" DataType="REAL" Radix="Float" Value="100.0"/>
+<DataValueMember Name="LowLimit" DataType="REAL" Radix="Float" Value="0.0"/>
+<DataValueMember Name="HighLimit" DataType="REAL" Radix="Float" Value="100.0"/>
+<DataValueMember Name="Offset" DataType="REAL" Radix="Float" Value="0.0"/>
+<DataValueMember Name="FaultValue" DataType="REAL" Radix="Float" Value="0.0"/>
+<DataValueMember Name="ProgValue" DataType="REAL" Radix="Float" Value="0.0"/>
+<DataValueMember Name="FaultFinalState" DataType="REAL" Radix="Float" Value="0.0"/>
+</StructureMember>
+<StructureMember Name="Ch05" DataType="AB:5000_AO_Channel:C:0">
+<DataValueMember Name="Range" DataType="SINT" Radix="Decimal" Value="5"/>
+<DataValueMember Name="AlarmDisable" DataType="BOOL" Value="0"/>
+<DataValueMember Name="LimitAlarmLatchEn" DataType="BOOL" Value="0"/>
+<DataValueMember Name="RampAlarmLatchEn" DataType="BOOL" Value="0"/>
+<DataValueMember Name="NoLoadEn" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Disable" DataType="BOOL" Value="0"/>
+<DataValueMember Name="FaultMode" DataType="BOOL" Value="1"/>
+<DataValueMember Name="ProgMode" DataType="BOOL" Value="1"/>
+<DataValueMember Name="ProgramToFaultEn" DataType="BOOL" Value="0"/>
+<DataValueMember Name="RampInRun" DataType="BOOL" Value="1"/>
+<DataValueMember Name="RampToProg" DataType="BOOL" Value="0"/>
+<DataValueMember Name="RampToFault" DataType="BOOL" Value="0"/>
+<DataValueMember Name="HoldForInit" DataType="BOOL" Value="0"/>
+<DataValueMember Name="FaultValueStateDuration" DataType="SINT" Radix="Decimal" Value="0"/>
+<DataValueMember Name="MaxRampRate" DataType="REAL" Radix="Float" Value="1.05"/>
+<DataValueMember Name="LowSignal" DataType="REAL" Radix="Float" Value="4.0"/>
+<DataValueMember Name="HighSignal" DataType="REAL" Radix="Float" Value="20.0"/>
+<DataValueMember Name="LowEngineering" DataType="REAL" Radix="Float" Value="0.0"/>
+<DataValueMember Name="HighEngineering" DataType="REAL" Radix="Float" Value="100.0"/>
+<DataValueMember Name="LowLimit" DataType="REAL" Radix="Float" Value="0.0"/>
+<DataValueMember Name="HighLimit" DataType="REAL" Radix="Float" Value="100.0"/>
+<DataValueMember Name="Offset" DataType="REAL" Radix="Float" Value="0.0"/>
+<DataValueMember Name="FaultValue" DataType="REAL" Radix="Float" Value="0.0"/>
+<DataValueMember Name="ProgValue" DataType="REAL" Radix="Float" Value="0.0"/>
+<DataValueMember Name="FaultFinalState" DataType="REAL" Radix="Float" Value="0.0"/>
+</StructureMember>
+<StructureMember Name="Ch06" DataType="AB:5000_AO_Channel:C:0">
+<DataValueMember Name="Range" DataType="SINT" Radix="Decimal" Value="5"/>
+<DataValueMember Name="AlarmDisable" DataType="BOOL" Value="0"/>
+<DataValueMember Name="LimitAlarmLatchEn" DataType="BOOL" Value="0"/>
+<DataValueMember Name="RampAlarmLatchEn" DataType="BOOL" Value="0"/>
+<DataValueMember Name="NoLoadEn" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Disable" DataType="BOOL" Value="0"/>
+<DataValueMember Name="FaultMode" DataType="BOOL" Value="1"/>
+<DataValueMember Name="ProgMode" DataType="BOOL" Value="1"/>
+<DataValueMember Name="ProgramToFaultEn" DataType="BOOL" Value="0"/>
+<DataValueMember Name="RampInRun" DataType="BOOL" Value="1"/>
+<DataValueMember Name="RampToProg" DataType="BOOL" Value="0"/>
+<DataValueMember Name="RampToFault" DataType="BOOL" Value="0"/>
+<DataValueMember Name="HoldForInit" DataType="BOOL" Value="0"/>
+<DataValueMember Name="FaultValueStateDuration" DataType="SINT" Radix="Decimal" Value="0"/>
+<DataValueMember Name="MaxRampRate" DataType="REAL" Radix="Float" Value="1.05"/>
+<DataValueMember Name="LowSignal" DataType="REAL" Radix="Float" Value="4.0"/>
+<DataValueMember Name="HighSignal" DataType="REAL" Radix="Float" Value="20.0"/>
+<DataValueMember Name="LowEngineering" DataType="REAL" Radix="Float" Value="0.0"/>
+<DataValueMember Name="HighEngineering" DataType="REAL" Radix="Float" Value="100.0"/>
+<DataValueMember Name="LowLimit" DataType="REAL" Radix="Float" Value="0.0"/>
+<DataValueMember Name="HighLimit" DataType="REAL" Radix="Float" Value="100.0"/>
+<DataValueMember Name="Offset" DataType="REAL" Radix="Float" Value="0.0"/>
+<DataValueMember Name="FaultValue" DataType="REAL" Radix="Float" Value="0.0"/>
+<DataValueMember Name="ProgValue" DataType="REAL" Radix="Float" Value="0.0"/>
+<DataValueMember Name="FaultFinalState" DataType="REAL" Radix="Float" Value="0.0"/>
+</StructureMember>
+<StructureMember Name="Ch07" DataType="AB:5000_AO_Channel:C:0">
+<DataValueMember Name="Range" DataType="SINT" Radix="Decimal" Value="5"/>
+<DataValueMember Name="AlarmDisable" DataType="BOOL" Value="0"/>
+<DataValueMember Name="LimitAlarmLatchEn" DataType="BOOL" Value="0"/>
+<DataValueMember Name="RampAlarmLatchEn" DataType="BOOL" Value="0"/>
+<DataValueMember Name="NoLoadEn" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Disable" DataType="BOOL" Value="0"/>
+<DataValueMember Name="FaultMode" DataType="BOOL" Value="1"/>
+<DataValueMember Name="ProgMode" DataType="BOOL" Value="1"/>
+<DataValueMember Name="ProgramToFaultEn" DataType="BOOL" Value="0"/>
+<DataValueMember Name="RampInRun" DataType="BOOL" Value="1"/>
+<DataValueMember Name="RampToProg" DataType="BOOL" Value="0"/>
+<DataValueMember Name="RampToFault" DataType="BOOL" Value="0"/>
+<DataValueMember Name="HoldForInit" DataType="BOOL" Value="0"/>
+<DataValueMember Name="FaultValueStateDuration" DataType="SINT" Radix="Decimal" Value="0"/>
+<DataValueMember Name="MaxRampRate" DataType="REAL" Radix="Float" Value="1.05"/>
+<DataValueMember Name="LowSignal" DataType="REAL" Radix="Float" Value="4.0"/>
+<DataValueMember Name="HighSignal" DataType="REAL" Radix="Float" Value="20.0"/>
+<DataValueMember Name="LowEngineering" DataType="REAL" Radix="Float" Value="0.0"/>
+<DataValueMember Name="HighEngineering" DataType="REAL" Radix="Float" Value="100.0"/>
+<DataValueMember Name="LowLimit" DataType="REAL" Radix="Float" Value="0.0"/>
+<DataValueMember Name="HighLimit" DataType="REAL" Radix="Float" Value="100.0"/>
+<DataValueMember Name="Offset" DataType="REAL" Radix="Float" Value="0.0"/>
+<DataValueMember Name="FaultValue" DataType="REAL" Radix="Float" Value="0.0"/>
+<DataValueMember Name="ProgValue" DataType="REAL" Radix="Float" Value="0.0"/>
+<DataValueMember Name="FaultFinalState" DataType="REAL" Radix="Float" Value="0.0"/>
+</StructureMember>
+</Structure>
+</Data>
+</ConfigTag>
+<ConfigScript Size="612">
+<Data Format="L5K">
+<![CDATA[[96,2,0,0,4,0,0,0,0,0,0,0,0,0,0,0,78,2,0,0,7,1,0,0,0,3,0,0,0,-128,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+		,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+		,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+		,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+		,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+		,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,16,15,0,0,0,0,0,0,0,0,0,0,0,112,1,0,0,16,0,0,0,16,0,0,0,15,0,0,0,-128,1,0,0,-128,1,0,0,112,1,0,0,-112,1,0,0,-112
+		,1,0,0,15,0,0,0,0,3,0,0,0,3,0,0,112,1,0,0,16,3,0,0,16,3,0,0,15,0,0,0,-128,4,0,0,-128,4,0,0,112,1,0,0,-112,4,0,0,-112,4,0,0,15,0,0,0,0,6,0,0,0
+		,6,0,0,112,1,0,0,16,6,0,0,16,6,0,0,15,0,0,0,-128,7,0,0,-128,7,0,0,112,1,0,0,-112,7,0,0,-112,7,0,0,15,0,0,0,0,9,0,0,0,9,0,0,112,1,0,0,16,9,0
+		,0,16,9,0,0,15,0,0,0,-128,10,0,0,-128,10,0,0,112,1,0,0,-112,10,0,0,-112,10,0,0,0,0]]]>
+</Data>
+</ConfigScript>
+<Connections>
+<Connection Name="OutputData" RPI="50000" Type="StandardDataDriven" OutputSize="64" InputSize="100" EventID="0" ProgrammaticallySendEventTrigger="false" Priority="Scheduled" InputConnectionType="Unicast" InputProductionTrigger="Cyclic" ConnectionPath="20 04 24 a6 2c 6b 2c 8c"
+ InputTagSuffix="I" OutputTagSuffix="O">
+<InputTag ExternalAccess="Read/Write">
+<Data Format="Decorated">
+<Structure DataType="AB:5000_AO8:I:0">
+<DataValueMember Name="RunMode" DataType="BOOL" Value="1"/>
+<DataValueMember Name="ConnectionFaulted" DataType="BOOL" Value="0"/>
+<DataValueMember Name="DiagnosticActive" DataType="BOOL" Value="0"/>
+<DataValueMember Name="DiagnosticSequenceCount" DataType="SINT" Radix="Decimal" Value="0"/>
+<StructureMember Name="Ch00" DataType="CHANNEL_AO_DIAG:I:0">
+<DataValueMember Name="Fault" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Uncertain" DataType="BOOL" Value="0"/>
+<DataValueMember Name="NoLoad" DataType="BOOL" Value="0"/>
+<DataValueMember Name="ShortCircuit" DataType="BOOL" Value="0"/>
+<DataValueMember Name="OverTemperature" DataType="BOOL" Value="0"/>
+<DataValueMember Name="FieldPowerOff" DataType="BOOL" Value="0"/>
+<DataValueMember Name="InHold" DataType="BOOL" Value="0"/>
+<DataValueMember Name="NotANumber" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Underrange" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Overrange" DataType="BOOL" Value="0"/>
+<DataValueMember Name="LLimitAlarm" DataType="BOOL" Value="0"/>
+<DataValueMember Name="HLimitAlarm" DataType="BOOL" Value="0"/>
+<DataValueMember Name="RampAlarm" DataType="BOOL" Value="0"/>
+<DataValueMember Name="CalFault" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Calibrating" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Data" DataType="REAL" Radix="Float" Value="100.0"/>
+<DataValueMember Name="RollingTimestamp" DataType="INT" Radix="Decimal" Value="9639"/>
+</StructureMember>
+<StructureMember Name="Ch01" DataType="CHANNEL_AO_DIAG:I:0">
+<DataValueMember Name="Fault" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Uncertain" DataType="BOOL" Value="0"/>
+<DataValueMember Name="NoLoad" DataType="BOOL" Value="0"/>
+<DataValueMember Name="ShortCircuit" DataType="BOOL" Value="0"/>
+<DataValueMember Name="OverTemperature" DataType="BOOL" Value="0"/>
+<DataValueMember Name="FieldPowerOff" DataType="BOOL" Value="0"/>
+<DataValueMember Name="InHold" DataType="BOOL" Value="0"/>
+<DataValueMember Name="NotANumber" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Underrange" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Overrange" DataType="BOOL" Value="0"/>
+<DataValueMember Name="LLimitAlarm" DataType="BOOL" Value="0"/>
+<DataValueMember Name="HLimitAlarm" DataType="BOOL" Value="0"/>
+<DataValueMember Name="RampAlarm" DataType="BOOL" Value="0"/>
+<DataValueMember Name="CalFault" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Calibrating" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Data" DataType="REAL" Radix="Float" Value="0.0"/>
+<DataValueMember Name="RollingTimestamp" DataType="INT" Radix="Decimal" Value="26279"/>
+</StructureMember>
+<StructureMember Name="Ch02" DataType="CHANNEL_AO_DIAG:I:0">
+<DataValueMember Name="Fault" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Uncertain" DataType="BOOL" Value="0"/>
+<DataValueMember Name="NoLoad" DataType="BOOL" Value="0"/>
+<DataValueMember Name="ShortCircuit" DataType="BOOL" Value="0"/>
+<DataValueMember Name="OverTemperature" DataType="BOOL" Value="0"/>
+<DataValueMember Name="FieldPowerOff" DataType="BOOL" Value="0"/>
+<DataValueMember Name="InHold" DataType="BOOL" Value="0"/>
+<DataValueMember Name="NotANumber" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Underrange" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Overrange" DataType="BOOL" Value="0"/>
+<DataValueMember Name="LLimitAlarm" DataType="BOOL" Value="0"/>
+<DataValueMember Name="HLimitAlarm" DataType="BOOL" Value="0"/>
+<DataValueMember Name="RampAlarm" DataType="BOOL" Value="0"/>
+<DataValueMember Name="CalFault" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Calibrating" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Data" DataType="REAL" Radix="Float" Value="0.0"/>
+<DataValueMember Name="RollingTimestamp" DataType="INT" Radix="Decimal" Value="4061"/>
+</StructureMember>
+<StructureMember Name="Ch03" DataType="CHANNEL_AO_DIAG:I:0">
+<DataValueMember Name="Fault" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Uncertain" DataType="BOOL" Value="0"/>
+<DataValueMember Name="NoLoad" DataType="BOOL" Value="0"/>
+<DataValueMember Name="ShortCircuit" DataType="BOOL" Value="0"/>
+<DataValueMember Name="OverTemperature" DataType="BOOL" Value="0"/>
+<DataValueMember Name="FieldPowerOff" DataType="BOOL" Value="0"/>
+<DataValueMember Name="InHold" DataType="BOOL" Value="0"/>
+<DataValueMember Name="NotANumber" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Underrange" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Overrange" DataType="BOOL" Value="0"/>
+<DataValueMember Name="LLimitAlarm" DataType="BOOL" Value="0"/>
+<DataValueMember Name="HLimitAlarm" DataType="BOOL" Value="0"/>
+<DataValueMember Name="RampAlarm" DataType="BOOL" Value="0"/>
+<DataValueMember Name="CalFault" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Calibrating" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Data" DataType="REAL" Radix="Float" Value="0.0"/>
+<DataValueMember Name="RollingTimestamp" DataType="INT" Radix="Decimal" Value="15384"/>
+</StructureMember>
+<StructureMember Name="Ch04" DataType="CHANNEL_AO_DIAG:I:0">
+<DataValueMember Name="Fault" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Uncertain" DataType="BOOL" Value="0"/>
+<DataValueMember Name="NoLoad" DataType="BOOL" Value="0"/>
+<DataValueMember Name="ShortCircuit" DataType="BOOL" Value="0"/>
+<DataValueMember Name="OverTemperature" DataType="BOOL" Value="0"/>
+<DataValueMember Name="FieldPowerOff" DataType="BOOL" Value="0"/>
+<DataValueMember Name="InHold" DataType="BOOL" Value="0"/>
+<DataValueMember Name="NotANumber" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Underrange" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Overrange" DataType="BOOL" Value="0"/>
+<DataValueMember Name="LLimitAlarm" DataType="BOOL" Value="0"/>
+<DataValueMember Name="HLimitAlarm" DataType="BOOL" Value="0"/>
+<DataValueMember Name="RampAlarm" DataType="BOOL" Value="0"/>
+<DataValueMember Name="CalFault" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Calibrating" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Data" DataType="REAL" Radix="Float" Value="0.024318695"/>
+<DataValueMember Name="RollingTimestamp" DataType="INT" Radix="Decimal" Value="5896"/>
+</StructureMember>
+<StructureMember Name="Ch05" DataType="CHANNEL_AO_DIAG:I:0">
+<DataValueMember Name="Fault" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Uncertain" DataType="BOOL" Value="0"/>
+<DataValueMember Name="NoLoad" DataType="BOOL" Value="0"/>
+<DataValueMember Name="ShortCircuit" DataType="BOOL" Value="0"/>
+<DataValueMember Name="OverTemperature" DataType="BOOL" Value="0"/>
+<DataValueMember Name="FieldPowerOff" DataType="BOOL" Value="0"/>
+<DataValueMember Name="InHold" DataType="BOOL" Value="0"/>
+<DataValueMember Name="NotANumber" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Underrange" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Overrange" DataType="BOOL" Value="0"/>
+<DataValueMember Name="LLimitAlarm" DataType="BOOL" Value="0"/>
+<DataValueMember Name="HLimitAlarm" DataType="BOOL" Value="0"/>
+<DataValueMember Name="RampAlarm" DataType="BOOL" Value="0"/>
+<DataValueMember Name="CalFault" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Calibrating" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Data" DataType="REAL" Radix="Float" Value="0.0"/>
+<DataValueMember Name="RollingTimestamp" DataType="INT" Radix="Decimal" Value="9945"/>
+</StructureMember>
+<StructureMember Name="Ch06" DataType="CHANNEL_AO_DIAG:I:0">
+<DataValueMember Name="Fault" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Uncertain" DataType="BOOL" Value="0"/>
+<DataValueMember Name="NoLoad" DataType="BOOL" Value="0"/>
+<DataValueMember Name="ShortCircuit" DataType="BOOL" Value="0"/>
+<DataValueMember Name="OverTemperature" DataType="BOOL" Value="0"/>
+<DataValueMember Name="FieldPowerOff" DataType="BOOL" Value="0"/>
+<DataValueMember Name="InHold" DataType="BOOL" Value="0"/>
+<DataValueMember Name="NotANumber" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Underrange" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Overrange" DataType="BOOL" Value="0"/>
+<DataValueMember Name="LLimitAlarm" DataType="BOOL" Value="0"/>
+<DataValueMember Name="HLimitAlarm" DataType="BOOL" Value="0"/>
+<DataValueMember Name="RampAlarm" DataType="BOOL" Value="0"/>
+<DataValueMember Name="CalFault" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Calibrating" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Data" DataType="REAL" Radix="Float" Value="0.0"/>
+<DataValueMember Name="RollingTimestamp" DataType="INT" Radix="Decimal" Value="9945"/>
+</StructureMember>
+<StructureMember Name="Ch07" DataType="CHANNEL_AO_DIAG:I:0">
+<DataValueMember Name="Fault" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Uncertain" DataType="BOOL" Value="0"/>
+<DataValueMember Name="NoLoad" DataType="BOOL" Value="0"/>
+<DataValueMember Name="ShortCircuit" DataType="BOOL" Value="0"/>
+<DataValueMember Name="OverTemperature" DataType="BOOL" Value="0"/>
+<DataValueMember Name="FieldPowerOff" DataType="BOOL" Value="0"/>
+<DataValueMember Name="InHold" DataType="BOOL" Value="0"/>
+<DataValueMember Name="NotANumber" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Underrange" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Overrange" DataType="BOOL" Value="0"/>
+<DataValueMember Name="LLimitAlarm" DataType="BOOL" Value="0"/>
+<DataValueMember Name="HLimitAlarm" DataType="BOOL" Value="0"/>
+<DataValueMember Name="RampAlarm" DataType="BOOL" Value="0"/>
+<DataValueMember Name="CalFault" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Calibrating" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Data" DataType="REAL" Radix="Float" Value="0.0"/>
+<DataValueMember Name="RollingTimestamp" DataType="INT" Radix="Decimal" Value="9945"/>
+</StructureMember>
+</Structure>
+</Data>
+</InputTag>
+<OutputTag ExternalAccess="Read/Write">
+<EngineeringUnits>
+<EngineeringUnit Operand=".CH00.DATA">
+<![CDATA[%]]>
+</EngineeringUnit>
+<EngineeringUnit Operand=".CH01.DATA">
+<![CDATA[%]]>
+</EngineeringUnit>
+<EngineeringUnit Operand=".CH02.DATA">
+<![CDATA[%]]>
+</EngineeringUnit>
+<EngineeringUnit Operand=".CH03.DATA">
+<![CDATA[%]]>
+</EngineeringUnit>
+<EngineeringUnit Operand=".CH04.DATA">
+<![CDATA[%]]>
+</EngineeringUnit>
+<EngineeringUnit Operand=".CH05.DATA">
+<![CDATA[%]]>
+</EngineeringUnit>
+<EngineeringUnit Operand=".CH06.DATA">
+<![CDATA[%]]>
+</EngineeringUnit>
+<EngineeringUnit Operand=".CH07.DATA">
+<![CDATA[%]]>
+</EngineeringUnit>
+</EngineeringUnits>
+<Data Format="L5K">
+<![CDATA[[[0,0,0,1.00000000e+002],[0,0,0,0.00000000e+000],[0,0,0,0.00000000e+000],[0,0,0,0.00000000e+000],[0,0,0,0.00000000e+000
+		],[0,0,0,0.00000000e+000],[0,0,0,0.00000000e+000],[0,0,0,0.00000000e+000]]]]>
+</Data>
+<Data Format="Decorated">
+<Structure DataType="AB:5000_AO8:O:0">
+<StructureMember Name="Ch00" DataType="CHANNEL_AO:O:0">
+<DataValueMember Name="LLimitAlarmUnlatch" DataType="BOOL" Value="0"/>
+<DataValueMember Name="HLimitAlarmUnlatch" DataType="BOOL" Value="0"/>
+<DataValueMember Name="RampAlarmUnlatch" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Data" DataType="REAL" Radix="Float" Value="100.0"/>
+</StructureMember>
+<StructureMember Name="Ch01" DataType="CHANNEL_AO:O:0">
+<DataValueMember Name="LLimitAlarmUnlatch" DataType="BOOL" Value="0"/>
+<DataValueMember Name="HLimitAlarmUnlatch" DataType="BOOL" Value="0"/>
+<DataValueMember Name="RampAlarmUnlatch" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Data" DataType="REAL" Radix="Float" Value="0.0"/>
+</StructureMember>
+<StructureMember Name="Ch02" DataType="CHANNEL_AO:O:0">
+<DataValueMember Name="LLimitAlarmUnlatch" DataType="BOOL" Value="0"/>
+<DataValueMember Name="HLimitAlarmUnlatch" DataType="BOOL" Value="0"/>
+<DataValueMember Name="RampAlarmUnlatch" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Data" DataType="REAL" Radix="Float" Value="0.0"/>
+</StructureMember>
+<StructureMember Name="Ch03" DataType="CHANNEL_AO:O:0">
+<DataValueMember Name="LLimitAlarmUnlatch" DataType="BOOL" Value="0"/>
+<DataValueMember Name="HLimitAlarmUnlatch" DataType="BOOL" Value="0"/>
+<DataValueMember Name="RampAlarmUnlatch" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Data" DataType="REAL" Radix="Float" Value="0.0"/>
+</StructureMember>
+<StructureMember Name="Ch04" DataType="CHANNEL_AO:O:0">
+<DataValueMember Name="LLimitAlarmUnlatch" DataType="BOOL" Value="0"/>
+<DataValueMember Name="HLimitAlarmUnlatch" DataType="BOOL" Value="0"/>
+<DataValueMember Name="RampAlarmUnlatch" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Data" DataType="REAL" Radix="Float" Value="0.0"/>
+</StructureMember>
+<StructureMember Name="Ch05" DataType="CHANNEL_AO:O:0">
+<DataValueMember Name="LLimitAlarmUnlatch" DataType="BOOL" Value="0"/>
+<DataValueMember Name="HLimitAlarmUnlatch" DataType="BOOL" Value="0"/>
+<DataValueMember Name="RampAlarmUnlatch" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Data" DataType="REAL" Radix="Float" Value="0.0"/>
+</StructureMember>
+<StructureMember Name="Ch06" DataType="CHANNEL_AO:O:0">
+<DataValueMember Name="LLimitAlarmUnlatch" DataType="BOOL" Value="0"/>
+<DataValueMember Name="HLimitAlarmUnlatch" DataType="BOOL" Value="0"/>
+<DataValueMember Name="RampAlarmUnlatch" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Data" DataType="REAL" Radix="Float" Value="0.0"/>
+</StructureMember>
+<StructureMember Name="Ch07" DataType="CHANNEL_AO:O:0">
+<DataValueMember Name="LLimitAlarmUnlatch" DataType="BOOL" Value="0"/>
+<DataValueMember Name="HLimitAlarmUnlatch" DataType="BOOL" Value="0"/>
+<DataValueMember Name="RampAlarmUnlatch" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Data" DataType="REAL" Radix="Float" Value="0.0"/>
+</StructureMember>
+</Structure>
+</Data>
+</OutputTag>
+</Connection>
+</Connections>
+</Communications>
+<ExtendedProperties>
+<public><Vendor>Rockwell Automation/Allen-Bradley</Vendor><CatNum>5094-OF8</CatNum><ConfigID>301</ConfigID><ADDAVersion>1</ADDAVersion></public>
+</ExtendedProperties>
+</Module>
+</Modules>
+</Controller>
+</RSLogix5000Content>

@@ -1,0 +1,26 @@
+{
+  "acd_file": "docs/exports/PLC100_Mashing.ACD",
+  "rungs_extracted": 10,
+  "sample_rungs": [
+    {
+      "object_id": 2600002316,
+      "text": "NOP();"
+    },
+    {
+      "object_id": 1661300240,
+      "text": "NOP();"
+    },
+    {
+      "object_id": 1690717634,
+      "text": "NOP();"
+    },
+    {
+      "object_id": 761920122,
+      "text": "NOP();"
+    },
+    {
+      "object_id": 1494505166,
+      "text": "NOP();"
+    }
+  ]
+}

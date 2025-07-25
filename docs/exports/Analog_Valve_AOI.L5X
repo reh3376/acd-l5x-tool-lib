@@ -1,0 +1,1073 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!--QSI Typical Logic for Analog Controlled Valve-->
+<RSLogix5000Content SchemaRevision="1.0" SoftwareRevision="35.01" TargetName="Analog_Valve" TargetType="AddOnInstructionDefinition" TargetClass="Standard" TargetRevision="4.1 " TargetLastEdited="2024-12-10T11:22:37.236Z" ContainsContext="true" ExportDate="Thu Jul 24 23:16:27 2025" ExportOptions="NoRawData L5KData DecoratedData Context Dependencies ForceProtectedEncoding AllProjDocTrans">
+<Controller Use="Context" Name="PLC100_Mashing">
+<AddOnInstructionDefinitions Use="Context">
+<AddOnInstructionDefinition Use="Target" Name="Analog_Valve" Class="Standard" Revision="4.1" ExecutePrescan="false" ExecutePostscan="false" ExecuteEnableInFalse="false" CreatedDate="2012-11-27T14:09:14.390Z" CreatedBy="Not Available" EditedDate="2024-12-10T11:22:37.236Z" EditedBy="AzureAD\RogerHenley"
+ SoftwareRevision="v34.03">
+<Description>
+<![CDATA[QSI Typical Logic for Analog Controlled Valve]]>
+</Description>
+<RevisionNote>
+<![CDATA[Added Feedback Out of Range Alarm
+Added Config Param to select Analog Feedback
+Added Config Param to select N.O. or N.C. Valve
+Added Manual On Reset Logic During Alarm
+Added Zone & Device Specific Alarm Ack Logic
+Added Zone Manual Mode Enable Logic
+Added Config_AO_PositionMinRaw
+Added Config Param to select bumpless MS
+Added Status and FaultStatus Logic
+Added PID PV Logic]]>
+</RevisionNote>
+<Parameters>
+<Parameter Name="EnableIn" TagType="Base" DataType="BOOL" Usage="Input" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read Only">
+<Description>
+<![CDATA[Enable Input - System Defined Parameter]]>
+</Description>
+</Parameter>
+<Parameter Name="EnableOut" TagType="Base" DataType="BOOL" Usage="Output" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read Only">
+<Description>
+<![CDATA[Enable Output - System Defined Parameter]]>
+</Description>
+</Parameter>
+<Parameter Name="DO_Energize" TagType="Base" DataType="BOOL" Usage="Output" Radix="Decimal" Required="true" Visible="true" ExternalAccess="Read Only">
+<Description>
+<![CDATA[Alias to OutputCard to Energize Discrete Output]]>
+</Description>
+<DefaultData Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="AO_CommandPosition" TagType="Base" DataType="REAL" Usage="Output" Radix="Float" Required="true" Visible="true" ExternalAccess="Read Only">
+<Description>
+<![CDATA[Alias to AO Tag to Control Analog Output]]>
+</Description>
+<DefaultData Format="Decorated">
+<DataValue DataType="REAL" Radix="Float" Value="0.0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="AI_Position_Feedback" TagType="Base" DataType="REAL" Usage="Input" Radix="Float" Required="true" Visible="true" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Alias to AI Tag to Confirm Device is at Desired Position Note: Must be scaled to value of Config_Analog_PositionMaxScaled]]>
+</Description>
+<DefaultData Format="Decorated">
+<DataValue DataType="REAL" Radix="Float" Value="0.0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="PID_ProcessVariable" TagType="Base" DataType="REAL" Usage="Input" Radix="Float" Required="true" Visible="true" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Alias to AI Tag that Will Serve as PID Loop Process Variable]]>
+</Description>
+<DefaultData Format="Decorated">
+<DataValue DataType="REAL" Radix="Float" Value="0.0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="ALM_ACK" TagType="Base" DataType="BOOL" Usage="Input" Radix="Decimal" Required="true" Visible="true" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Alias to Zone Master Alarm Acknowledge]]>
+</Description>
+<DefaultData Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="MM_Enable" TagType="Base" DataType="BOOL" Usage="Input" Radix="Decimal" Required="true" Visible="true" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Alias to Zone Master Manual Mode Enable]]>
+</Description>
+<DefaultData Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="Emulation_Enable" TagType="Base" DataType="BOOL" Usage="Input" Radix="Decimal" Required="true" Visible="true" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Zone Master
+Emulation Mode Enable]]>
+</Description>
+<DefaultData Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="Config_Analog_PositionMaxScaled" TagType="Base" DataType="REAL" Usage="Input" Radix="Float" Required="false" Visible="true" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Configure Analog Device Max Scaled Value]]>
+</Description>
+<DefaultData Format="Decorated">
+<DataValue DataType="REAL" Radix="Float" Value="100.0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="Config_AO_PositionMaxRaw" TagType="Base" DataType="REAL" Usage="Input" Radix="Float" Required="false" Visible="true" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Configure Analog Card Max Raw Analog Value]]>
+</Description>
+<DefaultData Format="Decorated">
+<DataValue DataType="REAL" Radix="Float" Value="30840.0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="Config_AO_PositionMinRaw" TagType="Base" DataType="REAL" Usage="Input" Radix="Float" Required="false" Visible="true" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Configure Analog Card Min Raw Analog Value]]>
+</Description>
+<DefaultData Format="Decorated">
+<DataValue DataType="REAL" Radix="Float" Value="6240.0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="Config_Emulation_Mode" TagType="Base" DataType="BOOL" Usage="Input" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Configure Whether to Simulate Running When Output ON]]>
+</Description>
+<DefaultData Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="Config_MO_Permissive" TagType="Base" DataType="BOOL" Usage="Input" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Configure Whether Losing Start Permissive Will Unlatch the MO Bit]]>
+</Description>
+<DefaultData Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="1"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="Config_MO_ResetOnAlarm" TagType="Base" DataType="BOOL" Usage="Input" Radix="Decimal" Required="false" Visible="true" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Configure Whether .MO Bit Turns Off when Device Alarm Condition Exists]]>
+</Description>
+<DefaultData Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="1"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="Config_MS_Bumpless" TagType="Base" DataType="BOOL" Usage="Input" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Configure Whether MS Setpoint is Overridden on Transition to MM]]>
+</Description>
+<DefaultData Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="Config_NO_Valve" TagType="Base" DataType="BOOL" Usage="Input" Radix="Decimal" Required="false" Visible="true" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Configure Whether Valve is Normally Closed (0 = N.C., 1 = N.O.)]]>
+</Description>
+<DefaultData Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="Config_PID" TagType="Base" DataType="BOOL" Usage="Input" Radix="Decimal" Required="false" Visible="true" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Configure Usage of PID Loop]]>
+</Description>
+<DefaultData Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="Config_Position_Feedback" TagType="Base" DataType="BOOL" Usage="Input" Radix="Decimal" Required="false" Visible="true" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Config Whether Device has Position Feedback (0= No, 1= Yes) Note: Alarm Disabled if No Feedback]]>
+</Description>
+<DefaultData Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="Config_TMR_Alm_Preset_ms" TagType="Base" DataType="DINT" Usage="Input" Radix="Decimal" Required="false" Visible="true" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Configure Device AlarmTimer Preset In Milliseconds]]>
+</Description>
+<DefaultData Format="Decorated">
+<DataValue DataType="DINT" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="Config_TMR_Off_Preset_ms" TagType="Base" DataType="DINT" Usage="Input" Radix="Decimal" Required="false" Visible="true" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Configure Delay Stop Timer Preset In Milliseconds]]>
+</Description>
+<DefaultData Format="Decorated">
+<DataValue DataType="DINT" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="Config_TMR_On_Preset_ms" TagType="Base" DataType="DINT" Usage="Input" Radix="Decimal" Required="false" Visible="true" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Configure Delay Start Timer Preset In Milliseconds]]>
+</Description>
+<DefaultData Format="Decorated">
+<DataValue DataType="DINT" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="HMI_PID_Enabled" TagType="Base" DataType="BOOL" Usage="Output" Radix="Decimal" Required="false" Visible="true" ExternalAccess="Read Only">
+<Description>
+<![CDATA[PID Loop Enabled To HMI]]>
+</Description>
+<DefaultData Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="HMI_PID_SP" TagType="Base" DataType="REAL" Usage="Output" Radix="Float" Required="false" Visible="true" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[PID SP to HMI]]>
+</Description>
+<DefaultData Format="Decorated">
+<DataValue DataType="REAL" Radix="Float" Value="0.0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="HMI_PID_PV" TagType="Base" DataType="REAL" Usage="Output" Radix="Float" Required="false" Visible="true" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[PID PV to HMI]]>
+</Description>
+<DefaultData Format="Decorated">
+<DataValue DataType="REAL" Radix="Float" Value="0.0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="HMI_PID_Out" TagType="Base" DataType="REAL" Usage="Output" Radix="Float" Required="false" Visible="true" ExternalAccess="Read Only">
+<Description>
+<![CDATA[PID Output to HMI]]>
+</Description>
+<DefaultData Format="Decorated">
+<DataValue DataType="REAL" Radix="Float" Value="0.0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="HMI_MM" TagType="Base" DataType="BOOL" Usage="Input" Radix="Decimal" Required="false" Visible="true" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Manual Mode Bit]]>
+</Description>
+<DefaultData Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="HMI_MO" TagType="Base" DataType="BOOL" Usage="Input" Radix="Decimal" Required="false" Visible="true" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Manual On Bit]]>
+</Description>
+<DefaultData Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="HMI_MS" TagType="Base" DataType="DINT" Usage="Input" Radix="Decimal" Required="false" Visible="true" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Manual Position Setpoint]]>
+</Description>
+<DefaultData Format="Decorated">
+<DataValue DataType="DINT" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="HMI_CommandedPosition" TagType="Base" DataType="REAL" Usage="Output" Radix="Float" Required="false" Visible="true" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Device Commanded Position to HMI]]>
+</Description>
+<DefaultData Format="Decorated">
+<DataValue DataType="REAL" Radix="Float" Value="0.0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="HMI_FeedbackPosition" TagType="Base" DataType="REAL" Usage="Output" Radix="Float" Required="false" Visible="true" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Device Feedback Position to HMI]]>
+</Description>
+<DefaultData Format="Decorated">
+<DataValue DataType="REAL" Radix="Float" Value="0.0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="HMI_ALM_ACK" TagType="Base" DataType="BOOL" Usage="Input" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[AOI Device Specific Alarm Acknowledge From HMI]]>
+</Description>
+<DefaultData Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="HMI_Alarmed" TagType="Base" DataType="BOOL" Usage="Output" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Alarm Status To HMI]]>
+</Description>
+<DefaultData Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="HMI_Opened" TagType="Base" DataType="BOOL" Usage="Output" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Opened Status To HMI]]>
+</Description>
+<DefaultData Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="HMI_Closed" TagType="Base" DataType="BOOL" Usage="Output" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Closed Status To HMI]]>
+</Description>
+<DefaultData Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="HMI_Emulate" TagType="Base" DataType="BOOL" Usage="Output" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read Only">
+<Description>
+<![CDATA[Emulation Status
+To HMI]]>
+</Description>
+<DefaultData Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="HMI_PID_SWM" TagType="Base" DataType="BOOL" Usage="Input" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[HMI 
+PID Loop
+.SWM Mode Selected]]>
+</Description>
+<DefaultData Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="HMI_SP_PID_SO" TagType="Base" DataType="REAL" Usage="Input" Radix="Float" Required="false" Visible="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[HMI 
+PID Set Output
+(0-100%)
+(0-200% If Drive Needs Overspeed)]]>
+</Description>
+<DefaultData Format="Decorated">
+<DataValue DataType="REAL" Radix="Float" Value="0.0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="HMI_PID_Kp" TagType="Base" DataType="REAL" Usage="Input" Radix="Float" Required="false" Visible="false" ExternalAccess="Read/Write">
+<DefaultData Format="Decorated">
+<DataValue DataType="REAL" Radix="Float" Value="0.0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="HMI_PID_Ki" TagType="Base" DataType="REAL" Usage="Input" Radix="Float" Required="false" Visible="false" ExternalAccess="Read/Write">
+<DefaultData Format="Decorated">
+<DataValue DataType="REAL" Radix="Float" Value="0.0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="HMI_PID_Kd" TagType="Base" DataType="REAL" Usage="Input" Radix="Float" Required="false" Visible="false" ExternalAccess="Read/Write">
+<DefaultData Format="Decorated">
+<DataValue DataType="REAL" Radix="Float" Value="0.0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="HMI_PID_PVMax" TagType="Base" DataType="DINT" Usage="Output" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[PID Process Variable Max Status]]>
+</Description>
+<DefaultData Format="Decorated">
+<DataValue DataType="DINT" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="SP_AS1" TagType="Base" DataType="DINT" Usage="Input" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Auto Position #1 Setpoint]]>
+</Description>
+<DefaultData Format="Decorated">
+<DataValue DataType="DINT" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="SP_AS2" TagType="Base" DataType="DINT" Usage="Input" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Auto Position #2 Setpoint]]>
+</Description>
+<DefaultData Format="Decorated">
+<DataValue DataType="DINT" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="SP_AS3" TagType="Base" DataType="DINT" Usage="Input" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Auto Position #3 Setpoint]]>
+</Description>
+<DefaultData Format="Decorated">
+<DataValue DataType="DINT" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="SP_AS4" TagType="Base" DataType="DINT" Usage="Input" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Auto Position #4 Setpoint]]>
+</Description>
+<DefaultData Format="Decorated">
+<DataValue DataType="DINT" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="SP_AS5" TagType="Base" DataType="DINT" Usage="Input" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Auto Position #5 Setpoint]]>
+</Description>
+<DefaultData Format="Decorated">
+<DataValue DataType="DINT" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="SP_PID_SP" TagType="Base" DataType="REAL" Usage="Input" Radix="Float" Required="false" Visible="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Setpoint for Desired Setpoint of PID Process Variable]]>
+</Description>
+<DefaultData Format="Decorated">
+<DataValue DataType="REAL" Radix="Float" Value="0.0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="SP_PID_SO" TagType="Base" DataType="REAL" Usage="Input" Radix="Float" Required="false" Visible="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Setpoint for PID Manual Set Output Position]]>
+</Description>
+<DefaultData Format="Decorated">
+<DataValue DataType="REAL" Radix="Float" Value="0.0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="Energize_Permissive" TagType="Base" DataType="BOOL" Usage="Input" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Valve Permissive
+ From Logic
+ (EStop Ok)]]>
+</Description>
+<DefaultData Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="AS1_Enable" TagType="Base" DataType="BOOL" Usage="Input" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Auto Setpoint 1 Enable Interlock From Logic]]>
+</Description>
+<DefaultData Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="AS2_Enable" TagType="Base" DataType="BOOL" Usage="Input" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Auto Setpoint 2 Enable Interlock From Logic]]>
+</Description>
+<DefaultData Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="AS3_Enable" TagType="Base" DataType="BOOL" Usage="Input" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Auto Setpoint 3 Enable Interlock From Logic]]>
+</Description>
+<DefaultData Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="AS4_Enable" TagType="Base" DataType="BOOL" Usage="Input" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Auto Setpoint 4 Enable Interlock From Logic]]>
+</Description>
+<DefaultData Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="AS5_Enable" TagType="Base" DataType="BOOL" Usage="Input" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Auto Setpoint 5 Enable Interlock From Logic]]>
+</Description>
+<DefaultData Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="PID_Enable" TagType="Base" DataType="BOOL" Usage="Input" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[PID Enable Interlock From Logic]]>
+</Description>
+<DefaultData Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="PID_SWM_Enable" TagType="Base" DataType="BOOL" Usage="Input" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[PID.SWM Enable Interlock From Logic]]>
+</Description>
+<DefaultData Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="ALM" TagType="Base" DataType="BOOL" Usage="Output" Radix="Decimal" Required="false" Visible="true" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Device Alarm]]>
+</Description>
+<DefaultData Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="Comment" TagType="Base" DataType="BOOL" Usage="Input" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Comment for Description Rung to Start Each Routine]]>
+</Description>
+<DefaultData Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="Unused_Input_BOOL" TagType="Base" DataType="BOOL" Usage="Input" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Trash Tag For Required AOI Input Variables That Are Unused for Current Device (Type Boolean)]]>
+</Description>
+<DefaultData Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="Unused_Output_BOOL" TagType="Base" DataType="BOOL" Usage="Output" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Trash Tag For Required AOI Output Variables That Are Unused for Current Device (Type Boolean)]]>
+</Description>
+<DefaultData Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="Unused_Input_Analog" TagType="Base" DataType="REAL" Usage="Input" Radix="Float" Required="false" Visible="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Trash Tag For Required AOI Input Variables That Are Unused for Current Device (Type Analog)]]>
+</Description>
+<DefaultData Format="Decorated">
+<DataValue DataType="REAL" Radix="Float" Value="0.0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="Unused_Output_Analog" TagType="Base" DataType="REAL" Usage="Output" Radix="Float" Required="false" Visible="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Trash Tag For Required AOI Output Variables That Are Unused for Current Device (Type Analog)]]>
+</Description>
+<DefaultData Format="Decorated">
+<DataValue DataType="REAL" Radix="Float" Value="0.0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="PID_Control_Mode" TagType="Base" DataType="BOOL" Usage="Input" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read/Write">
+<DefaultData Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="Config_AI_PVMinRaw" TagType="Base" DataType="REAL" Usage="Input" Radix="Float" Required="false" Visible="true" ExternalAccess="Read/Write">
+<DefaultData Format="Decorated">
+<DataValue DataType="REAL" Radix="Float" Value="0.0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="Config_AI_PVMaxRaw" TagType="Base" DataType="REAL" Usage="Input" Radix="Float" Required="false" Visible="true" ExternalAccess="Read/Write">
+<DefaultData Format="Decorated">
+<DataValue DataType="REAL" Radix="Float" Value="0.0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="Config_AI_PVMinScaled" TagType="Base" DataType="REAL" Usage="Input" Radix="Float" Required="false" Visible="true" ExternalAccess="None">
+<DefaultData Format="Decorated">
+<DataValue DataType="REAL" Radix="Float" Value="0.0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="Config_AI_PVMaxScaled" TagType="Base" DataType="REAL" Usage="Input" Radix="Float" Required="false" Visible="true" ExternalAccess="Read/Write">
+<DefaultData Format="Decorated">
+<DataValue DataType="REAL" Radix="Float" Value="0.0"/>
+</DefaultData>
+</Parameter>
+</Parameters>
+<LocalTags>
+<LocalTag Name="ONS" DataType="BOOL" Dimensions="32" Radix="Decimal" ExternalAccess="Read/Write">
+<DefaultData Format="Decorated">
+<Array DataType="BOOL" Dimensions="32" Radix="Decimal">
+<Element Index="[0]" Value="0"/>
+<Element Index="[1]" Value="0"/>
+<Element Index="[2]" Value="0"/>
+<Element Index="[3]" Value="0"/>
+<Element Index="[4]" Value="0"/>
+<Element Index="[5]" Value="0"/>
+<Element Index="[6]" Value="0"/>
+<Element Index="[7]" Value="0"/>
+<Element Index="[8]" Value="0"/>
+<Element Index="[9]" Value="0"/>
+<Element Index="[10]" Value="0"/>
+<Element Index="[11]" Value="0"/>
+<Element Index="[12]" Value="0"/>
+<Element Index="[13]" Value="0"/>
+<Element Index="[14]" Value="0"/>
+<Element Index="[15]" Value="0"/>
+<Element Index="[16]" Value="0"/>
+<Element Index="[17]" Value="0"/>
+<Element Index="[18]" Value="0"/>
+<Element Index="[19]" Value="0"/>
+<Element Index="[20]" Value="0"/>
+<Element Index="[21]" Value="0"/>
+<Element Index="[22]" Value="0"/>
+<Element Index="[23]" Value="0"/>
+<Element Index="[24]" Value="0"/>
+<Element Index="[25]" Value="0"/>
+<Element Index="[26]" Value="0"/>
+<Element Index="[27]" Value="0"/>
+<Element Index="[28]" Value="0"/>
+<Element Index="[29]" Value="0"/>
+<Element Index="[30]" Value="0"/>
+<Element Index="[31]" Value="0"/>
+</Array>
+</DefaultData>
+</LocalTag>
+<LocalTag Name="PID_En" DataType="BOOL" Radix="Decimal" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[PID Loop Enabled]]>
+</Description>
+<DefaultData Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</DefaultData>
+</LocalTag>
+<LocalTag Name="PID" DataType="PID" ExternalAccess="Read/Write">
+<Comments>
+<Comment Operand=".CA">
+<![CDATA[0 = SP-PV
+1 = PV-SP]]>
+</Comment>
+</Comments>
+<DefaultData Format="Decorated">
+<Structure DataType="PID">
+<DataValueMember Name="CTL" DataType="DINT" Radix="Decimal" Value="0"/>
+<DataValueMember Name="EN" DataType="BOOL" Value="0"/>
+<DataValueMember Name="CT" DataType="BOOL" Value="0"/>
+<DataValueMember Name="CL" DataType="BOOL" Value="0"/>
+<DataValueMember Name="PVT" DataType="BOOL" Value="0"/>
+<DataValueMember Name="DOE" DataType="BOOL" Value="0"/>
+<DataValueMember Name="SWM" DataType="BOOL" Value="0"/>
+<DataValueMember Name="CA" DataType="BOOL" Value="0"/>
+<DataValueMember Name="MO" DataType="BOOL" Value="0"/>
+<DataValueMember Name="PE" DataType="BOOL" Value="0"/>
+<DataValueMember Name="NDF" DataType="BOOL" Value="0"/>
+<DataValueMember Name="NOBC" DataType="BOOL" Value="0"/>
+<DataValueMember Name="NOZC" DataType="BOOL" Value="0"/>
+<DataValueMember Name="INI" DataType="BOOL" Value="0"/>
+<DataValueMember Name="SPOR" DataType="BOOL" Value="0"/>
+<DataValueMember Name="OLL" DataType="BOOL" Value="0"/>
+<DataValueMember Name="OLH" DataType="BOOL" Value="0"/>
+<DataValueMember Name="EWD" DataType="BOOL" Value="0"/>
+<DataValueMember Name="DVNA" DataType="BOOL" Value="0"/>
+<DataValueMember Name="DVPA" DataType="BOOL" Value="0"/>
+<DataValueMember Name="PVLA" DataType="BOOL" Value="0"/>
+<DataValueMember Name="PVHA" DataType="BOOL" Value="0"/>
+<DataValueMember Name="SP" DataType="REAL" Radix="Float" Value="0.0"/>
+<DataValueMember Name="KP" DataType="REAL" Radix="Float" Value="0.0"/>
+<DataValueMember Name="KI" DataType="REAL" Radix="Float" Value="0.0"/>
+<DataValueMember Name="KD" DataType="REAL" Radix="Float" Value="0.0"/>
+<DataValueMember Name="BIAS" DataType="REAL" Radix="Float" Value="0.0"/>
+<DataValueMember Name="MAXS" DataType="REAL" Radix="Float" Value="300.0"/>
+<DataValueMember Name="MINS" DataType="REAL" Radix="Float" Value="0.0"/>
+<DataValueMember Name="DB" DataType="REAL" Radix="Float" Value="0.0"/>
+<DataValueMember Name="SO" DataType="REAL" Radix="Float" Value="0.0"/>
+<DataValueMember Name="MAXO" DataType="REAL" Radix="Float" Value="100.0"/>
+<DataValueMember Name="MINO" DataType="REAL" Radix="Float" Value="0.0"/>
+<DataValueMember Name="UPD" DataType="REAL" Radix="Float" Value="0.01"/>
+<DataValueMember Name="PV" DataType="REAL" Radix="Float" Value="0.0"/>
+<DataValueMember Name="ERR" DataType="REAL" Radix="Float" Value="0.0"/>
+<DataValueMember Name="OUT" DataType="REAL" Radix="Float" Value="0.0"/>
+<DataValueMember Name="PVH" DataType="REAL" Radix="Float" Value="0.0"/>
+<DataValueMember Name="PVL" DataType="REAL" Radix="Float" Value="0.0"/>
+<DataValueMember Name="DVP" DataType="REAL" Radix="Float" Value="0.0"/>
+<DataValueMember Name="DVN" DataType="REAL" Radix="Float" Value="0.0"/>
+<DataValueMember Name="PVDB" DataType="REAL" Radix="Float" Value="0.0"/>
+<DataValueMember Name="DVDB" DataType="REAL" Radix="Float" Value="0.0"/>
+<DataValueMember Name="MAXI" DataType="REAL" Radix="Float" Value="300.0"/>
+<DataValueMember Name="MINI" DataType="REAL" Radix="Float" Value="0.0"/>
+<DataValueMember Name="TIE" DataType="REAL" Radix="Float" Value="0.0"/>
+<DataValueMember Name="MAXCV" DataType="REAL" Radix="Float" Value="30840.0"/>
+<DataValueMember Name="MINCV" DataType="REAL" Radix="Float" Value="0.0"/>
+<DataValueMember Name="MINTIE" DataType="REAL" Radix="Float" Value="0.0"/>
+<DataValueMember Name="MAXTIE" DataType="REAL" Radix="Float" Value="4095.0"/>
+<ArrayMember Name="DATA" DataType="REAL" Dimensions="17" Radix="Float">
+<Element Index="[0]" Value="0.0"/>
+<Element Index="[1]" Value="0.0"/>
+<Element Index="[2]" Value="0.0"/>
+<Element Index="[3]" Value="0.0"/>
+<Element Index="[4]" Value="0.0"/>
+<Element Index="[5]" Value="0.0"/>
+<Element Index="[6]" Value="0.0"/>
+<Element Index="[7]" Value="0.0"/>
+<Element Index="[8]" Value="0.0"/>
+<Element Index="[9]" Value="0.0"/>
+<Element Index="[10]" Value="0.0"/>
+<Element Index="[11]" Value="0.0"/>
+<Element Index="[12]" Value="0.0"/>
+<Element Index="[13]" Value="0.0"/>
+<Element Index="[14]" Value="0.0"/>
+<Element Index="[15]" Value="0.0"/>
+<Element Index="[16]" Value="0.0"/>
+</ArrayMember>
+</Structure>
+</DefaultData>
+</LocalTag>
+<LocalTag Name="PID_TMR_On" DataType="TIMER" ExternalAccess="None">
+<Description>
+<![CDATA[PID Execute Timer (Should Be 5 x PV Update Rate)]]>
+</Description>
+<DefaultData Format="Decorated">
+<Structure DataType="TIMER">
+<DataValueMember Name="PRE" DataType="DINT" Radix="Decimal" Value="500"/>
+<DataValueMember Name="ACC" DataType="DINT" Radix="Decimal" Value="0"/>
+<DataValueMember Name="EN" DataType="BOOL" Value="0"/>
+<DataValueMember Name="TT" DataType="BOOL" Value="0"/>
+<DataValueMember Name="DN" DataType="BOOL" Value="0"/>
+</Structure>
+</DefaultData>
+</LocalTag>
+<LocalTag Name="TMR_On" DataType="TIMER" ExternalAccess="None">
+<DefaultData Format="Decorated">
+<Structure DataType="TIMER">
+<DataValueMember Name="PRE" DataType="DINT" Radix="Decimal" Value="0"/>
+<DataValueMember Name="ACC" DataType="DINT" Radix="Decimal" Value="0"/>
+<DataValueMember Name="EN" DataType="BOOL" Value="0"/>
+<DataValueMember Name="TT" DataType="BOOL" Value="0"/>
+<DataValueMember Name="DN" DataType="BOOL" Value="0"/>
+</Structure>
+</DefaultData>
+</LocalTag>
+<LocalTag Name="TMR_Off" DataType="TIMER" ExternalAccess="None">
+<DefaultData Format="Decorated">
+<Structure DataType="TIMER">
+<DataValueMember Name="PRE" DataType="DINT" Radix="Decimal" Value="0"/>
+<DataValueMember Name="ACC" DataType="DINT" Radix="Decimal" Value="0"/>
+<DataValueMember Name="EN" DataType="BOOL" Value="0"/>
+<DataValueMember Name="TT" DataType="BOOL" Value="0"/>
+<DataValueMember Name="DN" DataType="BOOL" Value="0"/>
+</Structure>
+</DefaultData>
+</LocalTag>
+<LocalTag Name="TMR_Alm" DataType="TIMER" ExternalAccess="None">
+<DefaultData Format="Decorated">
+<Structure DataType="TIMER">
+<DataValueMember Name="PRE" DataType="DINT" Radix="Decimal" Value="0"/>
+<DataValueMember Name="ACC" DataType="DINT" Radix="Decimal" Value="0"/>
+<DataValueMember Name="EN" DataType="BOOL" Value="0"/>
+<DataValueMember Name="TT" DataType="BOOL" Value="0"/>
+<DataValueMember Name="DN" DataType="BOOL" Value="0"/>
+</Structure>
+</DefaultData>
+</LocalTag>
+<LocalTag Name="Position_Alm_UpperLimit" DataType="REAL" Radix="Float" ExternalAccess="None">
+<DefaultData Format="Decorated">
+<DataValue DataType="REAL" Radix="Float" Value="0.0"/>
+</DefaultData>
+</LocalTag>
+<LocalTag Name="Position_Alm_LowerLimit" DataType="REAL" Radix="Float" ExternalAccess="None">
+<DefaultData Format="Decorated">
+<DataValue DataType="REAL" Radix="Float" Value="0.0"/>
+</DefaultData>
+</LocalTag>
+<LocalTag Name="PID_CV" DataType="DINT" Radix="Decimal" ExternalAccess="None">
+<DefaultData Format="Decorated">
+<DataValue DataType="DINT" Radix="Decimal" Value="0"/>
+</DefaultData>
+</LocalTag>
+<LocalTag Name="Position_UpperLimit" DataType="REAL" Radix="Float" ExternalAccess="None">
+<DefaultData Format="Decorated">
+<DataValue DataType="REAL" Radix="Float" Value="0.0"/>
+</DefaultData>
+</LocalTag>
+<LocalTag Name="Position_LowerLimit" DataType="REAL" Radix="Float" ExternalAccess="None">
+<DefaultData Format="Decorated">
+<DataValue DataType="REAL" Radix="Float" Value="0.0"/>
+</DefaultData>
+</LocalTag>
+<LocalTag Name="Unused_Feature_BOOL" DataType="BOOL" Radix="Decimal" ExternalAccess="None">
+<DefaultData Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</DefaultData>
+</LocalTag>
+<LocalTag Name="Emulation_Mode" DataType="BOOL" Radix="Decimal" ExternalAccess="None">
+<Description>
+<![CDATA[AOI Has Been
+Configured for
+Emulation Mode]]>
+</Description>
+<DefaultData Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</DefaultData>
+</LocalTag>
+<LocalTag Name="Status" DataType="INT" Radix="Decimal" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Status to HMI]]>
+</Description>
+<DefaultData Format="Decorated">
+<DataValue DataType="INT" Radix="Decimal" Value="0"/>
+</DefaultData>
+</LocalTag>
+<LocalTag Name="Status_ALM" DataType="INT" Radix="Decimal" ExternalAccess="Read/Write">
+<DefaultData Format="Decorated">
+<DataValue DataType="INT" Radix="Decimal" Value="0"/>
+</DefaultData>
+</LocalTag>
+</LocalTags>
+<Routines>
+<Routine Name="Logic" Type="RLL">
+<RLLContent>
+<Rung Number="0" Type="N">
+<Comment>
+<![CDATA[Always False for Unused Options Logic]]>
+</Comment>
+<Text>
+<![CDATA[OTU(Unused_Feature_BOOL);]]>
+</Text>
+</Rung>
+<Rung Number="1" Type="N">
+<Comment>
+<![CDATA[Manual Speed Setpoint Logic]]>
+</Comment>
+<Text>
+<![CDATA[XIC(HMI_MM)XIC(HMI_MO)CPT(AO_CommandPosition,HMI_MS*(Config_AO_PositionMaxRaw-Config_AO_PositionMinRaw)/100 +Config_AO_PositionMinRaw);]]>
+</Text>
+</Rung>
+<Rung Number="2" Type="N">
+<Comment>
+<![CDATA[Auto Speed Setpoint Logic]]>
+</Comment>
+<Text>
+<![CDATA[XIO(HMI_MM)XIO(PID_En)XIC(AS1_Enable)CPT(AO_CommandPosition,SP_AS1*(Config_AO_PositionMaxRaw-Config_AO_PositionMinRaw)/100 +Config_AO_PositionMinRaw);]]>
+</Text>
+</Rung>
+<Rung Number="3" Type="N">
+<Text>
+<![CDATA[XIO(HMI_MM)XIO(PID_En)XIC(AS2_Enable)CPT(AO_CommandPosition,SP_AS2*(Config_AO_PositionMaxRaw-Config_AO_PositionMinRaw)/100 +Config_AO_PositionMinRaw);]]>
+</Text>
+</Rung>
+<Rung Number="4" Type="N">
+<Text>
+<![CDATA[XIO(HMI_MM)XIO(PID_En)XIC(AS3_Enable)CPT(AO_CommandPosition,SP_AS3*(Config_AO_PositionMaxRaw-Config_AO_PositionMinRaw)/100 +Config_AO_PositionMinRaw);]]>
+</Text>
+</Rung>
+<Rung Number="5" Type="N">
+<Text>
+<![CDATA[XIO(HMI_MM)XIO(PID_En)XIC(AS4_Enable)CPT(AO_CommandPosition,SP_AS4*(Config_AO_PositionMaxRaw-Config_AO_PositionMinRaw)/100 +Config_AO_PositionMinRaw);]]>
+</Text>
+</Rung>
+<Rung Number="6" Type="N">
+<Text>
+<![CDATA[XIO(HMI_MM)XIO(PID_En)XIC(AS5_Enable)CPT(AO_CommandPosition,SP_AS5*(Config_AO_PositionMaxRaw-Config_AO_PositionMinRaw)/100 +Config_AO_PositionMinRaw);]]>
+</Text>
+</Rung>
+<Rung Number="7" Type="N">
+<Text>
+<![CDATA[XIO(DO_Energize)MOV(Config_AO_PositionMinRaw,AO_CommandPosition);]]>
+</Text>
+</Rung>
+<Rung Number="8" Type="N">
+<Comment>
+<![CDATA[PID Loop Enable Logic]]>
+</Comment>
+<Text>
+<![CDATA[XIC(Config_PID)XIO(HMI_MM)[XIC(PID_Enable) ,XIC(HMI_PID_SWM) ,XIC(PID_SWM_Enable) ]OTE(PID_En);]]>
+</Text>
+</Rung>
+<Rung Number="9" Type="N">
+<Comment>
+<![CDATA[PID Loop SWM Logic]]>
+</Comment>
+<Text>
+<![CDATA[XIC(PID_En)[XIC(PID_SWM_Enable) ,XIC(HMI_PID_SWM) ]OTL(PID.SWM);]]>
+</Text>
+</Rung>
+<Rung Number="10" Type="N">
+<Text>
+<![CDATA[XIC(PID_En)XIO(PID_SWM_Enable)XIO(HMI_PID_SWM)OTU(PID.SWM);]]>
+</Text>
+</Rung>
+<Rung Number="11" Type="N">
+<Comment>
+<![CDATA[PID Loop SO Logic]]>
+</Comment>
+<Text>
+<![CDATA[XIC(PID.SWM)XIO(HMI_PID_SWM)CPT(PID.SO,SP_PID_SO);]]>
+</Text>
+</Rung>
+<Rung Number="12" Type="N">
+<Text>
+<![CDATA[XIC(PID.SWM)XIC(HMI_PID_SWM)CPT(PID.SO,HMI_SP_PID_SO);]]>
+</Text>
+</Rung>
+<Rung Number="13" Type="N">
+<Comment>
+<![CDATA[PID Execution Logic]]>
+</Comment>
+<Text>
+<![CDATA[XIC(PID_En)XIO(PID_TMR_On.DN)TON(PID_TMR_On,?,?);]]>
+</Text>
+</Rung>
+<Rung Number="14" Type="N">
+<Comment>
+<![CDATA[PID Loop Setup Logic]]>
+</Comment>
+<Text>
+<![CDATA[MOV(Config_AI_PVMinRaw,PID.MINI)MOV(Config_AI_PVMaxRaw,PID.MAXI)MOV(Config_AI_PVMinScaled,PID.MINS)MOV(Config_AI_PVMaxScaled,PID.MAXS)MOV(HMI_PID_Kp,PID.KP)MOV(HMI_PID_Ki,PID.KI)MOV(HMI_PID_Kd,PID.KD)CPT(PID.UPD,PID_TMR_On.PRE/1000);]]>
+</Text>
+</Rung>
+<Rung Number="15" Type="N">
+<Text>
+<![CDATA[MOV(Config_AO_PositionMinRaw,PID.MINCV)MOV(Config_AO_PositionMaxRaw,PID.MAXCV);]]>
+</Text>
+</Rung>
+<Rung Number="16" Type="N">
+<Text>
+<![CDATA[XIC(PID_Control_Mode)OTE(PID.CA);]]>
+</Text>
+</Rung>
+<Rung Number="17" Type="N">
+<Comment>
+<![CDATA[PID Logic]]>
+</Comment>
+<Text>
+<![CDATA[XIC(PID_En)XIC(DO_Energize)XIC(PID_TMR_On.DN)[CPT(PID.SP,SP_PID_SP) ,PID(PID,PID_ProcessVariable,0,PID_CV,0,0,0) ];]]>
+</Text>
+</Rung>
+<Rung Number="18" Type="N">
+<Text>
+<![CDATA[XIC(PID.EN)MOV(PID_CV,AO_CommandPosition);]]>
+</Text>
+</Rung>
+<Rung Number="19" Type="N">
+<Text>
+<![CDATA[XIO(PID_En)[MOV(0,PID.SO) ,MOV(0,PID.OUT) ,MOV(PID.MINO,PID.DATA[0]) ];]]>
+</Text>
+</Rung>
+<Rung Number="20" Type="N">
+<Comment>
+<![CDATA[Emulation Mode Enable Logic]]>
+</Comment>
+<Text>
+<![CDATA[XIC(Emulation_Enable)XIC(Config_Emulation_Mode)[OTE(Emulation_Mode) ,OTE(HMI_Emulate) ];]]>
+</Text>
+</Rung>
+<Rung Number="21" Type="N">
+<Comment>
+<![CDATA[Manual Mode Enable Logic]]>
+</Comment>
+<Text>
+<![CDATA[XIO(MM_Enable)OTU(HMI_MM);]]>
+</Text>
+</Rung>
+<Rung Number="22" Type="N">
+<Comment>
+<![CDATA[Manual Mode Memory Logic]]>
+</Comment>
+<Text>
+<![CDATA[XIC(HMI_MM)ONS(ONS[0])[XIC(DO_Energize) [OTL(HMI_MO) ,XIC(Config_MS_Bumpless) [XIC(AS1_Enable) MOV(SP_AS1,HMI_MS) ,XIC(AS2_Enable) MOV(SP_AS2,HMI_MS) ,XIC(AS3_Enable) MOV(SP_AS3,HMI_MS) ,XIC(AS4_Enable) MOV(SP_AS4,HMI_MS) ,XIC(AS5_Enable) MOV(SP_AS5,HMI_MS) ] ] ,XIO(DO_Energize) OTU(HMI_MO) ];]]>
+</Text>
+</Rung>
+<Rung Number="23" Type="N">
+<Comment>
+<![CDATA[Unlatch Manual On Bit if Start Permissive Drops Out
+]]>
+</Comment>
+<Text>
+<![CDATA[XIC(Config_MO_Permissive)XIO(Energize_Permissive)OTU(HMI_MO);]]>
+</Text>
+</Rung>
+<Rung Number="24" Type="N">
+<Comment>
+<![CDATA[Energize Logic]]>
+</Comment>
+<Text>
+<![CDATA[[XIC(HMI_MM) XIC(HMI_MO) ,XIC(TMR_Off.DN) XIO(HMI_MM) ]XIC(Energize_Permissive)OTE(DO_Energize);]]>
+</Text>
+</Rung>
+<Rung Number="25" Type="N">
+<Comment>
+<![CDATA[Energize/De-Energize Delay Timer Logic]]>
+</Comment>
+<Text>
+<![CDATA[MOV(Config_TMR_On_Preset_ms,TMR_On.PRE)MOV(Config_TMR_Off_Preset_ms,TMR_Off.PRE);]]>
+</Text>
+</Rung>
+<Rung Number="26" Type="N">
+<Text>
+<![CDATA[[XIC(AS1_Enable) ,XIC(AS2_Enable) ,XIC(AS3_Enable) ,XIC(AS4_Enable) ,XIC(AS5_Enable) ,XIC(PID_En) ]TON(TMR_On,?,?);]]>
+</Text>
+</Rung>
+<Rung Number="27" Type="N">
+<Text>
+<![CDATA[XIC(TMR_On.DN)TOF(TMR_Off,?,?);]]>
+</Text>
+</Rung>
+<Rung Number="28" Type="N">
+<Comment>
+<![CDATA[Alarm Logic]]>
+</Comment>
+<Text>
+<![CDATA[MOV(Config_TMR_Alm_Preset_ms,TMR_Alm.PRE);]]>
+</Text>
+</Rung>
+<Rung Number="29" Type="N">
+<Text>
+<![CDATA[[CPT(Position_Alm_UpperLimit,HMI_CommandedPosition+(Config_Analog_PositionMaxScaled*0.1)) ,CPT(Position_Alm_LowerLimit,HMI_CommandedPosition-(Config_Analog_PositionMaxScaled*0.1)) ];]]>
+</Text>
+</Rung>
+<Rung Number="30" Type="N">
+<Text>
+<![CDATA[XIO(Emulation_Mode)XIC(Config_Position_Feedback)LIM(Position_Alm_UpperLimit,AI_Position_Feedback,Position_Alm_LowerLimit)TON(TMR_Alm,?,?);]]>
+</Text>
+</Rung>
+<Rung Number="31" Type="N">
+<Text>
+<![CDATA[XIC(TMR_Alm.DN)[OTL(ALM) ,XIC(Config_MO_ResetOnAlarm) OTU(HMI_MO) ];]]>
+</Text>
+</Rung>
+<Rung Number="32" Type="N">
+<Text>
+<![CDATA[[XIC(ALM_ACK) ,XIC(HMI_ALM_ACK) ][OTU(ALM) ,OTU(HMI_ALM_ACK) ];]]>
+</Text>
+</Rung>
+<Rung Number="33" Type="N">
+<Comment>
+<![CDATA[HMI Mapping Logic]]>
+</Comment>
+<Text>
+<![CDATA[MOV(PID.OUT,HMI_PID_Out);]]>
+</Text>
+</Rung>
+<Rung Number="34" Type="N">
+<Text>
+<![CDATA[MOV(PID_ProcessVariable,HMI_PID_PV);]]>
+</Text>
+</Rung>
+<Rung Number="35" Type="N">
+<Text>
+<![CDATA[MOV(SP_PID_SP,HMI_PID_SP);]]>
+</Text>
+</Rung>
+<Rung Number="36" Type="N">
+<Text>
+<![CDATA[MOV(PID.MAXI,HMI_PID_PVMax);]]>
+</Text>
+</Rung>
+<Rung Number="37" Type="N">
+<Text>
+<![CDATA[XIC(PID_En)XIC(DO_Energize)OTE(HMI_PID_Enabled);]]>
+</Text>
+</Rung>
+<Rung Number="38" Type="N">
+<Text>
+<![CDATA[XIC(ALM)OTE(HMI_Alarmed);]]>
+</Text>
+</Rung>
+<Rung Number="39" Type="N">
+<Text>
+<![CDATA[CPT(HMI_CommandedPosition,((AO_CommandPosition-Config_AO_PositionMinRaw)*Config_Analog_PositionMaxScaled)/(Config_AO_PositionMaxRaw-Config_AO_PositionMinRaw));]]>
+</Text>
+</Rung>
+<Rung Number="40" Type="N">
+<Text>
+<![CDATA[[XIO(Emulation_Mode) XIC(Config_Position_Feedback) MOV(AI_Position_Feedback,HMI_FeedbackPosition) ,[XIO(Config_Position_Feedback) ,XIC(Emulation_Mode) ] MOV(HMI_CommandedPosition,HMI_FeedbackPosition) ];]]>
+</Text>
+</Rung>
+<Rung Number="41" Type="N">
+<Text>
+<![CDATA[[CPT(Position_UpperLimit,Config_Analog_PositionMaxScaled*0.98) ,CPT(Position_LowerLimit,Config_Analog_PositionMaxScaled*0.02) ];]]>
+</Text>
+</Rung>
+<Rung Number="42" Type="N">
+<Text>
+<![CDATA[[XIO(Config_NO_Valve) [GRT(HMI_FeedbackPosition,Position_LowerLimit) [OTL(HMI_Opened) ,OTU(HMI_Closed) ] ,LEQ(HMI_FeedbackPosition,Position_LowerLimit) [OTU(HMI_Opened) ,OTL(HMI_Closed) ] ] ,XIC(Config_NO_Valve) [LEQ(HMI_FeedbackPosition,Position_UpperLimit) [OTL(HMI_Opened) ,OTU(HMI_Closed) ] ,GRT(HMI_FeedbackPosition,Position_UpperLimit) [OTU(HMI_Opened) ,OTL(HMI_Closed) ] ] ];]]>
+</Text>
+</Rung>
+<Rung Number="43" Type="N">
+<Comment>
+<![CDATA[0 = DE-ENERGIZED
+1 = ENERGIZED
+2 = FAULTED]]>
+</Comment>
+<Text>
+<![CDATA[[XIO(HMI_Alarmed) [XIC(HMI_Closed) MOV(0,Status) ,XIC(HMI_Opened) MOV(1,Status) ] ,XIC(HMI_Alarmed) MOV(2,Status) ];]]>
+</Text>
+</Rung>
+<Rung Number="44" Type="N">
+<Comment>
+<![CDATA[0 = NO FAULT
+1 = LOWER LIMIT FAULT
+2 = UPPER LIMIT FAULT]]>
+</Comment>
+<Text>
+<![CDATA[[XIO(HMI_Alarmed) MOV(0,Status_ALM) ,XIC(HMI_Alarmed) [LEQ(AI_Position_Feedback,Position_Alm_LowerLimit) MOV(1,Status_ALM) ,GEQ(AI_Position_Feedback,Position_Alm_UpperLimit) MOV(2,Status_ALM) ] ];]]>
+</Text>
+</Rung>
+</RLLContent>
+</Routine>
+</Routines>
+</AddOnInstructionDefinition>
+</AddOnInstructionDefinitions>
+</Controller>
+</RSLogix5000Content>

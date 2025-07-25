@@ -1,0 +1,372 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<RSLogix5000Content SchemaRevision="1.0" SoftwareRevision="35.01" TargetName="DO_ECP100_B_5" TargetType="Module" ContainsContext="true" ExportDate="Thu Jul 24 23:19:35 2025" ExportOptions="References NoRawData L5KData DecoratedData Context Dependencies ForceProtectedEncoding AllProjDocTrans">
+<Controller Use="Context" Name="PLC100_Mashing">
+<Modules Use="Context">
+<Module Use="Target" Name="DO_ECP100_B_5" CatalogNumber="5094-OB16/A" Vendor="1" ProductType="7" ProductCode="399" Major="2" Minor="1" ParentModule="ENET_ECP100_B_0" ParentModPortId="1" Inhibited="false"
+ MajorFault="false" SafetyEnabled="false" AutoDiagsEnabled="true">
+<EKey State="CompatibleModule"/>
+<Ports>
+<Port Id="1" Address="5" Type="5094" Upstream="true"/>
+</Ports>
+<Communications>
+<ConfigTag ConfigSize="64" ExternalAccess="Read/Write">
+<Data Format="L5K">
+<![CDATA[[68,163,[0,0,0],[0,0,0],[0,0,0],[0,0,0],[0,0,0],[0,0,0],[0,0,0],[0,0,0],[0,0,0],[0,0,0],[0,0,0],[0,0,0],[0,0,0],[0,0,0],[0,0,0],[0,0,0]]]]>
+</Data>
+<Data Format="Decorated">
+<Structure DataType="AB:5000_DO16_Diag:C:0">
+<StructureMember Name="Pt00" DataType="AB:5000_DO_Diag_Channel:C:0">
+<DataValueMember Name="FaultMode" DataType="BOOL" Value="0"/>
+<DataValueMember Name="FaultValue" DataType="BOOL" Value="0"/>
+<DataValueMember Name="ProgMode" DataType="BOOL" Value="0"/>
+<DataValueMember Name="ProgValue" DataType="BOOL" Value="0"/>
+<DataValueMember Name="FaultFinalState" DataType="BOOL" Value="0"/>
+<DataValueMember Name="ProgramToFaultEn" DataType="BOOL" Value="0"/>
+<DataValueMember Name="NoLoadEn" DataType="BOOL" Value="0"/>
+<DataValueMember Name="FaultValueStateDuration" DataType="SINT" Radix="Decimal" Value="0"/>
+</StructureMember>
+<StructureMember Name="Pt01" DataType="AB:5000_DO_Diag_Channel:C:0">
+<DataValueMember Name="FaultMode" DataType="BOOL" Value="0"/>
+<DataValueMember Name="FaultValue" DataType="BOOL" Value="0"/>
+<DataValueMember Name="ProgMode" DataType="BOOL" Value="0"/>
+<DataValueMember Name="ProgValue" DataType="BOOL" Value="0"/>
+<DataValueMember Name="FaultFinalState" DataType="BOOL" Value="0"/>
+<DataValueMember Name="ProgramToFaultEn" DataType="BOOL" Value="0"/>
+<DataValueMember Name="NoLoadEn" DataType="BOOL" Value="0"/>
+<DataValueMember Name="FaultValueStateDuration" DataType="SINT" Radix="Decimal" Value="0"/>
+</StructureMember>
+<StructureMember Name="Pt02" DataType="AB:5000_DO_Diag_Channel:C:0">
+<DataValueMember Name="FaultMode" DataType="BOOL" Value="0"/>
+<DataValueMember Name="FaultValue" DataType="BOOL" Value="0"/>
+<DataValueMember Name="ProgMode" DataType="BOOL" Value="0"/>
+<DataValueMember Name="ProgValue" DataType="BOOL" Value="0"/>
+<DataValueMember Name="FaultFinalState" DataType="BOOL" Value="0"/>
+<DataValueMember Name="ProgramToFaultEn" DataType="BOOL" Value="0"/>
+<DataValueMember Name="NoLoadEn" DataType="BOOL" Value="0"/>
+<DataValueMember Name="FaultValueStateDuration" DataType="SINT" Radix="Decimal" Value="0"/>
+</StructureMember>
+<StructureMember Name="Pt03" DataType="AB:5000_DO_Diag_Channel:C:0">
+<DataValueMember Name="FaultMode" DataType="BOOL" Value="0"/>
+<DataValueMember Name="FaultValue" DataType="BOOL" Value="0"/>
+<DataValueMember Name="ProgMode" DataType="BOOL" Value="0"/>
+<DataValueMember Name="ProgValue" DataType="BOOL" Value="0"/>
+<DataValueMember Name="FaultFinalState" DataType="BOOL" Value="0"/>
+<DataValueMember Name="ProgramToFaultEn" DataType="BOOL" Value="0"/>
+<DataValueMember Name="NoLoadEn" DataType="BOOL" Value="0"/>
+<DataValueMember Name="FaultValueStateDuration" DataType="SINT" Radix="Decimal" Value="0"/>
+</StructureMember>
+<StructureMember Name="Pt04" DataType="AB:5000_DO_Diag_Channel:C:0">
+<DataValueMember Name="FaultMode" DataType="BOOL" Value="0"/>
+<DataValueMember Name="FaultValue" DataType="BOOL" Value="0"/>
+<DataValueMember Name="ProgMode" DataType="BOOL" Value="0"/>
+<DataValueMember Name="ProgValue" DataType="BOOL" Value="0"/>
+<DataValueMember Name="FaultFinalState" DataType="BOOL" Value="0"/>
+<DataValueMember Name="ProgramToFaultEn" DataType="BOOL" Value="0"/>
+<DataValueMember Name="NoLoadEn" DataType="BOOL" Value="0"/>
+<DataValueMember Name="FaultValueStateDuration" DataType="SINT" Radix="Decimal" Value="0"/>
+</StructureMember>
+<StructureMember Name="Pt05" DataType="AB:5000_DO_Diag_Channel:C:0">
+<DataValueMember Name="FaultMode" DataType="BOOL" Value="0"/>
+<DataValueMember Name="FaultValue" DataType="BOOL" Value="0"/>
+<DataValueMember Name="ProgMode" DataType="BOOL" Value="0"/>
+<DataValueMember Name="ProgValue" DataType="BOOL" Value="0"/>
+<DataValueMember Name="FaultFinalState" DataType="BOOL" Value="0"/>
+<DataValueMember Name="ProgramToFaultEn" DataType="BOOL" Value="0"/>
+<DataValueMember Name="NoLoadEn" DataType="BOOL" Value="0"/>
+<DataValueMember Name="FaultValueStateDuration" DataType="SINT" Radix="Decimal" Value="0"/>
+</StructureMember>
+<StructureMember Name="Pt06" DataType="AB:5000_DO_Diag_Channel:C:0">
+<DataValueMember Name="FaultMode" DataType="BOOL" Value="0"/>
+<DataValueMember Name="FaultValue" DataType="BOOL" Value="0"/>
+<DataValueMember Name="ProgMode" DataType="BOOL" Value="0"/>
+<DataValueMember Name="ProgValue" DataType="BOOL" Value="0"/>
+<DataValueMember Name="FaultFinalState" DataType="BOOL" Value="0"/>
+<DataValueMember Name="ProgramToFaultEn" DataType="BOOL" Value="0"/>
+<DataValueMember Name="NoLoadEn" DataType="BOOL" Value="0"/>
+<DataValueMember Name="FaultValueStateDuration" DataType="SINT" Radix="Decimal" Value="0"/>
+</StructureMember>
+<StructureMember Name="Pt07" DataType="AB:5000_DO_Diag_Channel:C:0">
+<DataValueMember Name="FaultMode" DataType="BOOL" Value="0"/>
+<DataValueMember Name="FaultValue" DataType="BOOL" Value="0"/>
+<DataValueMember Name="ProgMode" DataType="BOOL" Value="0"/>
+<DataValueMember Name="ProgValue" DataType="BOOL" Value="0"/>
+<DataValueMember Name="FaultFinalState" DataType="BOOL" Value="0"/>
+<DataValueMember Name="ProgramToFaultEn" DataType="BOOL" Value="0"/>
+<DataValueMember Name="NoLoadEn" DataType="BOOL" Value="0"/>
+<DataValueMember Name="FaultValueStateDuration" DataType="SINT" Radix="Decimal" Value="0"/>
+</StructureMember>
+<StructureMember Name="Pt08" DataType="AB:5000_DO_Diag_Channel:C:0">
+<DataValueMember Name="FaultMode" DataType="BOOL" Value="0"/>
+<DataValueMember Name="FaultValue" DataType="BOOL" Value="0"/>
+<DataValueMember Name="ProgMode" DataType="BOOL" Value="0"/>
+<DataValueMember Name="ProgValue" DataType="BOOL" Value="0"/>
+<DataValueMember Name="FaultFinalState" DataType="BOOL" Value="0"/>
+<DataValueMember Name="ProgramToFaultEn" DataType="BOOL" Value="0"/>
+<DataValueMember Name="NoLoadEn" DataType="BOOL" Value="0"/>
+<DataValueMember Name="FaultValueStateDuration" DataType="SINT" Radix="Decimal" Value="0"/>
+</StructureMember>
+<StructureMember Name="Pt09" DataType="AB:5000_DO_Diag_Channel:C:0">
+<DataValueMember Name="FaultMode" DataType="BOOL" Value="0"/>
+<DataValueMember Name="FaultValue" DataType="BOOL" Value="0"/>
+<DataValueMember Name="ProgMode" DataType="BOOL" Value="0"/>
+<DataValueMember Name="ProgValue" DataType="BOOL" Value="0"/>
+<DataValueMember Name="FaultFinalState" DataType="BOOL" Value="0"/>
+<DataValueMember Name="ProgramToFaultEn" DataType="BOOL" Value="0"/>
+<DataValueMember Name="NoLoadEn" DataType="BOOL" Value="0"/>
+<DataValueMember Name="FaultValueStateDuration" DataType="SINT" Radix="Decimal" Value="0"/>
+</StructureMember>
+<StructureMember Name="Pt10" DataType="AB:5000_DO_Diag_Channel:C:0">
+<DataValueMember Name="FaultMode" DataType="BOOL" Value="0"/>
+<DataValueMember Name="FaultValue" DataType="BOOL" Value="0"/>
+<DataValueMember Name="ProgMode" DataType="BOOL" Value="0"/>
+<DataValueMember Name="ProgValue" DataType="BOOL" Value="0"/>
+<DataValueMember Name="FaultFinalState" DataType="BOOL" Value="0"/>
+<DataValueMember Name="ProgramToFaultEn" DataType="BOOL" Value="0"/>
+<DataValueMember Name="NoLoadEn" DataType="BOOL" Value="0"/>
+<DataValueMember Name="FaultValueStateDuration" DataType="SINT" Radix="Decimal" Value="0"/>
+</StructureMember>
+<StructureMember Name="Pt11" DataType="AB:5000_DO_Diag_Channel:C:0">
+<DataValueMember Name="FaultMode" DataType="BOOL" Value="0"/>
+<DataValueMember Name="FaultValue" DataType="BOOL" Value="0"/>
+<DataValueMember Name="ProgMode" DataType="BOOL" Value="0"/>
+<DataValueMember Name="ProgValue" DataType="BOOL" Value="0"/>
+<DataValueMember Name="FaultFinalState" DataType="BOOL" Value="0"/>
+<DataValueMember Name="ProgramToFaultEn" DataType="BOOL" Value="0"/>
+<DataValueMember Name="NoLoadEn" DataType="BOOL" Value="0"/>
+<DataValueMember Name="FaultValueStateDuration" DataType="SINT" Radix="Decimal" Value="0"/>
+</StructureMember>
+<StructureMember Name="Pt12" DataType="AB:5000_DO_Diag_Channel:C:0">
+<DataValueMember Name="FaultMode" DataType="BOOL" Value="0"/>
+<DataValueMember Name="FaultValue" DataType="BOOL" Value="0"/>
+<DataValueMember Name="ProgMode" DataType="BOOL" Value="0"/>
+<DataValueMember Name="ProgValue" DataType="BOOL" Value="0"/>
+<DataValueMember Name="FaultFinalState" DataType="BOOL" Value="0"/>
+<DataValueMember Name="ProgramToFaultEn" DataType="BOOL" Value="0"/>
+<DataValueMember Name="NoLoadEn" DataType="BOOL" Value="0"/>
+<DataValueMember Name="FaultValueStateDuration" DataType="SINT" Radix="Decimal" Value="0"/>
+</StructureMember>
+<StructureMember Name="Pt13" DataType="AB:5000_DO_Diag_Channel:C:0">
+<DataValueMember Name="FaultMode" DataType="BOOL" Value="0"/>
+<DataValueMember Name="FaultValue" DataType="BOOL" Value="0"/>
+<DataValueMember Name="ProgMode" DataType="BOOL" Value="0"/>
+<DataValueMember Name="ProgValue" DataType="BOOL" Value="0"/>
+<DataValueMember Name="FaultFinalState" DataType="BOOL" Value="0"/>
+<DataValueMember Name="ProgramToFaultEn" DataType="BOOL" Value="0"/>
+<DataValueMember Name="NoLoadEn" DataType="BOOL" Value="0"/>
+<DataValueMember Name="FaultValueStateDuration" DataType="SINT" Radix="Decimal" Value="0"/>
+</StructureMember>
+<StructureMember Name="Pt14" DataType="AB:5000_DO_Diag_Channel:C:0">
+<DataValueMember Name="FaultMode" DataType="BOOL" Value="0"/>
+<DataValueMember Name="FaultValue" DataType="BOOL" Value="0"/>
+<DataValueMember Name="ProgMode" DataType="BOOL" Value="0"/>
+<DataValueMember Name="ProgValue" DataType="BOOL" Value="0"/>
+<DataValueMember Name="FaultFinalState" DataType="BOOL" Value="0"/>
+<DataValueMember Name="ProgramToFaultEn" DataType="BOOL" Value="0"/>
+<DataValueMember Name="NoLoadEn" DataType="BOOL" Value="0"/>
+<DataValueMember Name="FaultValueStateDuration" DataType="SINT" Radix="Decimal" Value="0"/>
+</StructureMember>
+<StructureMember Name="Pt15" DataType="AB:5000_DO_Diag_Channel:C:0">
+<DataValueMember Name="FaultMode" DataType="BOOL" Value="0"/>
+<DataValueMember Name="FaultValue" DataType="BOOL" Value="0"/>
+<DataValueMember Name="ProgMode" DataType="BOOL" Value="0"/>
+<DataValueMember Name="ProgValue" DataType="BOOL" Value="0"/>
+<DataValueMember Name="FaultFinalState" DataType="BOOL" Value="0"/>
+<DataValueMember Name="ProgramToFaultEn" DataType="BOOL" Value="0"/>
+<DataValueMember Name="NoLoadEn" DataType="BOOL" Value="0"/>
+<DataValueMember Name="FaultValueStateDuration" DataType="SINT" Radix="Decimal" Value="0"/>
+</StructureMember>
+</Structure>
+</Data>
+</ConfigTag>
+<Connections>
+<Connection Name="OutputData" RPI="5000" Type="StandardDataDriven" OutputSize="64" InputSize="68" EventID="0" ProgrammaticallySendEventTrigger="false" Priority="Scheduled" InputConnectionType="Unicast" InputProductionTrigger="Cyclic" ConnectionPath="20 04 24 a3 2c 64 2c 85"
+ InputTagSuffix="I" OutputTagSuffix="O">
+<InputTag ExternalAccess="Read/Write">
+<Data Format="Decorated">
+<Structure DataType="AB:5000_DO16_Diag:I:0">
+<DataValueMember Name="RunMode" DataType="BOOL" Value="1"/>
+<DataValueMember Name="ConnectionFaulted" DataType="BOOL" Value="0"/>
+<DataValueMember Name="DiagnosticActive" DataType="BOOL" Value="0"/>
+<DataValueMember Name="DiagnosticSequenceCount" DataType="SINT" Radix="Decimal" Value="0"/>
+<StructureMember Name="Pt00" DataType="CHANNEL_DO_DIAG:I:0">
+<DataValueMember Name="Data" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Fault" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Uncertain" DataType="BOOL" Value="0"/>
+<DataValueMember Name="NoLoad" DataType="BOOL" Value="0"/>
+<DataValueMember Name="ShortCircuit" DataType="BOOL" Value="0"/>
+</StructureMember>
+<StructureMember Name="Pt01" DataType="CHANNEL_DO_DIAG:I:0">
+<DataValueMember Name="Data" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Fault" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Uncertain" DataType="BOOL" Value="0"/>
+<DataValueMember Name="NoLoad" DataType="BOOL" Value="0"/>
+<DataValueMember Name="ShortCircuit" DataType="BOOL" Value="0"/>
+</StructureMember>
+<StructureMember Name="Pt02" DataType="CHANNEL_DO_DIAG:I:0">
+<DataValueMember Name="Data" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Fault" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Uncertain" DataType="BOOL" Value="0"/>
+<DataValueMember Name="NoLoad" DataType="BOOL" Value="0"/>
+<DataValueMember Name="ShortCircuit" DataType="BOOL" Value="0"/>
+</StructureMember>
+<StructureMember Name="Pt03" DataType="CHANNEL_DO_DIAG:I:0">
+<DataValueMember Name="Data" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Fault" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Uncertain" DataType="BOOL" Value="0"/>
+<DataValueMember Name="NoLoad" DataType="BOOL" Value="0"/>
+<DataValueMember Name="ShortCircuit" DataType="BOOL" Value="0"/>
+</StructureMember>
+<StructureMember Name="Pt04" DataType="CHANNEL_DO_DIAG:I:0">
+<DataValueMember Name="Data" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Fault" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Uncertain" DataType="BOOL" Value="0"/>
+<DataValueMember Name="NoLoad" DataType="BOOL" Value="0"/>
+<DataValueMember Name="ShortCircuit" DataType="BOOL" Value="0"/>
+</StructureMember>
+<StructureMember Name="Pt05" DataType="CHANNEL_DO_DIAG:I:0">
+<DataValueMember Name="Data" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Fault" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Uncertain" DataType="BOOL" Value="0"/>
+<DataValueMember Name="NoLoad" DataType="BOOL" Value="0"/>
+<DataValueMember Name="ShortCircuit" DataType="BOOL" Value="0"/>
+</StructureMember>
+<StructureMember Name="Pt06" DataType="CHANNEL_DO_DIAG:I:0">
+<DataValueMember Name="Data" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Fault" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Uncertain" DataType="BOOL" Value="0"/>
+<DataValueMember Name="NoLoad" DataType="BOOL" Value="0"/>
+<DataValueMember Name="ShortCircuit" DataType="BOOL" Value="0"/>
+</StructureMember>
+<StructureMember Name="Pt07" DataType="CHANNEL_DO_DIAG:I:0">
+<DataValueMember Name="Data" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Fault" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Uncertain" DataType="BOOL" Value="0"/>
+<DataValueMember Name="NoLoad" DataType="BOOL" Value="0"/>
+<DataValueMember Name="ShortCircuit" DataType="BOOL" Value="0"/>
+</StructureMember>
+<StructureMember Name="Pt08" DataType="CHANNEL_DO_DIAG:I:0">
+<DataValueMember Name="Data" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Fault" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Uncertain" DataType="BOOL" Value="0"/>
+<DataValueMember Name="NoLoad" DataType="BOOL" Value="0"/>
+<DataValueMember Name="ShortCircuit" DataType="BOOL" Value="0"/>
+</StructureMember>
+<StructureMember Name="Pt09" DataType="CHANNEL_DO_DIAG:I:0">
+<DataValueMember Name="Data" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Fault" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Uncertain" DataType="BOOL" Value="0"/>
+<DataValueMember Name="NoLoad" DataType="BOOL" Value="0"/>
+<DataValueMember Name="ShortCircuit" DataType="BOOL" Value="0"/>
+</StructureMember>
+<StructureMember Name="Pt10" DataType="CHANNEL_DO_DIAG:I:0">
+<DataValueMember Name="Data" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Fault" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Uncertain" DataType="BOOL" Value="0"/>
+<DataValueMember Name="NoLoad" DataType="BOOL" Value="0"/>
+<DataValueMember Name="ShortCircuit" DataType="BOOL" Value="0"/>
+</StructureMember>
+<StructureMember Name="Pt11" DataType="CHANNEL_DO_DIAG:I:0">
+<DataValueMember Name="Data" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Fault" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Uncertain" DataType="BOOL" Value="0"/>
+<DataValueMember Name="NoLoad" DataType="BOOL" Value="0"/>
+<DataValueMember Name="ShortCircuit" DataType="BOOL" Value="0"/>
+</StructureMember>
+<StructureMember Name="Pt12" DataType="CHANNEL_DO_DIAG:I:0">
+<DataValueMember Name="Data" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Fault" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Uncertain" DataType="BOOL" Value="0"/>
+<DataValueMember Name="NoLoad" DataType="BOOL" Value="0"/>
+<DataValueMember Name="ShortCircuit" DataType="BOOL" Value="0"/>
+</StructureMember>
+<StructureMember Name="Pt13" DataType="CHANNEL_DO_DIAG:I:0">
+<DataValueMember Name="Data" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Fault" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Uncertain" DataType="BOOL" Value="0"/>
+<DataValueMember Name="NoLoad" DataType="BOOL" Value="0"/>
+<DataValueMember Name="ShortCircuit" DataType="BOOL" Value="0"/>
+</StructureMember>
+<StructureMember Name="Pt14" DataType="CHANNEL_DO_DIAG:I:0">
+<DataValueMember Name="Data" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Fault" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Uncertain" DataType="BOOL" Value="0"/>
+<DataValueMember Name="NoLoad" DataType="BOOL" Value="0"/>
+<DataValueMember Name="ShortCircuit" DataType="BOOL" Value="0"/>
+</StructureMember>
+<StructureMember Name="Pt15" DataType="CHANNEL_DO_DIAG:I:0">
+<DataValueMember Name="Data" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Fault" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Uncertain" DataType="BOOL" Value="0"/>
+<DataValueMember Name="NoLoad" DataType="BOOL" Value="0"/>
+<DataValueMember Name="ShortCircuit" DataType="BOOL" Value="0"/>
+</StructureMember>
+</Structure>
+</Data>
+</InputTag>
+<OutputTag ExternalAccess="Read/Write">
+<Data Format="L5K">
+<![CDATA[[[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0]]]]>
+</Data>
+<Data Format="Decorated">
+<Structure DataType="AB:5000_DO16:O:0">
+<StructureMember Name="Pt00" DataType="CHANNEL_DO:O:0">
+<DataValueMember Name="Data" DataType="BOOL" Value="0"/>
+</StructureMember>
+<StructureMember Name="Pt01" DataType="CHANNEL_DO:O:0">
+<DataValueMember Name="Data" DataType="BOOL" Value="0"/>
+</StructureMember>
+<StructureMember Name="Pt02" DataType="CHANNEL_DO:O:0">
+<DataValueMember Name="Data" DataType="BOOL" Value="0"/>
+</StructureMember>
+<StructureMember Name="Pt03" DataType="CHANNEL_DO:O:0">
+<DataValueMember Name="Data" DataType="BOOL" Value="0"/>
+</StructureMember>
+<StructureMember Name="Pt04" DataType="CHANNEL_DO:O:0">
+<DataValueMember Name="Data" DataType="BOOL" Value="0"/>
+</StructureMember>
+<StructureMember Name="Pt05" DataType="CHANNEL_DO:O:0">
+<DataValueMember Name="Data" DataType="BOOL" Value="0"/>
+</StructureMember>
+<StructureMember Name="Pt06" DataType="CHANNEL_DO:O:0">
+<DataValueMember Name="Data" DataType="BOOL" Value="0"/>
+</StructureMember>
+<StructureMember Name="Pt07" DataType="CHANNEL_DO:O:0">
+<DataValueMember Name="Data" DataType="BOOL" Value="0"/>
+</StructureMember>
+<StructureMember Name="Pt08" DataType="CHANNEL_DO:O:0">
+<DataValueMember Name="Data" DataType="BOOL" Value="0"/>
+</StructureMember>
+<StructureMember Name="Pt09" DataType="CHANNEL_DO:O:0">
+<DataValueMember Name="Data" DataType="BOOL" Value="0"/>
+</StructureMember>
+<StructureMember Name="Pt10" DataType="CHANNEL_DO:O:0">
+<DataValueMember Name="Data" DataType="BOOL" Value="0"/>
+</StructureMember>
+<StructureMember Name="Pt11" DataType="CHANNEL_DO:O:0">
+<DataValueMember Name="Data" DataType="BOOL" Value="0"/>
+</StructureMember>
+<StructureMember Name="Pt12" DataType="CHANNEL_DO:O:0">
+<DataValueMember Name="Data" DataType="BOOL" Value="0"/>
+</StructureMember>
+<StructureMember Name="Pt13" DataType="CHANNEL_DO:O:0">
+<DataValueMember Name="Data" DataType="BOOL" Value="0"/>
+</StructureMember>
+<StructureMember Name="Pt14" DataType="CHANNEL_DO:O:0">
+<DataValueMember Name="Data" DataType="BOOL" Value="0"/>
+</StructureMember>
+<StructureMember Name="Pt15" DataType="CHANNEL_DO:O:0">
+<DataValueMember Name="Data" DataType="BOOL" Value="0"/>
+</StructureMember>
+</Structure>
+</Data>
+</OutputTag>
+</Connection>
+</Connections>
+</Communications>
+<ExtendedProperties>
+<public><Vendor>Rockwell Automation/Allen-Bradley</Vendor><CatNum>5094-OB16</CatNum><ConfigID>110</ConfigID><ADDAVersion>1</ADDAVersion></public>
+</ExtendedProperties>
+</Module>
+</Modules>
+</Controller>
+</RSLogix5000Content>

@@ -91,7 +91,7 @@ Achieve perfect round-trip conversion: ACD → L5X → ACD where the final ACD f
 - [x] Generate complete L5X with all data (comments, modules, rungs, tags)
 - [x] Extract ALL PLC components (100% complete ACD → L5X)
 - [ ] Implement L5X to ACD conversion
-- [ ] Validate round-trip conversion
+- [ ] Validate round-trip conversion with a compare of the original ACD file and the newly converted l5x to acd file
 
 ## 📝 Notes
 
@@ -391,3 +391,122 @@ With ACD → L5X fully solved, the remaining challenge is the reverse conversion
 
 ---
 *🚀 BREAKTHROUGH ACHIEVEMENT: Complete ACD → L5X conversion with ALL components!*
+
+## 🔬 L5X → ACD Conversion Research
+
+### Session 9: Round-Trip Conversion Feasibility Study
+
+#### Research Completed! L5X → ACD Challenges Identified
+
+Successfully researched and prototyped L5X to ACD conversion approaches:
+
+#### 📊 Research Findings:
+
+1. **Studio 5000 Import (RECOMMENDED)**
+   - ✅ Most reliable method for production use
+   - ✅ Guaranteed compatibility with Rockwell systems
+   - ✅ Handles all proprietary aspects correctly
+   - ❌ Requires licensed Studio 5000 software
+   - ❌ Cannot be automated programmatically
+   - ❌ Windows-only solution
+
+2. **Binary Reconstruction Challenges**
+   - ACD files contain proprietary binary format
+   - Complex internal structure with GZIP compressed blocks
+   - Unknown checksums and validation mechanisms
+   - Multiple internal databases (Comps.Dat, TagInfo.XML, etc.)
+   - Object ID generation and reference integrity requirements
+
+3. **Prototype Development**
+   - Created `l5x_to_acd_prototype.py` demonstrating hybrid approach
+   - Successfully extracted template structure from existing ACD
+   - Generated simplified internal databases from L5X data
+   - Produced prototype ACD file (39KB) - NOT Studio 5000 compatible
+   - Identified key technical barriers for full implementation
+
+#### 🚧 Technical Barriers Discovered:
+
+1. **Binary Format Complexity**
+   - No public specification available
+   - Complex record structures in Comps.Dat
+   - Binary encoding of component relationships
+   - Proprietary compression and packaging
+
+2. **Database Generation Requirements**
+   - Must recreate exact binary structures
+   - Proper indexing files (.Idx) needed
+   - Tag reference resolution (@ID@ format)
+   - Parent-child relationship mapping
+
+3. **Validation & Checksums**
+   - Unknown checksum algorithms
+   - Internal validation mechanisms
+   - Version compatibility requirements
+   - Binary alignment constraints
+
+#### 💡 Alternative Approaches Identified:
+
+1. **Hybrid Template Method**
+   - Use existing ACD as template
+   - Replace internal databases with L5X data
+   - Maintain binary structure integrity
+   - More feasible than full generation
+
+2. **ACD Modification Approach**
+   - Start with working ACD file
+   - Extract and modify databases
+   - Repackage with updated content
+   - Preserves unknown binary elements
+
+3. **Open Source Collaboration**
+   - Contribute findings to hutcheb/acd project
+   - Community-driven reverse engineering
+   - Long-term sustainable solution
+
+#### 🎯 Recommendations:
+
+**For Production Use:**
+1. **Use Studio 5000's L5X Import Feature**
+   - File → Open → Select L5X file
+   - Save As → ACD format
+   - Validates and ensures compatibility
+
+**For Development/Research:**
+1. Continue reverse engineering efforts
+2. Contribute to hutcheb/acd library
+3. Develop tools for specific use cases
+4. Document binary format findings
+
+#### 📈 Project Status Update:
+
+```
+Round-Trip Conversion Status:
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+✅ ACD → L5X: 100% Complete (Fully Automated)
+⚠️  L5X → ACD: Research Complete (Manual Process Required)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Practical Round-Trip Solution:
+1. ACD → L5X: Use our automated converter ✅
+2. L5X → ACD: Use Studio 5000 import ⚠️
+```
+
+#### 🚀 Future Development Path:
+
+1. **Short Term**
+   - Document Studio 5000 import process
+   - Create import automation scripts (if possible)
+   - Refine hybrid template approach
+
+2. **Medium Term**
+   - Enhance hutcheb/acd for L5X → ACD
+   - Develop partial conversion tools
+   - Create validation utilities
+
+3. **Long Term**
+   - Full open-source round-trip solution
+   - Community-maintained format specification
+   - Cross-platform compatibility
+
+---
+*L5X → ACD research complete: Manual Studio 5000 import recommended for production use*

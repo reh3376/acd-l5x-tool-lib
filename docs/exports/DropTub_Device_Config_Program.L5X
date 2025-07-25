@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<RSLogix5000Content SchemaRevision="1.0" SoftwareRevision="35.01" TargetName="DropTub_Device_Config" TargetType="Program" TargetClass="Standard" ContainsContext="true" ExportDate="Thu Jul 24 23:13:24 2025" ExportOptions="References NoRawData L5KData DecoratedData Context Dependencies ForceProtectedEncoding AllProjDocTrans">
+<Controller Use="Context" Name="PLC100_Mashing">
+<Programs Use="Context">
+<Program Use="Target" Name="DropTub_Device_Config" TestEdits="false" MainRoutineName="Main" Disabled="false" Class="Standard" UseAsFolder="false">
+<Tags/>
+<Routines>
+<Routine Name="Main" Type="RLL"/>
+</Routines>
+</Program>
+</Programs>
+</Controller>
+</RSLogix5000Content>

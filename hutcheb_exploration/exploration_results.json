@@ -1,0 +1,50 @@
+{
+  "BinaryVersionInfo.Dat": {
+    "status": "error",
+    "error": "requested invalid -26 amount of bytes"
+  },
+  "CanonicalSize.Dat": {
+    "status": "error",
+    "error": "/types/record/seq/0: at pos 2150: validation failed: not any of the list, got 512"
+  },
+  "Comments.Dat": {
+    "status": "success",
+    "records": 9386
+  },
+  "Comps.Dat": {
+    "status": "success",
+    "records": 23741
+  },
+  "FileInfo.Dat": {
+    "status": "error",
+    "error": "requested 1 bytes, but only 0 bytes available"
+  },
+  "Nameless.Dat": {
+    "status": "success",
+    "records": 3228
+  },
+  "OfflineChangelog.Dat": {
+    "status": "error",
+    "error": "requested 1 bytes, but only 0 bytes available"
+  },
+  "RegnLink.Dat": {
+    "status": "error",
+    "error": "/types/record/seq/0: at pos 2180: validation failed: not any of the list, got 0"
+  },
+  "SbRegion.Dat": {
+    "status": "success",
+    "records": 4103
+  },
+  "TextualVersionInfo.Dat": {
+    "status": "error",
+    "error": "requested 1 bytes, but only 0 bytes available"
+  },
+  "UndoFrames.Dat": {
+    "status": "error",
+    "error": "/types/record/seq/0: at pos 2138: validation failed: not any of the list, got 36608"
+  },
+  "XRefs.Dat": {
+    "status": "error",
+    "error": "/types/record/seq/0: at pos 2210: validation failed: not any of the list, got 0"
+  }
+}

@@ -1,0 +1,330 @@
+<?xml version="1.0" ?>
+<RSLogix5000Content SchemaRevision="1.0" SoftwareRevision="35.01" TargetName="PLC100_Mashing" TargetType="Controller" TargetRevision="35.01" TargetLastEdited="2025-01-01T00:00:00.000Z" ContainsContext="true">
+  <Controller Use="Context" Name="PLC100_Mashing" ProcessorType="1756-L85E" MajorRev="35" MinorRev="1" TimeSlice="20" ShareUnusedTimeSlice="1">
+    <RedundancyInfo Enabled="false" KeepTestEditsOnSwitchOver="false" IOMemoryPadPercentage="90" DataTablePadPercentage="50"/>
+    <Security Code="0" ChangesToDetect="16#ffff_ffff_ffff_ffff"/>
+    <SafetyInfo SafetySignature="16#0000_0000_0000_0000"/>
+    <DataTypes/>
+    <Modules/>
+    <AddOnInstructionDefinitions/>
+    <Tags/>
+    <Programs>
+      <Program Name="MainProgram" TestEdits="false" MainRoutineName="MainRoutine" Disabled="false" UseAsFolder="false">
+        <Tags/>
+        <Routines>
+          <Routine Name="MainRoutine" Type="RLL">
+            <RLLContent>
+              <Rung Number="0" Type="N">
+                <Text>EQU(Recipe_Edit.Step[3].Step_Type,9)ONS(Recipe_OS[281])COP(Type9_Blank_Step,Recipe_Edit.Step[3],1);</Text>
+              </Rung>
+              <Rung Number="1" Type="N">
+                <Text>EQU(1,1) OTL(Sts_YrInvalid) IRD() OTU(Sts_YrInvalid);</Text>
+              </Rung>
+              <Rung Number="2" Type="N">
+                <Text>XIC(MashCooler.BIT_Logic[0].2)EQU(MashCooler.Index,8)XIC(MashCooler.BIT_Alarm[0].1)OTE(MashCooler.BIT_Logic[0].16);</Text>
+              </Rung>
+              <Rung Number="3" Type="N">
+                <Text>JSR(_ONV_2026D_Cooker_Drop_Line_Drain,0);</Text>
+              </Rung>
+              <Rung Number="4" Type="N">
+                <Text>XIC(TCV_2015B.SWM_Enabled)MOV(TCV_2015B.SWM_CVPosition_Request,TCV_2015B.PID.SO);</Text>
+              </Rung>
+              <Rung Number="5" Type="N">
+                <Text>EQU(Recipe_Edit.Step[16].Step_Type,8)ONS(Recipe_OS[259])COP(Type8_Blank_Step,Recipe_Edit.Step[16],1);</Text>
+              </Rung>
+              <Rung Number="6" Type="N">
+                <Text>XIC(MashCooler.BIT_Logic[0].8)EQU(MashCooler.Index1,1)XIC(ONV_2042B.HMI_Closed)XIO(PMP_2030.Running)OTE(MashCooler.Shutdown_Step_OK[1]);</Text>
+              </Rung>
+              <Rung Number="7" Type="N">
+                <Text>EQU(Recipe_Edit.Step[18].Step_Type,5)ONS(Recipe_OS[156])COP(Type5_Blank_Step,Recipe_Edit.Step[18],1);</Text>
+              </Rung>
+              <Rung Number="8" Type="N">
+                <Text>[XIC(TCV_2015A.MODE_Auto) SUB(TCV_2015A_PID_CurrentSP,TCV_2015A.PID_Current.PVwt00[0],TCV_2015A_PV_OffSet) ,XIC(TCV_2015A.MODE_AS_Enabled) SUB(TCV_2015A_PID_CurrentSP,TCV_2015A.PID_Current.PVwt00[0],TCV_2015A_PV_OffSet) ];</Text>
+              </Rung>
+              <Rung Number="9" Type="N">
+                <Text>XIC(Cooker2.BIT_Logic[0].2)XIC(Cooker2.BIT_Logic[4].4)ADD(Cooker2.CALC_Logic[1],Cooker.SP_HMI[2],Cooker2.CALC_Logic[12]);</Text>
+              </Rung>
+              <Rung Number="10" Type="N">
+                <Text>XIC(Cooker1.BIT_Logic[0].2)EQU(Cooker1_Recipe.Step[Cooker1.Index].Step_Type,2)XIC(Cooker1_Recipe.Four_Grain_Mode)[OTE(Cooker1.BIT_Logic[4].12) ,XIO(Cooker2.BIT_Logic[4].17) XIO(Cooker2.BIT_Logic[4].19) OTE(Cooker1.BIT_Logic[4].17) ];</Text>
+              </Rung>
+              <Rung Number="11" Type="N">
+                <Text>MOV(0,DaysInYear[0])MOV(31,DaysInYear[1])MOV(59,DaysInYear[2])MOV(90,DaysInYear[3])MOV(120,DaysInYear[4])MOV(151,DaysInYear[5])MOV(181,DaysInYear[6])MOV(212,DaysInYear[7])MOV(243,DaysInYear[8])MOV(273,DaysInYear[9])MOV(304,DaysInYear[10])MOV(334,DaysInYear[11]);</Text>
+              </Rung>
+              <Rung Number="12" Type="N">
+                <Text>XIC(Cooker2.BIT_Logic[0].2)[XIO(Cooker2.BIT_Logic[2].6) ,XIC(Cooker2.BIT_Logic[0].4) ,GEQ(TIT_2025.Out_PV,Cooker2.SP_Logic[2]) ]XIC(Cooker2.TMR_Logic[6].DN)GEQ(TCV_2025A_01.SP_AS1,1)[SUB(TCV_2025A_01.SP_AS1,1,TCV_2025A_01.SP_AS1) ,LES(TCV_2025A_01.HMI_FeedbackPosition,5) MOV(0,TCV_2025A_01.SP_AS1) ,GEQ(TIT_2025.Out_PV,Cooker2_Recipe.Step[Cooker2.Index].Heat_Temp_SP) MOV(0,TCV_2025A_01.SP_AS1) ];</Text>
+              </Rung>
+              <Rung Number="13" Type="N">
+                <Text>XIC(PID.SWM)XIC(HMI_PID_SWM)[XIO(Config_Drive_Overspeed) CPT(PID.SO,HMI_SP_PID_SO) ,XIC(Config_Drive_Overspeed) CPT(PID.SO,HMI_SP_PID_SO/2) ];</Text>
+              </Rung>
+              <Rung Number="14" Type="N">
+                <Text>XIO(TCV_2015A.Logic_BITS01[27])OTE(TCV_2015A.AS_Enabled);</Text>
+              </Rung>
+              <Rung Number="15" Type="N">
+                <Text>COP(Wrk_NullString,Wrk_DateString,1);</Text>
+              </Rung>
+              <Rung Number="16" Type="N">
+                <Text>PF525_VFD_E_ENET(CONV_150,&amp;89ce48c0:I,&amp;89ce48c0:O,__Map:CONV_150,1,Milling_1.BIT_Logic[1].0,Milling_1.BIT_Logic[1].0,Milling_1.BIT_Logic[1].1,Milling_1.BIT_Logic[1].2,PF525_FaultCodeList);</Text>
+              </Rung>
+              <Rung Number="17" Type="N">
+                <Text>GRT(TCV_2041.PID.SO,0)OTE(TCV_2041.SO_Value_Set);</Text>
+              </Rung>
+              <Rung Number="18" Type="N">
+                <Text>XIC(CONV_140.Running)XIC(SV_1552.HMI_Opened)XIC(ONV_2022.HMI_Opened)OTE(Cooker2.STATUS_BIT_HMI[0].22);</Text>
+              </Rung>
+              <Rung Number="19" Type="N">
+                <Text>XIC(Cooker1.BIT_Logic[0].4)OTE(Produced_To_Still.Word[5].21);</Text>
+              </Rung>
+              <Rung Number="20" Type="N">
+                <Text>Discrete_Input(LS_150,DI_ECP101_A_2.Pt15.Data,Milling_1.BIT_Logic[1].0,1,0);</Text>
+              </Rung>
+              <Rung Number="21" Type="N">
+                <Text>[RTOS(TCV_2015A.PID.DATA[1],TCV_2015A.PID_Data_RTOS[1]) ,CONCAT(TCV_2015A.PID_Data_Descriptions[1],TCV_2015A.PID_Data_RTOS[1],TCV_2015A.PID_Data_Review[1]) ];</Text>
+              </Rung>
+              <Rung Number="22" Type="N">
+                <Text>Discrete_Valve(ONV_2051,DO_ECP100_B_2.Pt11.Data,DI_ECP100_A_2.Pt22.Data,DI_ECP100_A_2.Pt23.Data,DropTub.BIT_Logic[1].0,DropTub.BIT_Logic[1].1,DropTub.BIT_Logic[1].2);</Text>
+              </Rung>
+              <Rung Number="23" Type="N">
+                <Text>XIC(TCV_2025B.MODE_AS_Enabled)[XIC(TCV_2025B.AS1_Request) OTE(TCV_2025B.AS1_Enabled) ,XIC(TCV_2025B.AS2_Request) OTE(TCV_2025B.AS2_Enabled) ,XIC(TCV_2025B.AS3_Request) OTE(TCV_2025B.AS3_Enabled) ,XIC(TCV_2025B.AS4_Request) OTE(TCV_2025B.AS4_Enabled) ];</Text>
+              </Rung>
+              <Rung Number="24" Type="N">
+                <Text>MOV(TCV_2040_PID_CurrentSP,TCV_2040.Logic_REAL01[0]);</Text>
+              </Rung>
+              <Rung Number="25" Type="N">
+                <Text>XIO(Cooker2.BIT_Logic[0].27)XIO(Cooker2.BIT_Logic[0].28)EQU(0,Cooker2.Index3)TON(Cooker2.TMR_Logic[48],?,?);</Text>
+              </Rung>
+              <Rung Number="26" Type="N">
+                <Text>[XIC(Milling_1.TMR_Logic[29].DN) ,XIO(Milling_1.BIT_Logic[0].2) XIC(Milling_1.Index4.15) ][OTU(Milling_1.BIT_Logic[0].20) OTU(Milling_1.BIT_Logic[0].21) OTU(Milling_1.BIT_Logic[0].22) ,OTU(Milling_1.BIT_Logic[1].3) OTU(Milling_1.BIT_Logic[1].8) OTU(Milling_1.BIT_Logic[1].13) OTU(Milling_1.BIT_Logic[1].18) OTU(Milling_1.BIT_Logic[1].23) ,OTU(Milling_1.BIT_Logic[1].4) OTU(Milling_1.BIT_Logic[1].9) OTU(Milling_1.BIT_Logic[1].14) OTU(Milling_1.BIT_Logic[1].19) OTU(Milling_1.BIT_Logic[1].24) ,OTU(Milling_1.BIT_Logic[1].5) OTU(Milling_1.BIT_Logic[1].10) OTU(Milling_1.BIT_Logic[1].15) OTU(Milling_1.BIT_Logic[1].20) OTU(Milling_1.BIT_Logic[1].25) ,OTU(Milling_1.BIT_Logic[1].6) OTU(Milling_1.BIT_Logic[1].11) OTU(Milling_1.BIT_Logic[1].16) OTU(Milling_1.BIT_Logic[1].21) OTU(Milling_1.BIT_Logic[1].26) ,OTU(Milling_1.BIT_Logic[1].7) OTU(Milling_1.BIT_Logic[1].12) OTU(Milling_1.BIT_Logic[1].17) OTU(Milling_1.BIT_Logic[1].22) OTU(Milling_1.BIT_Logic[1].27) ,OTU(Milling_1.BIT_Logic[0].25) OTU(Milling_1.BIT_Logic[0].26) OTU(Milling_1.BIT_Logic[0].27) OTU(Milling_1.BIT_Logic[0].28) OTU(Milling_1.BIT_Logic[0].10) ,OTU(Milling_1.BIT_Logic[2].22) OTU(Milling_1.BIT_Logic[2].23) OTU(Milling_1.BIT_Logic[2].24) OTU(Milling_1.BIT_Logic[2].31) ];</Text>
+              </Rung>
+              <Rung Number="27" Type="N">
+                <Text>[CPT(Position_Alm_UpperLimit,HMI_CommandedPosition+(Config_Analog_PositionMaxScaled*0.1)) ,CPT(Position_Alm_LowerLimit,HMI_CommandedPosition-(Config_Analog_PositionMaxScaled*0.1)) ];</Text>
+              </Rung>
+              <Rung Number="28" Type="N">
+                <Text>[XIO(Config_Drive_Overspeed) MOV(PID.OUT,PID_Out) ,XIC(Config_Drive_Overspeed) CPT(PID_Out,PID.OUT*2) ];</Text>
+              </Rung>
+              <Rung Number="29" Type="N">
+                <Text>XIC(Cooker1.BIT_Logic[0].2)XIC(Cooker1.BIT_Logic[3].9)ONS(Cooker1.BIT_ONS[21])[EQU(Milling_1.SP_HMI[40],4) MOV(WT_125.Out_PV,Cooker1.CALC_Logic[17]) ,EQU(Milling_1.SP_HMI[41],4) MOV(WT_135.Out_PV,Cooker1.CALC_Logic[17]) ,EQU(Milling_1.SP_HMI[42],4) MOV(WT_145.Out_PV,Cooker1.CALC_Logic[17]) ,OTU(Cooker1.BIT_Logic[0].14) ];</Text>
+              </Rung>
+              <Rung Number="30" Type="N">
+                <Text>MOV(Cooker.CTR_Logic[0].ACC,Cooker.STATUS_HMI[0]);</Text>
+              </Rung>
+              <Rung Number="31" Type="N">
+                <Text>JSR(_03_Control_Logic,0);</Text>
+              </Rung>
+              <Rung Number="32" Type="N">
+                <Text>XIC(PID_En)XIC(PF755_Out.LogicCommand_Start)XIC(PF755_In.DriveStatus_Active)XIC(PID_TMR_On.DN)[CPT(PID.SP,SP_PID_SP) ,PID(PID,SP_PID_PV,0,PID_CV,0,0,0) ];</Text>
+              </Rung>
+              <Rung Number="33" Type="N">
+                <Text>[XIC(Cooker1.BIT_Logic[0].29) XIC(Cooker1.BIT_HMI[2].0) ,XIO(Cooker1.BIT_Logic[0].27) XIO(Cooker1.BIT_Logic[0].28) XIO(Cooker1.TMR_Logic[14].TT) ,XIC(Cooker1.TMR_Logic[14].DN) ]OTU(Cooker1.BIT_HMI[2].0);</Text>
+              </Rung>
+              <Rung Number="34" Type="N">
+                <Text>EQU(Recipe_Edit.Step[6].Step_Type,2)ONS(Recipe_OS[39])COP(Type2_Blank_Step,Recipe_Edit.Step[6],1);</Text>
+              </Rung>
+              <Rung Number="35" Type="N">
+                <Text>CPT(Wrk_Digit.DATA[0],((Ref_DT.uSec / 1000) MOD 10) + 48);</Text>
+              </Rung>
+              <Rung Number="36" Type="N">
+                <Text>JSR(_03_Control_Logic,0);</Text>
+              </Rung>
+              <Rung Number="37" Type="N">
+                <Text>OTE(VB_145.Energize_Permissive);</Text>
+              </Rung>
+              <Rung Number="38" Type="N">
+                <Text>[MOV(Cooker.SP_HMI[11],Cooker2.TMR_Logic[11].PRE) ,MOV(Cooker.SP_HMI[10],Cooker2.TMR_Logic[9].PRE) ,MOV(Cooker.SP_HMI[12],Cooker2.TMR_Logic[10].PRE) ,MOV(Cooker.SP_HMI[13],Cooker2.TMR_Logic[23].PRE) ,MOV(Cooker.SP_HMI[14],Cooker2.TMR_Logic[25].PRE) ];</Text>
+              </Rung>
+              <Rung Number="39" Type="N">
+                <Text>LES(WT_145.Out_PV,Milling_1.SP_HMI[49])XIO(Milling_1.BIT_Logic[2].17)OTL(Milling_1.BIT_Logic[2].14);</Text>
+              </Rung>
+              <Rung Number="40" Type="N">
+                <Text>Discrete_Device(TMR_010,DO_ECP102_B_4.Pt00.Data,0,1,Receiving.BIT_Logic[1].0,0,0);</Text>
+              </Rung>
+              <Rung Number="41" Type="N">
+                <Text>XIC(PID.SWM)XIC(HMI_PID_SWM)CPT(PID.SO,HMI_SP_PID_SO);</Text>
+              </Rung>
+              <Rung Number="42" Type="N">
+                <Text>JSR(_ONV_2030C_PMP_2030_SUCTION,0);</Text>
+              </Rung>
+              <Rung Number="43" Type="N">
+                <Text>XIC(Config_Drive_Overspeed)MOV(12000,PID.MAXCV);</Text>
+              </Rung>
+              <Rung Number="44" Type="N">
+                <Text>[XIO(TCV_2015A.CONF_NO) [GRT(TCV_2015A_Current_CVout,TCV_2015A.PID.MINO) [OTL(TCV_2015A.OPENED) ,OTU(TCV_2015A.CLOSED) ] ,LEQ(TCV_2015A_Current_CVout,TCV_2015A.PID.MINO) [OTU(TCV_2015A.OPENED) ,OTL(TCV_2015A.CLOSED) ] ,XIO(TCV_2015A.ALM[3]) TON(TCV_2015A.TMR_Alm[3],?,?) ,XIO(TCV_2015A.ALM[4]) TON(TCV_2015A.TMR_Alm[4],?,?) ,XIO(TCV_2015A.ALM[10]) TON(TCV_2015A.TMR_Alm[10],?,?) ] ,XIC(TCV_2015A.CONF_NO) [LEQ(TCV_2015A_Current_CVfbak,TCV_2015A.PID.MAXO) [ONS(TCV_2015A.ONS.23) OTL(TCV_2015A.OPENED) ,OTU(TCV_2015A.CLOSED) ] ,GRT(TCV_2015A_Current_CVfbak,TCV_2015A.PID.MAXO) [OTU(TCV_2015A.OPENED) ,ONS(TCV_2015A.ONS.24) OTL(TCV_2015A.CLOSED) ] ,XIO(TCV_2015A.Logic_BITS01[26]) TON(TCV_2015A.TMR_Alm[3],?,?) ,XIO(TCV_2015A.ALM[4]) TON(TCV_2015A.TMR_Alm[4],?,?) ,XIO(TCV_2015A.ALM[10]) TON(TCV_2015A.TMR_Alm[10],?,?) ] ];</Text>
+              </Rung>
+              <Rung Number="45" Type="N">
+                <Text>XIC(TCV_2005.LOAD_Conf_Request)XIO(TCV_2005.LOADIN_Complete)XIC(TCV_2005.AS_Enabled)[TON(TCV_2005.PID_Conf_Load_Timer[0],?,?) ,XIC(TCV_2005.MODE_Auto) OTL(TCV_2005.AS5_Enabled) ];</Text>
+              </Rung>
+              <Rung Number="46" Type="N">
+                <Text>Discrete_Valve(SV_0301,DO_ECP102_B_1.Pt02.Data,DI_ECP102_A_1.Pt14.Data,DI_ECP102_A_1.Pt15.Data,Milling_1.BIT_Logic[1].0,Milling_1.BIT_Logic[1].1,Milling_1.BIT_Logic[1].2);</Text>
+              </Rung>
+              <Rung Number="47" Type="N">
+                <Text>XIC(Cooker1_AVG_cookTime_MAVEuseWeights)OTE(__lA8ECDB93434739C1)ATI();</Text>
+              </Rung>
+              <Rung Number="48" Type="N">
+                <Text>MOV(TCV_2040.PID_SP_Request,TCV_2040_PID_CurrentSP);</Text>
+              </Rung>
+              <Rung Number="49" Type="N">
+                <Text>Discrete_Valve(ONV_2018A,DO_ECP100_B_1.Pt14.Data,DI_ECP100_A_1.Pt28.Data,DI_ECP100_A_1.Pt29.Data,Cooker1.BIT_Logic[1].0,Cooker1.BIT_Logic[1].1,Cooker1.BIT_Logic[1].2);</Text>
+              </Rung>
+              <Rung Number="50" Type="N">
+                <Text>XIC(MashCooler_Steam.BIT_Logic[0].8)EQU(MashCooler_Steam.Index1,3)XIC(ONV_2042A.HMI_Closed)OTE(MashCooler_Steam.Shutdown_Step_OK[3]);</Text>
+              </Rung>
+              <Rung Number="51" Type="N">
+                <Text>XIO(TCV_2025A.ALM[0])CMP(TCV_2025A_Current_CVout - TCV_2025A_Current_CVfbak &gt; TCV_2025A.ALM_SP[0] || TCV_2025A_Current_CVout - TCV_2025A_Current_CVfbak &lt; TCV_2025A.ALM_SP[1])TON(TCV_2025A.TMR_Alm[0],?,?);</Text>
+              </Rung>
+              <Rung Number="52" Type="N">
+                <Text>XIO(Emulation_Mode)XIC(Config_Position_Feedback)LIM(Position_Alm_UpperLimit,AI_Position_Feedback,Position_Alm_LowerLimit)TON(TMR_Alm,?,?);</Text>
+              </Rung>
+              <Rung Number="53" Type="N">
+                <Text>XIC(Cooker2.BIT_Logic[0].2)EQU(Cooker2_Recipe.Step[Cooker2.Index].Step_Type,9)XIO(Cooker2_Recipe.Four_Grain_Mode)OTE(Cooker2.BIT_Logic[4].9);</Text>
+              </Rung>
+              <Rung Number="54" Type="N">
+                <Text>XIO(Recipe_Edit.Step[15].Step_Valid)COP(Blank_Step,Recipe_Edit.Step[15],1);</Text>
+              </Rung>
+              <Rung Number="55" Type="N">
+                <Text>XIC(TCV_2005.LOAD_Conf_Request)XIO(TCV_2005.AS_Enabled)OTE(TCV_2005.ALM[11]);</Text>
+              </Rung>
+              <Rung Number="56" Type="N">
+                <Text>[XIC(TCV_2044.MODE_AS_Enabled) ,XIC(TCV_2044.MODE_Index[5]) ,XIC(TCV_2044.STATE_BOOLs[2]) ]OTE(TCV_2044_LogicBOOL[0]);</Text>
+              </Rung>
+              <Rung Number="57" Type="N">
+                <Text>XIC(MashCooler.BIT_Logic[0].2)EQU(MashCooler.Index,15)OTE(MashCooler.Startup_Step_OK[15]);</Text>
+              </Rung>
+              <Rung Number="58" Type="N">
+                <Text>MOV(&amp;bc4364e7:I1.Process_variables_Totalizer_value_2,MashCooler.SP_Logic[48]);</Text>
+              </Rung>
+              <Rung Number="59" Type="N">
+                <Text>XIC(Cooker2.BIT_Logic[0].2)XIC(Cooker2.BIT_Logic[3].6)XIC(Cooker2_Recipe.Step[Cooker2.Index].Cool_Enabled)MOV(TIT_2025.Out_PV,Cooker2_Recipe.Step[Cooker2.Index].Step_Ing_1_Actual);</Text>
+              </Rung>
+              <Rung Number="60" Type="N">
+                <Text>XIO(Milling_1.BIT_Logic[2].19)XIC(SV_1151.HMI_Opened)XIC(SV_1152.HMI_Opened)[XIO(Milling_1.TMR_Logic[15].DN) TON(Milling_1.TMR_Logic[14],?,?) ,XIC(Milling_1.TMR_Logic[14].DN) TON(Milling_1.TMR_Logic[15],?,?) ];</Text>
+              </Rung>
+              <Rung Number="61" Type="N">
+                <Text>XIO(Emulation_Mode)XIC(Config_Energized_Feedback)[XIC(Energized_ALM) ,XIC(Deenergized_ALM) ]TON(TMR_Alm,?,?);</Text>
+              </Rung>
+              <Rung Number="62" Type="N">
+                <Text>EVENT(_02_Milling);</Text>
+              </Rung>
+              <Rung Number="63" Type="N">
+                <Text>XIC(Milling_1.BIT_Logic[0].2)EQU(Milling_1.Index,13)XIC(CONV_050.Running)GEQ(CONV_050.HMI_FeedbackSpeed,CONV_050.SP_AS1)OTE(Milling_1.Startup_Step_OK[13]);</Text>
+              </Rung>
+              <Rung Number="64" Type="N">
+                <Text>[RTOS(TCV_2025B.PID.DATA[8],TCV_2025B.PID_Data_RTOS[8]) ,CONCAT(TCV_2025B.PID_Data_Descriptions[8],TCV_2025B.PID_Data_RTOS[8],TCV_2025B.PID_Data_Review[8]) ];</Text>
+              </Rung>
+              <Rung Number="65" Type="N">
+                <Text>XIC(In_CommLoss)OTE(Out_CommLoss);</Text>
+              </Rung>
+              <Rung Number="66" Type="N">
+                <Text>[[XIO(Cooker2.BIT_Logic[0].16) XIO(Cooker2_Vent_Drain_heatStepPermissive) ,XIO(Cooker2_Vent_Drain_heatStepPermissive) ,XIC(Cooker2_Vent_Drain_coolStepPermissive) XIO(Cooker2_Vent_Drain_heatStepPermissive) ] ,XIC(ONV_2026B.HMI_MM) XIO(ONV_2026B.HMI_MO) ]OTE(ONV_2026B.Energize_Permissive);</Text>
+              </Rung>
+              <Rung Number="67" Type="N">
+                <Text>[XIC(Cooker1_Vent_Drain_coolStepPermissive) GRT(TIT_2015.Out_PV,140) ,XIO(Cooker1_Vent_Drain_heatStepPermissive) ,XIO(Cooker1.BIT_Logic[0].27) ,XIC(ONV_2015D.HMI_MM) XIO(ONV_2015D.HMI_MO) ]OTE(ONV_2015D.Energize_Permissive);</Text>
+              </Rung>
+              <Rung Number="68" Type="N">
+                <Text>XIO(MashCooler.BIT_Logic[0].13)[XIC(MashCooler.BIT_Logic[0].2) [XIC(Placeholders[0].4) ,XIO(MashCooler.BIT_Logic[0].1) ,XIC(MashCooler.BIT_HMI[0].6) ] ,XIC(MashCooler.BIT_Logic[0].8) ]XIO(MashCooler.BIT_Logic[0].3)[OTE(MashCooler.BIT_Logic[0].8) ,MOV(0,MashCooler.Index) ,OTU(MashCooler.BIT_HMI[0].6) ,ONS(MashCooler.BIT_ONS[3]) [MOV(1,MashCooler.Index1) ,OTU(MashCooler.BIT_HMI[0].3) ,OTU(MashCooler.BIT_HMI[0].4) ] ];</Text>
+              </Rung>
+              <Rung Number="69" Type="N">
+                <Text>OTE(SV_1552.Energize_Permissive);</Text>
+              </Rung>
+              <Rung Number="70" Type="N">
+                <Text>[XIC(ALM) ,XIO(Emulation_Mode) XIC(PF755_In.DriveStatus_Faulted) ]XIC(Config_MO_ALM_Reset)OTU(HMI_MO);</Text>
+              </Rung>
+              <Rung Number="71" Type="N">
+                <Text>[XIC(Config_HMI_Units_SpeedFeedback) CPT(HMI_CommandSpeed,PF755_Out.Reference) ,XIO(Config_HMI_Units_SpeedFeedback) CPT(HMI_CommandSpeed,PF755_Out.Reference*1.66667) ];</Text>
+              </Rung>
+              <Rung Number="72" Type="N">
+                <Text>XIC(TCV_2025A.MODE_Index[1])[OTU(TCV_2025A.PID_Auto_Request) ,OTE(TCV_2025A.MODE_Auto) ];</Text>
+              </Rung>
+              <Rung Number="73" Type="N">
+                <Text>[XIC(TCV_2015B.ALM_ACK[10]) ,XIC(Cooker1.BIT_HMI[1].0) ,XIC(TCV_2015B.ALM_ACK[31]) ][OTU(TCV_2015B.ALM[10]) ,MOV('Condition to create this alarm still exist.  ALM[10] Will not reset',TCV_2015B.Logic_WORDS01[10]) ];</Text>
+              </Rung>
+              <Rung Number="74" Type="N">
+                <Text>XIC(Cooker1.BIT_Logic[0].2)XIC(Cooker1.BIT_Logic[3].4)SUB(Cooker1.CALC_Logic[1],Cooker1.CALC_Logic[10],Cooker1.CALC_Logic[13]);</Text>
+              </Rung>
+              <Rung Number="75" Type="N">
+                <Text>EQU(Recipe_Edit.Step[35].Step_Type,4)ONS(Recipe_OS[138])COP(Type4_Blank_Step,Recipe_Edit.Step[35],1);</Text>
+              </Rung>
+              <Rung Number="76" Type="N">
+                <Text>XIC(Cooker1.BIT_Logic[0].2)XIC(Cooker1.BIT_Logic[3].9)GEQ(Cooker1.CALC_Logic[14],Cooker1.CALC_Logic[1])OTL(Cooker1.BIT_Logic[0].14);</Text>
+              </Rung>
+              <Rung Number="77" Type="N">
+                <Text>XIO(TCV_2041.Logic_BITS01[27])XIC(TCV_2041.AS_Enable_Request)XIC(TCV_2041.AS_Mode_Enabled)XIO(TCV_2041.MODE_Disabled)[ONS(TCV_2041.ONS.5) OTL(TCV_2041.MODE_Index[4]) ,OTU(TCV_2041.MODE_Index[0]) OTU(TCV_2041.MODE_Index[1]) OTU(TCV_2041.MODE_Index[2]) OTU(TCV_2041.MODE_Index[3]) ];</Text>
+              </Rung>
+              <Rung Number="78" Type="N">
+                <Text>XIC(Milling_1.BIT_Logic[0].0)XIO(Milling_1.BIT_Logic[0].2)XIO(Milling_1.BIT_Logic[0].8)OTE(Milling_1.BIT_HMI[0].15);</Text>
+              </Rung>
+              <Rung Number="79" Type="N">
+                <Text>EQU(Recipe_Edit.Step[8].Step_Type,7)ONS(Recipe_OS[216])COP(Type7_Blank_Step,Recipe_Edit.Step[8],1);</Text>
+              </Rung>
+              <Rung Number="80" Type="N">
+                <Text>XIC(TCV_2015B.TMR_Alm[1].DN)[LEQ(TCV_2015B_Current_CVout,TCV_2015B.PID.MINO) ,XIC(TCV_2015B.CONF_NO) GEQ(TCV_2015B_Current_CVout,TCV_2015B.PID.MAXO) ]XIO(TCV_2015B.CLOSED)ONS(TCV_2015B.ONS.18)OTE(TCV_2015B.ALM[4]);</Text>
+              </Rung>
+              <Rung Number="81" Type="N">
+                <Text>OTE(ONV_2042A.Energize_Permissive);</Text>
+              </Rung>
+              <Rung Number="82" Type="N">
+                <Text>[RTOS(TCV_2025A.PID.DATA[4],TCV_2025A.PID_Data_RTOS[4]) ,CONCAT(TCV_2025A.PID_Data_Descriptions[4],TCV_2025A.PID_Data_RTOS[4],TCV_2025A.PID_Data_Review[4]) ];</Text>
+              </Rung>
+              <Rung Number="83" Type="N">
+                <Text>XIC(TCV_2015A.PID_Conf_Load_Timer[3].DN)[ONS(TCV_2015A.ONS.8) [MOV(TCV_2015A.PID_Param.MAXS[TCV_2015A.PID_Param.INDEX],TCV_2015A_PID_CurrentMaxs) MOV(TCV_2015A.PID_Param.MINS[TCV_2015A.PID_Param.INDEX],TCV_2015A_PID_CurrentMins) ,MOV(TCV_2015A.PID_Param.MAXO[TCV_2015A.PID_Param.INDEX],TCV_2015A_PID_CurrentMaxo) MOV(TCV_2015A.PID_Param.MINO[TCV_2015A.PID_Param.INDEX],TCV_2015A_PID_CurrentMino) ,MOV(TCV_2015A.PID_Param.PVH[TCV_2015A.PID_Param.INDEX],TCV_2015A_PID_CurrentPVH) MOV(TCV_2015A.PID_Param.PVL[TCV_2015A.PID_Param.INDEX],TCV_2015A_PID_CurrentPVL) ,MOV(TCV_2015A.PID_Param.PVDB[TCV_2015A.PID_Param.INDEX],TCV_2015A_PID_CurrentPVDB) MOV(TCV_2015A.PID_Param.MAXI[TCV_2015A.PID_Param.INDEX],TCV_2015A_PID_CurrentMaxi) ] ,TON(TCV_2015A.PID_Conf_Load_Timer[4],?,?) ];</Text>
+              </Rung>
+              <Rung Number="84" Type="N">
+                <Text>Analog_Input(TE_0152,AI_ECP102_C_1.Ch01.Data,Receiving.BIT_Logic[1].0,Receiving.BIT_Logic[1].2);</Text>
+              </Rung>
+              <Rung Number="85" Type="N">
+                <Text>[XIC(XFV065_PIDAuto_Perm02) ,XIC(XFV_065_AS1_EnableRQST) ]OTE(XFV_065.AS1_Enable);</Text>
+              </Rung>
+              <Rung Number="86" Type="N">
+                <Text>XIO(TCV_2015A.Logic_BITS01[27])OTE(TCV_2015A.MM_Enabled);</Text>
+              </Rung>
+              <Rung Number="87" Type="N">
+                <Text>[XIC(S:FS) ,[XIC(DropTub.TMR_Logic[49].DN) ,XIO(DropTub.BIT_HMI[0].8) XIC(DropTub.BIT_HMI[9].31) ] ONS(DropTub.BIT_ONS[5]) ][OTU(DropTub.BIT_HMI[0].0) ,OTU(DropTub.BIT_HMI[0].1) ,OTU(DropTub.BIT_HMI[0].2) ,OTU(DropTub.BIT_HMI[0].3) ,OTU(DropTub.BIT_HMI[0].4) ,OTU(DropTub.BIT_HMI[0].5) ,OTU(DropTub.BIT_HMI[0].6) ,OTU(DropTub.BIT_HMI[0].7) ,OTU(DropTub.BIT_HMI[0].8) ,MOV(0,DropTub.Index) ,MOV(0,DropTub.Index1) ];</Text>
+              </Rung>
+              <Rung Number="88" Type="N">
+                <Text>MOV(LIT_2007.Out_PV,Produced_To_Still.Real[1]);</Text>
+              </Rung>
+              <Rung Number="89" Type="N">
+                <Text>EQU(Recipe_Edit.Step[30].Step_Type,8)ONS(Recipe_OS[273])COP(Type8_Blank_Step,Recipe_Edit.Step[30],1);</Text>
+              </Rung>
+              <Rung Number="90" Type="N">
+                <Text>[XIC(TCV_2015A.PID_MM_Request) ,XIC(TCV_2015A.AS_Enable_Request) ,XIC(TCV_2015A.PID_SWM_Request) ]XIC(TCV_2015A.MODE_Disabled)OTE(TCV_2015A.ALM[6]);</Text>
+              </Rung>
+              <Rung Number="91" Type="N">
+                <Text>XIC(Cooker1.BIT_Logic[2].23)[XIC(SV_1551.ALM) ,XIC(ONV_2019.ALM) ,XIC(CONV_155.ALM) ,XIC(CONV_140.ALM) ]OTE(Cooker1.BIT_Logic[0].19);</Text>
+              </Rung>
+              <Rung Number="92" Type="N">
+                <Text>[XIC(TCV_2015B.PID_MM_Request) ,XIC(TCV_2015B.AS_Enable_Request) ,XIC(TCV_2015B.PID_SWM_Request) ]XIC(TCV_2015B.MODE_Disabled)OTE(TCV_2015B.ALM[6]);</Text>
+              </Rung>
+              <Rung Number="93" Type="N">
+                <Text>XIO(Recipe_Edit.Step[10].Step_Valid)COP(Blank_Step,Recipe_Edit.Step[10],1);</Text>
+              </Rung>
+              <Rung Number="94" Type="N">
+                <Text>XIC(Cooker1.BIT_Logic[0].2)XIC(Cooker1.BIT_Logic[4].1)XIC(Cooker1.BIT_Logic[5].10)XIC(Cooker1.BIT_Logic[5].9)OTU(Cooker1.BIT_Logic[5].10);</Text>
+              </Rung>
+              <Rung Number="95" Type="N">
+                <Text>MOV(Config_TMR_On_Preset_ms,TMR_On.PRE)MOV(Config_TMR_Off_Preset_ms,TMR_Off.PRE);</Text>
+              </Rung>
+              <Rung Number="96" Type="N">
+                <Text>XIO(Emulation_Enable)OTU(Config_Emulation_Mode);</Text>
+              </Rung>
+              <Rung Number="97" Type="N">
+                <Text>XIO(HMI_MM)XIO(PID_En)XIC(AS5_Enable)[XIC(Config_HMI_Units_SpeedFeedback) CPT(PF525_Out.FreqCommand,SP_AS5*12000/120) ,XIO(Config_HMI_Units_SpeedFeedback) CPT(PF525_Out.FreqCommand,SP_AS5*12000/200) ];</Text>
+              </Rung>
+              <Rung Number="98" Type="N">
+                <Text>[RTOS(TCV_2040.PID.DATA[12],TCV_2040.PID_Data_RTOS[12]) ,CONCAT(TCV_2040.PID_Data_Descriptions[12],TCV_2040.PID_Data_RTOS[12],TCV_2040.PID_Data_Review[12]) ];</Text>
+              </Rung>
+              <Rung Number="99" Type="N">
+                <Text>LES(Recipe.CALC_Logic6,0)[MOV(0,Recipe.CALC_Logic6) ,MOV(0,Recipe.SP_HMI[3]) ];</Text>
+              </Rung>
+            </RLLContent>
+          </Routine>
+        </Routines>
+      </Program>
+    </Programs>
+    <Tasks>
+      <Task Name="MainTask" Type="CONTINUOUS" Priority="10" Watchdog="500" DisableUpdateOutputs="false" InhibitTask="false">
+        <ScheduledPrograms>
+          <ScheduledProgram Name="MainProgram"/>
+        </ScheduledPrograms>
+      </Task>
+    </Tasks>
+  </Controller>
+</RSLogix5000Content>

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<RSLogix5000Content SchemaRevision="1.0" SoftwareRevision="34.01" TargetName="PLC100_Mashing" TargetType="Controller" ContainsContext="true" Owner="ACD Parser" ExportDate="Mon Jan 01 2025 00:00:00">
+  <Controller Use="Target" Name="PLC100_Mashing" ProcessorType="1756-L85E" MajorRev="34" MinorRev="01">
+    <!-- Extracted Components from ACD -->
+    <!-- Component 1: UID=14078 Name='pjš³lÏÚ' -->
+    <!-- Component 2: UID=7168 Name='KÿYS…Ùh' -->
+    <!-- Component 3: UID=110 Name='G«ÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿúúè' -->
+    <!-- Component 4: UID=1023 Name='Ih÷0ÇüR' -->
+    <!-- Component 5: UID=1279 Name='H9–ZIhC' -->
+    <!-- Component 6: UID=25856 Name='Ihüÿ' -->
+    <!-- Component 7: UID=1 Name='IhE' -->
+    <!-- Component 8: UID=25856 Name='Ihûÿ' -->
+    <!-- Component 9: UID=3 Name='bd‹ IhU' -->
+    <!-- Component 10: UID=8447 Name='IhR' -->
+    <!-- Component 11: UID=2 Name='RoIhF' -->
+    <!-- Component 12: UID=1 Name='JÂIhW' -->
+    <!-- Component 13: UID=2140 Name='WIhT' -->
+    <!-- Component 14: UID=2 Name='OÎIhI' -->
+    <!-- Component 15: UID=27648 Name='Ihôÿ' -->
+    <!-- Component 16: UID=422 Name='XIhE' -->
+    <!-- Component 17: UID=25600 Name='IhI' -->
+    <!-- Component 18: UID=7935 Name='IhP' -->
+    <!-- Component 19: UID=4863 Name='IhF' -->
+    <!-- Component 20: UID=255 Name='G­ÙóIhS' -->
+    <Programs>
+      <Program Name="MainProgram">
+        <Routines>
+          <Routine Name="MainRoutine" Type="RLL">
+            <RLLContent>
+              <Rung Number="0" Type="N">
+                <Comment>Component: pjš³lÏÚ (UID: 14078)</Comment>
+                <Text>NOP();</Text>
+              </Rung>
+              <Rung Number="1" Type="N">
+                <Comment>Component: KÿYS…Ùh (UID: 7168)</Comment>
+                <Text>NOP();</Text>
+              </Rung>
+              <Rung Number="2" Type="N">
+                <Comment>Component: G«ÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿúúè (UID: 110)</Comment>
+                <Text>NOP();</Text>
+              </Rung>
+              <Rung Number="3" Type="N">
+                <Comment>Component: Ih÷0ÇüR (UID: 1023)</Comment>
+                <Text>NOP();</Text>
+              </Rung>
+              <Rung Number="4" Type="N">
+                <Comment>Component: H9–ZIhC (UID: 1279)</Comment>
+                <Text>NOP();</Text>
+              </Rung>
+            </RLLContent>
+          </Routine>
+        </Routines>
+      </Program>
+    </Programs>
+  </Controller>
+</RSLogix5000Content>

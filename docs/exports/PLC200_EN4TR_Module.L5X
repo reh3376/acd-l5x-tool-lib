@@ -1,0 +1,142 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<RSLogix5000Content SchemaRevision="1.0" SoftwareRevision="35.01" TargetName="PLC200_EN4TR" TargetType="Module" ContainsContext="true" ExportDate="Thu Jul 24 23:28:06 2025" ExportOptions="References NoRawData L5KData DecoratedData Context Dependencies ForceProtectedEncoding AllProjDocTrans">
+<Controller Use="Context" Name="PLC100_Mashing">
+<Modules Use="Context">
+<Module Use="Target" Name="PLC200_EN4TR" CatalogNumber="1756-EN4TR" Vendor="1" ProductType="12" ProductCode="258" Major="4" Minor="1" ParentModule="PLC100_EN4TR" ParentModPortId="2" Inhibited="false"
+ MajorFault="false" AutoDiagsEnabled="true">
+<EKey State="CompatibleModule"/>
+<Ports>
+<Port Id="1" Address="1" Type="ICP" Upstream="false">
+<Bus Size="7"/>
+</Port>
+<Port Id="2" Address="10.4.2.2" Type="Ethernet" Upstream="true"/>
+</Ports>
+<Communications>
+<ConfigData ConfigSize="16">
+<Data Format="L5K">
+<![CDATA[[20,768,393217,33554433,256,0]]]>
+</Data>
+</ConfigData>
+<Connections>
+<Connection Name="Input2" RPI="500000" Type="Input" EventID="0" ProgrammaticallySendEventTrigger="false" Unicast="true"/>
+<Connection Name="Output" RPI="10000" Type="Output" EventID="0" ProgrammaticallySendEventTrigger="false" Unicast="true">
+<InputTag ExternalAccess="Read/Write">
+<Data Format="Decorated">
+<Structure DataType="AB:1756_ENET_7SLOT:I:0">
+<DataValueMember Name="SlotStatusBits" DataType="DINT" Radix="Binary" Value="2#1111_1111_1111_1111_1111_1111_1111_1111"/>
+<ArrayMember Name="Slot" DataType="AB:1756_ENET_SLOT:I:0" Dimensions="7">
+<Element Index="[0]">
+<Structure DataType="AB:1756_ENET_SLOT:I:0">
+<DataValueMember Name="Fault" DataType="DINT" Radix="Binary" Value="2#1111_1111_1111_1111_1111_1111_1111_1111"/>
+<DataValueMember Name="Data" DataType="DINT" Radix="Binary" Value="2#0000_0000_0000_0000_0000_0000_0000_0000"/>
+</Structure>
+</Element>
+<Element Index="[1]">
+<Structure DataType="AB:1756_ENET_SLOT:I:0">
+<DataValueMember Name="Fault" DataType="DINT" Radix="Binary" Value="2#1111_1111_1111_1111_1111_1111_1111_1111"/>
+<DataValueMember Name="Data" DataType="DINT" Radix="Binary" Value="2#0000_0000_0000_0000_0000_0000_0000_0000"/>
+</Structure>
+</Element>
+<Element Index="[2]">
+<Structure DataType="AB:1756_ENET_SLOT:I:0">
+<DataValueMember Name="Fault" DataType="DINT" Radix="Binary" Value="2#1111_1111_1111_1111_1111_1111_1111_1111"/>
+<DataValueMember Name="Data" DataType="DINT" Radix="Binary" Value="2#0000_0000_0000_0000_0000_0000_0000_0000"/>
+</Structure>
+</Element>
+<Element Index="[3]">
+<Structure DataType="AB:1756_ENET_SLOT:I:0">
+<DataValueMember Name="Fault" DataType="DINT" Radix="Binary" Value="2#1111_1111_1111_1111_1111_1111_1111_1111"/>
+<DataValueMember Name="Data" DataType="DINT" Radix="Binary" Value="2#0000_0000_0000_0000_0000_0000_0000_0000"/>
+</Structure>
+</Element>
+<Element Index="[4]">
+<Structure DataType="AB:1756_ENET_SLOT:I:0">
+<DataValueMember Name="Fault" DataType="DINT" Radix="Binary" Value="2#1111_1111_1111_1111_1111_1111_1111_1111"/>
+<DataValueMember Name="Data" DataType="DINT" Radix="Binary" Value="2#0000_0000_0000_0000_0000_0000_0000_0000"/>
+</Structure>
+</Element>
+<Element Index="[5]">
+<Structure DataType="AB:1756_ENET_SLOT:I:0">
+<DataValueMember Name="Fault" DataType="DINT" Radix="Binary" Value="2#1111_1111_1111_1111_1111_1111_1111_1111"/>
+<DataValueMember Name="Data" DataType="DINT" Radix="Binary" Value="2#0000_0000_0000_0000_0000_0000_0000_0000"/>
+</Structure>
+</Element>
+<Element Index="[6]">
+<Structure DataType="AB:1756_ENET_SLOT:I:0">
+<DataValueMember Name="Fault" DataType="DINT" Radix="Binary" Value="2#1111_1111_1111_1111_1111_1111_1111_1111"/>
+<DataValueMember Name="Data" DataType="DINT" Radix="Binary" Value="2#0000_0000_0000_0000_0000_0000_0000_0000"/>
+</Structure>
+</Element>
+</ArrayMember>
+</Structure>
+</Data>
+</InputTag>
+<OutputTag ExternalAccess="Read/Write">
+<Data Format="L5K">
+<![CDATA[[-1,[[0],[0],[0],[0],[0],[0],[0]]]]]>
+</Data>
+<Data Format="Decorated">
+<Structure DataType="AB:1756_ENET_7SLOT:O:0">
+<ArrayMember Name="Slot" DataType="AB:1756_ENET_SLOT:O:0" Dimensions="7">
+<Element Index="[0]">
+<Structure DataType="AB:1756_ENET_SLOT:O:0">
+<DataValueMember Name="Data" DataType="DINT" Radix="Binary" Value="2#0000_0000_0000_0000_0000_0000_0000_0000"/>
+</Structure>
+</Element>
+<Element Index="[1]">
+<Structure DataType="AB:1756_ENET_SLOT:O:0">
+<DataValueMember Name="Data" DataType="DINT" Radix="Binary" Value="2#0000_0000_0000_0000_0000_0000_0000_0000"/>
+</Structure>
+</Element>
+<Element Index="[2]">
+<Structure DataType="AB:1756_ENET_SLOT:O:0">
+<DataValueMember Name="Data" DataType="DINT" Radix="Binary" Value="2#0000_0000_0000_0000_0000_0000_0000_0000"/>
+</Structure>
+</Element>
+<Element Index="[3]">
+<Structure DataType="AB:1756_ENET_SLOT:O:0">
+<DataValueMember Name="Data" DataType="DINT" Radix="Binary" Value="2#0000_0000_0000_0000_0000_0000_0000_0000"/>
+</Structure>
+</Element>
+<Element Index="[4]">
+<Structure DataType="AB:1756_ENET_SLOT:O:0">
+<DataValueMember Name="Data" DataType="DINT" Radix="Binary" Value="2#0000_0000_0000_0000_0000_0000_0000_0000"/>
+</Structure>
+</Element>
+<Element Index="[5]">
+<Structure DataType="AB:1756_ENET_SLOT:O:0">
+<DataValueMember Name="Data" DataType="DINT" Radix="Binary" Value="2#0000_0000_0000_0000_0000_0000_0000_0000"/>
+</Structure>
+</Element>
+<Element Index="[6]">
+<Structure DataType="AB:1756_ENET_SLOT:O:0">
+<DataValueMember Name="Data" DataType="DINT" Radix="Binary" Value="2#0000_0000_0000_0000_0000_0000_0000_0000"/>
+</Structure>
+</Element>
+</ArrayMember>
+</Structure>
+</Data>
+</OutputTag>
+</Connection>
+</Connections>
+</Communications>
+<ExtendedProperties>
+<public><Vendor>Rockwell Automation/Allen-Bradley</Vendor><CatNum>1756-EN4TR</CatNum><TimeSyncEnabled/><ConfigID>262249</ConfigID><ADDAVersion>1</ADDAVersion></public>
+</ExtendedProperties>
+</Module>
+<Module Name="PLC200_Fermentation" CatalogNumber="1756-L83ES" Vendor="1" ProductType="14" ProductCode="213" Major="34" Minor="11" ParentModule="PLC200_EN4TR" ParentModPortId="1" Inhibited="false" MajorFault="false"
+ SafetyNetwork="16#0000_4ae0_04d5_8bd1">
+<EKey State="CompatibleModule"/>
+<Ports>
+<Port Id="1" Address="0" Type="ICP" Upstream="true"/>
+<Port Id="2" Type="Ethernet" Upstream="false">
+<Bus/>
+</Port>
+</Ports>
+<ExtendedProperties>
+<public><ConfigID>100</ConfigID><CatNum>1756-L83ES</CatNum></public>
+</ExtendedProperties>
+</Module>
+</Modules>
+</Controller>
+</RSLogix5000Content>

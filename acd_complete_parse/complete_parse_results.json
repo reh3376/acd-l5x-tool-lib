@@ -1,0 +1,15 @@
+{
+  "databases": {},
+  "programs": [],
+  "modules": [],
+  "tags": [],
+  "data_types": [],
+  "routines": [],
+  "taginfo": {
+    "controller_name": "PLC100_Mashing",
+    "datatype_count": 361,
+    "module_count": 0,
+    "tag_count": 1058,
+    "program_count": 38
+  }
+}

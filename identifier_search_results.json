@@ -1,0 +1,14 @@
+{
+  "block_003_offset_0x10c95.bin": {
+    "Main": {
+      "encoding": "utf-16le",
+      "count": 120
+    }
+  },
+  "block_002_offset_0x11096.bin": {
+    "Main": {
+      "encoding": "utf-16le",
+      "count": 63
+    }
+  }
+}

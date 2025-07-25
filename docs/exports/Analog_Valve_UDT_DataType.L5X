@@ -1,0 +1,2516 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<RSLogix5000Content SchemaRevision="1.0" SoftwareRevision="35.01" TargetName="Analog_Valve_UDT" TargetType="DataType" ContainsContext="true" ExportDate="Thu Jul 24 23:16:54 2025" ExportOptions="NoRawData L5KData DecoratedData Context Dependencies ForceProtectedEncoding AllProjDocTrans">
+<Controller Use="Context" Name="PLC100_Mashing">
+<DataTypes Use="Context">
+<DataType Use="Target" Name="Analog_Valve_UDT" Family="NoFamily" Class="User">
+<Members>
+<Member Name="ZZZZZZZZZZAnalog_Val0" DataType="SINT" Dimension="0" Radix="Decimal" Hidden="true" ExternalAccess="Read/Write"/>
+<Member Name="DO_Energize" DataType="BIT" Dimension="0" Radix="Decimal" Hidden="false" Target="ZZZZZZZZZZAnalog_Val0" BitNumber="0" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[<deviceName>.DO_Energize]]>
+</Description>
+</Member>
+<Member Name="DEVICE_Energize_Request" DataType="BIT" Dimension="0" Radix="Decimal" Hidden="false" Target="ZZZZZZZZZZAnalog_Val0" BitNumber="1" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Request for Device to Energize]]>
+</Description>
+</Member>
+<Member Name="OPENED" DataType="BIT" Dimension="0" Radix="Decimal" Hidden="false" Target="ZZZZZZZZZZAnalog_Val0" BitNumber="2" ExternalAccess="Read/Write"/>
+<Member Name="CLOSED" DataType="BIT" Dimension="0" Radix="Decimal" Hidden="false" Target="ZZZZZZZZZZAnalog_Val0" BitNumber="3" ExternalAccess="Read/Write"/>
+<Member Name="CONF_NO" DataType="BIT" Dimension="0" Radix="Decimal" Hidden="false" Target="ZZZZZZZZZZAnalog_Val0" BitNumber="4" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[0 = NC Valve, 1 = NO Valve]]>
+</Description>
+</Member>
+<Member Name="PID_Off_Request" DataType="BIT" Dimension="0" Radix="Decimal" Hidden="false" Target="ZZZZZZZZZZAnalog_Val0" BitNumber="5" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Request to place PID in 'Off' Mode]]>
+</Description>
+</Member>
+<Member Name="PID_Auto_Request" DataType="BIT" Dimension="0" Radix="Decimal" Hidden="false" Target="ZZZZZZZZZZAnalog_Val0" BitNumber="6" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Request to place PID in 'Auto' Mode]]>
+</Description>
+</Member>
+<Member Name="PID_SP_Request" DataType="REAL" Dimension="0" Radix="Float" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Operator request to change PID.SP value]]>
+</Description>
+</Member>
+<Member Name="ZZZZZZZZZZAnalog_Val9" DataType="SINT" Dimension="0" Radix="Decimal" Hidden="true" ExternalAccess="Read/Write"/>
+<Member Name="MM_Enabled" DataType="BIT" Dimension="0" Radix="Decimal" Hidden="false" Target="ZZZZZZZZZZAnalog_Val9" BitNumber="0" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Zone Master Manual Mode Enable - Allows the PID loop to use Manual Mode]]>
+</Description>
+</Member>
+<Member Name="MM_Enable_Request" DataType="BIT" Dimension="0" Radix="Decimal" Hidden="false" Target="ZZZZZZZZZZAnalog_Val9" BitNumber="1" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[HMI persistent Button that Allows PID to use Manual mode]]>
+</Description>
+</Member>
+<Member Name="PID_MM_Request" DataType="BIT" Dimension="0" Radix="Decimal" Hidden="false" Target="ZZZZZZZZZZAnalog_Val9" BitNumber="2" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Request PID loop to go into manual mode]]>
+</Description>
+</Member>
+<Member Name="TIE_Value_Set" DataType="BIT" Dimension="0" Radix="Decimal" Hidden="false" Target="ZZZZZZZZZZAnalog_Val9" BitNumber="3" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[If PID.TIE is > 0 this Bool is set high]]>
+</Description>
+</Member>
+<Member Name="MM_CVPosition_Request" DataType="REAL" Dimension="0" Radix="Float" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Operator request to change CV while in Manual Mode]]>
+</Description>
+</Member>
+<Member Name="SWM_CVPosition_Request" DataType="REAL" Dimension="0" Radix="Float" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Operator request to change CV while in Software Manual Mode]]>
+</Description>
+</Member>
+<Member Name="ZZZZZZZZZZAnalog_Val16" DataType="SINT" Dimension="0" Radix="Decimal" Hidden="true" ExternalAccess="Read/Write"/>
+<Member Name="SWM_Enabled" DataType="BIT" Dimension="0" Radix="Decimal" Hidden="false" Target="ZZZZZZZZZZAnalog_Val16" BitNumber="0" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Allows the PID loop to use Software Manual Mode]]>
+</Description>
+</Member>
+<Member Name="SWM_Enable_Request" DataType="BIT" Dimension="0" Radix="Decimal" Hidden="false" Target="ZZZZZZZZZZAnalog_Val16" BitNumber="1" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[HMI persistent Button that Allows PID to use SWM mode]]>
+</Description>
+</Member>
+<Member Name="PID_SWM_Request" DataType="BIT" Dimension="0" Radix="Decimal" Hidden="false" Target="ZZZZZZZZZZAnalog_Val16" BitNumber="2" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Request PID loop to go into softwarte manual mode]]>
+</Description>
+</Member>
+<Member Name="SO_Value_Set" DataType="BIT" Dimension="0" Radix="Decimal" Hidden="false" Target="ZZZZZZZZZZAnalog_Val16" BitNumber="3" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[If PID.SO is > 0 this Bool is set high]]>
+</Description>
+</Member>
+<Member Name="DEVICE_Index" DataType="INT" Dimension="0" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Index of PID_Conf_State and PID_Conf Element in use]]>
+</Description>
+</Member>
+<Member Name="DEVICE_Name" DataType="STRING_16" Dimension="0" Radix="NullType" Hidden="false" ExternalAccess="Read/Write"/>
+<Member Name="PID_Current" DataType="PID_Current_State_UDT" Dimension="0" Radix="NullType" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Provides Current State of Device and PID Loop]]>
+</Description>
+</Member>
+<Member Name="PID_Param" DataType="PID_Config_UDT" Dimension="0" Radix="NullType" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[PID Settings Recipe]]>
+</Description>
+</Member>
+<Member Name="ZZZZZZZZZZAnalog_Val25" DataType="SINT" Dimension="0" Radix="Decimal" Hidden="true" ExternalAccess="Read/Write"/>
+<Member Name="LOAD_Conf_Enabled" DataType="BIT" Dimension="0" Radix="Decimal" Hidden="false" Target="ZZZZZZZZZZAnalog_Val25" BitNumber="0" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Sets a OSR to control the device and PID state when loading a new configuration into the PID.]]>
+</Description>
+</Member>
+<Member Name="LOAD_Conf" DataType="BIT" Dimension="0" Radix="Decimal" Hidden="false" Target="ZZZZZZZZZZAnalog_Val25" BitNumber="1" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Enable new PID Configuration Load in]]>
+</Description>
+</Member>
+<Member Name="LOAD_Conf_Request" DataType="BIT" Dimension="0" Radix="Decimal" Hidden="false" Target="ZZZZZZZZZZAnalog_Val25" BitNumber="2" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Sent when the HMI attempts to Load a new PID configuration]]>
+</Description>
+</Member>
+<Member Name="CONF_Loading" DataType="BIT" Dimension="0" Radix="Decimal" Hidden="false" Target="ZZZZZZZZZZAnalog_Val25" BitNumber="3" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[OSR Storage Bit Set High While LOAD_Conf is High]]>
+</Description>
+</Member>
+<Member Name="LOADIN_Complete" DataType="BIT" Dimension="0" Radix="Decimal" Hidden="false" Target="ZZZZZZZZZZAnalog_Val25" BitNumber="4" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[= 1 after loadin timer [0] is DN.]]>
+</Description>
+</Member>
+<Member Name="CONF_Element_Request" DataType="INT" Dimension="0" Radix="Decimal" Hidden="false" Max="16" Min="0" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Determines PID_Loadin_Index as input from HMI]]>
+</Description>
+</Member>
+<Member Name="PID_CTL_Mask" DataType="DINT" Dimension="0" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Move mask for Configuuration loadin of PID.CTL bits [0 - 14 and 31 masked]]]>
+</Description>
+</Member>
+<Member Name="PID" DataType="PID" Dimension="0" Radix="NullType" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Device PID Instruction]]>
+</Description>
+</Member>
+<Member Name="PID_Data_Descriptions" DataType="STRING_40" Dimension="17" Radix="NullType" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Provides a description for the PID operational data,  Used in trouble shooting PID loop performance.]]>
+</Description>
+</Member>
+<Member Name="PID_Data_RTOS" DataType="STRING_40" Dimension="17" Radix="NullType" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Converts <deviceName>.PID.DATA[X] to Stings for concatination with <deviceName>.PID.Data_Descriptions[X]]]>
+</Description>
+</Member>
+<Member Name="PID_Data_Review" DataType="STRING" Dimension="24" Radix="NullType" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[CONCATINATION of PID_Data_Descriptions[X] + PID_Data_RTOS[X]]]>
+</Description>
+</Member>
+<Member Name="ZZZZZZZZZZAnalog_Val37" DataType="SINT" Dimension="0" Radix="Decimal" Hidden="true" ExternalAccess="Read/Write"/>
+<Member Name="PID_Disable_Rqst" DataType="BIT" Dimension="0" Radix="Decimal" Hidden="false" Target="ZZZZZZZZZZAnalog_Val37" BitNumber="0" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Request to disable the PID controller which only allows 2 PID modes: Disabled or AS Enabled]]>
+</Description>
+</Member>
+<Member Name="TMR_Expression" DataType="DINT" Dimension="16" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Provides a destination tag for CPT expressions done using TIMER variables.]]>
+</Description>
+</Member>
+<Member Name="PID_Conf_State_Timer" DataType="TIMER" Dimension="16" Radix="NullType" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Loads data into PID_Conf_State[X] element to update Previous values before PID_Conf Runs]]>
+</Description>
+</Member>
+<Member Name="PID_Conf_Load_Timer" DataType="TIMER" Dimension="16" Radix="NullType" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Loads configuration data into PID]]>
+</Description>
+</Member>
+<Member Name="TMR_Alm" DataType="TIMER" Dimension="12" Radix="NullType" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Device AlarmTimer Preset In Milliseconds]]>
+</Description>
+</Member>
+<Member Name="TMR_AlmEpression" DataType="DINT" Dimension="16" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Destination for a CPT expression on an Alm Timer]]>
+</Description>
+</Member>
+<Member Name="TMR_ExpressionWord" DataType="STRING" Dimension="16" Radix="NullType" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Holds expressions for various TMR related manipulation]]>
+</Description>
+</Member>
+<Member Name="ALM_SP" DataType="REAL" Dimension="16" Radix="Float" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Array of ALM Set points.]]>
+</Description>
+</Member>
+<Member Name="ALM_Word" DataType="STRING" Dimension="32" Radix="NullType" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Array of ALM Descriptions for <deviceName>]]>
+</Description>
+</Member>
+<Member Name="ALM" DataType="BOOL" Dimension="32" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Device Alarm]]>
+</Description>
+</Member>
+<Member Name="ALM_ACK" DataType="BOOL" Dimension="32" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Array of ALM Acknowledge BITS]]>
+</Description>
+</Member>
+<Member Name="ZZZZZZZZZZAnalog_Val49" DataType="SINT" Dimension="0" Radix="Decimal" Hidden="true" ExternalAccess="Read/Write"/>
+<Member Name="Alarmed" DataType="BIT" Dimension="0" Radix="Decimal" Hidden="false" Target="ZZZZZZZZZZAnalog_Val49" BitNumber="0" ExternalAccess="Read/Write"/>
+<Member Name="TMR_Off" DataType="TIMER" Dimension="0" Radix="NullType" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Delay Stop Timer Preset In Milliseconds]]>
+</Description>
+</Member>
+<Member Name="TMR_On" DataType="TIMER" Dimension="0" Radix="NullType" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Delay Start Timer Preset In Milliseconds]]>
+</Description>
+</Member>
+<Member Name="SP_AS1" DataType="DINT" Dimension="0" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Auto Position #1 Setpoint]]>
+</Description>
+</Member>
+<Member Name="SP_AS2" DataType="DINT" Dimension="0" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Auto Position #2 Setpoint]]>
+</Description>
+</Member>
+<Member Name="SP_AS3" DataType="DINT" Dimension="0" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Auto Position #3 Setpoint]]>
+</Description>
+</Member>
+<Member Name="SP_AS4" DataType="DINT" Dimension="0" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Auto Position #4 Setpoint]]>
+</Description>
+</Member>
+<Member Name="SP_AS5" DataType="DINT" Dimension="0" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Auto Position #5 Setpoint]]>
+</Description>
+</Member>
+<Member Name="ZZZZZZZZZZAnalog_Val58" DataType="SINT" Dimension="0" Radix="Decimal" Hidden="true" ExternalAccess="Read/Write"/>
+<Member Name="ENERGIZE_Perm" DataType="BIT" Dimension="0" Radix="Decimal" Hidden="false" Target="ZZZZZZZZZZAnalog_Val58" BitNumber="0" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Valve Permissive
+ From Logic
+ (EStop Ok)]]>
+</Description>
+</Member>
+<Member Name="PERM_Override01" DataType="BIT" Dimension="0" Radix="Decimal" Hidden="false" Target="ZZZZZZZZZZAnalog_Val58" BitNumber="1" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Allows the device energize permissive to be overridden.]]>
+</Description>
+</Member>
+<Member Name="MODE_Index_HLim" DataType="DINT" Dimension="0" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Provides the number of device's PID modes that are defined.]]>
+</Description>
+</Member>
+<Member Name="MODE_Index_LLim" DataType="DINT" Dimension="0" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Provides the lowest element number which has a defined PID Mode configured.]]>
+</Description>
+</Member>
+<Member Name="ZZZZZZZZZZAnalog_Val63" DataType="SINT" Dimension="0" Radix="Decimal" Hidden="true" ExternalAccess="Read/Write"/>
+<Member Name="AS_Enable_Request" DataType="BIT" Dimension="0" Radix="Decimal" Hidden="false" Target="ZZZZZZZZZZAnalog_Val63" BitNumber="0" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[HMI persistent Button that Allows PID to use AS_Enabled mode]]>
+</Description>
+</Member>
+<Member Name="AS_Enabled" DataType="BIT" Dimension="0" Radix="Decimal" Hidden="false" Target="ZZZZZZZZZZAnalog_Val63" BitNumber="1" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Configuration load in uses this bit to switch to 'AS Enabled' mode while PID config is loading in.]]>
+</Description>
+</Member>
+<Member Name="PID_AS_Request" DataType="BIT" Dimension="0" Radix="Decimal" Hidden="false" Target="ZZZZZZZZZZAnalog_Val63" BitNumber="2" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Sets Mode to AS_Enabled if AS_Enabled = 1]]>
+</Description>
+</Member>
+<Member Name="AS1_Enabled" DataType="BIT" Dimension="0" Radix="Decimal" Hidden="false" Target="ZZZZZZZZZZAnalog_Val63" BitNumber="3" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Auto Setpoint 1 Enable Interlock From Logic]]>
+</Description>
+</Member>
+<Member Name="AS2_Enabled" DataType="BIT" Dimension="0" Radix="Decimal" Hidden="false" Target="ZZZZZZZZZZAnalog_Val63" BitNumber="4" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Auto Setpoint 2 Enable Interlock From Logic]]>
+</Description>
+</Member>
+<Member Name="AS3_Enabled" DataType="BIT" Dimension="0" Radix="Decimal" Hidden="false" Target="ZZZZZZZZZZAnalog_Val63" BitNumber="5" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Auto Setpoint 3 Enable Interlock From Logic]]>
+</Description>
+</Member>
+<Member Name="AS4_Enabled" DataType="BIT" Dimension="0" Radix="Decimal" Hidden="false" Target="ZZZZZZZZZZAnalog_Val63" BitNumber="6" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Auto Setpoint 4 Enable Interlock From Logic]]>
+</Description>
+</Member>
+<Member Name="AS5_Enabled" DataType="BIT" Dimension="0" Radix="Decimal" Hidden="false" Target="ZZZZZZZZZZAnalog_Val63" BitNumber="7" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Auto Setpoint 5 Enable Interlock From Logic]]>
+</Description>
+</Member>
+<Member Name="ZZZZZZZZZZAnalog_Val72" DataType="SINT" Dimension="0" Radix="Decimal" Hidden="true" ExternalAccess="Read/Write"/>
+<Member Name="AS1_Request" DataType="BIT" Dimension="0" Radix="Decimal" Hidden="false" Target="ZZZZZZZZZZAnalog_Val72" BitNumber="0" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Request to Enable AS1]]>
+</Description>
+</Member>
+<Member Name="AS2_Request" DataType="BIT" Dimension="0" Radix="Decimal" Hidden="false" Target="ZZZZZZZZZZAnalog_Val72" BitNumber="1" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Request to Enable AS2]]>
+</Description>
+</Member>
+<Member Name="AS3_Request" DataType="BIT" Dimension="0" Radix="Decimal" Hidden="false" Target="ZZZZZZZZZZAnalog_Val72" BitNumber="2" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Request to Enable AS3]]>
+</Description>
+</Member>
+<Member Name="AS4_Request" DataType="BIT" Dimension="0" Radix="Decimal" Hidden="false" Target="ZZZZZZZZZZAnalog_Val72" BitNumber="3" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Request to Enable AS4]]>
+</Description>
+</Member>
+<Member Name="AS5_Request" DataType="BIT" Dimension="0" Radix="Decimal" Hidden="false" Target="ZZZZZZZZZZAnalog_Val72" BitNumber="4" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Request to Enable AS5]]>
+</Description>
+</Member>
+<Member Name="COMMENT" DataType="STRING" Dimension="0" Radix="NullType" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Comment for Description Rung to Start Each Routine]]>
+</Description>
+</Member>
+<Member Name="ONS" DataType="DINT" Dimension="0" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write"/>
+<Member Name="MODE_Index" DataType="BOOL" Dimension="32" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[High bit sets MODE_Word.  0 = Off', 1 = 'Auto', 2 'Manual', 3 = 'SWM', 4 = 'AS Enabled', 5 = 'Disabled', 6 - 15 currently undefined.]]>
+</Description>
+</Member>
+<Member Name="ZZZZZZZZZZAnalog_Val81" DataType="SINT" Dimension="0" Radix="Decimal" Hidden="true" ExternalAccess="Read/Write"/>
+<Member Name="MODE_Off" DataType="BIT" Dimension="0" Radix="Decimal" Hidden="false" Target="ZZZZZZZZZZAnalog_Val81" BitNumber="0" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[PID's Current Mode is OFF if .OFF = 1]]>
+</Description>
+</Member>
+<Member Name="MODE_Auto" DataType="BIT" Dimension="0" Radix="Decimal" Hidden="false" Target="ZZZZZZZZZZAnalog_Val81" BitNumber="1" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[PID's Current Mode is AUTO if .AUTO = 1]]>
+</Description>
+</Member>
+<Member Name="MODE_Man" DataType="BIT" Dimension="0" Radix="Decimal" Hidden="false" Target="ZZZZZZZZZZAnalog_Val81" BitNumber="2" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[PID's Current Mode is Manual if .MAN = 1.  PID.OUT will use value in PID.TIE]]>
+</Description>
+</Member>
+<Member Name="MODE_SWM" DataType="BIT" Dimension="0" Radix="Decimal" Hidden="false" Target="ZZZZZZZZZZAnalog_Val81" BitNumber="3" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[PID's Current mode is Software manual if .SWM = 1.  PID.OUT will use value in PID.SO - if both >MO and .SWM are both High PID.OUT with use PID.TIE]]>
+</Description>
+</Member>
+<Member Name="MODE_AS_Enabled" DataType="BIT" Dimension="0" Radix="Decimal" Hidden="false" Target="ZZZZZZZZZZAnalog_Val81" BitNumber="4" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[PID's Current mode is AS Enabled.]]>
+</Description>
+</Member>
+<Member Name="AS_Mode_Enabled" DataType="BIT" Dimension="0" Radix="Decimal" Hidden="false" Target="ZZZZZZZZZZAnalog_Val81" BitNumber="5" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Permissive to allow the use of AS Enabled Mode.  This mode provides 4 HMI defined discrete set points that can be used to operate <deviceName>.]]>
+</Description>
+</Member>
+<Member Name="MODE_Disabled" DataType="BIT" Dimension="0" Radix="Decimal" Hidden="false" Target="ZZZZZZZZZZAnalog_Val81" BitNumber="6" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Disables the PID Instruction]]>
+</Description>
+</Member>
+<Member Name="MODE_Word" DataType="STRING" Dimension="16" Radix="NullType" Hidden="false" ExternalAccess="Read Only">
+<Description>
+<![CDATA[Each element defines a device mode.  [0] = 'Off', [1] = 'Auto', [2] = 'Manual', [3] = 'SWM', [4] = 'AS Enabled', [5] = 'Disabled', [6] - [15] are currently undefined]]>
+</Description>
+</Member>
+<Member Name="STATE_BOOLs" DataType="BOOL" Dimension="32" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[High bit sets STATE_Word.  0 = 'deEnergized', 1 = 'energized', 2 = 'Disabled', 3 = 'faultState01', thru 7 = faultState05', 8 - 15 Currently undefined.]]>
+</Description>
+</Member>
+<Member Name="ZZZZZZZZZZAnalog_Val91" DataType="SINT" Dimension="0" Radix="Decimal" Hidden="true" ExternalAccess="Read/Write"/>
+<Member Name="STATE_Denergized" DataType="BIT" Dimension="0" Radix="Decimal" Hidden="false" Target="ZZZZZZZZZZAnalog_Val91" BitNumber="0" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Tied to STATE_Index[0]: 1 = Device's current state is deenergized]]>
+</Description>
+</Member>
+<Member Name="STATE_Energized" DataType="BIT" Dimension="0" Radix="Decimal" Hidden="false" Target="ZZZZZZZZZZAnalog_Val91" BitNumber="1" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Tied to STATE_Index[1]: 1 = Device's current state is energized]]>
+</Description>
+</Member>
+<Member Name="STATE_Disabled" DataType="BIT" Dimension="0" Radix="Decimal" Hidden="false" Target="ZZZZZZZZZZAnalog_Val91" BitNumber="2" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Tied to STATE_Index[2]: 1 = Device is Disabled]]>
+</Description>
+</Member>
+<Member Name="STATE_FltMajor" DataType="BIT" Dimension="0" Radix="Decimal" Hidden="false" Target="ZZZZZZZZZZAnalog_Val91" BitNumber="3" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Tied to STATE_Index[3]: 1 = PID is in Major Fault]]>
+</Description>
+</Member>
+<Member Name="STATE_Flt02" DataType="BIT" Dimension="0" Radix="Decimal" Hidden="false" Target="ZZZZZZZZZZAnalog_Val91" BitNumber="4" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Tied to STATE_Index[4]: 1 = Device fault state 02 is active, NOT currently used]]>
+</Description>
+</Member>
+<Member Name="STATE_Flt03" DataType="BIT" Dimension="0" Radix="Decimal" Hidden="false" Target="ZZZZZZZZZZAnalog_Val91" BitNumber="5" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Tied to STATE_Index[5]: 1 = Device fault state 03 is active, NOT currently used]]>
+</Description>
+</Member>
+<Member Name="STATE_Flt04" DataType="BIT" Dimension="0" Radix="Decimal" Hidden="false" Target="ZZZZZZZZZZAnalog_Val91" BitNumber="6" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Tied to STATE_Index[6]: 1 = Device fault state 04 is active, NOT currently used]]>
+</Description>
+</Member>
+<Member Name="STATE_Flt05" DataType="BIT" Dimension="0" Radix="Decimal" Hidden="false" Target="ZZZZZZZZZZAnalog_Val91" BitNumber="7" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Tied to STATE_Index[7]: 1 = Device fault state 05 is active, NOT currently used]]>
+</Description>
+</Member>
+<Member Name="ZZZZZZZZZZAnalog_Val100" DataType="SINT" Dimension="0" Radix="Decimal" Hidden="true" ExternalAccess="Read/Write"/>
+<Member Name="STATE_Flt06" DataType="BIT" Dimension="0" Radix="Decimal" Hidden="false" Target="ZZZZZZZZZZAnalog_Val100" BitNumber="0" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Tied to STATE_Index[8]: 1 = Device fault state 06 is active, NOT currently used]]>
+</Description>
+</Member>
+<Member Name="STATE_Flt07" DataType="BIT" Dimension="0" Radix="Decimal" Hidden="false" Target="ZZZZZZZZZZAnalog_Val100" BitNumber="1" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Tied to STATE_Index[9]: 1 = Device fault state 07 is active, NOT currently used]]>
+</Description>
+</Member>
+<Member Name="STATE_Loading_PIDConfig" DataType="BIT" Dimension="0" Radix="Decimal" Hidden="false" Target="ZZZZZZZZZZAnalog_Val100" BitNumber="2" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Tied to STATE_Index[10]: 1 = Device is loading a new PID configuration.]]>
+</Description>
+</Member>
+<Member Name="STATE_Word" DataType="STRING" Dimension="16" Radix="NullType" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Each element defines a device state: [0] = 'deEenergized', [1] = 'energized", [2] = 'disabled', [3] - [9] = 'faultState01', thru 'faultState07. [10] = Loding PID Configuration, [11] - [15] currently undefined.]]>
+</Description>
+</Member>
+<Member Name="Current_State_Mode" DataType="STRING" Dimension="0" Radix="NullType" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Mode + State]]>
+</Description>
+</Member>
+<Member Name="ZZZZZZZZZZAnalog_Val106" DataType="SINT" Dimension="0" Radix="Decimal" Hidden="true" ExternalAccess="Read/Write"/>
+<Member Name="energizePerm_holdState" DataType="BIT" Dimension="0" Radix="Decimal" Hidden="false" Target="ZZZZZZZZZZAnalog_Val106" BitNumber="0" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Hold Bit for Energize Permissiove]]>
+</Description>
+</Member>
+<Member Name="CV_mA" DataType="REAL" Dimension="0" Radix="Float" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[CV in mA's (4 - 20)]]>
+</Description>
+</Member>
+<Member Name="FeedBack_mA" DataType="REAL" Dimension="0" Radix="Float" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[AI Feedback PV in mA's (4 - 20)]]>
+</Description>
+</Member>
+<Member Name="PV_mA" DataType="REAL" Dimension="0" Radix="Float" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[PV in mA's (4 - 20)]]>
+</Description>
+</Member>
+<Member Name="PROCESS_ExpressDestination" DataType="REAL" Dimension="8" Radix="Float" Hidden="false" ExternalAccess="Read/Write"/>
+<Member Name="PROCESS_ExpressionWord" DataType="STRING" Dimension="8" Radix="NullType" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[[0] mA = (raw.PV - 3277) * 16 / 29561 + 4]]>
+</Description>
+</Member>
+<Member Name="Logic_BITS01" DataType="BOOL" Dimension="32" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Used for various purposes, the purpose will be clearly decribed in Instuction describtion]]>
+</Description>
+</Member>
+<Member Name="STATE_Index" DataType="BOOL" Dimension="32" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Used for various purposes, the purpose will be clearly decribed in Instuction describtion]]>
+</Description>
+</Member>
+<Member Name="Logic_DINT" DataType="INT" Dimension="16" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Used for various purposes, the purpose will be clearly decribed in Instuction describtion]]>
+</Description>
+</Member>
+<Member Name="Logic_DINT01" DataType="DINT" Dimension="16" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Used for various purposes, the purpose will be clearly decribed in Instuction describtion]]>
+</Description>
+</Member>
+<Member Name="STATE_DINT" DataType="DINT" Dimension="16" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Used for various purposes, the purpose will be clearly decribed in Instuction describtion]]>
+</Description>
+</Member>
+<Member Name="Logic_REAL01" DataType="REAL" Dimension="16" Radix="Float" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Used for various purposes, the purpose will be clearly decribed in Instuction describtion]]>
+</Description>
+</Member>
+<Member Name="Logic_WORDS01" DataType="STRING" Dimension="16" Radix="NullType" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Used for various purposes, the purpose will be clearly decribed in Instuction describtion]]>
+</Description>
+</Member>
+</Members>
+<Dependencies>
+<Dependency Type="DataType" Name="PID_Current_State_UDT"/>
+<Dependency Type="DataType" Name="PID_Config_UDT"/>
+<Dependency Type="DataType" Name="STRING_40"/>
+<Dependency Type="DataType" Name="STRING_40"/>
+</Dependencies>
+</DataType>
+<DataType Use="Target" Name="Analog_Vlv_PID_UDT" Family="NoFamily" Class="User">
+<Members>
+<Member Name="ZZZZZZZZZZAnalog_Val0" DataType="SINT" Dimension="0" Radix="Decimal" Hidden="true" ExternalAccess="Read/Write"/>
+<Member Name="DO_Energize" DataType="BIT" Dimension="0" Radix="Decimal" Hidden="false" Target="ZZZZZZZZZZAnalog_Val0" BitNumber="0" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[<deviceName>.DO_Energize]]>
+</Description>
+</Member>
+<Member Name="DEVICE_Energize_Request" DataType="BIT" Dimension="0" Radix="Decimal" Hidden="false" Target="ZZZZZZZZZZAnalog_Val0" BitNumber="1" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Request for Device to Energize]]>
+</Description>
+</Member>
+<Member Name="OPENED" DataType="BIT" Dimension="0" Radix="Decimal" Hidden="false" Target="ZZZZZZZZZZAnalog_Val0" BitNumber="2" ExternalAccess="Read/Write"/>
+<Member Name="CLOSED" DataType="BIT" Dimension="0" Radix="Decimal" Hidden="false" Target="ZZZZZZZZZZAnalog_Val0" BitNumber="3" ExternalAccess="Read/Write"/>
+<Member Name="CONF_NO" DataType="BIT" Dimension="0" Radix="Decimal" Hidden="false" Target="ZZZZZZZZZZAnalog_Val0" BitNumber="4" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[0 = NC Valve, 1 = NO Valve]]>
+</Description>
+</Member>
+<Member Name="PID_Off_Request" DataType="BIT" Dimension="0" Radix="Decimal" Hidden="false" Target="ZZZZZZZZZZAnalog_Val0" BitNumber="5" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Request to place PID in 'Off' Mode]]>
+</Description>
+</Member>
+<Member Name="PID_Auto_Request" DataType="BIT" Dimension="0" Radix="Decimal" Hidden="false" Target="ZZZZZZZZZZAnalog_Val0" BitNumber="6" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Request to place PID in 'Auto' Mode]]>
+</Description>
+</Member>
+<Member Name="PID_SP_Request" DataType="REAL" Dimension="0" Radix="Float" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Operator request to change PID.SP value]]>
+</Description>
+</Member>
+<Member Name="ZZZZZZZZZZAnalog_Val9" DataType="SINT" Dimension="0" Radix="Decimal" Hidden="true" ExternalAccess="Read/Write"/>
+<Member Name="MM_Enabled" DataType="BIT" Dimension="0" Radix="Decimal" Hidden="false" Target="ZZZZZZZZZZAnalog_Val9" BitNumber="0" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Zone Master Manual Mode Enable - Allows the PID loop to use Manual Mode]]>
+</Description>
+</Member>
+<Member Name="MM_Enable_Request" DataType="BIT" Dimension="0" Radix="Decimal" Hidden="false" Target="ZZZZZZZZZZAnalog_Val9" BitNumber="1" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[HMI persistent Button that Allows PID to use Manual mode]]>
+</Description>
+</Member>
+<Member Name="PID_MM_Request" DataType="BIT" Dimension="0" Radix="Decimal" Hidden="false" Target="ZZZZZZZZZZAnalog_Val9" BitNumber="2" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Request PID loop to go into manual mode]]>
+</Description>
+</Member>
+<Member Name="TIE_Value_Set" DataType="BIT" Dimension="0" Radix="Decimal" Hidden="false" Target="ZZZZZZZZZZAnalog_Val9" BitNumber="3" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[If PID.TIE is > 0 this Bool is set high]]>
+</Description>
+</Member>
+<Member Name="MM_CVPosition_Request" DataType="REAL" Dimension="0" Radix="Float" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Operator request to change CV while in Manual Mode]]>
+</Description>
+</Member>
+<Member Name="SWM_CVPosition_Request" DataType="REAL" Dimension="0" Radix="Float" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Operator request to change CV while in Software Manual Mode]]>
+</Description>
+</Member>
+<Member Name="ZZZZZZZZZZAnalog_Val16" DataType="SINT" Dimension="0" Radix="Decimal" Hidden="true" ExternalAccess="Read/Write"/>
+<Member Name="SWM_Enabled" DataType="BIT" Dimension="0" Radix="Decimal" Hidden="false" Target="ZZZZZZZZZZAnalog_Val16" BitNumber="0" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Allows the PID loop to use Software Manual Mode]]>
+</Description>
+</Member>
+<Member Name="SWM_Enable_Request" DataType="BIT" Dimension="0" Radix="Decimal" Hidden="false" Target="ZZZZZZZZZZAnalog_Val16" BitNumber="1" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[HMI persistent Button that Allows PID to use SWM mode]]>
+</Description>
+</Member>
+<Member Name="PID_SWM_Request" DataType="BIT" Dimension="0" Radix="Decimal" Hidden="false" Target="ZZZZZZZZZZAnalog_Val16" BitNumber="2" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Request PID loop to go into softwarte manual mode]]>
+</Description>
+</Member>
+<Member Name="SO_Value_Set" DataType="BIT" Dimension="0" Radix="Decimal" Hidden="false" Target="ZZZZZZZZZZAnalog_Val16" BitNumber="3" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[If PID.SO is > 0 this Bool is set high]]>
+</Description>
+</Member>
+<Member Name="DEVICE_Index" DataType="INT" Dimension="0" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Index of PID_Conf_State and PID_Conf Element in use]]>
+</Description>
+</Member>
+<Member Name="DEVICE_Name" DataType="STRING_16" Dimension="0" Radix="NullType" Hidden="false" ExternalAccess="Read/Write"/>
+<Member Name="PID_Current" DataType="PID_Current_State_UDT" Dimension="0" Radix="NullType" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Provides Current State of Device and PID Loop]]>
+</Description>
+</Member>
+<Member Name="PID_Param" DataType="PID_Config_UDT" Dimension="0" Radix="NullType" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[PID Settings Recipe]]>
+</Description>
+</Member>
+<Member Name="ZZZZZZZZZZAnalog_Val25" DataType="SINT" Dimension="0" Radix="Decimal" Hidden="true" ExternalAccess="Read/Write"/>
+<Member Name="LOAD_Conf_Enabled" DataType="BIT" Dimension="0" Radix="Decimal" Hidden="false" Target="ZZZZZZZZZZAnalog_Val25" BitNumber="0" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Sets a OSR to control the device and PID state when loading a new configuration into the PID.]]>
+</Description>
+</Member>
+<Member Name="LOAD_Conf" DataType="BIT" Dimension="0" Radix="Decimal" Hidden="false" Target="ZZZZZZZZZZAnalog_Val25" BitNumber="1" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Enable new PID Configuration Load in]]>
+</Description>
+</Member>
+<Member Name="LOAD_Conf_Request" DataType="BIT" Dimension="0" Radix="Decimal" Hidden="false" Target="ZZZZZZZZZZAnalog_Val25" BitNumber="2" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Sent when the HMI attempts to Load a new PID configuration]]>
+</Description>
+</Member>
+<Member Name="CONF_Loading" DataType="BIT" Dimension="0" Radix="Decimal" Hidden="false" Target="ZZZZZZZZZZAnalog_Val25" BitNumber="3" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[OSR Storage Bit Set High While LOAD_Conf is High]]>
+</Description>
+</Member>
+<Member Name="LOADIN_Complete" DataType="BIT" Dimension="0" Radix="Decimal" Hidden="false" Target="ZZZZZZZZZZAnalog_Val25" BitNumber="4" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[= 1 after loadin timer [0] is DN.]]>
+</Description>
+</Member>
+<Member Name="CONF_Element_Request" DataType="INT" Dimension="0" Radix="Decimal" Hidden="false" Max="16" Min="0" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Determines PID_Loadin_Index as input from HMI]]>
+</Description>
+</Member>
+<Member Name="PID_CTL_Mask" DataType="DINT" Dimension="0" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Move mask for Configuuration loadin of PID.CTL bits [0 - 14 and 31 masked]]]>
+</Description>
+</Member>
+<Member Name="PID" DataType="PID" Dimension="0" Radix="NullType" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Device PID Instruction]]>
+</Description>
+</Member>
+<Member Name="PID_Data_Descriptions" DataType="STRING_40" Dimension="17" Radix="NullType" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Provides a description for the PID operational data,  Used in trouble shooting PID loop performance.]]>
+</Description>
+</Member>
+<Member Name="PID_Data_RTOS" DataType="STRING_40" Dimension="17" Radix="NullType" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Converts <deviceName>.PID.DATA[X] to Stings for concatination with <deviceName>.PID.Data_Descriptions[X]]]>
+</Description>
+</Member>
+<Member Name="PID_Data_Review" DataType="STRING" Dimension="24" Radix="NullType" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[CONCATINATION of PID_Data_Descriptions[X] + PID_Data_RTOS[X]]]>
+</Description>
+</Member>
+<Member Name="ZZZZZZZZZZAnalog_Val37" DataType="SINT" Dimension="0" Radix="Decimal" Hidden="true" ExternalAccess="Read/Write"/>
+<Member Name="PID_Disable_Rqst" DataType="BIT" Dimension="0" Radix="Decimal" Hidden="false" Target="ZZZZZZZZZZAnalog_Val37" BitNumber="0" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Request to disable the PID controller which only allows 2 PID modes: Disabled or AS Enabled]]>
+</Description>
+</Member>
+<Member Name="TMR_Expression" DataType="DINT" Dimension="16" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Provides a destination tag for CPT expressions done using TIMER variables.]]>
+</Description>
+</Member>
+<Member Name="PID_Conf_State_Timer" DataType="TIMER" Dimension="16" Radix="NullType" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Loads data into PID_Conf_State[X] element to update Previous values before PID_Conf Runs]]>
+</Description>
+</Member>
+<Member Name="PID_Conf_Load_Timer" DataType="TIMER" Dimension="16" Radix="NullType" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Loads configuration data into PID]]>
+</Description>
+</Member>
+<Member Name="TMR_Alm" DataType="TIMER" Dimension="12" Radix="NullType" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Device AlarmTimer Preset In Milliseconds]]>
+</Description>
+</Member>
+<Member Name="TMR_AlmEpression" DataType="DINT" Dimension="16" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Destination for a CPT expression on an Alm Timer]]>
+</Description>
+</Member>
+<Member Name="TMR_ExpressionWord" DataType="STRING" Dimension="16" Radix="NullType" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Holds expressions for various TMR related manipulation]]>
+</Description>
+</Member>
+<Member Name="ALM_SP" DataType="REAL" Dimension="16" Radix="Float" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Array of ALM Set points.]]>
+</Description>
+</Member>
+<Member Name="ALM_Word" DataType="STRING" Dimension="32" Radix="NullType" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Array of ALM Descriptions for <deviceName>]]>
+</Description>
+</Member>
+<Member Name="ALM" DataType="BOOL" Dimension="32" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Device Alarm]]>
+</Description>
+</Member>
+<Member Name="ALM_ACK" DataType="BOOL" Dimension="32" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Array of ALM Acknowledge BITS]]>
+</Description>
+</Member>
+<Member Name="ZZZZZZZZZZAnalog_Val49" DataType="SINT" Dimension="0" Radix="Decimal" Hidden="true" ExternalAccess="Read/Write"/>
+<Member Name="Alarmed" DataType="BIT" Dimension="0" Radix="Decimal" Hidden="false" Target="ZZZZZZZZZZAnalog_Val49" BitNumber="0" ExternalAccess="Read/Write"/>
+<Member Name="TMR_Off" DataType="TIMER" Dimension="0" Radix="NullType" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Delay Stop Timer Preset In Milliseconds]]>
+</Description>
+</Member>
+<Member Name="TMR_On" DataType="TIMER" Dimension="0" Radix="NullType" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Delay Start Timer Preset In Milliseconds]]>
+</Description>
+</Member>
+<Member Name="SP_AS1" DataType="DINT" Dimension="0" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Auto Position #1 Setpoint]]>
+</Description>
+</Member>
+<Member Name="SP_AS2" DataType="DINT" Dimension="0" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Auto Position #2 Setpoint]]>
+</Description>
+</Member>
+<Member Name="SP_AS3" DataType="DINT" Dimension="0" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Auto Position #3 Setpoint]]>
+</Description>
+</Member>
+<Member Name="SP_AS4" DataType="DINT" Dimension="0" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Auto Position #4 Setpoint]]>
+</Description>
+</Member>
+<Member Name="SP_AS5" DataType="DINT" Dimension="0" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Auto Position #5 Setpoint]]>
+</Description>
+</Member>
+<Member Name="ZZZZZZZZZZAnalog_Val58" DataType="SINT" Dimension="0" Radix="Decimal" Hidden="true" ExternalAccess="Read/Write"/>
+<Member Name="ENERGIZE_Perm" DataType="BIT" Dimension="0" Radix="Decimal" Hidden="false" Target="ZZZZZZZZZZAnalog_Val58" BitNumber="0" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Valve Permissive
+ From Logic
+ (EStop Ok)]]>
+</Description>
+</Member>
+<Member Name="PERM_Override01" DataType="BIT" Dimension="0" Radix="Decimal" Hidden="false" Target="ZZZZZZZZZZAnalog_Val58" BitNumber="1" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Allows the device energize permissive to be overridden.]]>
+</Description>
+</Member>
+<Member Name="MODE_Index_HLim" DataType="DINT" Dimension="0" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Provides the number of device's PID modes that are defined.]]>
+</Description>
+</Member>
+<Member Name="MODE_Index_LLim" DataType="DINT" Dimension="0" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Provides the lowest element number which has a defined PID Mode configured.]]>
+</Description>
+</Member>
+<Member Name="ZZZZZZZZZZAnalog_Val63" DataType="SINT" Dimension="0" Radix="Decimal" Hidden="true" ExternalAccess="Read/Write"/>
+<Member Name="AS_Enable_Request" DataType="BIT" Dimension="0" Radix="Decimal" Hidden="false" Target="ZZZZZZZZZZAnalog_Val63" BitNumber="0" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[HMI persistent Button that Allows PID to use AS_Enabled mode]]>
+</Description>
+</Member>
+<Member Name="AS_Enabled" DataType="BIT" Dimension="0" Radix="Decimal" Hidden="false" Target="ZZZZZZZZZZAnalog_Val63" BitNumber="1" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Configuration load in uses this bit to switch to 'AS Enabled' mode while PID config is loading in.]]>
+</Description>
+</Member>
+<Member Name="PID_AS_Request" DataType="BIT" Dimension="0" Radix="Decimal" Hidden="false" Target="ZZZZZZZZZZAnalog_Val63" BitNumber="2" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Sets Mode to AS_Enabled if AS_Enabled = 1]]>
+</Description>
+</Member>
+<Member Name="AS1_Enabled" DataType="BIT" Dimension="0" Radix="Decimal" Hidden="false" Target="ZZZZZZZZZZAnalog_Val63" BitNumber="3" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Auto Setpoint 1 Enable Interlock From Logic]]>
+</Description>
+</Member>
+<Member Name="AS2_Enabled" DataType="BIT" Dimension="0" Radix="Decimal" Hidden="false" Target="ZZZZZZZZZZAnalog_Val63" BitNumber="4" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Auto Setpoint 2 Enable Interlock From Logic]]>
+</Description>
+</Member>
+<Member Name="AS3_Enabled" DataType="BIT" Dimension="0" Radix="Decimal" Hidden="false" Target="ZZZZZZZZZZAnalog_Val63" BitNumber="5" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Auto Setpoint 3 Enable Interlock From Logic]]>
+</Description>
+</Member>
+<Member Name="AS4_Enabled" DataType="BIT" Dimension="0" Radix="Decimal" Hidden="false" Target="ZZZZZZZZZZAnalog_Val63" BitNumber="6" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Auto Setpoint 4 Enable Interlock From Logic]]>
+</Description>
+</Member>
+<Member Name="AS5_Enabled" DataType="BIT" Dimension="0" Radix="Decimal" Hidden="false" Target="ZZZZZZZZZZAnalog_Val63" BitNumber="7" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Auto Setpoint 5 Enable Interlock From Logic]]>
+</Description>
+</Member>
+<Member Name="ZZZZZZZZZZAnalog_Val72" DataType="SINT" Dimension="0" Radix="Decimal" Hidden="true" ExternalAccess="Read/Write"/>
+<Member Name="AS1_Request" DataType="BIT" Dimension="0" Radix="Decimal" Hidden="false" Target="ZZZZZZZZZZAnalog_Val72" BitNumber="0" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Request to Enable AS1]]>
+</Description>
+</Member>
+<Member Name="AS2_Request" DataType="BIT" Dimension="0" Radix="Decimal" Hidden="false" Target="ZZZZZZZZZZAnalog_Val72" BitNumber="1" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Request to Enable AS2]]>
+</Description>
+</Member>
+<Member Name="AS3_Request" DataType="BIT" Dimension="0" Radix="Decimal" Hidden="false" Target="ZZZZZZZZZZAnalog_Val72" BitNumber="2" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Request to Enable AS3]]>
+</Description>
+</Member>
+<Member Name="AS4_Request" DataType="BIT" Dimension="0" Radix="Decimal" Hidden="false" Target="ZZZZZZZZZZAnalog_Val72" BitNumber="3" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Request to Enable AS4]]>
+</Description>
+</Member>
+<Member Name="AS5_Request" DataType="BIT" Dimension="0" Radix="Decimal" Hidden="false" Target="ZZZZZZZZZZAnalog_Val72" BitNumber="4" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Request to Enable AS5]]>
+</Description>
+</Member>
+<Member Name="COMMENT" DataType="STRING" Dimension="0" Radix="NullType" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Comment for Description Rung to Start Each Routine]]>
+</Description>
+</Member>
+<Member Name="ONS" DataType="DINT" Dimension="0" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write"/>
+<Member Name="MODE_Index" DataType="BOOL" Dimension="32" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[High bit sets MODE_Word.  0 = Off', 1 = 'Auto', 2 'Manual', 3 = 'SWM', 4 = 'AS Enabled', 5 = 'Disabled', 6 - 15 currently undefined.]]>
+</Description>
+</Member>
+<Member Name="ZZZZZZZZZZAnalog_Val81" DataType="SINT" Dimension="0" Radix="Decimal" Hidden="true" ExternalAccess="Read/Write"/>
+<Member Name="MODE_Off" DataType="BIT" Dimension="0" Radix="Decimal" Hidden="false" Target="ZZZZZZZZZZAnalog_Val81" BitNumber="0" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[PID's Current Mode is OFF if .OFF = 1]]>
+</Description>
+</Member>
+<Member Name="MODE_Auto" DataType="BIT" Dimension="0" Radix="Decimal" Hidden="false" Target="ZZZZZZZZZZAnalog_Val81" BitNumber="1" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[PID's Current Mode is AUTO if .AUTO = 1]]>
+</Description>
+</Member>
+<Member Name="MODE_Man" DataType="BIT" Dimension="0" Radix="Decimal" Hidden="false" Target="ZZZZZZZZZZAnalog_Val81" BitNumber="2" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[PID's Current Mode is Manual if .MAN = 1.  PID.OUT will use value in PID.TIE]]>
+</Description>
+</Member>
+<Member Name="MODE_SWM" DataType="BIT" Dimension="0" Radix="Decimal" Hidden="false" Target="ZZZZZZZZZZAnalog_Val81" BitNumber="3" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[PID's Current mode is Software manual if .SWM = 1.  PID.OUT will use value in PID.SO - if both >MO and .SWM are both High PID.OUT with use PID.TIE]]>
+</Description>
+</Member>
+<Member Name="MODE_AS_Enabled" DataType="BIT" Dimension="0" Radix="Decimal" Hidden="false" Target="ZZZZZZZZZZAnalog_Val81" BitNumber="4" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[PID's Current mode is AS Enabled.]]>
+</Description>
+</Member>
+<Member Name="AS_Mode_Enabled" DataType="BIT" Dimension="0" Radix="Decimal" Hidden="false" Target="ZZZZZZZZZZAnalog_Val81" BitNumber="5" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Permissive to allow the use of AS Enabled Mode.  This mode provides 4 HMI defined discrete set points that can be used to operate <deviceName>.]]>
+</Description>
+</Member>
+<Member Name="MODE_Disabled" DataType="BIT" Dimension="0" Radix="Decimal" Hidden="false" Target="ZZZZZZZZZZAnalog_Val81" BitNumber="6" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Disables the PID Instruction]]>
+</Description>
+</Member>
+<Member Name="MODE_Word" DataType="STRING" Dimension="16" Radix="NullType" Hidden="false" ExternalAccess="Read Only">
+<Description>
+<![CDATA[Each element defines a device mode.  [0] = 'Off', [1] = 'Auto', [2] = 'Manual', [3] = 'SWM', [4] = 'AS Enabled', [5] = 'Disabled', [6] - [15] are currently undefined]]>
+</Description>
+</Member>
+<Member Name="STATE_BOOLs" DataType="BOOL" Dimension="32" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[High bit sets STATE_Word.  0 = 'deEnergized', 1 = 'energized', 2 = 'Disabled', 3 = 'faultState01', thru 7 = faultState05', 8 - 15 Currently undefined.]]>
+</Description>
+</Member>
+<Member Name="ZZZZZZZZZZAnalog_Val91" DataType="SINT" Dimension="0" Radix="Decimal" Hidden="true" ExternalAccess="Read/Write"/>
+<Member Name="STATE_Denergized" DataType="BIT" Dimension="0" Radix="Decimal" Hidden="false" Target="ZZZZZZZZZZAnalog_Val91" BitNumber="0" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Tied to STATE_Index[0]: 1 = Device's current state is deenergized]]>
+</Description>
+</Member>
+<Member Name="STATE_Energized" DataType="BIT" Dimension="0" Radix="Decimal" Hidden="false" Target="ZZZZZZZZZZAnalog_Val91" BitNumber="1" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Tied to STATE_Index[1]: 1 = Device's current state is energized]]>
+</Description>
+</Member>
+<Member Name="STATE_Disabled" DataType="BIT" Dimension="0" Radix="Decimal" Hidden="false" Target="ZZZZZZZZZZAnalog_Val91" BitNumber="2" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Tied to STATE_Index[2]: 1 = Device is Disabled]]>
+</Description>
+</Member>
+<Member Name="STATE_FltMajor" DataType="BIT" Dimension="0" Radix="Decimal" Hidden="false" Target="ZZZZZZZZZZAnalog_Val91" BitNumber="3" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Tied to STATE_Index[3]: 1 = PID is in Major Fault]]>
+</Description>
+</Member>
+<Member Name="STATE_Flt02" DataType="BIT" Dimension="0" Radix="Decimal" Hidden="false" Target="ZZZZZZZZZZAnalog_Val91" BitNumber="4" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Tied to STATE_Index[4]: 1 = Device fault state 02 is active, NOT currently used]]>
+</Description>
+</Member>
+<Member Name="STATE_Flt03" DataType="BIT" Dimension="0" Radix="Decimal" Hidden="false" Target="ZZZZZZZZZZAnalog_Val91" BitNumber="5" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Tied to STATE_Index[5]: 1 = Device fault state 03 is active, NOT currently used]]>
+</Description>
+</Member>
+<Member Name="STATE_Flt04" DataType="BIT" Dimension="0" Radix="Decimal" Hidden="false" Target="ZZZZZZZZZZAnalog_Val91" BitNumber="6" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Tied to STATE_Index[6]: 1 = Device fault state 04 is active, NOT currently used]]>
+</Description>
+</Member>
+<Member Name="STATE_Flt05" DataType="BIT" Dimension="0" Radix="Decimal" Hidden="false" Target="ZZZZZZZZZZAnalog_Val91" BitNumber="7" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Tied to STATE_Index[7]: 1 = Device fault state 05 is active, NOT currently used]]>
+</Description>
+</Member>
+<Member Name="ZZZZZZZZZZAnalog_Val100" DataType="SINT" Dimension="0" Radix="Decimal" Hidden="true" ExternalAccess="Read/Write"/>
+<Member Name="STATE_Flt06" DataType="BIT" Dimension="0" Radix="Decimal" Hidden="false" Target="ZZZZZZZZZZAnalog_Val100" BitNumber="0" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Tied to STATE_Index[8]: 1 = Device fault state 06 is active, NOT currently used]]>
+</Description>
+</Member>
+<Member Name="STATE_Flt07" DataType="BIT" Dimension="0" Radix="Decimal" Hidden="false" Target="ZZZZZZZZZZAnalog_Val100" BitNumber="1" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Tied to STATE_Index[9]: 1 = Device fault state 07 is active, NOT currently used]]>
+</Description>
+</Member>
+<Member Name="STATE_Loading_PIDConfig" DataType="BIT" Dimension="0" Radix="Decimal" Hidden="false" Target="ZZZZZZZZZZAnalog_Val100" BitNumber="2" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Tied to STATE_Index[10]: 1 = Device is loading a new PID configuration.]]>
+</Description>
+</Member>
+<Member Name="STATE_Word" DataType="STRING" Dimension="16" Radix="NullType" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Each element defines a device state: [0] = 'deEenergized', [1] = 'energized", [2] = 'disabled', [3] - [9] = 'faultState01', thru 'faultState07. [10] = Loding PID Configuration, [11] - [15] currently undefined.]]>
+</Description>
+</Member>
+<Member Name="Current_State_Mode" DataType="STRING" Dimension="0" Radix="NullType" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Mode + State]]>
+</Description>
+</Member>
+<Member Name="ZZZZZZZZZZAnalog_Val106" DataType="SINT" Dimension="0" Radix="Decimal" Hidden="true" ExternalAccess="Read/Write"/>
+<Member Name="energizePerm_holdState" DataType="BIT" Dimension="0" Radix="Decimal" Hidden="false" Target="ZZZZZZZZZZAnalog_Val106" BitNumber="0" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Hold Bit for Energize Permissiove]]>
+</Description>
+</Member>
+<Member Name="CV_mA" DataType="REAL" Dimension="0" Radix="Float" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[CV in mA's (4 - 20)]]>
+</Description>
+</Member>
+<Member Name="FeedBack_mA" DataType="REAL" Dimension="0" Radix="Float" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[AI Feedback PV in mA's (4 - 20)]]>
+</Description>
+</Member>
+<Member Name="PV_mA" DataType="REAL" Dimension="0" Radix="Float" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[PV in mA's (4 - 20)]]>
+</Description>
+</Member>
+<Member Name="PROCESS_ExpressDestination" DataType="REAL" Dimension="8" Radix="Float" Hidden="false" ExternalAccess="Read/Write"/>
+<Member Name="PROCESS_ExpressionWord" DataType="STRING" Dimension="8" Radix="NullType" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[[0] mA = (raw.PV - 3277) * 16 / 29561 + 4]]>
+</Description>
+</Member>
+<Member Name="Logic_BITS01" DataType="BOOL" Dimension="32" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Used for various purposes, the purpose will be clearly decribed in Instuction describtion]]>
+</Description>
+</Member>
+<Member Name="STATE_Index" DataType="BOOL" Dimension="32" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Used for various purposes, the purpose will be clearly decribed in Instuction describtion]]>
+</Description>
+</Member>
+<Member Name="Logic_DINT" DataType="INT" Dimension="16" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Used for various purposes, the purpose will be clearly decribed in Instuction describtion]]>
+</Description>
+</Member>
+<Member Name="Logic_DINT01" DataType="DINT" Dimension="16" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Used for various purposes, the purpose will be clearly decribed in Instuction describtion]]>
+</Description>
+</Member>
+<Member Name="STATE_DINT" DataType="DINT" Dimension="16" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Used for various purposes, the purpose will be clearly decribed in Instuction describtion]]>
+</Description>
+</Member>
+<Member Name="Logic_REAL01" DataType="REAL" Dimension="16" Radix="Float" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Used for various purposes, the purpose will be clearly decribed in Instuction describtion]]>
+</Description>
+</Member>
+<Member Name="Logic_WORDS01" DataType="STRING" Dimension="16" Radix="NullType" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Used for various purposes, the purpose will be clearly decribed in Instuction describtion]]>
+</Description>
+</Member>
+</Members>
+<Dependencies>
+<Dependency Type="DataType" Name="PID_Current_State_UDT"/>
+<Dependency Type="DataType" Name="PID_Config_UDT"/>
+<Dependency Type="DataType" Name="STRING_40"/>
+<Dependency Type="DataType" Name="STRING_40"/>
+</Dependencies>
+</DataType>
+<DataType Use="Target" Name="Area_Ladder" Family="NoFamily" Class="User">
+<Members>
+<Member Name="ZZZZZZZZZZLadder_Tag0" DataType="SINT" Dimension="0" Radix="Decimal" Hidden="true" ExternalAccess="Read/Write"/>
+<Member Name="BIT_Comment" DataType="BIT" Dimension="0" Radix="Decimal" Hidden="false" Target="ZZZZZZZZZZLadder_Tag0" BitNumber="0" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[For Rung Comment]]>
+</Description>
+</Member>
+<Member Name="BIT_Alarm" DataType="DINT" Dimension="1" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[For Logic Alarms]]>
+</Description>
+</Member>
+<Member Name="BIT_ONS" DataType="BOOL" Dimension="32" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[For Logic One Shot Bits]]>
+</Description>
+</Member>
+<Member Name="TMR_Alarm" DataType="TIMER" Dimension="25" Radix="NullType" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[For Logic Alarm Timers]]>
+</Description>
+</Member>
+<Member Name="BIT_Logic" DataType="DINT" Dimension="5" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[For Logic Bits]]>
+</Description>
+</Member>
+<Member Name="SP_Logic" DataType="DINT" Dimension="10" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[For Logic Setpoints]]>
+</Description>
+</Member>
+<Member Name="TMR_Logic" DataType="TIMER" Dimension="10" Radix="NullType" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[For Logic Timers]]>
+</Description>
+</Member>
+<Member Name="CTR_Logic" DataType="COUNTER" Dimension="5" Radix="NullType" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[For Logic Counters]]>
+</Description>
+</Member>
+<Member Name="CALC_Logic" DataType="REAL" Dimension="10" Radix="Float" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[For Logic Math Calculations]]>
+</Description>
+</Member>
+<Member Name="STRING_Logic" DataType="STRING" Dimension="5" Radix="NullType" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[For Logic Strings]]>
+</Description>
+</Member>
+<Member Name="BIT_HMI" DataType="DINT" Dimension="10" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[For HMI Buttons]]>
+</Description>
+</Member>
+<Member Name="SP_HMI" DataType="DINT" Dimension="10" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[For HMI Setpoints]]>
+</Description>
+</Member>
+<Member Name="STATUS_HMI" DataType="DINT" Dimension="10" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[For HMI Display Words]]>
+</Description>
+</Member>
+<Member Name="STATUS_BIT_HMI" DataType="DINT" Dimension="10" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[For HMI Display Bits]]>
+</Description>
+</Member>
+<Member Name="STRING_HMI" DataType="STRING" Dimension="5" Radix="NullType" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[For HMI Strings]]>
+</Description>
+</Member>
+</Members>
+</DataType>
+<DataType Use="Target" Name="Area_Program" Family="NoFamily" Class="User">
+<Members>
+<Member Name="ZZZZZZZZZZArea_Progr0" DataType="SINT" Dimension="0" Radix="Decimal" Hidden="true" ExternalAccess="Read/Write"/>
+<Member Name="BIT_Comment" DataType="BIT" Dimension="0" Radix="Decimal" Hidden="false" Target="ZZZZZZZZZZArea_Progr0" BitNumber="0" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[For Rung Comment]]>
+</Description>
+</Member>
+<Member Name="BIT_Alarm" DataType="DINT" Dimension="2" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[For Logic Alarms]]>
+</Description>
+</Member>
+<Member Name="BIT_ONS" DataType="BOOL" Dimension="128" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[For Logic One Shot Bits]]>
+</Description>
+</Member>
+<Member Name="TMR_Alarm" DataType="TIMER" Dimension="50" Radix="NullType" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[For Logic Alarm Timers]]>
+</Description>
+</Member>
+<Member Name="BIT_Logic" DataType="DINT" Dimension="10" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[For Logic Bits]]>
+</Description>
+</Member>
+<Member Name="SP_Logic" DataType="DINT" Dimension="25" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[For Logic Setpoints]]>
+</Description>
+</Member>
+<Member Name="TMR_Logic" DataType="TIMER" Dimension="50" Radix="NullType" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[For Logic Timers]]>
+</Description>
+</Member>
+<Member Name="CTR_Logic" DataType="COUNTER" Dimension="10" Radix="NullType" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[For Logic Counters]]>
+</Description>
+</Member>
+<Member Name="CALC_Logic" DataType="REAL" Dimension="25" Radix="Float" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[For Logic Math Calculations]]>
+</Description>
+</Member>
+<Member Name="STRING_Logic" DataType="STRING" Dimension="5" Radix="NullType" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[For Logic Strings]]>
+</Description>
+</Member>
+<Member Name="BIT_HMI" DataType="DINT" Dimension="10" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[For HMI Buttons]]>
+</Description>
+</Member>
+<Member Name="SP_HMI" DataType="DINT" Dimension="25" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[For HMI Setpoints]]>
+</Description>
+</Member>
+<Member Name="STATUS_HMI" DataType="DINT" Dimension="10" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[For HMI Display Words]]>
+</Description>
+</Member>
+<Member Name="STATUS_BIT_HMI" DataType="DINT" Dimension="10" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[For HMI Display Bits]]>
+</Description>
+</Member>
+<Member Name="STRING_HMI" DataType="STRING" Dimension="5" Radix="NullType" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[For HMI Strings]]>
+</Description>
+</Member>
+<Member Name="TMR_Debounce_On" DataType="TIMER" Dimension="50" Radix="NullType" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[For Inputs
+ Debounce Timer On]]>
+</Description>
+</Member>
+<Member Name="TMR_Debounce_Off" DataType="TIMER" Dimension="50" Radix="NullType" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[For Inputs
+ Debounce Timer Off]]>
+</Description>
+</Member>
+<Member Name="Index" DataType="INT" Dimension="0" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[For Indirect Addressing]]>
+</Description>
+</Member>
+<Member Name="Index1" DataType="INT" Dimension="0" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[For Indirect Addressing]]>
+</Description>
+</Member>
+<Member Name="Index2" DataType="INT" Dimension="0" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[For Indirect Addressing]]>
+</Description>
+</Member>
+<Member Name="Index3" DataType="INT" Dimension="0" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[For Indirect Addressing]]>
+</Description>
+</Member>
+<Member Name="Index4" DataType="INT" Dimension="0" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[For Indirect Addressing]]>
+</Description>
+</Member>
+</Members>
+</DataType>
+<DataType Use="Target" Name="Cook_Actuals" Family="NoFamily" Class="User">
+<Members>
+<Member Name="Step_Ing_1_Actual" DataType="REAL" Dimension="0" Radix="Float" Hidden="false" ExternalAccess="Read/Write"/>
+<Member Name="Step_Ing_2_Actual" DataType="REAL" Dimension="0" Radix="Float" Hidden="false" ExternalAccess="Read/Write"/>
+<Member Name="Step_Ing_3_Actual" DataType="REAL" Dimension="0" Radix="Float" Hidden="false" ExternalAccess="Read/Write"/>
+<Member Name="Step_Ing_4_Actual" DataType="REAL" Dimension="0" Radix="Float" Hidden="false" ExternalAccess="Read/Write"/>
+</Members>
+</DataType>
+<DataType Use="Target" Name="CurGrainLoadin" Family="NoFamily" Class="User">
+<Members>
+<Member Name="Type" DataType="STRING" Dimension="0" Radix="NullType" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Grain type from MES]]>
+</Description>
+</Member>
+<Member Name="Weight" DataType="REAL" Dimension="0" Radix="Float" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[LBS from MES]]>
+</Description>
+</Member>
+<Member Name="PO" DataType="STRING" Dimension="0" Radix="NullType" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[PO number From MES]]>
+</Description>
+</Member>
+<Member Name="LoadinID" DataType="STRING" Dimension="0" Radix="NullType" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Generated by MES at weigh-in]]>
+</Description>
+</Member>
+<Member Name="ZZZZZZZZZZCurGrainLo4" DataType="SINT" Dimension="0" Radix="Decimal" Hidden="true" ExternalAccess="Read/Write"/>
+<Member Name="TestResult" DataType="BIT" Dimension="0" Radix="Decimal" Hidden="false" Target="ZZZZZZZZZZCurGrainLo4" BitNumber="0" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Pass/Fail result from MES]]>
+</Description>
+</Member>
+<Member Name="SiloSelected" DataType="INT" Dimension="0" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Silo selected]]>
+</Description>
+</Member>
+<Member Name="ZZZZZZZZZZCurGrainLo7" DataType="SINT" Dimension="0" Radix="Decimal" Hidden="true" ExternalAccess="Read/Write"/>
+<Member Name="LoadinComplete" DataType="BIT" Dimension="0" Radix="Decimal" Hidden="false" Target="ZZZZZZZZZZCurGrainLo7" BitNumber="0" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[LoadinComplete]]>
+</Description>
+</Member>
+<Member Name="SpareR1" DataType="REAL" Dimension="0" Radix="Float" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[spare]]>
+</Description>
+</Member>
+<Member Name="SpareR2" DataType="REAL" Dimension="0" Radix="Float" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[spare]]>
+</Description>
+</Member>
+<Member Name="SpareR3" DataType="REAL" Dimension="0" Radix="Float" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[spare]]>
+</Description>
+</Member>
+<Member Name="SpareS1" DataType="STRING" Dimension="0" Radix="NullType" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[spare]]>
+</Description>
+</Member>
+<Member Name="SpareS2" DataType="STRING" Dimension="0" Radix="NullType" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[spare]]>
+</Description>
+</Member>
+<Member Name="SpareS3" DataType="STRING" Dimension="0" Radix="NullType" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[spare]]>
+</Description>
+</Member>
+<Member Name="SpareI" DataType="INT" Dimension="0" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[spare]]>
+</Description>
+</Member>
+<Member Name="SpareW" DataType="DINT" Dimension="0" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[spare]]>
+</Description>
+</Member>
+</Members>
+</DataType>
+<DataType Use="Target" Name="DateTime" Family="NoFamily" Class="User">
+<Description>
+<![CDATA[Date and TimeOfDay (absolute) or Time (duration/interval)]]>
+</Description>
+<Members>
+<Member Name="Yr" DataType="DINT" Dimension="0" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Year(s)]]>
+</Description>
+</Member>
+<Member Name="Mo" DataType="DINT" Dimension="0" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Month(s)]]>
+</Description>
+</Member>
+<Member Name="Da" DataType="DINT" Dimension="0" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Day(s)]]>
+</Description>
+</Member>
+<Member Name="Hr" DataType="DINT" Dimension="0" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Hour(s)]]>
+</Description>
+</Member>
+<Member Name="Min" DataType="DINT" Dimension="0" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Minute(s)]]>
+</Description>
+</Member>
+<Member Name="Sec" DataType="DINT" Dimension="0" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Second(s)]]>
+</Description>
+</Member>
+<Member Name="uSec" DataType="DINT" Dimension="0" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Microsecond(s)]]>
+</Description>
+</Member>
+</Members>
+</DataType>
+<DataType Use="Target" Name="DescList" Family="NoFamily" Class="User">
+<Description>
+<![CDATA[Code / Description List Entry]]>
+</Description>
+<Members>
+<Member Name="Code" DataType="DINT" Dimension="0" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Code for which to look up Description]]>
+</Description>
+</Member>
+<Member Name="Desc" DataType="STRING_40" Dimension="0" Radix="NullType" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Description for given Code]]>
+</Description>
+</Member>
+</Members>
+<Dependencies>
+<Dependency Type="DataType" Name="STRING_40"/>
+</Dependencies>
+</DataType>
+<DataType Use="Target" Name="Grain_Addition_Averages" Family="NoFamily" Class="User">
+<Members>
+<Member Name="Rye_Totalizer_Average" DataType="REAL" Dimension="0" Radix="Float" Hidden="false" ExternalAccess="Read/Write"/>
+<Member Name="Corn_Totalizer_Average" DataType="REAL" Dimension="0" Radix="Float" Hidden="false" ExternalAccess="Read/Write"/>
+<Member Name="Malt_Totalizer_Average" DataType="REAL" Dimension="0" Radix="Float" Hidden="false" ExternalAccess="Read/Write"/>
+<Member Name="Wheat_Totalizer_Average" DataType="REAL" Dimension="0" Radix="Float" Hidden="false" ExternalAccess="Read/Write"/>
+<Member Name="Specialty_Totalizer_Average" DataType="REAL" Dimension="0" Radix="Float" Hidden="false" ExternalAccess="Read/Write"/>
+</Members>
+</DataType>
+<DataType Use="Target" Name="Interlocks" Family="NoFamily" Class="User">
+<Members>
+<Member Name="Connection_Status" DataType="CONNECTION_STATUS" Dimension="0" Radix="NullType" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Connection Status Between Modules]]>
+</Description>
+</Member>
+<Member Name="String" DataType="STRING_20" Dimension="10" Radix="NullType" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Data Strings]]>
+</Description>
+</Member>
+<Member Name="Real" DataType="REAL" Dimension="20" Radix="Float" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Data Reals]]>
+</Description>
+</Member>
+<Member Name="Word" DataType="DINT" Dimension="20" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Data words]]>
+</Description>
+</Member>
+<Member Name="Bit" DataType="BOOL" Dimension="64" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Data bits]]>
+</Description>
+</Member>
+</Members>
+<Dependencies>
+<Dependency Type="DataType" Name="STRING_20"/>
+</Dependencies>
+</DataType>
+<DataType Use="Target" Name="IO_1756_Module_Status" Family="NoFamily" Class="User">
+<Members>
+<Member Name="Entry_Status_Bits" DataType="DINT" Dimension="0" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Status Bits]]>
+</Description>
+</Member>
+<Member Name="Entry_Status_Strings" DataType="STRING" Dimension="11" Radix="NullType" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Status Strings]]>
+</Description>
+</Member>
+<Member Name="Entry_Status" DataType="STRING" Dimension="0" Radix="NullType" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Status]]>
+</Description>
+</Member>
+<Member Name="Entry_Status_Code" DataType="DINT" Dimension="0" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Code from Module]]>
+</Description>
+</Member>
+</Members>
+</DataType>
+<DataType Use="Target" Name="LadderRecipe" Family="NoFamily" Class="User">
+<Members>
+<Member Name="BITS_Logic" DataType="INT" Dimension="5" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write"/>
+<Member Name="TMR_Logic" DataType="TIMER" Dimension="10" Radix="NullType" Hidden="false" ExternalAccess="Read/Write"/>
+<Member Name="CALC_Logic1" DataType="INT" Dimension="0" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write"/>
+<Member Name="CALC_Logic2" DataType="INT" Dimension="0" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write"/>
+<Member Name="CALC_Logic3" DataType="INT" Dimension="0" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write"/>
+<Member Name="CALC_Logic4" DataType="INT" Dimension="0" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write"/>
+<Member Name="CALC_Logic5" DataType="INT" Dimension="0" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write"/>
+<Member Name="CALC_Logic6" DataType="INT" Dimension="0" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write"/>
+<Member Name="CALC_Logic7" DataType="INT" Dimension="0" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write"/>
+<Member Name="CALC_Logic8" DataType="INT" Dimension="0" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write"/>
+<Member Name="CALC_Logic9" DataType="INT" Dimension="0" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write"/>
+<Member Name="BITS_ONS" DataType="INT" Dimension="6" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write"/>
+<Member Name="BITS_HMI" DataType="INT" Dimension="5" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write"/>
+<Member Name="SP_HMI" DataType="INT" Dimension="5" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write"/>
+<Member Name="TMR_HMI" DataType="TIMER" Dimension="5" Radix="NullType" Hidden="false" ExternalAccess="Read/Write"/>
+<Member Name="ZZZZZZZZZZLadderReci15" DataType="SINT" Dimension="0" Radix="Decimal" Hidden="true" ExternalAccess="Read/Write"/>
+<Member Name="BIT_Comment" DataType="BIT" Dimension="0" Radix="Decimal" Hidden="false" Target="ZZZZZZZZZZLadderReci15" BitNumber="0" ExternalAccess="Read/Write"/>
+</Members>
+</DataType>
+<DataType Use="Target" Name="Last_Cook" Family="NoFamily" Class="User">
+<Members>
+<Member Name="Name" DataType="STRING" Dimension="0" Radix="NullType" Hidden="false" ExternalAccess="Read/Write"/>
+<Member Name="Recipe_Num" DataType="INT" Dimension="0" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write"/>
+<Member Name="Step" DataType="Recipe_Step" Dimension="37" Radix="NullType" Hidden="false" ExternalAccess="Read/Write"/>
+<Member Name="ZZZZZZZZZZLast_Cook3" DataType="SINT" Dimension="0" Radix="Decimal" Hidden="true" ExternalAccess="Read/Write"/>
+<Member Name="Hot_Flush_Perfomed" DataType="BIT" Dimension="0" Radix="Decimal" Hidden="false" Target="ZZZZZZZZZZLast_Cook3" BitNumber="0" ExternalAccess="Read/Write"/>
+<Member Name="Steam_Performed" DataType="BIT" Dimension="0" Radix="Decimal" Hidden="false" Target="ZZZZZZZZZZLast_Cook3" BitNumber="1" ExternalAccess="Read/Write"/>
+<Member Name="Steam_Elapsed_Time" DataType="DINT" Dimension="0" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write"/>
+</Members>
+<Dependencies>
+<Dependency Type="DataType" Name="Recipe_Step"/>
+</Dependencies>
+</DataType>
+<DataType Use="Target" Name="Mash_To_Fermenter_Data" Family="NoFamily" Class="User">
+<Members>
+<Member Name="BatchID" DataType="STRING" Dimension="0" Radix="NullType" Hidden="false" ExternalAccess="Read/Write"/>
+<Member Name="CookIndex" DataType="INT" Dimension="0" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write"/>
+<Member Name="Fermenter" DataType="INT" Dimension="0" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write"/>
+</Members>
+</DataType>
+<DataType Use="Target" Name="Milling_Silos" Family="NoFamily" Class="User">
+<Members>
+<Member Name="SIL_110_Mode" DataType="INT" Dimension="0" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Operation Mode for SIL-110/SIL-125: 0 = Out of Service, 1 = Top Off Mode, 2 = Runout Mode, 3 = Scaled Grain Mode]]>
+</Description>
+</Member>
+<Member Name="SIL_115_Mode" DataType="INT" Dimension="0" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Operation Mode for SIL-115/SIL-135: 0 = Out of Service, 1 = Top Off Mode, 2 = Runout Mode, 3 = Scaled Grain Mode]]>
+</Description>
+</Member>
+<Member Name="SIL_120_Mode" DataType="INT" Dimension="0" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Operation Mode for SIL-120/SIL-145: 0 = Out of Service, 1 = Top Off Mode, 2 = Runout Mode, 3 = Scaled Grain Mode]]>
+</Description>
+</Member>
+</Members>
+</DataType>
+<DataType Use="Target" Name="PID_Config_UDT" Family="NoFamily" Class="User">
+<Description>
+<![CDATA[DataType contains all necessary information to push stored configurations into a devices PID controller]]>
+</Description>
+<Members>
+<Member Name="ZZZZZZZZZZPID_Config0" DataType="SINT" Dimension="0" Radix="Decimal" Hidden="true" ExternalAccess="Read/Write"/>
+<Member Name="BASIC" DataType="BIT" Dimension="0" Radix="Decimal" Hidden="false" Target="ZZZZZZZZZZPID_Config0" BitNumber="0" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[0 = Only one PID config used for this device.  1= This device has multiple PID Config options]]>
+</Description>
+</Member>
+<Member Name="MULTI_SP" DataType="BOOL" Dimension="32" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[0 = This device has only 1 SP configured Element [0].  1 = This device has multiple SP configured]]>
+</Description>
+</Member>
+<Member Name="SP_Count" DataType="INT" Dimension="0" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Elements [0] - [<SP_Count>] used]]>
+</Description>
+</Member>
+<Member Name="MULTI_PV" DataType="BOOL" Dimension="32" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[0 = This device has only 1 PV configured Element [0].  1 = This device has multiple PV configured]]>
+</Description>
+</Member>
+<Member Name="PV_Count" DataType="INT" Dimension="0" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Elements [0] - [<PV_Count>] used]]>
+</Description>
+</Member>
+<Member Name="MULTI_CV" DataType="BOOL" Dimension="32" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[0 = This device has only 1 CV configured Element [0].  1 = This device has multiple CV configured]]>
+</Description>
+</Member>
+<Member Name="CV_Count" DataType="INT" Dimension="0" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Elements [0] - [<CV_Count>] used]]>
+</Description>
+</Member>
+<Member Name="INDEX" DataType="DINT" Dimension="0" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[The Array Element currently used as PID Config ([0] is default) Min  = 0 & Max = 15]]>
+</Description>
+</Member>
+<Member Name="Bool" DataType="BOOL" Dimension="32" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[extra BOOL array for future use]]>
+</Description>
+</Member>
+<Member Name="CTL" DataType="DINT" Dimension="16" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Full PID  Configuration.  This Config can be added to the PID Controller to change all its settings.]]>
+</Description>
+</Member>
+<Member Name="PVtag" DataType="STRING" Dimension="16" Radix="NullType" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Tag name of the the PV associated with Config[X]]]>
+</Description>
+</Member>
+<Member Name="CVtag" DataType="STRING" Dimension="16" Radix="NullType" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Tag name of the the CV associated with Config[X]]]>
+</Description>
+</Member>
+<Member Name="SPtag" DataType="STRING" Dimension="16" Radix="NullType" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Tag name of the the SP associated with Config[X]]]>
+</Description>
+</Member>
+<Member Name="Kp" DataType="REAL" Dimension="16" Radix="Float" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Kp for element[x] of PID Config]]>
+</Description>
+</Member>
+<Member Name="Ki" DataType="REAL" Dimension="16" Radix="Float" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Ki for element[x] of PID Config]]>
+</Description>
+</Member>
+<Member Name="Kd" DataType="REAL" Dimension="16" Radix="Float" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Kd for element[x] of PID Config]]>
+</Description>
+</Member>
+<Member Name="BIAS" DataType="REAL" Dimension="16" Radix="Float" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[PID.BIAS for element[x] of PID Config]]>
+</Description>
+</Member>
+<Member Name="MAXS" DataType="REAL" Dimension="16" Radix="Float" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[PV Max EU scaling value of element[x]]]>
+</Description>
+</Member>
+<Member Name="MINS" DataType="REAL" Dimension="16" Radix="Float" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[PV Min EU scaling value of element[x]]]>
+</Description>
+</Member>
+<Member Name="DB" DataType="REAL" Dimension="16" Radix="Float" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Deadband EU of element[x]]]>
+</Description>
+</Member>
+<Member Name="MAXO" DataType="REAL" Dimension="16" Radix="Float" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Max % for PID.OUT of element[x]]]>
+</Description>
+</Member>
+<Member Name="MINO" DataType="REAL" Dimension="16" Radix="Float" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Min % for PID.OUT of element[x]]]>
+</Description>
+</Member>
+<Member Name="PVH" DataType="REAL" Dimension="16" Radix="Float" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[PV Alarm high]]>
+</Description>
+</Member>
+<Member Name="PVL" DataType="REAL" Dimension="16" Radix="Float" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[PV Alarm low]]>
+</Description>
+</Member>
+<Member Name="PVDB" DataType="REAL" Dimension="16" Radix="Float" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[PV Alarm deadband]]>
+</Description>
+</Member>
+<Member Name="MAXI" DataType="REAL" Dimension="16" Radix="Float" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Max PV (unscaled input) = 32383]]>
+</Description>
+</Member>
+<Member Name="MINI" DataType="REAL" Dimension="16" Radix="Float" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Min PV (unscaled input) = 3277]]>
+</Description>
+</Member>
+<Member Name="MAXCV" DataType="REAL" Dimension="16" Radix="Float" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[maximum CV value (corresponding to 100%)]]>
+</Description>
+</Member>
+<Member Name="MINCV" DataType="REAL" Dimension="16" Radix="Float" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[minimum CV value (corresponding to 0%)]]>
+</Description>
+</Member>
+<Member Name="MAXTIE" DataType="REAL" Dimension="16" Radix="Float" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[maximum tieback value (corresponding to 0%)]]>
+</Description>
+</Member>
+<Member Name="MINTIE" DataType="REAL" Dimension="16" Radix="Float" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[minimum tieback value (corresponding to 100%)]]>
+</Description>
+</Member>
+<Member Name="Param_ExpressionWord" DataType="STRING" Dimension="16" Radix="NullType" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Formula to derive PV from multiple Tags]]>
+</Description>
+</Member>
+<Member Name="Param_ExpressDestination" DataType="REAL" Dimension="16" Radix="Float" Hidden="false" ExternalAccess="Read/Write"/>
+<Member Name="PVwt00" DataType="REAL" Dimension="16" Radix="Float" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Weighting variable 00 for CONF_PVExpression]]>
+</Description>
+</Member>
+<Member Name="PVwt01" DataType="REAL" Dimension="16" Radix="Float" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Weighting variable 01 for CONF_PVExpression]]>
+</Description>
+</Member>
+<Member Name="PVwt02" DataType="REAL" Dimension="16" Radix="Float" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Weighting variable 02 for CONF_PVExpression]]>
+</Description>
+</Member>
+<Member Name="PVwt03" DataType="REAL" Dimension="16" Radix="Float" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Weighting variable 03 for CONF_PVExpression]]>
+</Description>
+</Member>
+<Member Name="PVwt04" DataType="REAL" Dimension="16" Radix="Float" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Weighting variable 04 for CONF_PVExpression]]>
+</Description>
+</Member>
+<Member Name="PVwt05" DataType="REAL" Dimension="16" Radix="Float" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Weighting variable 05 for CONF_PVExpression]]>
+</Description>
+</Member>
+</Members>
+</DataType>
+<DataType Use="Target" Name="PID_Current_State_UDT" Family="NoFamily" Class="User">
+<Members>
+<Member Name="ZZZZZZZZZZPID_Curren0" DataType="SINT" Dimension="0" Radix="Decimal" Hidden="true" ExternalAccess="Read/Write"/>
+<Member Name="BASIC" DataType="BIT" Dimension="0" Radix="Decimal" Hidden="false" Target="ZZZZZZZZZZPID_Curren0" BitNumber="0" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[0 = Only one PID config used for this device.  1= This device has multiple PID Config options]]>
+</Description>
+</Member>
+<Member Name="MULTI_SP" DataType="BOOL" Dimension="32" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[0 = This device has only 1 SP configured Element [0].  1 = This device has multiple SP configured]]>
+</Description>
+</Member>
+<Member Name="SP_Count" DataType="INT" Dimension="0" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Elements [0] - [<SP_Count>] used]]>
+</Description>
+</Member>
+<Member Name="MULTI_PV" DataType="BOOL" Dimension="32" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[0 = This device has only 1 PV configured Element [0].  1 = This device has multiple PV configured]]>
+</Description>
+</Member>
+<Member Name="PV_Count" DataType="INT" Dimension="0" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Elements [0] - [<PV_Count>] used]]>
+</Description>
+</Member>
+<Member Name="MULTI_CV" DataType="BOOL" Dimension="32" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[0 = This device has only 1 CV configured Element [0].  1 = This device has multiple CV configured]]>
+</Description>
+</Member>
+<Member Name="CV_Count" DataType="INT" Dimension="0" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Elements [0] - [<CV_Count>] used]]>
+</Description>
+</Member>
+<Member Name="INDEX" DataType="DINT" Dimension="0" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[The Array Element currently used as PID Config ([0] is default)]]>
+</Description>
+</Member>
+<Member Name="PREVIOUS_Index" DataType="DINT" Dimension="0" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[The Array Element previously used as PID Config ([0] is default)]]>
+</Description>
+</Member>
+<Member Name="PV_tag" DataType="STRING" Dimension="0" Radix="NullType" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Tag name of current PV]]>
+</Description>
+</Member>
+<Member Name="PV_Scaled" DataType="REAL" Dimension="0" Radix="Float" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[scaled value of CurrentPV]]>
+</Description>
+</Member>
+<Member Name="SP_tag" DataType="STRING" Dimension="0" Radix="NullType" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Tag name of current SP]]>
+</Description>
+</Member>
+<Member Name="CV_tag" DataType="STRING" Dimension="0" Radix="NullType" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Tag name of current SP]]>
+</Description>
+</Member>
+<Member Name="CV_Scaled" DataType="REAL" Dimension="0" Radix="Float" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Only required if AO cant be scaled in IO card]]>
+</Description>
+</Member>
+<Member Name="STATUS_Bool" DataType="BOOL" Dimension="32" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write"/>
+<Member Name="CONF_Expression" DataType="REAL" Dimension="8" Radix="Float" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Formula to derive PV from multiple Tags]]>
+</Description>
+</Member>
+<Member Name="Current_ExpressionWord" DataType="STRING" Dimension="8" Radix="NullType" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[A storage point for formulas and expressions]]>
+</Description>
+</Member>
+<Member Name="PVwt00" DataType="REAL" Dimension="8" Radix="Float" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Weighting variable 00 for CONF_PVExpression]]>
+</Description>
+</Member>
+<Member Name="PVwt01" DataType="REAL" Dimension="8" Radix="Float" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Weighting variable 01 for CONF_PVExpression]]>
+</Description>
+</Member>
+<Member Name="PVwt02" DataType="REAL" Dimension="8" Radix="Float" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Weighting variable 02 for CONF_PVExpression]]>
+</Description>
+</Member>
+<Member Name="PVwt03" DataType="REAL" Dimension="8" Radix="Float" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Weighting variable 03 for CONF_PVExpression]]>
+</Description>
+</Member>
+<Member Name="PVwt04" DataType="REAL" Dimension="8" Radix="Float" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Weighting variable 04 for CONF_PVExpression]]>
+</Description>
+</Member>
+<Member Name="PVwt05" DataType="REAL" Dimension="8" Radix="Float" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Weighting variable 05 for CONF_PVExpression]]>
+</Description>
+</Member>
+</Members>
+</DataType>
+<DataType Use="Target" Name="PLCCOMS" Family="NoFamily" Class="User">
+<Members>
+<Member Name="ZZZZZZZZZZPLCCOMS0" DataType="SINT" Dimension="0" Radix="Decimal" Hidden="true" ExternalAccess="Read/Write"/>
+<Member Name="PLC_Online" DataType="BIT" Dimension="0" Radix="Decimal" Hidden="false" Target="ZZZZZZZZZZPLCCOMS0" BitNumber="0" ExternalAccess="Read/Write"/>
+<Member Name="PLC_Connection_Faulted" DataType="BIT" Dimension="0" Radix="Decimal" Hidden="false" Target="ZZZZZZZZZZPLCCOMS0" BitNumber="1" ExternalAccess="Read/Write"/>
+</Members>
+</DataType>
+<DataType Use="Target" Name="Program_AreaName" Family="NoFamily" Class="User">
+<Members>
+<Member Name="BIT_Alarm" DataType="DINT" Dimension="5" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[For Logic Alarms]]>
+</Description>
+</Member>
+<Member Name="BIT_ONS" DataType="BOOL" Dimension="128" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[For Logic One Shot Bits]]>
+</Description>
+</Member>
+<Member Name="TMR_Alarm" DataType="TIMER" Dimension="50" Radix="NullType" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[For Logic Alarm Timers]]>
+</Description>
+</Member>
+<Member Name="BIT_Logic" DataType="DINT" Dimension="5" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[For Logic Bits]]>
+</Description>
+</Member>
+<Member Name="SP_Logic" DataType="DINT" Dimension="50" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[For Logic Setpoints]]>
+</Description>
+</Member>
+<Member Name="TMR_Logic" DataType="TIMER" Dimension="50" Radix="NullType" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[For Logic Timers]]>
+</Description>
+</Member>
+<Member Name="CTR_Logic" DataType="COUNTER" Dimension="50" Radix="NullType" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[For Logic Counters]]>
+</Description>
+</Member>
+<Member Name="CALC_Logic" DataType="REAL" Dimension="50" Radix="Float" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[For Logic Math Calculations]]>
+</Description>
+</Member>
+<Member Name="STRING_Logic" DataType="STRING" Dimension="5" Radix="NullType" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[For Logic Strings]]>
+</Description>
+</Member>
+<Member Name="BIT_HMI" DataType="DINT" Dimension="10" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[For HMI Buttons]]>
+</Description>
+</Member>
+<Member Name="SP_HMI" DataType="DINT" Dimension="50" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[For HMI Setpoints]]>
+</Description>
+</Member>
+<Member Name="STATUS_HMI" DataType="INT" Dimension="50" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[For HMI Display Words]]>
+</Description>
+</Member>
+<Member Name="STATUS_BIT_HMI" DataType="DINT" Dimension="10" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[For HMI Display Bits]]>
+</Description>
+</Member>
+<Member Name="STRING_HMI" DataType="STRING" Dimension="5" Radix="NullType" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[For HMI Strings]]>
+</Description>
+</Member>
+<Member Name="TMR_Debounce_On" DataType="TIMER" Dimension="50" Radix="NullType" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[For Input Debounce Timer On]]>
+</Description>
+</Member>
+<Member Name="TMR_Debounce_Off" DataType="TIMER" Dimension="50" Radix="NullType" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[For Input Debounce Timer Off]]>
+</Description>
+</Member>
+<Member Name="Index" DataType="INT" Dimension="0" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[For Indirect Addressing]]>
+</Description>
+</Member>
+<Member Name="Index1" DataType="INT" Dimension="0" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[For Indirect Addressing]]>
+</Description>
+</Member>
+<Member Name="Index2" DataType="INT" Dimension="0" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[For Indirect Addressing]]>
+</Description>
+</Member>
+<Member Name="Index3" DataType="INT" Dimension="0" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[For Indirect Addressing]]>
+</Description>
+</Member>
+<Member Name="Index4" DataType="INT" Dimension="0" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[For Indirect Addressing]]>
+</Description>
+</Member>
+<Member Name="Startup_Step_OK" DataType="BOOL" Dimension="64" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Startup Step OK]]>
+</Description>
+</Member>
+<Member Name="Startup_Step_Conf_Needed" DataType="BOOL" Dimension="64" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Startup Step Confirmation Needed]]>
+</Description>
+</Member>
+<Member Name="Startup_Step_Enable" DataType="BOOL" Dimension="64" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Startup Step Enabled]]>
+</Description>
+</Member>
+<Member Name="Shutdown_Step_OK" DataType="BOOL" Dimension="64" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Shutdown Step OK]]>
+</Description>
+</Member>
+<Member Name="Shutdown_Step_Conf_Needed" DataType="BOOL" Dimension="64" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Shutdown Step Confirmation Needed]]>
+</Description>
+</Member>
+<Member Name="Shutdown_Step_Enable" DataType="BOOL" Dimension="64" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Shutdown Step Enabled]]>
+</Description>
+</Member>
+</Members>
+</DataType>
+<DataType Use="Target" Name="Program_Cooker" Family="NoFamily" Class="User">
+<Members>
+<Member Name="BIT_Alarm" DataType="DINT" Dimension="5" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[For Logic Alarms]]>
+</Description>
+</Member>
+<Member Name="BIT_ONS" DataType="BOOL" Dimension="128" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[For Logic One Shot Bits]]>
+</Description>
+</Member>
+<Member Name="TMR_Alarm" DataType="TIMER" Dimension="50" Radix="NullType" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[For Logic Alarm Timers]]>
+</Description>
+</Member>
+<Member Name="BIT_Logic" DataType="DINT" Dimension="6" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[For Logic Bits]]>
+</Description>
+</Member>
+<Member Name="SP_Logic" DataType="DINT" Dimension="50" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[For Logic Setpoints]]>
+</Description>
+</Member>
+<Member Name="TMR_Logic" DataType="TIMER" Dimension="50" Radix="NullType" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[For Logic Timers]]>
+</Description>
+</Member>
+<Member Name="CTR_Logic" DataType="COUNTER" Dimension="50" Radix="NullType" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[For Logic Counters]]>
+</Description>
+</Member>
+<Member Name="CALC_Logic" DataType="REAL" Dimension="50" Radix="Float" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[For Logic Math Calculations]]>
+</Description>
+</Member>
+<Member Name="STRING_Logic" DataType="STRING" Dimension="5" Radix="NullType" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[For Logic Strings]]>
+</Description>
+</Member>
+<Member Name="BIT_HMI" DataType="DINT" Dimension="10" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[For HMI Buttons]]>
+</Description>
+</Member>
+<Member Name="SP_HMI" DataType="DINT" Dimension="50" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[For HMI Setpoints]]>
+</Description>
+</Member>
+<Member Name="STATUS_HMI" DataType="INT" Dimension="50" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[For HMI Display Words]]>
+</Description>
+</Member>
+<Member Name="STATUS_BIT_HMI" DataType="DINT" Dimension="10" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[For HMI Display Bits]]>
+</Description>
+</Member>
+<Member Name="STRING_HMI" DataType="STRING" Dimension="5" Radix="NullType" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[For HMI Strings]]>
+</Description>
+</Member>
+<Member Name="TMR_Debounce_On" DataType="TIMER" Dimension="50" Radix="NullType" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[For Input Debounce Timer On]]>
+</Description>
+</Member>
+<Member Name="TMR_Debounce_Off" DataType="TIMER" Dimension="50" Radix="NullType" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[For Input Debounce Timer Off]]>
+</Description>
+</Member>
+<Member Name="Index" DataType="INT" Dimension="0" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[For Indirect Addressing]]>
+</Description>
+</Member>
+<Member Name="Index1" DataType="INT" Dimension="0" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[For Indirect Addressing]]>
+</Description>
+</Member>
+<Member Name="Index2" DataType="INT" Dimension="0" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[For Indirect Addressing]]>
+</Description>
+</Member>
+<Member Name="Index3" DataType="INT" Dimension="0" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[For Indirect Addressing]]>
+</Description>
+</Member>
+<Member Name="Index4" DataType="INT" Dimension="0" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[For Indirect Addressing]]>
+</Description>
+</Member>
+<Member Name="Startup_Step_OK" DataType="BOOL" Dimension="64" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Startup Step OK]]>
+</Description>
+</Member>
+<Member Name="Startup_Step_Conf_Needed" DataType="BOOL" Dimension="64" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Startup Step Confirmation Needed]]>
+</Description>
+</Member>
+<Member Name="Startup_Step_Enable" DataType="BOOL" Dimension="64" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Startup Step Enabled]]>
+</Description>
+</Member>
+<Member Name="Shutdown_Step_OK" DataType="BOOL" Dimension="64" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Shutdown Step OK]]>
+</Description>
+</Member>
+<Member Name="Shutdown_Step_Conf_Needed" DataType="BOOL" Dimension="64" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Shutdown Step Confirmation Needed]]>
+</Description>
+</Member>
+<Member Name="Shutdown_Step_Enable" DataType="BOOL" Dimension="64" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Shutdown Step Enabled]]>
+</Description>
+</Member>
+<Member Name="Transfer_Step_OK" DataType="BOOL" Dimension="64" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write"/>
+<Member Name="Transfer_Step_Conf_Needed" DataType="BOOL" Dimension="64" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write"/>
+<Member Name="Transfer_Step_Enable" DataType="BOOL" Dimension="64" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write"/>
+</Members>
+</DataType>
+<DataType Use="Target" Name="Program_MashCooler" Family="NoFamily" Class="User">
+<Members>
+<Member Name="BIT_Alarm" DataType="DINT" Dimension="5" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[For Logic Alarms]]>
+</Description>
+</Member>
+<Member Name="BIT_ONS" DataType="BOOL" Dimension="128" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[For Logic One Shot Bits]]>
+</Description>
+</Member>
+<Member Name="TMR_Alarm" DataType="TIMER" Dimension="50" Radix="NullType" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[For Logic Alarm Timers]]>
+</Description>
+</Member>
+<Member Name="BIT_Logic" DataType="DINT" Dimension="5" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[For Logic Bits]]>
+</Description>
+</Member>
+<Member Name="SP_Logic" DataType="DINT" Dimension="50" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[For Logic Setpoints]]>
+</Description>
+</Member>
+<Member Name="TMR_Logic" DataType="TIMER" Dimension="50" Radix="NullType" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[For Logic Timers]]>
+</Description>
+</Member>
+<Member Name="CTR_Logic" DataType="COUNTER" Dimension="50" Radix="NullType" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[For Logic Counters]]>
+</Description>
+</Member>
+<Member Name="CALC_Logic" DataType="REAL" Dimension="50" Radix="Float" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[For Logic Math Calculations]]>
+</Description>
+</Member>
+<Member Name="STRING_Logic" DataType="STRING" Dimension="5" Radix="NullType" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[For Logic Strings]]>
+</Description>
+</Member>
+<Member Name="BIT_HMI" DataType="DINT" Dimension="10" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[For HMI Buttons]]>
+</Description>
+</Member>
+<Member Name="SP_HMI" DataType="DINT" Dimension="50" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[For HMI Setpoints]]>
+</Description>
+</Member>
+<Member Name="STATUS_HMI" DataType="INT" Dimension="50" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[For HMI Display Words]]>
+</Description>
+</Member>
+<Member Name="STATUS_BIT_HMI" DataType="DINT" Dimension="10" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[For HMI Display Bits]]>
+</Description>
+</Member>
+<Member Name="STRING_HMI" DataType="STRING" Dimension="5" Radix="NullType" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[For HMI Strings]]>
+</Description>
+</Member>
+<Member Name="TMR_Debounce_On" DataType="TIMER" Dimension="50" Radix="NullType" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[For Input Debounce Timer On]]>
+</Description>
+</Member>
+<Member Name="TMR_Debounce_Off" DataType="TIMER" Dimension="50" Radix="NullType" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[For Input Debounce Timer Off]]>
+</Description>
+</Member>
+<Member Name="Index" DataType="INT" Dimension="0" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[For Indirect Addressing]]>
+</Description>
+</Member>
+<Member Name="Index1" DataType="INT" Dimension="0" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[For Indirect Addressing]]>
+</Description>
+</Member>
+<Member Name="Index2" DataType="INT" Dimension="0" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[For Indirect Addressing]]>
+</Description>
+</Member>
+<Member Name="Index3" DataType="INT" Dimension="0" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[For Indirect Addressing]]>
+</Description>
+</Member>
+<Member Name="Index4" DataType="INT" Dimension="0" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[For Indirect Addressing]]>
+</Description>
+</Member>
+<Member Name="Startup_Step_OK" DataType="BOOL" Dimension="64" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Startup Step OK]]>
+</Description>
+</Member>
+<Member Name="Startup_Step_Conf_Needed" DataType="BOOL" Dimension="64" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Startup Step Confirmation Needed]]>
+</Description>
+</Member>
+<Member Name="Startup_Step_Enable" DataType="BOOL" Dimension="64" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Startup Step Enabled]]>
+</Description>
+</Member>
+<Member Name="Shutdown_Step_OK" DataType="BOOL" Dimension="64" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Shutdown Step OK]]>
+</Description>
+</Member>
+<Member Name="Shutdown_Step_Conf_Needed" DataType="BOOL" Dimension="64" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Shutdown Step Confirmation Needed]]>
+</Description>
+</Member>
+<Member Name="Shutdown_Step_Enable" DataType="BOOL" Dimension="64" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Shutdown Step Enabled]]>
+</Description>
+</Member>
+</Members>
+</DataType>
+<DataType Use="Target" Name="Program_Milling" Family="NoFamily" Class="User">
+<Members>
+<Member Name="BIT_Alarm" DataType="DINT" Dimension="5" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[For Logic Alarms]]>
+</Description>
+</Member>
+<Member Name="BIT_ONS" DataType="BOOL" Dimension="128" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[For Logic One Shot Bits]]>
+</Description>
+</Member>
+<Member Name="TMR_Alarm" DataType="TIMER" Dimension="20" Radix="NullType" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[For Logic Alarm Timers]]>
+</Description>
+</Member>
+<Member Name="BIT_Logic" DataType="DINT" Dimension="5" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[For Logic Bits]]>
+</Description>
+</Member>
+<Member Name="SP_Logic" DataType="DINT" Dimension="20" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[For Logic Setpoints]]>
+</Description>
+</Member>
+<Member Name="TMR_Logic" DataType="TIMER" Dimension="50" Radix="NullType" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[For Logic Timers]]>
+</Description>
+</Member>
+<Member Name="CTR_Logic" DataType="COUNTER" Dimension="20" Radix="NullType" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[For Logic Counters]]>
+</Description>
+</Member>
+<Member Name="CALC_Logic" DataType="REAL" Dimension="20" Radix="Float" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[For Logic Math Calculations]]>
+</Description>
+</Member>
+<Member Name="STRING_Logic" DataType="STRING" Dimension="5" Radix="NullType" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[For Logic Strings]]>
+</Description>
+</Member>
+<Member Name="BIT_HMI" DataType="DINT" Dimension="10" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[For HMI Buttons]]>
+</Description>
+</Member>
+<Member Name="SP_HMI" DataType="DINT" Dimension="50" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[For HMI Setpoints]]>
+</Description>
+</Member>
+<Member Name="STATUS_HMI" DataType="INT" Dimension="50" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[For HMI Display Words]]>
+</Description>
+</Member>
+<Member Name="STATUS_BIT_HMI" DataType="DINT" Dimension="10" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[For HMI Display Bits]]>
+</Description>
+</Member>
+<Member Name="STRING_HMI" DataType="STRING" Dimension="5" Radix="NullType" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[For HMI Strings]]>
+</Description>
+</Member>
+<Member Name="TMR_Debounce_On" DataType="TIMER" Dimension="30" Radix="NullType" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[For Input Debounce Timer On]]>
+</Description>
+</Member>
+<Member Name="TMR_Debounce_Off" DataType="TIMER" Dimension="30" Radix="NullType" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[For Input Debounce Timer Off]]>
+</Description>
+</Member>
+<Member Name="Index" DataType="INT" Dimension="0" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[For Indirect Addressing]]>
+</Description>
+</Member>
+<Member Name="Index1" DataType="INT" Dimension="0" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[For Indirect Addressing]]>
+</Description>
+</Member>
+<Member Name="Index2" DataType="INT" Dimension="0" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[For Indirect Addressing]]>
+</Description>
+</Member>
+<Member Name="Index3" DataType="INT" Dimension="0" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[For Indirect Addressing]]>
+</Description>
+</Member>
+<Member Name="Index4" DataType="INT" Dimension="0" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[For Indirect Addressing]]>
+</Description>
+</Member>
+<Member Name="Startup_Step_OK" DataType="BOOL" Dimension="64" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Startup Step OK]]>
+</Description>
+</Member>
+<Member Name="Startup_Step_Conf_Needed" DataType="BOOL" Dimension="64" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Startup Step Confirmation Needed]]>
+</Description>
+</Member>
+<Member Name="Startup_Step_Enable" DataType="BOOL" Dimension="64" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Startup Step Enabled]]>
+</Description>
+</Member>
+<Member Name="Shutdown_Step_OK" DataType="BOOL" Dimension="64" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Shutdown Step OK]]>
+</Description>
+</Member>
+<Member Name="Shutdown_Step_Conf_Needed" DataType="BOOL" Dimension="64" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Shutdown Step Confirmation Needed]]>
+</Description>
+</Member>
+<Member Name="Shutdown_Step_Enable" DataType="BOOL" Dimension="64" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Shutdown Step Enabled]]>
+</Description>
+</Member>
+</Members>
+</DataType>
+<DataType Use="Target" Name="Recipe" Family="NoFamily" Class="User">
+<Members>
+<Member Name="ZZZZZZZZZZRecipe0" DataType="SINT" Dimension="0" Radix="Decimal" Hidden="true" ExternalAccess="Read/Write"/>
+<Member Name="Four_Grain_Mode" DataType="BIT" Dimension="0" Radix="Decimal" Hidden="false" Target="ZZZZZZZZZZRecipe0" BitNumber="0" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[0 = Not a Four Grain Recipe, 1 = Four Grain Recipe]]>
+</Description>
+</Member>
+<Member Name="Name" DataType="STRING" Dimension="0" Radix="NullType" Hidden="false" ExternalAccess="Read/Write"/>
+<Member Name="Recipe_Num" DataType="INT" Dimension="0" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write"/>
+<Member Name="Step" DataType="Recipe_Step" Dimension="37" Radix="NullType" Hidden="false" ExternalAccess="Read/Write"/>
+</Members>
+<Dependencies>
+<Dependency Type="DataType" Name="Recipe_Step"/>
+</Dependencies>
+</DataType>
+<DataType Use="Target" Name="RecipeParameters" Family="NoFamily" Class="User">
+<Members>
+<Member Name="Age" DataType="INT" Dimension="0" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write"/>
+<Member Name="BatchID" DataType="STRING" Dimension="0" Radix="NullType" Hidden="false" ExternalAccess="Read/Write"/>
+<Member Name="ControlTemp" DataType="REAL" Dimension="0" Radix="Float" Hidden="false" ExternalAccess="Read/Write"/>
+<Member Name="CookMesID" DataType="STRING" Dimension="0" Radix="NullType" Hidden="false" ExternalAccess="Read/Write"/>
+<Member Name="CooksPerFerm" DataType="INT" Dimension="0" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write"/>
+<Member Name="LotNumber" DataType="STRING" Dimension="0" Radix="NullType" Hidden="false" ExternalAccess="Read/Write"/>
+<Member Name="ZZZZZZZZZZRecipePara6" DataType="SINT" Dimension="0" Radix="Decimal" Hidden="true" ExternalAccess="Read/Write"/>
+<Member Name="LowTempInfusion" DataType="BIT" Dimension="0" Radix="Decimal" Hidden="false" Target="ZZZZZZZZZZRecipePara6" BitNumber="0" ExternalAccess="Read/Write"/>
+<Member Name="MashRatio" DataType="REAL" Dimension="0" Radix="Float" Hidden="false" ExternalAccess="Read/Write"/>
+<Member Name="RatioByFerm" DataType="REAL" Dimension="0" Radix="Float" Hidden="false" ExternalAccess="Read/Write"/>
+<Member Name="SetTemp" DataType="REAL" Dimension="0" Radix="Float" Hidden="false" ExternalAccess="Read/Write"/>
+<Member Name="StarterSweetpH" DataType="REAL" Dimension="0" Radix="Float" Hidden="false" ExternalAccess="Read/Write"/>
+<Member Name="TopOffFrequency" DataType="INT" Dimension="0" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write"/>
+<Member Name="TopOffVolume" DataType="REAL" Dimension="0" Radix="Float" Hidden="false" ExternalAccess="Read/Write"/>
+<Member Name="BeerFeedTray" DataType="STRING" Dimension="0" Radix="NullType" Hidden="false" ExternalAccess="Read/Write"/>
+<Member Name="LowWineProof" DataType="REAL" Dimension="0" Radix="Float" Hidden="false" ExternalAccess="Read/Write"/>
+<Member Name="BaseLoss" DataType="REAL" Dimension="0" Radix="Float" Hidden="false" ExternalAccess="Read/Write"/>
+<Member Name="HighWineProof" DataType="REAL" Dimension="0" Radix="Float" Hidden="false" ExternalAccess="Read/Write"/>
+<Member Name="Spare1" DataType="REAL" Dimension="0" Radix="Float" Hidden="false" ExternalAccess="Read/Write"/>
+<Member Name="Spare2" DataType="REAL" Dimension="0" Radix="Float" Hidden="false" ExternalAccess="Read/Write"/>
+<Member Name="Spare3" DataType="REAL" Dimension="0" Radix="Float" Hidden="false" ExternalAccess="Read/Write"/>
+<Member Name="Spare4" DataType="REAL" Dimension="0" Radix="Float" Hidden="false" ExternalAccess="Read/Write"/>
+<Member Name="Spare5" DataType="REAL" Dimension="0" Radix="Float" Hidden="false" ExternalAccess="Read/Write"/>
+<Member Name="SpareREAL" DataType="REAL" Dimension="8" Radix="Float" Hidden="false" ExternalAccess="Read/Write"/>
+<Member Name="SpareDINT" DataType="DINT" Dimension="8" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write"/>
+<Member Name="SpareSTRING" DataType="STRING" Dimension="8" Radix="NullType" Hidden="false" ExternalAccess="Read/Write"/>
+<Member Name="ZZZZZZZZZZRecipePara26" DataType="SINT" Dimension="0" Radix="Decimal" Hidden="true" ExternalAccess="Read/Write"/>
+<Member Name="IsFourGrain" DataType="BIT" Dimension="0" Radix="Decimal" Hidden="false" Target="ZZZZZZZZZZRecipePara26" BitNumber="0" ExternalAccess="Read/Write"/>
+</Members>
+</DataType>
+<DataType Use="Target" Name="Recipe_Step" Family="NoFamily" Class="User">
+<Members>
+<Member Name="ZZZZZZZZZZRecipe_Ste0" DataType="SINT" Dimension="0" Radix="Decimal" Hidden="true" ExternalAccess="Read/Write"/>
+<Member Name="Step_Valid" DataType="BIT" Dimension="0" Radix="Decimal" Hidden="false" Target="ZZZZZZZZZZRecipe_Ste0" BitNumber="0" ExternalAccess="Read/Write"/>
+<Member Name="Step_Type" DataType="INT" Dimension="0" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write"/>
+<Member Name="Step_Ing_Name" DataType="STRING" Dimension="0" Radix="NullType" Hidden="false" ExternalAccess="Read/Write"/>
+<Member Name="Step_Ing_1_Amount" DataType="REAL" Dimension="0" Radix="Float" Hidden="false" ExternalAccess="Read/Write"/>
+<Member Name="Step_Ing_1_Unit" DataType="STRING" Dimension="0" Radix="NullType" Hidden="false" ExternalAccess="Read/Write"/>
+<Member Name="Step_Ing_2_Amount" DataType="REAL" Dimension="0" Radix="Float" Hidden="false" ExternalAccess="Read/Write"/>
+<Member Name="Step_Ing_2_Unit" DataType="STRING" Dimension="0" Radix="NullType" Hidden="false" ExternalAccess="Read/Write"/>
+<Member Name="Step_Ing_3_Amount" DataType="REAL" Dimension="0" Radix="Float" Hidden="false" ExternalAccess="Read/Write"/>
+<Member Name="Step_Ing_3_Unit" DataType="STRING" Dimension="0" Radix="NullType" Hidden="false" ExternalAccess="Read/Write"/>
+<Member Name="Step_Ing_4_Amount" DataType="REAL" Dimension="0" Radix="Float" Hidden="false" ExternalAccess="Read/Write"/>
+<Member Name="Step_Ing_4_Unit" DataType="STRING" Dimension="0" Radix="NullType" Hidden="false" ExternalAccess="Read/Write"/>
+<Member Name="Step_Ing_1_Actual" DataType="REAL" Dimension="0" Radix="Float" Hidden="false" ExternalAccess="Read/Write"/>
+<Member Name="Step_Ing_2_Actual" DataType="REAL" Dimension="0" Radix="Float" Hidden="false" ExternalAccess="Read/Write"/>
+<Member Name="Step_Ing_3_Actual" DataType="REAL" Dimension="0" Radix="Float" Hidden="false" ExternalAccess="Read/Write"/>
+<Member Name="Step_Ing_4_Actual" DataType="REAL" Dimension="0" Radix="Float" Hidden="false" ExternalAccess="Read/Write"/>
+<Member Name="Step_Time" DataType="INT" Dimension="0" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write"/>
+<Member Name="Step_Prompt" DataType="STRING" Dimension="0" Radix="NullType" Hidden="false" ExternalAccess="Read/Write"/>
+<Member Name="ZZZZZZZZZZRecipe_Ste18" DataType="SINT" Dimension="0" Radix="Decimal" Hidden="true" ExternalAccess="Read/Write"/>
+<Member Name="Heat_Enabled" DataType="BIT" Dimension="0" Radix="Decimal" Hidden="false" Target="ZZZZZZZZZZRecipe_Ste18" BitNumber="0" ExternalAccess="Read/Write"/>
+<Member Name="Heat_Temp_SP" DataType="REAL" Dimension="0" Radix="Float" Hidden="false" ExternalAccess="Read/Write"/>
+<Member Name="ZZZZZZZZZZRecipe_Ste21" DataType="SINT" Dimension="0" Radix="Decimal" Hidden="true" ExternalAccess="Read/Write"/>
+<Member Name="Cool_Enabled" DataType="BIT" Dimension="0" Radix="Decimal" Hidden="false" Target="ZZZZZZZZZZRecipe_Ste21" BitNumber="0" ExternalAccess="Read/Write"/>
+<Member Name="Cool_Temp_SP" DataType="REAL" Dimension="0" Radix="Float" Hidden="false" ExternalAccess="Read/Write"/>
+<Member Name="ZZZZZZZZZZRecipe_Ste24" DataType="SINT" Dimension="0" Radix="Decimal" Hidden="true" ExternalAccess="Read/Write"/>
+<Member Name="Agitator_Enabled" DataType="BIT" Dimension="0" Radix="Decimal" Hidden="false" Target="ZZZZZZZZZZRecipe_Ste24" BitNumber="0" ExternalAccess="Read/Write"/>
+<Member Name="Agitator_Spd_SP" DataType="INT" Dimension="0" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write"/>
+<Member Name="Ingr_Item_Number" DataType="STRING" Dimension="0" Radix="NullType" Hidden="false" ExternalAccess="Read/Write"/>
+<Member Name="Ingr_Item_Description" DataType="STRING" Dimension="0" Radix="NullType" Hidden="false" ExternalAccess="Read/Write"/>
+<Member Name="mesID" DataType="STRING" Dimension="0" Radix="NullType" Hidden="false" ExternalAccess="Read/Write"/>
+</Members>
+</DataType>
+</DataTypes>
+</Controller>
+</RSLogix5000Content>

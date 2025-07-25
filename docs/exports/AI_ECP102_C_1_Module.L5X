@@ -1,0 +1,668 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<RSLogix5000Content SchemaRevision="1.0" SoftwareRevision="35.01" TargetName="AI_ECP102_C_1" TargetType="Module" ContainsContext="true" ExportDate="Thu Jul 24 23:21:47 2025" ExportOptions="References NoRawData L5KData DecoratedData Context Dependencies ForceProtectedEncoding AllProjDocTrans">
+<Controller Use="Context" Name="PLC100_Mashing">
+<Modules Use="Context">
+<Module Use="Target" Name="AI_ECP102_C_1" CatalogNumber="5094-IY8/B" Vendor="1" ProductType="115" ProductCode="322" Major="3" Minor="1" ParentModule="ENET_ECP102_C_0" ParentModPortId="1" Inhibited="false"
+ MajorFault="false" SafetyEnabled="false" AutoDiagsEnabled="true">
+<EKey State="CompatibleModule"/>
+<Ports>
+<Port Id="1" Address="1" Type="5094" Upstream="true"/>
+</Ports>
+<Communications>
+<ConfigTag ConfigSize="448" ExternalAccess="Read/Write">
+<Data Format="L5K">
+<![CDATA[[452,191,[0,-1,0,0.00000000e+000],[0,-1,0,0.00000000e+000],[0,-1,0,0.00000000e+000],[0,-1,0,0.00000000e+000
+		],[0,-1,0,0.00000000e+000],[0,-1,0,0.00000000e+000],[0,-1,0,0.00000000e+000],[0,-1,0,0.00000000e+000],[16,1,2,9
+		,0,0,-2.00000000e+002,8.70000000e+002,-3.28000000e+002,1.59800000e+003,0.00000000e+000,0.00000000e+000
+		,1.00000000e+002,1.00000000e+002,0.00000000e+000,0.00000000e+000],[16,1,2,9,0,0,-2.00000000e+002
+		,8.70000000e+002,-3.28000000e+002,1.59800000e+003,0.00000000e+000,0.00000000e+000,1.00000000e+002
+		,1.00000000e+002,0.00000000e+000,0.00000000e+000],[16,1,2,9,0,0,-2.00000000e+002,8.70000000e+002
+		,-3.28000000e+002,1.59800000e+003,0.00000000e+000,0.00000000e+000,1.00000000e+002,1.00000000e+002
+		,0.00000000e+000,0.00000000e+000],[16,1,2,9,0,0,-2.00000000e+002,8.70000000e+002,-3.28000000e+002
+		,1.59800000e+003,0.00000000e+000,0.00000000e+000,1.00000000e+002,1.00000000e+002,0.00000000e+000
+		,0.00000000e+000],[5,0,2,49,0,5,4.00000000e+000,2.00000000e+001,0.00000000e+000,1.00000000e+004
+		,0.00000000e+000,0.00000000e+000,1.00000000e+002,1.00000000e+002,0.00000000e+000,0.00000000e+000
+		],[5,0,2,33,0,5,4.00000000e+000,2.00000000e+001,0.00000000e+000,1.50000000e+004,0.00000000e+000
+		,0.00000000e+000,1.00000000e+002,1.00000000e+002,0.00000000e+000,0.00000000e+000],[4,0,2,17,0
+		,0,0.00000000e+000,2.00000000e+001,0.00000000e+000,1.00000000e+002,0.00000000e+000,0.00000000e+000
+		,1.00000000e+002,1.00000000e+002,0.00000000e+000,0.00000000e+000],[5,0,2,33,0,0,4.00000000e+000
+		,2.00000000e+001,0.00000000e+000,1.00000000e+002,0.00000000e+000,0.00000000e+000,1.00000000e+002
+		,1.00000000e+002,0.00000000e+000,0.00000000e+000]]]]>
+</Data>
+<Data Format="Decorated">
+<Structure DataType="AB:5000_AI8SCJ:C:0">
+<StructureMember Name="CJCh00" DataType="AB:5000_AI_SCJ_Channel:C:0">
+<DataValueMember Name="Disable" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Remote" DataType="BOOL" Value="0"/>
+<DataValueMember Name="RemoteCJChannel" DataType="SINT" Radix="Decimal" Value="-1"/>
+<DataValueMember Name="SensorOffset" DataType="REAL" Radix="Float" Value="0.0"/>
+</StructureMember>
+<StructureMember Name="CJCh01" DataType="AB:5000_AI_SCJ_Channel:C:0">
+<DataValueMember Name="Disable" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Remote" DataType="BOOL" Value="0"/>
+<DataValueMember Name="RemoteCJChannel" DataType="SINT" Radix="Decimal" Value="-1"/>
+<DataValueMember Name="SensorOffset" DataType="REAL" Radix="Float" Value="0.0"/>
+</StructureMember>
+<StructureMember Name="CJCh02" DataType="AB:5000_AI_SCJ_Channel:C:0">
+<DataValueMember Name="Disable" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Remote" DataType="BOOL" Value="0"/>
+<DataValueMember Name="RemoteCJChannel" DataType="SINT" Radix="Decimal" Value="-1"/>
+<DataValueMember Name="SensorOffset" DataType="REAL" Radix="Float" Value="0.0"/>
+</StructureMember>
+<StructureMember Name="CJCh03" DataType="AB:5000_AI_SCJ_Channel:C:0">
+<DataValueMember Name="Disable" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Remote" DataType="BOOL" Value="0"/>
+<DataValueMember Name="RemoteCJChannel" DataType="SINT" Radix="Decimal" Value="-1"/>
+<DataValueMember Name="SensorOffset" DataType="REAL" Radix="Float" Value="0.0"/>
+</StructureMember>
+<StructureMember Name="CJCh04" DataType="AB:5000_AI_SCJ_Channel:C:0">
+<DataValueMember Name="Disable" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Remote" DataType="BOOL" Value="0"/>
+<DataValueMember Name="RemoteCJChannel" DataType="SINT" Radix="Decimal" Value="-1"/>
+<DataValueMember Name="SensorOffset" DataType="REAL" Radix="Float" Value="0.0"/>
+</StructureMember>
+<StructureMember Name="CJCh05" DataType="AB:5000_AI_SCJ_Channel:C:0">
+<DataValueMember Name="Disable" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Remote" DataType="BOOL" Value="0"/>
+<DataValueMember Name="RemoteCJChannel" DataType="SINT" Radix="Decimal" Value="-1"/>
+<DataValueMember Name="SensorOffset" DataType="REAL" Radix="Float" Value="0.0"/>
+</StructureMember>
+<StructureMember Name="CJCh06" DataType="AB:5000_AI_SCJ_Channel:C:0">
+<DataValueMember Name="Disable" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Remote" DataType="BOOL" Value="0"/>
+<DataValueMember Name="RemoteCJChannel" DataType="SINT" Radix="Decimal" Value="-1"/>
+<DataValueMember Name="SensorOffset" DataType="REAL" Radix="Float" Value="0.0"/>
+</StructureMember>
+<StructureMember Name="CJCh07" DataType="AB:5000_AI_SCJ_Channel:C:0">
+<DataValueMember Name="Disable" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Remote" DataType="BOOL" Value="0"/>
+<DataValueMember Name="RemoteCJChannel" DataType="SINT" Radix="Decimal" Value="-1"/>
+<DataValueMember Name="SensorOffset" DataType="REAL" Radix="Float" Value="0.0"/>
+</StructureMember>
+<StructureMember Name="Ch00" DataType="AB:5000_AI_SSV_Channel:C:0">
+<DataValueMember Name="Range" DataType="SINT" Radix="Decimal" Value="16"/>
+<DataValueMember Name="SensorType" DataType="SINT" Radix="Decimal" Value="1"/>
+<DataValueMember Name="NotchFilter" DataType="SINT" Radix="Decimal" Value="2"/>
+<DataValueMember Name="AlarmDisable" DataType="BOOL" Value="1"/>
+<DataValueMember Name="ProcessAlarmLatchEn" DataType="BOOL" Value="0"/>
+<DataValueMember Name="RateAlarmLatchEn" DataType="BOOL" Value="0"/>
+<DataValueMember Name="OpenWireEn" DataType="BOOL" Value="1"/>
+<DataValueMember Name="Disable" DataType="BOOL" Value="0"/>
+<DataValueMember Name="InputSSVSwitchEn" DataType="BOOL" Value="0"/>
+<DataValueMember Name="TenOhmOffset" DataType="INT" Radix="Decimal" Value="0"/>
+<DataValueMember Name="DigitalFilter" DataType="INT" Radix="Decimal" Value="0"/>
+<DataValueMember Name="LowSignal" DataType="REAL" Radix="Float" Value="-200.0"/>
+<DataValueMember Name="HighSignal" DataType="REAL" Radix="Float" Value="870.0"/>
+<DataValueMember Name="LowEngineering" DataType="REAL" Radix="Float" Value="-328.0"/>
+<DataValueMember Name="HighEngineering" DataType="REAL" Radix="Float" Value="1598.0"/>
+<DataValueMember Name="LLAlarmLimit" DataType="REAL" Radix="Float" Value="0.0"/>
+<DataValueMember Name="LAlarmLimit" DataType="REAL" Radix="Float" Value="0.0"/>
+<DataValueMember Name="HAlarmLimit" DataType="REAL" Radix="Float" Value="100.0"/>
+<DataValueMember Name="HHAlarmLimit" DataType="REAL" Radix="Float" Value="100.0"/>
+<DataValueMember Name="RateAlarmLimit" DataType="REAL" Radix="Float" Value="0.0"/>
+<DataValueMember Name="AlarmDeadband" DataType="REAL" Radix="Float" Value="0.0"/>
+</StructureMember>
+<StructureMember Name="Ch01" DataType="AB:5000_AI_SSV_Channel:C:0">
+<DataValueMember Name="Range" DataType="SINT" Radix="Decimal" Value="16"/>
+<DataValueMember Name="SensorType" DataType="SINT" Radix="Decimal" Value="1"/>
+<DataValueMember Name="NotchFilter" DataType="SINT" Radix="Decimal" Value="2"/>
+<DataValueMember Name="AlarmDisable" DataType="BOOL" Value="1"/>
+<DataValueMember Name="ProcessAlarmLatchEn" DataType="BOOL" Value="0"/>
+<DataValueMember Name="RateAlarmLatchEn" DataType="BOOL" Value="0"/>
+<DataValueMember Name="OpenWireEn" DataType="BOOL" Value="1"/>
+<DataValueMember Name="Disable" DataType="BOOL" Value="0"/>
+<DataValueMember Name="InputSSVSwitchEn" DataType="BOOL" Value="0"/>
+<DataValueMember Name="TenOhmOffset" DataType="INT" Radix="Decimal" Value="0"/>
+<DataValueMember Name="DigitalFilter" DataType="INT" Radix="Decimal" Value="0"/>
+<DataValueMember Name="LowSignal" DataType="REAL" Radix="Float" Value="-200.0"/>
+<DataValueMember Name="HighSignal" DataType="REAL" Radix="Float" Value="870.0"/>
+<DataValueMember Name="LowEngineering" DataType="REAL" Radix="Float" Value="-328.0"/>
+<DataValueMember Name="HighEngineering" DataType="REAL" Radix="Float" Value="1598.0"/>
+<DataValueMember Name="LLAlarmLimit" DataType="REAL" Radix="Float" Value="0.0"/>
+<DataValueMember Name="LAlarmLimit" DataType="REAL" Radix="Float" Value="0.0"/>
+<DataValueMember Name="HAlarmLimit" DataType="REAL" Radix="Float" Value="100.0"/>
+<DataValueMember Name="HHAlarmLimit" DataType="REAL" Radix="Float" Value="100.0"/>
+<DataValueMember Name="RateAlarmLimit" DataType="REAL" Radix="Float" Value="0.0"/>
+<DataValueMember Name="AlarmDeadband" DataType="REAL" Radix="Float" Value="0.0"/>
+</StructureMember>
+<StructureMember Name="Ch02" DataType="AB:5000_AI_SSV_Channel:C:0">
+<DataValueMember Name="Range" DataType="SINT" Radix="Decimal" Value="16"/>
+<DataValueMember Name="SensorType" DataType="SINT" Radix="Decimal" Value="1"/>
+<DataValueMember Name="NotchFilter" DataType="SINT" Radix="Decimal" Value="2"/>
+<DataValueMember Name="AlarmDisable" DataType="BOOL" Value="1"/>
+<DataValueMember Name="ProcessAlarmLatchEn" DataType="BOOL" Value="0"/>
+<DataValueMember Name="RateAlarmLatchEn" DataType="BOOL" Value="0"/>
+<DataValueMember Name="OpenWireEn" DataType="BOOL" Value="1"/>
+<DataValueMember Name="Disable" DataType="BOOL" Value="0"/>
+<DataValueMember Name="InputSSVSwitchEn" DataType="BOOL" Value="0"/>
+<DataValueMember Name="TenOhmOffset" DataType="INT" Radix="Decimal" Value="0"/>
+<DataValueMember Name="DigitalFilter" DataType="INT" Radix="Decimal" Value="0"/>
+<DataValueMember Name="LowSignal" DataType="REAL" Radix="Float" Value="-200.0"/>
+<DataValueMember Name="HighSignal" DataType="REAL" Radix="Float" Value="870.0"/>
+<DataValueMember Name="LowEngineering" DataType="REAL" Radix="Float" Value="-328.0"/>
+<DataValueMember Name="HighEngineering" DataType="REAL" Radix="Float" Value="1598.0"/>
+<DataValueMember Name="LLAlarmLimit" DataType="REAL" Radix="Float" Value="0.0"/>
+<DataValueMember Name="LAlarmLimit" DataType="REAL" Radix="Float" Value="0.0"/>
+<DataValueMember Name="HAlarmLimit" DataType="REAL" Radix="Float" Value="100.0"/>
+<DataValueMember Name="HHAlarmLimit" DataType="REAL" Radix="Float" Value="100.0"/>
+<DataValueMember Name="RateAlarmLimit" DataType="REAL" Radix="Float" Value="0.0"/>
+<DataValueMember Name="AlarmDeadband" DataType="REAL" Radix="Float" Value="0.0"/>
+</StructureMember>
+<StructureMember Name="Ch03" DataType="AB:5000_AI_SSV_Channel:C:0">
+<DataValueMember Name="Range" DataType="SINT" Radix="Decimal" Value="16"/>
+<DataValueMember Name="SensorType" DataType="SINT" Radix="Decimal" Value="1"/>
+<DataValueMember Name="NotchFilter" DataType="SINT" Radix="Decimal" Value="2"/>
+<DataValueMember Name="AlarmDisable" DataType="BOOL" Value="1"/>
+<DataValueMember Name="ProcessAlarmLatchEn" DataType="BOOL" Value="0"/>
+<DataValueMember Name="RateAlarmLatchEn" DataType="BOOL" Value="0"/>
+<DataValueMember Name="OpenWireEn" DataType="BOOL" Value="1"/>
+<DataValueMember Name="Disable" DataType="BOOL" Value="0"/>
+<DataValueMember Name="InputSSVSwitchEn" DataType="BOOL" Value="0"/>
+<DataValueMember Name="TenOhmOffset" DataType="INT" Radix="Decimal" Value="0"/>
+<DataValueMember Name="DigitalFilter" DataType="INT" Radix="Decimal" Value="0"/>
+<DataValueMember Name="LowSignal" DataType="REAL" Radix="Float" Value="-200.0"/>
+<DataValueMember Name="HighSignal" DataType="REAL" Radix="Float" Value="870.0"/>
+<DataValueMember Name="LowEngineering" DataType="REAL" Radix="Float" Value="-328.0"/>
+<DataValueMember Name="HighEngineering" DataType="REAL" Radix="Float" Value="1598.0"/>
+<DataValueMember Name="LLAlarmLimit" DataType="REAL" Radix="Float" Value="0.0"/>
+<DataValueMember Name="LAlarmLimit" DataType="REAL" Radix="Float" Value="0.0"/>
+<DataValueMember Name="HAlarmLimit" DataType="REAL" Radix="Float" Value="100.0"/>
+<DataValueMember Name="HHAlarmLimit" DataType="REAL" Radix="Float" Value="100.0"/>
+<DataValueMember Name="RateAlarmLimit" DataType="REAL" Radix="Float" Value="0.0"/>
+<DataValueMember Name="AlarmDeadband" DataType="REAL" Radix="Float" Value="0.0"/>
+</StructureMember>
+<StructureMember Name="Ch04" DataType="AB:5000_AI_SSV_Channel:C:0">
+<DataValueMember Name="Range" DataType="SINT" Radix="Decimal" Value="5"/>
+<DataValueMember Name="SensorType" DataType="SINT" Radix="Decimal" Value="0"/>
+<DataValueMember Name="NotchFilter" DataType="SINT" Radix="Decimal" Value="2"/>
+<DataValueMember Name="AlarmDisable" DataType="BOOL" Value="1"/>
+<DataValueMember Name="ProcessAlarmLatchEn" DataType="BOOL" Value="0"/>
+<DataValueMember Name="RateAlarmLatchEn" DataType="BOOL" Value="0"/>
+<DataValueMember Name="OpenWireEn" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Disable" DataType="BOOL" Value="1"/>
+<DataValueMember Name="InputSSVSwitchEn" DataType="BOOL" Value="1"/>
+<DataValueMember Name="TenOhmOffset" DataType="INT" Radix="Decimal" Value="0"/>
+<DataValueMember Name="DigitalFilter" DataType="INT" Radix="Decimal" Value="5"/>
+<DataValueMember Name="LowSignal" DataType="REAL" Radix="Float" Value="4.0"/>
+<DataValueMember Name="HighSignal" DataType="REAL" Radix="Float" Value="20.0"/>
+<DataValueMember Name="LowEngineering" DataType="REAL" Radix="Float" Value="0.0"/>
+<DataValueMember Name="HighEngineering" DataType="REAL" Radix="Float" Value="10000.0"/>
+<DataValueMember Name="LLAlarmLimit" DataType="REAL" Radix="Float" Value="0.0"/>
+<DataValueMember Name="LAlarmLimit" DataType="REAL" Radix="Float" Value="0.0"/>
+<DataValueMember Name="HAlarmLimit" DataType="REAL" Radix="Float" Value="100.0"/>
+<DataValueMember Name="HHAlarmLimit" DataType="REAL" Radix="Float" Value="100.0"/>
+<DataValueMember Name="RateAlarmLimit" DataType="REAL" Radix="Float" Value="0.0"/>
+<DataValueMember Name="AlarmDeadband" DataType="REAL" Radix="Float" Value="0.0"/>
+</StructureMember>
+<StructureMember Name="Ch05" DataType="AB:5000_AI_SSV_Channel:C:0">
+<DataValueMember Name="Range" DataType="SINT" Radix="Decimal" Value="5"/>
+<DataValueMember Name="SensorType" DataType="SINT" Radix="Decimal" Value="0"/>
+<DataValueMember Name="NotchFilter" DataType="SINT" Radix="Decimal" Value="2"/>
+<DataValueMember Name="AlarmDisable" DataType="BOOL" Value="1"/>
+<DataValueMember Name="ProcessAlarmLatchEn" DataType="BOOL" Value="0"/>
+<DataValueMember Name="RateAlarmLatchEn" DataType="BOOL" Value="0"/>
+<DataValueMember Name="OpenWireEn" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Disable" DataType="BOOL" Value="0"/>
+<DataValueMember Name="InputSSVSwitchEn" DataType="BOOL" Value="1"/>
+<DataValueMember Name="TenOhmOffset" DataType="INT" Radix="Decimal" Value="0"/>
+<DataValueMember Name="DigitalFilter" DataType="INT" Radix="Decimal" Value="5"/>
+<DataValueMember Name="LowSignal" DataType="REAL" Radix="Float" Value="4.0"/>
+<DataValueMember Name="HighSignal" DataType="REAL" Radix="Float" Value="20.0"/>
+<DataValueMember Name="LowEngineering" DataType="REAL" Radix="Float" Value="0.0"/>
+<DataValueMember Name="HighEngineering" DataType="REAL" Radix="Float" Value="15000.0"/>
+<DataValueMember Name="LLAlarmLimit" DataType="REAL" Radix="Float" Value="0.0"/>
+<DataValueMember Name="LAlarmLimit" DataType="REAL" Radix="Float" Value="0.0"/>
+<DataValueMember Name="HAlarmLimit" DataType="REAL" Radix="Float" Value="100.0"/>
+<DataValueMember Name="HHAlarmLimit" DataType="REAL" Radix="Float" Value="100.0"/>
+<DataValueMember Name="RateAlarmLimit" DataType="REAL" Radix="Float" Value="0.0"/>
+<DataValueMember Name="AlarmDeadband" DataType="REAL" Radix="Float" Value="0.0"/>
+</StructureMember>
+<StructureMember Name="Ch06" DataType="AB:5000_AI_SSV_Channel:C:0">
+<DataValueMember Name="Range" DataType="SINT" Radix="Decimal" Value="4"/>
+<DataValueMember Name="SensorType" DataType="SINT" Radix="Decimal" Value="0"/>
+<DataValueMember Name="NotchFilter" DataType="SINT" Radix="Decimal" Value="2"/>
+<DataValueMember Name="AlarmDisable" DataType="BOOL" Value="1"/>
+<DataValueMember Name="ProcessAlarmLatchEn" DataType="BOOL" Value="0"/>
+<DataValueMember Name="RateAlarmLatchEn" DataType="BOOL" Value="0"/>
+<DataValueMember Name="OpenWireEn" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Disable" DataType="BOOL" Value="1"/>
+<DataValueMember Name="InputSSVSwitchEn" DataType="BOOL" Value="0"/>
+<DataValueMember Name="TenOhmOffset" DataType="INT" Radix="Decimal" Value="0"/>
+<DataValueMember Name="DigitalFilter" DataType="INT" Radix="Decimal" Value="0"/>
+<DataValueMember Name="LowSignal" DataType="REAL" Radix="Float" Value="0.0"/>
+<DataValueMember Name="HighSignal" DataType="REAL" Radix="Float" Value="20.0"/>
+<DataValueMember Name="LowEngineering" DataType="REAL" Radix="Float" Value="0.0"/>
+<DataValueMember Name="HighEngineering" DataType="REAL" Radix="Float" Value="100.0"/>
+<DataValueMember Name="LLAlarmLimit" DataType="REAL" Radix="Float" Value="0.0"/>
+<DataValueMember Name="LAlarmLimit" DataType="REAL" Radix="Float" Value="0.0"/>
+<DataValueMember Name="HAlarmLimit" DataType="REAL" Radix="Float" Value="100.0"/>
+<DataValueMember Name="HHAlarmLimit" DataType="REAL" Radix="Float" Value="100.0"/>
+<DataValueMember Name="RateAlarmLimit" DataType="REAL" Radix="Float" Value="0.0"/>
+<DataValueMember Name="AlarmDeadband" DataType="REAL" Radix="Float" Value="0.0"/>
+</StructureMember>
+<StructureMember Name="Ch07" DataType="AB:5000_AI_SSV_Channel:C:0">
+<DataValueMember Name="Range" DataType="SINT" Radix="Decimal" Value="5"/>
+<DataValueMember Name="SensorType" DataType="SINT" Radix="Decimal" Value="0"/>
+<DataValueMember Name="NotchFilter" DataType="SINT" Radix="Decimal" Value="2"/>
+<DataValueMember Name="AlarmDisable" DataType="BOOL" Value="1"/>
+<DataValueMember Name="ProcessAlarmLatchEn" DataType="BOOL" Value="0"/>
+<DataValueMember Name="RateAlarmLatchEn" DataType="BOOL" Value="0"/>
+<DataValueMember Name="OpenWireEn" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Disable" DataType="BOOL" Value="0"/>
+<DataValueMember Name="InputSSVSwitchEn" DataType="BOOL" Value="1"/>
+<DataValueMember Name="TenOhmOffset" DataType="INT" Radix="Decimal" Value="0"/>
+<DataValueMember Name="DigitalFilter" DataType="INT" Radix="Decimal" Value="0"/>
+<DataValueMember Name="LowSignal" DataType="REAL" Radix="Float" Value="4.0"/>
+<DataValueMember Name="HighSignal" DataType="REAL" Radix="Float" Value="20.0"/>
+<DataValueMember Name="LowEngineering" DataType="REAL" Radix="Float" Value="0.0"/>
+<DataValueMember Name="HighEngineering" DataType="REAL" Radix="Float" Value="100.0"/>
+<DataValueMember Name="LLAlarmLimit" DataType="REAL" Radix="Float" Value="0.0"/>
+<DataValueMember Name="LAlarmLimit" DataType="REAL" Radix="Float" Value="0.0"/>
+<DataValueMember Name="HAlarmLimit" DataType="REAL" Radix="Float" Value="100.0"/>
+<DataValueMember Name="HHAlarmLimit" DataType="REAL" Radix="Float" Value="100.0"/>
+<DataValueMember Name="RateAlarmLimit" DataType="REAL" Radix="Float" Value="0.0"/>
+<DataValueMember Name="AlarmDeadband" DataType="REAL" Radix="Float" Value="0.0"/>
+</StructureMember>
+</Structure>
+</Data>
+</ConfigTag>
+<ConfigScript Size="700">
+<Data Format="L5K">
+<![CDATA[[-72,2,0,0,4,0,0,0,0,0,0,0,0,0,0,0,-88,2,0,0,11,0,0,0,0,1,0,0,0,2,0,0,0,-54,1,0,0,16,4,32,4,37,0,98,3,48,3,0,-1,0,0,0,0,0,0,0,-1,0,0,0,0,0,0,0,-1,0
+		,0,0,0,0,0,0,-1,0,0,0,0,0,0,0,-1,0,0,0,0,0,0,0,-1,0,0,0,0,0,0,0,-1,0,0,0,0,0,0,0,-1,0,0,0,0,0,0,4,0,2,0,0,0,0,0,0,0,0,0,0,0,-96,65,0,0,0,0,0,0,-56,66,0
+		,0,0,0,0,0,0,0,0,0,-56,66,0,0,-56,66,0,0,0,0,0,0,0,0,4,0,2,0,0,0,0,0,0,0,0,0,0,0,-96,65,0,0,0,0,0,0,-56,66,0,0,0,0,0,0,0,0,0,0,-56,66,0,0,-56,66
+		,0,0,0,0,0,0,0,0,4,0,2,0,0,0,0,0,0,0,0,0,0,0,-96,65,0,0,0,0,0,0,-56,66,0,0,0,0,0,0,0,0,0,0,-56,66,0,0,-56,66,0,0,0,0,0,0,0,0,4,0,2,0,0,0,0,0,0,0,0,0,0
+		,0,-96,65,0,0,0,0,0,0,-56,66,0,0,0,0,0,0,0,0,0,0,-56,66,0,0,-56,66,0,0,0,0,0,0,0,0,4,0,2,0,0,0,0,0,0,0,0,0,0,0,-96,65,0,0,0,0,0,0,-56,66,0,0,0,0
+		,0,0,0,0,0,0,-56,66,0,0,-56,66,0,0,0,0,0,0,0,0,4,0,2,0,0,0,0,0,0,0,0,0,0,0,-96,65,0,0,0,0,0,0,-56,66,0,0,0,0,0,0,0,0,0,0,-56,66,0,0,-56,66,0,0,0
+		,0,0,0,0,0,4,0,2,0,0,0,0,0,0,0,0,0,0,0,-96,65,0,0,0,0,0,0,-56,66,0,0,0,0,0,0,0,0,0,0,-56,66,0,0,-56,66,0,0,0,0,0,0,0,0,4,0,2,0,0,0,0,0,0,0,0,0,0,0,-96
+		,65,0,0,0,0,0,0,-56,66,0,0,0,0,0,0,0,0,0,0,-56,66,0,0,-56,66,0,0,0,0,0,0,0,0,17,24,2,0,0,0,0,0,0,80,0,0,0,7,0,0,0,24,2,0,0,104,2,0,0,120,1,0,0,32
+		,2,0,0,112,2,0,0,7,0,0,0,-104,3,0,0,-24,3,0,0,120,1,0,0,-96,3,0,0,-16,3,0,0,7,0,0,0,24,5,0,0,104,5,0,0,120,1,0,0,32,5,0,0,112,5,0,0,7,0,0,0,-104
+		,6,0,0,-24,6,0,0,120,1,0,0,-96,6,0,0,-16,6,0,0,7,0,0,0,24,8,0,0,104,8,0,0,120,1,0,0,32,8,0,0,112,8,0,0,7,0,0,0,-104,9,0,0,-24,9,0,0,120,1,0
+		,0,-96,9,0,0,-16,9,0,0,7,0,0,0,24,11,0,0,104,11,0,0,120,1,0,0,32,11,0,0,112,11,0,0,7,0,0,0,-104,12,0,0,-24,12,0,0,96,1,0,0,-96,12,0,0,-16
+		,12,0,0]]]>
+</Data>
+</ConfigScript>
+<Connections>
+<Connection Name="InputData" RPI="100000" Type="StandardDataDriven" OutputSize="64" InputSize="164" EventID="0" ProgrammaticallySendEventTrigger="false" Priority="Scheduled" InputConnectionType="Unicast" InputProductionTrigger="Cyclic" ConnectionPath="20 04 24 bf 2c 6a 2d 00 56 03"
+ InputTagSuffix="I" OutputTagSuffix="O">
+<InputTag ExternalAccess="Read/Write">
+<EngineeringUnits>
+<EngineeringUnit Operand=".CH00.DATA">
+<![CDATA[°F]]>
+</EngineeringUnit>
+<EngineeringUnit Operand=".CH01.DATA">
+<![CDATA[°F]]>
+</EngineeringUnit>
+<EngineeringUnit Operand=".CH02.DATA">
+<![CDATA[°F]]>
+</EngineeringUnit>
+<EngineeringUnit Operand=".CH03.DATA">
+<![CDATA[°F]]>
+</EngineeringUnit>
+<EngineeringUnit Operand=".CH04.DATA">
+<![CDATA[CFM]]>
+</EngineeringUnit>
+<EngineeringUnit Operand=".CH05.DATA">
+<![CDATA[CFM]]>
+</EngineeringUnit>
+<EngineeringUnit Operand=".CH07.DATA">
+<![CDATA[%]]>
+</EngineeringUnit>
+</EngineeringUnits>
+<Data Format="Decorated">
+<Structure DataType="AB:5000_AI8CJ:I:0">
+<DataValueMember Name="RunMode" DataType="BOOL" Value="1"/>
+<DataValueMember Name="ConnectionFaulted" DataType="BOOL" Value="0"/>
+<DataValueMember Name="DiagnosticActive" DataType="BOOL" Value="0"/>
+<DataValueMember Name="DiagnosticSequenceCount" DataType="SINT" Radix="Decimal" Value="16"/>
+<StructureMember Name="CJCh00" DataType="CHANNEL_AI_CJ_DIAG:I:0">
+<DataValueMember Name="Fault" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Uncertain" DataType="BOOL" Value="0"/>
+<DataValueMember Name="OpenWire" DataType="BOOL" Value="0"/>
+<DataValueMember Name="FieldPowerOff" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Underrange" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Overrange" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Temperature" DataType="REAL" Radix="Float" Value="33.315773"/>
+</StructureMember>
+<StructureMember Name="CJCh01" DataType="CHANNEL_AI_CJ_DIAG:I:0">
+<DataValueMember Name="Fault" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Uncertain" DataType="BOOL" Value="0"/>
+<DataValueMember Name="OpenWire" DataType="BOOL" Value="0"/>
+<DataValueMember Name="FieldPowerOff" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Underrange" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Overrange" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Temperature" DataType="REAL" Radix="Float" Value="33.133312"/>
+</StructureMember>
+<StructureMember Name="CJCh02" DataType="CHANNEL_AI_CJ_DIAG:I:0">
+<DataValueMember Name="Fault" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Uncertain" DataType="BOOL" Value="0"/>
+<DataValueMember Name="OpenWire" DataType="BOOL" Value="0"/>
+<DataValueMember Name="FieldPowerOff" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Underrange" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Overrange" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Temperature" DataType="REAL" Radix="Float" Value="33.12157"/>
+</StructureMember>
+<StructureMember Name="CJCh03" DataType="CHANNEL_AI_CJ_DIAG:I:0">
+<DataValueMember Name="Fault" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Uncertain" DataType="BOOL" Value="0"/>
+<DataValueMember Name="OpenWire" DataType="BOOL" Value="0"/>
+<DataValueMember Name="FieldPowerOff" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Underrange" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Overrange" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Temperature" DataType="REAL" Radix="Float" Value="33.167442"/>
+</StructureMember>
+<StructureMember Name="CJCh04" DataType="CHANNEL_AI_CJ_DIAG:I:0">
+<DataValueMember Name="Fault" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Uncertain" DataType="BOOL" Value="0"/>
+<DataValueMember Name="OpenWire" DataType="BOOL" Value="0"/>
+<DataValueMember Name="FieldPowerOff" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Underrange" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Overrange" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Temperature" DataType="REAL" Radix="Float" Value="33.56865"/>
+</StructureMember>
+<StructureMember Name="CJCh05" DataType="CHANNEL_AI_CJ_DIAG:I:0">
+<DataValueMember Name="Fault" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Uncertain" DataType="BOOL" Value="0"/>
+<DataValueMember Name="OpenWire" DataType="BOOL" Value="0"/>
+<DataValueMember Name="FieldPowerOff" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Underrange" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Overrange" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Temperature" DataType="REAL" Radix="Float" Value="33.6067"/>
+</StructureMember>
+<StructureMember Name="CJCh06" DataType="CHANNEL_AI_CJ_DIAG:I:0">
+<DataValueMember Name="Fault" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Uncertain" DataType="BOOL" Value="0"/>
+<DataValueMember Name="OpenWire" DataType="BOOL" Value="0"/>
+<DataValueMember Name="FieldPowerOff" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Underrange" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Overrange" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Temperature" DataType="REAL" Radix="Float" Value="33.530003"/>
+</StructureMember>
+<StructureMember Name="CJCh07" DataType="CHANNEL_AI_CJ_DIAG:I:0">
+<DataValueMember Name="Fault" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Uncertain" DataType="BOOL" Value="0"/>
+<DataValueMember Name="OpenWire" DataType="BOOL" Value="0"/>
+<DataValueMember Name="FieldPowerOff" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Underrange" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Overrange" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Temperature" DataType="REAL" Radix="Float" Value="33.14504"/>
+</StructureMember>
+<StructureMember Name="Ch00" DataType="CHANNEL_AI_DIAG:I:0">
+<DataValueMember Name="Fault" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Uncertain" DataType="BOOL" Value="0"/>
+<DataValueMember Name="OpenWire" DataType="BOOL" Value="0"/>
+<DataValueMember Name="OverTemperature" DataType="BOOL" Value="0"/>
+<DataValueMember Name="FieldPowerOff" DataType="BOOL" Value="0"/>
+<DataValueMember Name="NotANumber" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Underrange" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Overrange" DataType="BOOL" Value="0"/>
+<DataValueMember Name="LLAlarm" DataType="BOOL" Value="0"/>
+<DataValueMember Name="LAlarm" DataType="BOOL" Value="0"/>
+<DataValueMember Name="HAlarm" DataType="BOOL" Value="0"/>
+<DataValueMember Name="HHAlarm" DataType="BOOL" Value="0"/>
+<DataValueMember Name="RateAlarm" DataType="BOOL" Value="0"/>
+<DataValueMember Name="CalFault" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Calibrating" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Data" DataType="REAL" Radix="Float" Value="96.71944"/>
+<DataValueMember Name="RollingTimestamp" DataType="INT" Radix="Decimal" Value="24865"/>
+</StructureMember>
+<StructureMember Name="Ch01" DataType="CHANNEL_AI_DIAG:I:0">
+<DataValueMember Name="Fault" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Uncertain" DataType="BOOL" Value="0"/>
+<DataValueMember Name="OpenWire" DataType="BOOL" Value="0"/>
+<DataValueMember Name="OverTemperature" DataType="BOOL" Value="0"/>
+<DataValueMember Name="FieldPowerOff" DataType="BOOL" Value="0"/>
+<DataValueMember Name="NotANumber" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Underrange" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Overrange" DataType="BOOL" Value="0"/>
+<DataValueMember Name="LLAlarm" DataType="BOOL" Value="0"/>
+<DataValueMember Name="LAlarm" DataType="BOOL" Value="0"/>
+<DataValueMember Name="HAlarm" DataType="BOOL" Value="0"/>
+<DataValueMember Name="HHAlarm" DataType="BOOL" Value="0"/>
+<DataValueMember Name="RateAlarm" DataType="BOOL" Value="0"/>
+<DataValueMember Name="CalFault" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Calibrating" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Data" DataType="REAL" Radix="Float" Value="93.85856"/>
+<DataValueMember Name="RollingTimestamp" DataType="INT" Radix="Decimal" Value="24847"/>
+</StructureMember>
+<StructureMember Name="Ch02" DataType="CHANNEL_AI_DIAG:I:0">
+<DataValueMember Name="Fault" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Uncertain" DataType="BOOL" Value="0"/>
+<DataValueMember Name="OpenWire" DataType="BOOL" Value="0"/>
+<DataValueMember Name="OverTemperature" DataType="BOOL" Value="0"/>
+<DataValueMember Name="FieldPowerOff" DataType="BOOL" Value="0"/>
+<DataValueMember Name="NotANumber" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Underrange" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Overrange" DataType="BOOL" Value="0"/>
+<DataValueMember Name="LLAlarm" DataType="BOOL" Value="0"/>
+<DataValueMember Name="LAlarm" DataType="BOOL" Value="0"/>
+<DataValueMember Name="HAlarm" DataType="BOOL" Value="0"/>
+<DataValueMember Name="HHAlarm" DataType="BOOL" Value="0"/>
+<DataValueMember Name="RateAlarm" DataType="BOOL" Value="0"/>
+<DataValueMember Name="CalFault" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Calibrating" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Data" DataType="REAL" Radix="Float" Value="96.97949"/>
+<DataValueMember Name="RollingTimestamp" DataType="INT" Radix="Decimal" Value="24829"/>
+</StructureMember>
+<StructureMember Name="Ch03" DataType="CHANNEL_AI_DIAG:I:0">
+<DataValueMember Name="Fault" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Uncertain" DataType="BOOL" Value="0"/>
+<DataValueMember Name="OpenWire" DataType="BOOL" Value="0"/>
+<DataValueMember Name="OverTemperature" DataType="BOOL" Value="0"/>
+<DataValueMember Name="FieldPowerOff" DataType="BOOL" Value="0"/>
+<DataValueMember Name="NotANumber" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Underrange" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Overrange" DataType="BOOL" Value="0"/>
+<DataValueMember Name="LLAlarm" DataType="BOOL" Value="0"/>
+<DataValueMember Name="LAlarm" DataType="BOOL" Value="0"/>
+<DataValueMember Name="HAlarm" DataType="BOOL" Value="0"/>
+<DataValueMember Name="HHAlarm" DataType="BOOL" Value="0"/>
+<DataValueMember Name="RateAlarm" DataType="BOOL" Value="0"/>
+<DataValueMember Name="CalFault" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Calibrating" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Data" DataType="REAL" Radix="Float" Value="100.59288"/>
+<DataValueMember Name="RollingTimestamp" DataType="INT" Radix="Decimal" Value="24811"/>
+</StructureMember>
+<StructureMember Name="Ch04" DataType="CHANNEL_AI_DIAG:I:0">
+<DataValueMember Name="Fault" DataType="BOOL" Value="1"/>
+<DataValueMember Name="Uncertain" DataType="BOOL" Value="0"/>
+<DataValueMember Name="OpenWire" DataType="BOOL" Value="0"/>
+<DataValueMember Name="OverTemperature" DataType="BOOL" Value="0"/>
+<DataValueMember Name="FieldPowerOff" DataType="BOOL" Value="0"/>
+<DataValueMember Name="NotANumber" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Underrange" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Overrange" DataType="BOOL" Value="0"/>
+<DataValueMember Name="LLAlarm" DataType="BOOL" Value="0"/>
+<DataValueMember Name="LAlarm" DataType="BOOL" Value="0"/>
+<DataValueMember Name="HAlarm" DataType="BOOL" Value="0"/>
+<DataValueMember Name="HHAlarm" DataType="BOOL" Value="0"/>
+<DataValueMember Name="RateAlarm" DataType="BOOL" Value="0"/>
+<DataValueMember Name="CalFault" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Calibrating" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Data" DataType="REAL" Radix="Float" Value="1.#QNAN"/>
+<DataValueMember Name="RollingTimestamp" DataType="INT" Radix="Decimal" Value="0"/>
+</StructureMember>
+<StructureMember Name="Ch05" DataType="CHANNEL_AI_DIAG:I:0">
+<DataValueMember Name="Fault" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Uncertain" DataType="BOOL" Value="0"/>
+<DataValueMember Name="OpenWire" DataType="BOOL" Value="0"/>
+<DataValueMember Name="OverTemperature" DataType="BOOL" Value="0"/>
+<DataValueMember Name="FieldPowerOff" DataType="BOOL" Value="0"/>
+<DataValueMember Name="NotANumber" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Underrange" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Overrange" DataType="BOOL" Value="0"/>
+<DataValueMember Name="LLAlarm" DataType="BOOL" Value="0"/>
+<DataValueMember Name="LAlarm" DataType="BOOL" Value="0"/>
+<DataValueMember Name="HAlarm" DataType="BOOL" Value="0"/>
+<DataValueMember Name="HHAlarm" DataType="BOOL" Value="0"/>
+<DataValueMember Name="RateAlarm" DataType="BOOL" Value="0"/>
+<DataValueMember Name="CalFault" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Calibrating" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Data" DataType="REAL" Radix="Float" Value="5192.1133"/>
+<DataValueMember Name="RollingTimestamp" DataType="INT" Radix="Decimal" Value="24829"/>
+</StructureMember>
+<StructureMember Name="Ch06" DataType="CHANNEL_AI_DIAG:I:0">
+<DataValueMember Name="Fault" DataType="BOOL" Value="1"/>
+<DataValueMember Name="Uncertain" DataType="BOOL" Value="0"/>
+<DataValueMember Name="OpenWire" DataType="BOOL" Value="0"/>
+<DataValueMember Name="OverTemperature" DataType="BOOL" Value="0"/>
+<DataValueMember Name="FieldPowerOff" DataType="BOOL" Value="0"/>
+<DataValueMember Name="NotANumber" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Underrange" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Overrange" DataType="BOOL" Value="0"/>
+<DataValueMember Name="LLAlarm" DataType="BOOL" Value="0"/>
+<DataValueMember Name="LAlarm" DataType="BOOL" Value="0"/>
+<DataValueMember Name="HAlarm" DataType="BOOL" Value="0"/>
+<DataValueMember Name="HHAlarm" DataType="BOOL" Value="0"/>
+<DataValueMember Name="RateAlarm" DataType="BOOL" Value="0"/>
+<DataValueMember Name="CalFault" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Calibrating" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Data" DataType="REAL" Radix="Float" Value="1.#QNAN"/>
+<DataValueMember Name="RollingTimestamp" DataType="INT" Radix="Decimal" Value="0"/>
+</StructureMember>
+<StructureMember Name="Ch07" DataType="CHANNEL_AI_DIAG:I:0">
+<DataValueMember Name="Fault" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Uncertain" DataType="BOOL" Value="0"/>
+<DataValueMember Name="OpenWire" DataType="BOOL" Value="0"/>
+<DataValueMember Name="OverTemperature" DataType="BOOL" Value="0"/>
+<DataValueMember Name="FieldPowerOff" DataType="BOOL" Value="0"/>
+<DataValueMember Name="NotANumber" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Underrange" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Overrange" DataType="BOOL" Value="0"/>
+<DataValueMember Name="LLAlarm" DataType="BOOL" Value="0"/>
+<DataValueMember Name="LAlarm" DataType="BOOL" Value="0"/>
+<DataValueMember Name="HAlarm" DataType="BOOL" Value="0"/>
+<DataValueMember Name="HHAlarm" DataType="BOOL" Value="0"/>
+<DataValueMember Name="RateAlarm" DataType="BOOL" Value="0"/>
+<DataValueMember Name="CalFault" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Calibrating" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Data" DataType="REAL" Radix="Float" Value="79.03801"/>
+<DataValueMember Name="RollingTimestamp" DataType="INT" Radix="Decimal" Value="24811"/>
+</StructureMember>
+</Structure>
+</Data>
+</InputTag>
+<OutputTag ExternalAccess="Read/Write">
+<Data Format="L5K">
+<![CDATA[[[0,0,0,0.00000000e+000],[0,0,0,0.00000000e+000],[0,0,0,0.00000000e+000],[0,0,0,0.00000000e+000],[0,0,0,0.00000000e+000
+		],[0,0,0,0.00000000e+000],[0,0,0,0.00000000e+000],[0,0,0,0.00000000e+000]]]]>
+</Data>
+<Data Format="Decorated">
+<Structure DataType="AB:5000_AI8:O:0">
+<StructureMember Name="Ch00" DataType="CHANNEL_AI:O:0">
+<DataValueMember Name="LLAlarmEn" DataType="BOOL" Value="0"/>
+<DataValueMember Name="LAlarmEn" DataType="BOOL" Value="0"/>
+<DataValueMember Name="HAlarmEn" DataType="BOOL" Value="0"/>
+<DataValueMember Name="HHAlarmEn" DataType="BOOL" Value="0"/>
+<DataValueMember Name="RateAlarmEn" DataType="BOOL" Value="0"/>
+<DataValueMember Name="LLAlarmUnlatch" DataType="BOOL" Value="0"/>
+<DataValueMember Name="LAlarmUnlatch" DataType="BOOL" Value="0"/>
+<DataValueMember Name="HAlarmUnlatch" DataType="BOOL" Value="0"/>
+<DataValueMember Name="HHAlarmUnlatch" DataType="BOOL" Value="0"/>
+<DataValueMember Name="RateAlarmUnlatch" DataType="BOOL" Value="0"/>
+<DataValueMember Name="SensorOffset" DataType="REAL" Radix="Float" Value="0.0"/>
+</StructureMember>
+<StructureMember Name="Ch01" DataType="CHANNEL_AI:O:0">
+<DataValueMember Name="LLAlarmEn" DataType="BOOL" Value="0"/>
+<DataValueMember Name="LAlarmEn" DataType="BOOL" Value="0"/>
+<DataValueMember Name="HAlarmEn" DataType="BOOL" Value="0"/>
+<DataValueMember Name="HHAlarmEn" DataType="BOOL" Value="0"/>
+<DataValueMember Name="RateAlarmEn" DataType="BOOL" Value="0"/>
+<DataValueMember Name="LLAlarmUnlatch" DataType="BOOL" Value="0"/>
+<DataValueMember Name="LAlarmUnlatch" DataType="BOOL" Value="0"/>
+<DataValueMember Name="HAlarmUnlatch" DataType="BOOL" Value="0"/>
+<DataValueMember Name="HHAlarmUnlatch" DataType="BOOL" Value="0"/>
+<DataValueMember Name="RateAlarmUnlatch" DataType="BOOL" Value="0"/>
+<DataValueMember Name="SensorOffset" DataType="REAL" Radix="Float" Value="0.0"/>
+</StructureMember>
+<StructureMember Name="Ch02" DataType="CHANNEL_AI:O:0">
+<DataValueMember Name="LLAlarmEn" DataType="BOOL" Value="0"/>
+<DataValueMember Name="LAlarmEn" DataType="BOOL" Value="0"/>
+<DataValueMember Name="HAlarmEn" DataType="BOOL" Value="0"/>
+<DataValueMember Name="HHAlarmEn" DataType="BOOL" Value="0"/>
+<DataValueMember Name="RateAlarmEn" DataType="BOOL" Value="0"/>
+<DataValueMember Name="LLAlarmUnlatch" DataType="BOOL" Value="0"/>
+<DataValueMember Name="LAlarmUnlatch" DataType="BOOL" Value="0"/>
+<DataValueMember Name="HAlarmUnlatch" DataType="BOOL" Value="0"/>
+<DataValueMember Name="HHAlarmUnlatch" DataType="BOOL" Value="0"/>
+<DataValueMember Name="RateAlarmUnlatch" DataType="BOOL" Value="0"/>
+<DataValueMember Name="SensorOffset" DataType="REAL" Radix="Float" Value="0.0"/>
+</StructureMember>
+<StructureMember Name="Ch03" DataType="CHANNEL_AI:O:0">
+<DataValueMember Name="LLAlarmEn" DataType="BOOL" Value="0"/>
+<DataValueMember Name="LAlarmEn" DataType="BOOL" Value="0"/>
+<DataValueMember Name="HAlarmEn" DataType="BOOL" Value="0"/>
+<DataValueMember Name="HHAlarmEn" DataType="BOOL" Value="0"/>
+<DataValueMember Name="RateAlarmEn" DataType="BOOL" Value="0"/>
+<DataValueMember Name="LLAlarmUnlatch" DataType="BOOL" Value="0"/>
+<DataValueMember Name="LAlarmUnlatch" DataType="BOOL" Value="0"/>
+<DataValueMember Name="HAlarmUnlatch" DataType="BOOL" Value="0"/>
+<DataValueMember Name="HHAlarmUnlatch" DataType="BOOL" Value="0"/>
+<DataValueMember Name="RateAlarmUnlatch" DataType="BOOL" Value="0"/>
+<DataValueMember Name="SensorOffset" DataType="REAL" Radix="Float" Value="0.0"/>
+</StructureMember>
+<StructureMember Name="Ch04" DataType="CHANNEL_AI:O:0">
+<DataValueMember Name="LLAlarmEn" DataType="BOOL" Value="0"/>
+<DataValueMember Name="LAlarmEn" DataType="BOOL" Value="0"/>
+<DataValueMember Name="HAlarmEn" DataType="BOOL" Value="0"/>
+<DataValueMember Name="HHAlarmEn" DataType="BOOL" Value="0"/>
+<DataValueMember Name="RateAlarmEn" DataType="BOOL" Value="0"/>
+<DataValueMember Name="LLAlarmUnlatch" DataType="BOOL" Value="0"/>
+<DataValueMember Name="LAlarmUnlatch" DataType="BOOL" Value="0"/>
+<DataValueMember Name="HAlarmUnlatch" DataType="BOOL" Value="0"/>
+<DataValueMember Name="HHAlarmUnlatch" DataType="BOOL" Value="0"/>
+<DataValueMember Name="RateAlarmUnlatch" DataType="BOOL" Value="0"/>
+<DataValueMember Name="SensorOffset" DataType="REAL" Radix="Float" Value="0.0"/>
+</StructureMember>
+<StructureMember Name="Ch05" DataType="CHANNEL_AI:O:0">
+<DataValueMember Name="LLAlarmEn" DataType="BOOL" Value="0"/>
+<DataValueMember Name="LAlarmEn" DataType="BOOL" Value="0"/>
+<DataValueMember Name="HAlarmEn" DataType="BOOL" Value="0"/>
+<DataValueMember Name="HHAlarmEn" DataType="BOOL" Value="0"/>
+<DataValueMember Name="RateAlarmEn" DataType="BOOL" Value="0"/>
+<DataValueMember Name="LLAlarmUnlatch" DataType="BOOL" Value="0"/>
+<DataValueMember Name="LAlarmUnlatch" DataType="BOOL" Value="0"/>
+<DataValueMember Name="HAlarmUnlatch" DataType="BOOL" Value="0"/>
+<DataValueMember Name="HHAlarmUnlatch" DataType="BOOL" Value="0"/>
+<DataValueMember Name="RateAlarmUnlatch" DataType="BOOL" Value="0"/>
+<DataValueMember Name="SensorOffset" DataType="REAL" Radix="Float" Value="0.0"/>
+</StructureMember>
+<StructureMember Name="Ch06" DataType="CHANNEL_AI:O:0">
+<DataValueMember Name="LLAlarmEn" DataType="BOOL" Value="0"/>
+<DataValueMember Name="LAlarmEn" DataType="BOOL" Value="0"/>
+<DataValueMember Name="HAlarmEn" DataType="BOOL" Value="0"/>
+<DataValueMember Name="HHAlarmEn" DataType="BOOL" Value="0"/>
+<DataValueMember Name="RateAlarmEn" DataType="BOOL" Value="0"/>
+<DataValueMember Name="LLAlarmUnlatch" DataType="BOOL" Value="0"/>
+<DataValueMember Name="LAlarmUnlatch" DataType="BOOL" Value="0"/>
+<DataValueMember Name="HAlarmUnlatch" DataType="BOOL" Value="0"/>
+<DataValueMember Name="HHAlarmUnlatch" DataType="BOOL" Value="0"/>
+<DataValueMember Name="RateAlarmUnlatch" DataType="BOOL" Value="0"/>
+<DataValueMember Name="SensorOffset" DataType="REAL" Radix="Float" Value="0.0"/>
+</StructureMember>
+<StructureMember Name="Ch07" DataType="CHANNEL_AI:O:0">
+<DataValueMember Name="LLAlarmEn" DataType="BOOL" Value="0"/>
+<DataValueMember Name="LAlarmEn" DataType="BOOL" Value="0"/>
+<DataValueMember Name="HAlarmEn" DataType="BOOL" Value="0"/>
+<DataValueMember Name="HHAlarmEn" DataType="BOOL" Value="0"/>
+<DataValueMember Name="RateAlarmEn" DataType="BOOL" Value="0"/>
+<DataValueMember Name="LLAlarmUnlatch" DataType="BOOL" Value="0"/>
+<DataValueMember Name="LAlarmUnlatch" DataType="BOOL" Value="0"/>
+<DataValueMember Name="HAlarmUnlatch" DataType="BOOL" Value="0"/>
+<DataValueMember Name="HHAlarmUnlatch" DataType="BOOL" Value="0"/>
+<DataValueMember Name="RateAlarmUnlatch" DataType="BOOL" Value="0"/>
+<DataValueMember Name="SensorOffset" DataType="REAL" Radix="Float" Value="0.0"/>
+</StructureMember>
+</Structure>
+</Data>
+</OutputTag>
+</Connection>
+</Connections>
+</Communications>
+<ExtendedProperties>
+<public><Vendor>Rockwell Automation/Allen-Bradley</Vendor><CatNum>5094-IY8</CatNum><Ch00.TempEnglish>0</Ch00.TempEnglish><Ch01.TempEnglish>0</Ch01.TempEnglish><Ch02.TempEnglish>0</Ch02.TempEnglish><Ch03.TempEnglish>0</Ch03.TempEnglish><ConfigID>201</ConfigID><ADDAVersion>1</ADDAVersion><Ch07.TempEnglish>-1</Ch07.TempEnglish><Ch04.TempEnglish>-1</Ch04.TempEnglish><Ch05.TempEnglish>-1</Ch05.TempEnglish></public>
+</ExtendedProperties>
+</Module>
+</Modules>
+</Controller>
+</RSLogix5000Content>

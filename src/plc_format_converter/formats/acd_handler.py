@@ -166,6 +166,7 @@ class ACDHandler:
             # Create unified project model
             project = PLCProject(
                 name=acd_path.stem,
+                component_type="Project",
                 source_format="ACD",
                 metadata=PLCMetadata(
                     created_at=datetime.now(),
@@ -175,7 +176,9 @@ class ACDHandler:
             )
             
             # Extract controller information
-            project.controller = self._extract_controller_info(acd_file, acd_path)
+            controller = self._extract_controller_info(acd_file, acd_path)
+            if controller:
+                project.controllers.append(controller)
             
             # Extract programs
             project.programs = self._extract_programs(acd_file)
@@ -219,6 +222,7 @@ class ACDHandler:
         # Create unified project model
         project = PLCProject(
             name=acd_path.stem,
+            component_type="Project",
             source_format="ACD",
             metadata=PLCMetadata(
                 created_at=datetime.now(),
@@ -228,12 +232,14 @@ class ACDHandler:
         )
         
         # Create basic controller
-        project.controller = PLCController(
+        controller = PLCController(
             name=acd_path.stem + "_Controller",
+            component_type="Controller",
             processor_type="ControlLogix",
             project_creation_date=datetime.now(),
             last_modified=datetime.now()
         )
+        project.controllers.append(controller)
         
         # Store raw metadata for format preservation
         project.raw_metadata = {
@@ -242,9 +248,7 @@ class ACDHandler:
             'file_size_bytes': acd_path.stat().st_size,
             'file_hash': self._calculate_file_hash(acd_path),
             'component_counts': {
-                'programs': len(project.programs),
-                'aois': len(project.add_on_instructions),
-                'udts': len(project.user_defined_types),
+                'controllers': len(project.controllers),
                 'devices': len(project.devices)
             }
         }

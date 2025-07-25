@@ -1,0 +1,332 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<RSLogix5000Content SchemaRevision="1.0" SoftwareRevision="35.01" TargetName="DI_ECP101_A_1" TargetType="Module" ContainsContext="true" ExportDate="Thu Jul 24 23:20:34 2025" ExportOptions="References NoRawData L5KData DecoratedData Context Dependencies ForceProtectedEncoding AllProjDocTrans">
+<Controller Use="Context" Name="PLC100_Mashing">
+<Modules Use="Context">
+<Module Use="Target" Name="DI_ECP101_A_1" CatalogNumber="5094-IB32/A" Vendor="1" ProductType="7" ProductCode="1219" Major="2" Minor="1" ParentModule="ENET_ECP101_A_0" ParentModPortId="1" Inhibited="false"
+ MajorFault="false" SafetyEnabled="false" AutoDiagsEnabled="true">
+<EKey State="CompatibleModule"/>
+<Ports>
+<Port Id="1" Address="1" Type="5094" Upstream="true"/>
+</Ports>
+<Communications>
+<ConfigTag ConfigSize="128" ExternalAccess="Read/Write">
+<Data Format="L5K">
+<![CDATA[[132,891,[5,5,0],[5,5,0],[5,5,0],[5,5,0],[5,5,0],[5,5,0],[5,5,0],[5,5,0],[5,5,0],[5,5,0],[5,5,0],[5,5,0],[5,5,0],[5,5,0],[5,5,0],[5,5,0],[5,5,0],[5,5,0],[5,5,0],[5,5,0],[5,5,0],[5,5,0],[5,5,0],[5,5,0],[5,5,0
+		],[5,5,0],[5,5,0],[5,5,0],[5,5,0],[5,5,0],[5,5,0],[5,5,0]]]]>
+</Data>
+<Data Format="Decorated">
+<Structure DataType="AB:5000_DI32:C:0">
+<StructureMember Name="Pt00" DataType="AB:5000_DI_Channel:C:0">
+<DataValueMember Name="InputOffOnFilter" DataType="SINT" Radix="Decimal" Value="5"/>
+<DataValueMember Name="InputOnOffFilter" DataType="SINT" Radix="Decimal" Value="5"/>
+</StructureMember>
+<StructureMember Name="Pt01" DataType="AB:5000_DI_Channel:C:0">
+<DataValueMember Name="InputOffOnFilter" DataType="SINT" Radix="Decimal" Value="5"/>
+<DataValueMember Name="InputOnOffFilter" DataType="SINT" Radix="Decimal" Value="5"/>
+</StructureMember>
+<StructureMember Name="Pt02" DataType="AB:5000_DI_Channel:C:0">
+<DataValueMember Name="InputOffOnFilter" DataType="SINT" Radix="Decimal" Value="5"/>
+<DataValueMember Name="InputOnOffFilter" DataType="SINT" Radix="Decimal" Value="5"/>
+</StructureMember>
+<StructureMember Name="Pt03" DataType="AB:5000_DI_Channel:C:0">
+<DataValueMember Name="InputOffOnFilter" DataType="SINT" Radix="Decimal" Value="5"/>
+<DataValueMember Name="InputOnOffFilter" DataType="SINT" Radix="Decimal" Value="5"/>
+</StructureMember>
+<StructureMember Name="Pt04" DataType="AB:5000_DI_Channel:C:0">
+<DataValueMember Name="InputOffOnFilter" DataType="SINT" Radix="Decimal" Value="5"/>
+<DataValueMember Name="InputOnOffFilter" DataType="SINT" Radix="Decimal" Value="5"/>
+</StructureMember>
+<StructureMember Name="Pt05" DataType="AB:5000_DI_Channel:C:0">
+<DataValueMember Name="InputOffOnFilter" DataType="SINT" Radix="Decimal" Value="5"/>
+<DataValueMember Name="InputOnOffFilter" DataType="SINT" Radix="Decimal" Value="5"/>
+</StructureMember>
+<StructureMember Name="Pt06" DataType="AB:5000_DI_Channel:C:0">
+<DataValueMember Name="InputOffOnFilter" DataType="SINT" Radix="Decimal" Value="5"/>
+<DataValueMember Name="InputOnOffFilter" DataType="SINT" Radix="Decimal" Value="5"/>
+</StructureMember>
+<StructureMember Name="Pt07" DataType="AB:5000_DI_Channel:C:0">
+<DataValueMember Name="InputOffOnFilter" DataType="SINT" Radix="Decimal" Value="5"/>
+<DataValueMember Name="InputOnOffFilter" DataType="SINT" Radix="Decimal" Value="5"/>
+</StructureMember>
+<StructureMember Name="Pt08" DataType="AB:5000_DI_Channel:C:0">
+<DataValueMember Name="InputOffOnFilter" DataType="SINT" Radix="Decimal" Value="5"/>
+<DataValueMember Name="InputOnOffFilter" DataType="SINT" Radix="Decimal" Value="5"/>
+</StructureMember>
+<StructureMember Name="Pt09" DataType="AB:5000_DI_Channel:C:0">
+<DataValueMember Name="InputOffOnFilter" DataType="SINT" Radix="Decimal" Value="5"/>
+<DataValueMember Name="InputOnOffFilter" DataType="SINT" Radix="Decimal" Value="5"/>
+</StructureMember>
+<StructureMember Name="Pt10" DataType="AB:5000_DI_Channel:C:0">
+<DataValueMember Name="InputOffOnFilter" DataType="SINT" Radix="Decimal" Value="5"/>
+<DataValueMember Name="InputOnOffFilter" DataType="SINT" Radix="Decimal" Value="5"/>
+</StructureMember>
+<StructureMember Name="Pt11" DataType="AB:5000_DI_Channel:C:0">
+<DataValueMember Name="InputOffOnFilter" DataType="SINT" Radix="Decimal" Value="5"/>
+<DataValueMember Name="InputOnOffFilter" DataType="SINT" Radix="Decimal" Value="5"/>
+</StructureMember>
+<StructureMember Name="Pt12" DataType="AB:5000_DI_Channel:C:0">
+<DataValueMember Name="InputOffOnFilter" DataType="SINT" Radix="Decimal" Value="5"/>
+<DataValueMember Name="InputOnOffFilter" DataType="SINT" Radix="Decimal" Value="5"/>
+</StructureMember>
+<StructureMember Name="Pt13" DataType="AB:5000_DI_Channel:C:0">
+<DataValueMember Name="InputOffOnFilter" DataType="SINT" Radix="Decimal" Value="5"/>
+<DataValueMember Name="InputOnOffFilter" DataType="SINT" Radix="Decimal" Value="5"/>
+</StructureMember>
+<StructureMember Name="Pt14" DataType="AB:5000_DI_Channel:C:0">
+<DataValueMember Name="InputOffOnFilter" DataType="SINT" Radix="Decimal" Value="5"/>
+<DataValueMember Name="InputOnOffFilter" DataType="SINT" Radix="Decimal" Value="5"/>
+</StructureMember>
+<StructureMember Name="Pt15" DataType="AB:5000_DI_Channel:C:0">
+<DataValueMember Name="InputOffOnFilter" DataType="SINT" Radix="Decimal" Value="5"/>
+<DataValueMember Name="InputOnOffFilter" DataType="SINT" Radix="Decimal" Value="5"/>
+</StructureMember>
+<StructureMember Name="Pt16" DataType="AB:5000_DI_Channel:C:0">
+<DataValueMember Name="InputOffOnFilter" DataType="SINT" Radix="Decimal" Value="5"/>
+<DataValueMember Name="InputOnOffFilter" DataType="SINT" Radix="Decimal" Value="5"/>
+</StructureMember>
+<StructureMember Name="Pt17" DataType="AB:5000_DI_Channel:C:0">
+<DataValueMember Name="InputOffOnFilter" DataType="SINT" Radix="Decimal" Value="5"/>
+<DataValueMember Name="InputOnOffFilter" DataType="SINT" Radix="Decimal" Value="5"/>
+</StructureMember>
+<StructureMember Name="Pt18" DataType="AB:5000_DI_Channel:C:0">
+<DataValueMember Name="InputOffOnFilter" DataType="SINT" Radix="Decimal" Value="5"/>
+<DataValueMember Name="InputOnOffFilter" DataType="SINT" Radix="Decimal" Value="5"/>
+</StructureMember>
+<StructureMember Name="Pt19" DataType="AB:5000_DI_Channel:C:0">
+<DataValueMember Name="InputOffOnFilter" DataType="SINT" Radix="Decimal" Value="5"/>
+<DataValueMember Name="InputOnOffFilter" DataType="SINT" Radix="Decimal" Value="5"/>
+</StructureMember>
+<StructureMember Name="Pt20" DataType="AB:5000_DI_Channel:C:0">
+<DataValueMember Name="InputOffOnFilter" DataType="SINT" Radix="Decimal" Value="5"/>
+<DataValueMember Name="InputOnOffFilter" DataType="SINT" Radix="Decimal" Value="5"/>
+</StructureMember>
+<StructureMember Name="Pt21" DataType="AB:5000_DI_Channel:C:0">
+<DataValueMember Name="InputOffOnFilter" DataType="SINT" Radix="Decimal" Value="5"/>
+<DataValueMember Name="InputOnOffFilter" DataType="SINT" Radix="Decimal" Value="5"/>
+</StructureMember>
+<StructureMember Name="Pt22" DataType="AB:5000_DI_Channel:C:0">
+<DataValueMember Name="InputOffOnFilter" DataType="SINT" Radix="Decimal" Value="5"/>
+<DataValueMember Name="InputOnOffFilter" DataType="SINT" Radix="Decimal" Value="5"/>
+</StructureMember>
+<StructureMember Name="Pt23" DataType="AB:5000_DI_Channel:C:0">
+<DataValueMember Name="InputOffOnFilter" DataType="SINT" Radix="Decimal" Value="5"/>
+<DataValueMember Name="InputOnOffFilter" DataType="SINT" Radix="Decimal" Value="5"/>
+</StructureMember>
+<StructureMember Name="Pt24" DataType="AB:5000_DI_Channel:C:0">
+<DataValueMember Name="InputOffOnFilter" DataType="SINT" Radix="Decimal" Value="5"/>
+<DataValueMember Name="InputOnOffFilter" DataType="SINT" Radix="Decimal" Value="5"/>
+</StructureMember>
+<StructureMember Name="Pt25" DataType="AB:5000_DI_Channel:C:0">
+<DataValueMember Name="InputOffOnFilter" DataType="SINT" Radix="Decimal" Value="5"/>
+<DataValueMember Name="InputOnOffFilter" DataType="SINT" Radix="Decimal" Value="5"/>
+</StructureMember>
+<StructureMember Name="Pt26" DataType="AB:5000_DI_Channel:C:0">
+<DataValueMember Name="InputOffOnFilter" DataType="SINT" Radix="Decimal" Value="5"/>
+<DataValueMember Name="InputOnOffFilter" DataType="SINT" Radix="Decimal" Value="5"/>
+</StructureMember>
+<StructureMember Name="Pt27" DataType="AB:5000_DI_Channel:C:0">
+<DataValueMember Name="InputOffOnFilter" DataType="SINT" Radix="Decimal" Value="5"/>
+<DataValueMember Name="InputOnOffFilter" DataType="SINT" Radix="Decimal" Value="5"/>
+</StructureMember>
+<StructureMember Name="Pt28" DataType="AB:5000_DI_Channel:C:0">
+<DataValueMember Name="InputOffOnFilter" DataType="SINT" Radix="Decimal" Value="5"/>
+<DataValueMember Name="InputOnOffFilter" DataType="SINT" Radix="Decimal" Value="5"/>
+</StructureMember>
+<StructureMember Name="Pt29" DataType="AB:5000_DI_Channel:C:0">
+<DataValueMember Name="InputOffOnFilter" DataType="SINT" Radix="Decimal" Value="5"/>
+<DataValueMember Name="InputOnOffFilter" DataType="SINT" Radix="Decimal" Value="5"/>
+</StructureMember>
+<StructureMember Name="Pt30" DataType="AB:5000_DI_Channel:C:0">
+<DataValueMember Name="InputOffOnFilter" DataType="SINT" Radix="Decimal" Value="5"/>
+<DataValueMember Name="InputOnOffFilter" DataType="SINT" Radix="Decimal" Value="5"/>
+</StructureMember>
+<StructureMember Name="Pt31" DataType="AB:5000_DI_Channel:C:0">
+<DataValueMember Name="InputOffOnFilter" DataType="SINT" Radix="Decimal" Value="5"/>
+<DataValueMember Name="InputOnOffFilter" DataType="SINT" Radix="Decimal" Value="5"/>
+</StructureMember>
+</Structure>
+</Data>
+</ConfigTag>
+<Connections>
+<Connection Name="InputData" RPI="5000" Type="StandardDataDriven" OutputSize="0" InputSize="132" EventID="0" ProgrammaticallySendEventTrigger="false" Priority="Scheduled" InputConnectionType="Unicast" InputProductionTrigger="Cyclic" ConnectionPath="20 04 25 00 7b 03 2c c7 2d 00 b2 03"
+ InputTagSuffix="I">
+<InputTag ExternalAccess="Read/Write">
+<Data Format="Decorated">
+<Structure DataType="AB:5000_DI32:I:0">
+<DataValueMember Name="RunMode" DataType="BOOL" Value="1"/>
+<DataValueMember Name="ConnectionFaulted" DataType="BOOL" Value="0"/>
+<DataValueMember Name="DiagnosticActive" DataType="BOOL" Value="0"/>
+<DataValueMember Name="DiagnosticSequenceCount" DataType="SINT" Radix="Decimal" Value="0"/>
+<StructureMember Name="Pt00" DataType="CHANNEL_DI:I:0">
+<DataValueMember Name="Data" DataType="BOOL" Value="1"/>
+<DataValueMember Name="Fault" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Uncertain" DataType="BOOL" Value="0"/>
+</StructureMember>
+<StructureMember Name="Pt01" DataType="CHANNEL_DI:I:0">
+<DataValueMember Name="Data" DataType="BOOL" Value="1"/>
+<DataValueMember Name="Fault" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Uncertain" DataType="BOOL" Value="0"/>
+</StructureMember>
+<StructureMember Name="Pt02" DataType="CHANNEL_DI:I:0">
+<DataValueMember Name="Data" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Fault" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Uncertain" DataType="BOOL" Value="0"/>
+</StructureMember>
+<StructureMember Name="Pt03" DataType="CHANNEL_DI:I:0">
+<DataValueMember Name="Data" DataType="BOOL" Value="1"/>
+<DataValueMember Name="Fault" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Uncertain" DataType="BOOL" Value="0"/>
+</StructureMember>
+<StructureMember Name="Pt04" DataType="CHANNEL_DI:I:0">
+<DataValueMember Name="Data" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Fault" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Uncertain" DataType="BOOL" Value="0"/>
+</StructureMember>
+<StructureMember Name="Pt05" DataType="CHANNEL_DI:I:0">
+<DataValueMember Name="Data" DataType="BOOL" Value="1"/>
+<DataValueMember Name="Fault" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Uncertain" DataType="BOOL" Value="0"/>
+</StructureMember>
+<StructureMember Name="Pt06" DataType="CHANNEL_DI:I:0">
+<DataValueMember Name="Data" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Fault" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Uncertain" DataType="BOOL" Value="0"/>
+</StructureMember>
+<StructureMember Name="Pt07" DataType="CHANNEL_DI:I:0">
+<DataValueMember Name="Data" DataType="BOOL" Value="1"/>
+<DataValueMember Name="Fault" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Uncertain" DataType="BOOL" Value="0"/>
+</StructureMember>
+<StructureMember Name="Pt08" DataType="CHANNEL_DI:I:0">
+<DataValueMember Name="Data" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Fault" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Uncertain" DataType="BOOL" Value="0"/>
+</StructureMember>
+<StructureMember Name="Pt09" DataType="CHANNEL_DI:I:0">
+<DataValueMember Name="Data" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Fault" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Uncertain" DataType="BOOL" Value="0"/>
+</StructureMember>
+<StructureMember Name="Pt10" DataType="CHANNEL_DI:I:0">
+<DataValueMember Name="Data" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Fault" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Uncertain" DataType="BOOL" Value="0"/>
+</StructureMember>
+<StructureMember Name="Pt11" DataType="CHANNEL_DI:I:0">
+<DataValueMember Name="Data" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Fault" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Uncertain" DataType="BOOL" Value="0"/>
+</StructureMember>
+<StructureMember Name="Pt12" DataType="CHANNEL_DI:I:0">
+<DataValueMember Name="Data" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Fault" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Uncertain" DataType="BOOL" Value="0"/>
+</StructureMember>
+<StructureMember Name="Pt13" DataType="CHANNEL_DI:I:0">
+<DataValueMember Name="Data" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Fault" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Uncertain" DataType="BOOL" Value="0"/>
+</StructureMember>
+<StructureMember Name="Pt14" DataType="CHANNEL_DI:I:0">
+<DataValueMember Name="Data" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Fault" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Uncertain" DataType="BOOL" Value="0"/>
+</StructureMember>
+<StructureMember Name="Pt15" DataType="CHANNEL_DI:I:0">
+<DataValueMember Name="Data" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Fault" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Uncertain" DataType="BOOL" Value="0"/>
+</StructureMember>
+<StructureMember Name="Pt16" DataType="CHANNEL_DI:I:0">
+<DataValueMember Name="Data" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Fault" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Uncertain" DataType="BOOL" Value="0"/>
+</StructureMember>
+<StructureMember Name="Pt17" DataType="CHANNEL_DI:I:0">
+<DataValueMember Name="Data" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Fault" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Uncertain" DataType="BOOL" Value="0"/>
+</StructureMember>
+<StructureMember Name="Pt18" DataType="CHANNEL_DI:I:0">
+<DataValueMember Name="Data" DataType="BOOL" Value="1"/>
+<DataValueMember Name="Fault" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Uncertain" DataType="BOOL" Value="0"/>
+</StructureMember>
+<StructureMember Name="Pt19" DataType="CHANNEL_DI:I:0">
+<DataValueMember Name="Data" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Fault" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Uncertain" DataType="BOOL" Value="0"/>
+</StructureMember>
+<StructureMember Name="Pt20" DataType="CHANNEL_DI:I:0">
+<DataValueMember Name="Data" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Fault" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Uncertain" DataType="BOOL" Value="0"/>
+</StructureMember>
+<StructureMember Name="Pt21" DataType="CHANNEL_DI:I:0">
+<DataValueMember Name="Data" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Fault" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Uncertain" DataType="BOOL" Value="0"/>
+</StructureMember>
+<StructureMember Name="Pt22" DataType="CHANNEL_DI:I:0">
+<DataValueMember Name="Data" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Fault" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Uncertain" DataType="BOOL" Value="0"/>
+</StructureMember>
+<StructureMember Name="Pt23" DataType="CHANNEL_DI:I:0">
+<DataValueMember Name="Data" DataType="BOOL" Value="1"/>
+<DataValueMember Name="Fault" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Uncertain" DataType="BOOL" Value="0"/>
+</StructureMember>
+<StructureMember Name="Pt24" DataType="CHANNEL_DI:I:0">
+<DataValueMember Name="Data" DataType="BOOL" Value="1"/>
+<DataValueMember Name="Fault" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Uncertain" DataType="BOOL" Value="0"/>
+</StructureMember>
+<StructureMember Name="Pt25" DataType="CHANNEL_DI:I:0">
+<DataValueMember Name="Data" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Fault" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Uncertain" DataType="BOOL" Value="0"/>
+</StructureMember>
+<StructureMember Name="Pt26" DataType="CHANNEL_DI:I:0">
+<DataValueMember Name="Data" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Fault" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Uncertain" DataType="BOOL" Value="0"/>
+</StructureMember>
+<StructureMember Name="Pt27" DataType="CHANNEL_DI:I:0">
+<DataValueMember Name="Data" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Fault" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Uncertain" DataType="BOOL" Value="0"/>
+</StructureMember>
+<StructureMember Name="Pt28" DataType="CHANNEL_DI:I:0">
+<DataValueMember Name="Data" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Fault" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Uncertain" DataType="BOOL" Value="0"/>
+</StructureMember>
+<StructureMember Name="Pt29" DataType="CHANNEL_DI:I:0">
+<DataValueMember Name="Data" DataType="BOOL" Value="1"/>
+<DataValueMember Name="Fault" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Uncertain" DataType="BOOL" Value="0"/>
+</StructureMember>
+<StructureMember Name="Pt30" DataType="CHANNEL_DI:I:0">
+<DataValueMember Name="Data" DataType="BOOL" Value="1"/>
+<DataValueMember Name="Fault" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Uncertain" DataType="BOOL" Value="0"/>
+</StructureMember>
+<StructureMember Name="Pt31" DataType="CHANNEL_DI:I:0">
+<DataValueMember Name="Data" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Fault" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Uncertain" DataType="BOOL" Value="0"/>
+</StructureMember>
+</Structure>
+</Data>
+</InputTag>
+</Connection>
+</Connections>
+</Communications>
+<ExtendedProperties>
+<public><ConfigID>7001</ConfigID><CatNum>5094-IB32</CatNum><Vendor>Rockwell Automation/Allen-Bradley</Vendor><ADDAVersion>1</ADDAVersion></public>
+</ExtendedProperties>
+</Module>
+</Modules>
+</Controller>
+</RSLogix5000Content>

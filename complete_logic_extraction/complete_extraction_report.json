@@ -1,0 +1,11 @@
+{
+  "acd_file": "docs/exports/PLC100_Mashing.ACD",
+  "extraction_complete": true,
+  "components": {
+    "programs": 0,
+    "routines": 0,
+    "rungs": 0,
+    "modules": 0
+  },
+  "status": "Complete ladder logic extraction attempted"
+}

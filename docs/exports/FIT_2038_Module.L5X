@@ -1,0 +1,163 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!--Mash Supply to Mash Cooler Flow Meter-->
+<RSLogix5000Content SchemaRevision="1.0" SoftwareRevision="35.01" TargetName="FIT_2038" TargetType="Module" ContainsContext="true" ExportDate="Thu Jul 24 23:20:25 2025" ExportOptions="References NoRawData L5KData DecoratedData Context Dependencies ForceProtectedEncoding AllProjDocTrans">
+<Controller Use="Context" Name="PLC100_Mashing">
+<Modules Use="Context">
+<Module Use="Target" Name="FIT_2038" CatalogNumber="Promag_300_500" Vendor="1182" ProductType="43" ProductCode="4156" Major="1" Minor="1" ParentModule="PLC100_EN4TR" ParentModPortId="2" Inhibited="false"
+ MajorFault="false" SafetyEnabled="false">
+<Description>
+<![CDATA[Mash Supply to Mash Cooler Flow Meter]]>
+</Description>
+<EKey State="CompatibleModule"/>
+<Ports>
+<Port Id="1" Address="10.4.0.14" Type="Ethernet" Upstream="true"/>
+</Ports>
+<Communications>
+<ConfigTag ConfigSize="398" ExternalAccess="Read/Write">
+<Data Format="L5K">
+<![CDATA[[402,104,1,0,0,5132,9477,5129,11784,2218,12043,4609,12550,0,0,[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],0,0,0,-32414,11784,-32508
+		,276,0.00000000e+000,-32226,-32414,11784,-32508,276,-32226,0.00000000e+000,-32414,11784,-32508
+		,276,0.00000000e+000,-32226,-32414,-32532,-32435,-32443,-32575,-32100,-32101,-32102,708,-32532
+		,433,-32532,454,434,396,456,459,461,-32532,-32532,-32545,-32414,-32532,2.00000000e+000,5.00000000e+001
+		,5.00000000e-001,1.00000000e+000,0.00000000e+000,-32532,-32713,732,2640,5.00000000e+001,1.00000000e+003
+		,944,13,0,0.00000000e+000,1,1,2,2,2,2,2,2,[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+		,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+		,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],0,0]]]>
+</Data>
+<Data Format="Decorated">
+<Structure DataType="EH:Promag_300_500:C:0">
+<DataValueMember Name="Write_protection" DataType="SINT" Radix="Decimal" Value="0"/>
+<DataValueMember Name="System_units_Mass_flow_unit" DataType="INT" Radix="Decimal" Value="5132"/>
+<DataValueMember Name="System_units_Mass_unit" DataType="INT" Radix="Decimal" Value="9477"/>
+<DataValueMember Name="System_units_Volume_flow_unit" DataType="INT" Radix="Decimal" Value="5129"/>
+<DataValueMember Name="System_units_Volume_unit" DataType="INT" Radix="Decimal" Value="11784"/>
+<DataValueMember Name="System_units_Corvolflow_unit" DataType="INT" Radix="Decimal" Value="2218"/>
+<DataValueMember Name="System_units_Density_unit" DataType="INT" Radix="Decimal" Value="12043"/>
+<DataValueMember Name="System_units_Temperature_unit" DataType="INT" Radix="Decimal" Value="4609"/>
+<DataValueMember Name="System_units_Conductivity_unit" DataType="INT" Radix="Decimal" Value="12550"/>
+<DataValueMember Name="Access_Enter_access_code" DataType="INT" Radix="Decimal" Value="0"/>
+<DataValueMember Name="Totalizer_1_Assign_process_variable" DataType="INT" Radix="Decimal" Value="-32414"/>
+<DataValueMember Name="Totalizer_1_Unit_totalizer_1" DataType="INT" Radix="Decimal" Value="11784"/>
+<DataValueMember Name="Totalizer_1_Totalizer_operation_mode" DataType="INT" Radix="Decimal" Value="-32508"/>
+<DataValueMember Name="Totalizer_1_Failure_mode" DataType="INT" Radix="Decimal" Value="276"/>
+<DataValueMember Name="Totalizer_1_Preset_value_1" DataType="REAL" Radix="Float" Value="0.0"/>
+<DataValueMember Name="Totalizer_1_Control_Totalizer_1" DataType="INT" Radix="Decimal" Value="-32226"/>
+<DataValueMember Name="Totalizer_2_Assign_process_variable" DataType="INT" Radix="Decimal" Value="-32414"/>
+<DataValueMember Name="Totalizer_2_Unit_totalizer_2" DataType="INT" Radix="Decimal" Value="11784"/>
+<DataValueMember Name="Totalizer_2_Totalizer_operation_mode" DataType="INT" Radix="Decimal" Value="-32508"/>
+<DataValueMember Name="Totalizer_2_Failure_mode" DataType="INT" Radix="Decimal" Value="276"/>
+<DataValueMember Name="Totalizer_2_Control_Totalizer_2" DataType="INT" Radix="Decimal" Value="-32226"/>
+<DataValueMember Name="Totalizer_2_Preset_value_2" DataType="REAL" Radix="Float" Value="0.0"/>
+<DataValueMember Name="Totalizer_3_Assign_process_variable" DataType="INT" Radix="Decimal" Value="-32414"/>
+<DataValueMember Name="Totalizer_3_Unit_totalizer_3" DataType="INT" Radix="Decimal" Value="11784"/>
+<DataValueMember Name="Totalizer_3_Totalizer_operation_mode" DataType="INT" Radix="Decimal" Value="-32508"/>
+<DataValueMember Name="Totalizer_3_Failure_mode" DataType="INT" Radix="Decimal" Value="276"/>
+<DataValueMember Name="Totalizer_3_Preset_value_3" DataType="REAL" Radix="Float" Value="0.0"/>
+<DataValueMember Name="Totalizer_3_Control_Totalizer_3" DataType="INT" Radix="Decimal" Value="-32226"/>
+<DataValueMember Name="Input_assembly_Position_1" DataType="INT" Radix="Decimal" Value="-32414"/>
+<DataValueMember Name="Input_assembly_Position_2" DataType="INT" Radix="Decimal" Value="-32532"/>
+<DataValueMember Name="Input_assembly_Position_3" DataType="INT" Radix="Decimal" Value="-32435"/>
+<DataValueMember Name="Input_assembly_Position_4" DataType="INT" Radix="Decimal" Value="-32443"/>
+<DataValueMember Name="Input_assembly_Position_5" DataType="INT" Radix="Decimal" Value="-32575"/>
+<DataValueMember Name="Input_assembly_Position_6" DataType="INT" Radix="Decimal" Value="-32100"/>
+<DataValueMember Name="Input_assembly_Position_7" DataType="INT" Radix="Decimal" Value="-32101"/>
+<DataValueMember Name="Input_assembly_Position_8" DataType="INT" Radix="Decimal" Value="-32102"/>
+<DataValueMember Name="Input_assembly_Position_9" DataType="INT" Radix="Decimal" Value="708"/>
+<DataValueMember Name="Input_assembly_Position_10" DataType="INT" Radix="Decimal" Value="-32532"/>
+<DataValueMember Name="Input_assembly_Position_11" DataType="INT" Radix="Decimal" Value="433"/>
+<DataValueMember Name="Input_assembly_Position_12" DataType="INT" Radix="Decimal" Value="-32532"/>
+<DataValueMember Name="Input_assembly_Position_13" DataType="INT" Radix="Decimal" Value="454"/>
+<DataValueMember Name="Input_assembly_Position_14" DataType="INT" Radix="Decimal" Value="434"/>
+<DataValueMember Name="Input_assembly_Position_15" DataType="INT" Radix="Decimal" Value="396"/>
+<DataValueMember Name="Input_assembly_Position_16" DataType="INT" Radix="Decimal" Value="456"/>
+<DataValueMember Name="Input_assembly_Position_17" DataType="INT" Radix="Decimal" Value="459"/>
+<DataValueMember Name="Input_assembly_Position_18" DataType="INT" Radix="Decimal" Value="461"/>
+<DataValueMember Name="Input_assembly_Position_19" DataType="INT" Radix="Decimal" Value="-32532"/>
+<DataValueMember Name="Input_assembly_Position_20" DataType="INT" Radix="Decimal" Value="-32532"/>
+<DataValueMember Name="Sensor_adjustm_Install_direct" DataType="INT" Radix="Decimal" Value="-32545"/>
+<DataValueMember Name="Low_flow_cut_off_Assign_variable" DataType="INT" Radix="Decimal" Value="-32414"/>
+<DataValueMember Name="Empty_pipe_det_Empty_pipe_det" DataType="INT" Radix="Decimal" Value="-32532"/>
+<DataValueMember Name="Low_flow_cut_off_On_value" DataType="REAL" Radix="Float" Value="2.0"/>
+<DataValueMember Name="Low_flow_cut_off_Off_value" DataType="REAL" Radix="Float" Value="50.0"/>
+<DataValueMember Name="Low_flow_cut_off_Pres_shock_sup" DataType="REAL" Radix="Float" Value="0.5"/>
+<DataValueMember Name="Empty_pipe_det_Response_time" DataType="REAL" Radix="Float" Value="1.0"/>
+<DataValueMember Name="Process_param_Conduct_damping" DataType="REAL" Radix="Float" Value="0.0"/>
+<DataValueMember Name="Process_parameters_Flow_override" DataType="INT" Radix="Decimal" Value="-32532"/>
+<DataValueMember Name="Empty_pipe_detection_New_adjustment" DataType="INT" Radix="Decimal" Value="-32713"/>
+<DataValueMember Name="External_compensation_Density_source" DataType="INT" Radix="Decimal" Value="732"/>
+<DataValueMember Name="External_comp_Temp_source" DataType="INT" Radix="Decimal" Value="2640"/>
+<DataValueMember Name="Empty_pipe_det_Switch_point_EPD" DataType="REAL" Radix="Float" Value="50.0"/>
+<DataValueMember Name="External_compensation_Fixed_density" DataType="REAL" Radix="Float" Value="1000.0"/>
+<DataValueMember Name="Process_parameters_Filter_options" DataType="INT" Radix="Decimal" Value="944"/>
+<DataValueMember Name="Process_parameters_Flow_damping" DataType="SINT" Radix="Decimal" Value="13"/>
+<DataValueMember Name="Diagnostic_handling_Alarm_delay" DataType="REAL" Radix="Float" Value="0.0"/>
+<DataValueMember Name="Diagn_behavior_Diagnostic_no832" DataType="SINT" Radix="Decimal" Value="1"/>
+<DataValueMember Name="Diagn_behavior_Diagnostic_no833" DataType="SINT" Radix="Decimal" Value="1"/>
+<DataValueMember Name="Diagn_behavior_Diagnostic_no834" DataType="SINT" Radix="Decimal" Value="2"/>
+<DataValueMember Name="Diagn_behavior_Diagnostic_no835" DataType="SINT" Radix="Decimal" Value="2"/>
+<DataValueMember Name="Diagn_behavior_Diagnostic_no962" DataType="SINT" Radix="Decimal" Value="2"/>
+<DataValueMember Name="Diagn_behavior_Diagnostic_no531" DataType="SINT" Radix="Decimal" Value="2"/>
+<DataValueMember Name="Diagn_behavior_Diagnostic_no937" DataType="SINT" Radix="Decimal" Value="2"/>
+<DataValueMember Name="Diagn_behavior_Diagnostic_no302" DataType="SINT" Radix="Decimal" Value="2"/>
+</Structure>
+</Data>
+</ConfigTag>
+<Connections>
+<Connection Name="Output" RPI="20000" Type="StandardDataDriven" OutputSize="30" InputSize="44" EventID="0" ProgrammaticallySendEventTrigger="false" Priority="Scheduled" InputConnectionType="Unicast" InputProductionTrigger="Cyclic" ConnectionPath="20 04 24 68 2c 66 2c 64"
+ InputTagSuffix="I1" OutputTagSuffix="O1">
+<InputTag ExternalAccess="Read/Write">
+<Comments>
+<Comment Operand=".PROCESS_VARIABLES_TOTALIZER_VALUE_2">
+<![CDATA[HW Flush to Fermenter Set Point]]>
+</Comment>
+</Comments>
+<Data Format="Decorated">
+<Structure DataType="EH:Promag_300_500_FixIn:I1:0">
+<DataValueMember Name="Connection_Fault" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Actual_diagnostics" DataType="DINT" Radix="Binary" Value="2#0000_0000_0000_0000_0000_0000_0000_0000"/>
+<DataValueMember Name="Process_variables_Volume_flow" DataType="REAL" Radix="Float" Value="136.13725"/>
+<DataValueMember Name="Process_variables_Mass_flow" DataType="REAL" Radix="Float" Value="136137.25"/>
+<DataValueMember Name="Process_variab_Correctvolflow" DataType="REAL" Radix="Float" Value="16312.84"/>
+<DataValueMember Name="Process_variables_Conductivity" DataType="REAL" Radix="Float" Value="2384.7124"/>
+<DataValueMember Name="Process_variables_Temperature" DataType="REAL" Radix="Float" Value="-1.#QNAN"/>
+<DataValueMember Name="Process_variables_Totalizer_value_1" DataType="REAL" Radix="Float" Value="3078.6936"/>
+<DataValueMember Name="Process_variables_Totalizer_value_2" DataType="REAL" Radix="Float" Value="0.0"/>
+<DataValueMember Name="Process_variables_Totalizer_value_3" DataType="REAL" Radix="Float" Value="28531534.0"/>
+</Structure>
+</Data>
+</InputTag>
+<OutputTag ExternalAccess="Read/Write">
+<Data Format="L5K">
+<![CDATA[[3,0,0,0,-32226,-32490,0,0,0,0.00000000e+000,0,0,0,0.00000000e+000,0,0,0]]]>
+</Data>
+<Data Format="Decorated">
+<Structure DataType="EH:Promag_300_500_FixOut:O1:0">
+<DataValueMember Name="TIC_Control_1_Activation" DataType="BOOL" Value="1"/>
+<DataValueMember Name="TIC_Control_2_Activation" DataType="BOOL" Value="1"/>
+<DataValueMember Name="TIC_Control_3_Activation" DataType="BOOL" Value="0"/>
+<DataValueMember Name="MID_InputDensity_1_Activation" DataType="BOOL" Value="0"/>
+<DataValueMember Name="MID_InputTemperature_1_Activation" DataType="BOOL" Value="0"/>
+<DataValueMember Name="HBT_PerformVerification_1_Activation" DataType="BOOL" Value="0"/>
+<DataValueMember Name="FLOW_PositivZeroReturn_1_Activation" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Totalizer_1_Control_Totalizer_1" DataType="INT" Radix="Decimal" Value="-32226"/>
+<DataValueMember Name="Totalizer_2_Control_Totalizer_2" DataType="INT" Radix="Decimal" Value="-32490"/>
+<DataValueMember Name="Totalizer_3_Control_Totalizer_3" DataType="INT" Radix="Decimal" Value="0"/>
+<DataValueMember Name="External_compensation_External_density" DataType="REAL" Radix="Float" Value="0.0"/>
+<DataValueMember Name="System_units_Density_unit" DataType="INT" Radix="Decimal" Value="0"/>
+<DataValueMember Name="External_comp_External_temp" DataType="REAL" Radix="Float" Value="0.0"/>
+<DataValueMember Name="System_units_Temperature_unit" DataType="INT" Radix="Decimal" Value="0"/>
+<DataValueMember Name="Performverific_Start_verificat" DataType="INT" Radix="Decimal" Value="0"/>
+<DataValueMember Name="Process_parameters_Flow_override" DataType="INT" Radix="Decimal" Value="0"/>
+</Structure>
+</Data>
+</OutputTag>
+</Connection>
+</Connections>
+</Communications>
+<ExtendedProperties>
+<public><ConfigID>461</ConfigID><Vendor>Endress+Hauser</Vendor><CatNum>Promag_300_500</CatNum></public>
+</ExtendedProperties>
+</Module>
+</Modules>
+</Controller>
+</RSLogix5000Content>

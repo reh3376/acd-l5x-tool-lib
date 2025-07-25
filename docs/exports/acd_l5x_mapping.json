@@ -1,0 +1,24 @@
+{
+  "acd_file": "docs/exports/PLC100_Mashing.ACD",
+  "exports_analyzed": 122,
+  "identifiers_extracted": {
+    "programs": 38,
+    "routines": 161,
+    "modules": 84
+  },
+  "identifiers_found_in_acd": {
+    "programs": 0,
+    "routines": 0,
+    "modules": 0
+  },
+  "mappings": {
+    "programs": {},
+    "routines": {},
+    "modules": {}
+  },
+  "patterns": {
+    "before_programs": {},
+    "before_routines": {},
+    "before_modules": {}
+  }
+}

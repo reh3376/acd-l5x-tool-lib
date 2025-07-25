@@ -1,0 +1,37 @@
+<?xml version="1.0" ?>
+<RSLogix5000Content SchemaRevision="1.0" SoftwareRevision="34.01" TargetName="PLC100_Mashing" TargetType="Controller" ContainsContext="true" Owner="Extracted from ACD" ExportDate="Thu Jul 24 2025 22:48:34">
+  <Controller Use="Target" Name="PLC100_Mashing" ProcessorType="1756-L85E" MajorRev="34" MinorRev="01" TimeSlice="20" ShareUnusedTimeSlice="1" ProjectCreationDate="Mon Jul 24 2025" LastModifiedDate="Thu Jul 24 2025" SFCExecutionControl="CurrentActive" SFCRestartPosition="MostRecent" SFCLastScan="DontScan" ProjectSN="16#0000_0000" MatchProjectToController="false" CanUseRPIFromProducer="false" InhibitAutomaticFirmwareUpdate="0" PassThroughConfiguration="EnabledWithAppend" DownloadProjectDocumentationAndExtendedProperties="true" DownloadProjectCustomProperties="true" ReportMinorOverflow="false">
+    <RedundancyInfo Enabled="false" DataTablePadPercentage="50" AuxDataTablePadPercentage="50" KeepTestEditsOnSwitchOver="false"/>
+    <Security Code="0" ChangesToDetect="16#ffff_ffff_ffff_ffff"/>
+    <SafetyInfo SafetyEnabled="false"/>
+    <DataTypes/>
+    <Modules/>
+    <AddOnInstructionDefinitions/>
+    <Tags>
+      <Tag Name="Associated" TagType="Base" DataType="DINT" Radix="Decimal" Constant="false" ExternalAccess="Read/Write"/>
+    </Tags>
+    <Programs>
+      <Program Name="MainProgram" TestEdits="false" MainRoutineName="MainRoutine" Disabled="false" UseAsFolder="false">
+        <Tags/>
+        <Routines>
+          <Routine Name="MainRoutine" Type="RLL">
+            <RLLContent>
+              <Rung Number="0" Type="N">
+                <Comment>Extracted from ACD file: PLC100_Mashing</Comment>
+              </Rung>
+            </RLLContent>
+          </Routine>
+        </Routines>
+      </Program>
+    </Programs>
+    <Tasks>
+      <Task Name="MainTask" Type="CONTINUOUS" Priority="10" Watchdog="500" DisableUpdateOutputs="false" InhibitTask="false">
+        <ScheduledPrograms>
+          <ScheduledProgram Name="MainProgram"/>
+        </ScheduledPrograms>
+      </Task>
+    </Tasks>
+    <CommissioningStatus StatusFlags="0"/>
+    <TimeSynchronize Priority1="128" Priority2="128" PTPEnable="false"/>
+  </Controller>
+</RSLogix5000Content>

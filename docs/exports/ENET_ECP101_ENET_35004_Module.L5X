@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<RSLogix5000Content SchemaRevision="1.0" SoftwareRevision="35.01" TargetName="ENET_ECP101_ENET_35004" TargetType="Module" ContainsContext="true" ExportDate="Thu Jul 24 23:20:28 2025" ExportOptions="References NoRawData L5KData DecoratedData Context Dependencies ForceProtectedEncoding AllProjDocTrans">
+<Controller Use="Context" Name="PLC100_Mashing">
+<Modules Use="Context">
+<Module Use="Target" Name="ENET_ECP101_ENET_35004" CatalogNumber="1783-CMS10P" Vendor="1" ProductType="44" ProductCode="106" Major="1" Minor="1" ParentModule="PLC100_EN4TR" ParentModPortId="2" Inhibited="false"
+ MajorFault="false">
+<EKey State="CompatibleModule"/>
+<Ports>
+<Port Id="1" Address="10.4.0.19" Type="Ethernet" Upstream="true"/>
+</Ports>
+<Communications>
+<ConfigData ConfigSize="388">
+<Data Format="L5K">
+<![CDATA[[392,196,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+		,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]]]>
+</Data>
+</ConfigData>
+<Connections>
+<Connection Name="Input" RPI="1000000" Type="Output" EventID="0" ProgrammaticallySendEventTrigger="false" Unicast="true">
+<InputTag ExternalAccess="Read/Write">
+<Data Format="Decorated">
+<Structure DataType="AB:STRATIX_5200_10PORT_GB_MANAGED:I:0">
+<DataValueMember Name="Fault" DataType="DINT" Radix="Binary" Value="2#0000_0000_0000_0000_0000_0000_0000_0000"/>
+<DataValueMember Name="AnyPortConnected" DataType="BOOL" Value="1"/>
+<DataValueMember Name="PortGi1_1Connected" DataType="BOOL" Value="1"/>
+<DataValueMember Name="PortGi1_2Connected" DataType="BOOL" Value="0"/>
+<DataValueMember Name="PortGi1_3Connected" DataType="BOOL" Value="1"/>
+<DataValueMember Name="PortGi1_4Connected" DataType="BOOL" Value="1"/>
+<DataValueMember Name="PortGi1_5Connected" DataType="BOOL" Value="1"/>
+<DataValueMember Name="PortGi1_6Connected" DataType="BOOL" Value="1"/>
+<DataValueMember Name="PortGi1_7Connected" DataType="BOOL" Value="1"/>
+<DataValueMember Name="PortGi1_8Connected" DataType="BOOL" Value="0"/>
+<DataValueMember Name="PortGi1_9Connected" DataType="BOOL" Value="0"/>
+<DataValueMember Name="PortGi1_10Connected" DataType="BOOL" Value="0"/>
+<DataValueMember Name="AnyPortUnauthorizedDevice" DataType="BOOL" Value="0"/>
+<DataValueMember Name="PortGi1_1UnauthorizedDevice" DataType="BOOL" Value="0"/>
+<DataValueMember Name="PortGi1_2UnauthorizedDevice" DataType="BOOL" Value="0"/>
+<DataValueMember Name="PortGi1_3UnauthorizedDevice" DataType="BOOL" Value="0"/>
+<DataValueMember Name="PortGi1_4UnauthorizedDevice" DataType="BOOL" Value="0"/>
+<DataValueMember Name="PortGi1_5UnauthorizedDevice" DataType="BOOL" Value="0"/>
+<DataValueMember Name="PortGi1_6UnauthorizedDevice" DataType="BOOL" Value="0"/>
+<DataValueMember Name="PortGi1_7UnauthorizedDevice" DataType="BOOL" Value="0"/>
+<DataValueMember Name="PortGi1_8UnauthorizedDevice" DataType="BOOL" Value="0"/>
+<DataValueMember Name="PortGi1_9UnauthorizedDevice" DataType="BOOL" Value="0"/>
+<DataValueMember Name="PortGi1_10UnauthorizedDevice" DataType="BOOL" Value="0"/>
+<DataValueMember Name="AnyPortThreshold" DataType="BOOL" Value="0"/>
+<DataValueMember Name="PortGi1_1Threshold" DataType="BOOL" Value="0"/>
+<DataValueMember Name="PortGi1_2Threshold" DataType="BOOL" Value="0"/>
+<DataValueMember Name="PortGi1_3Threshold" DataType="BOOL" Value="0"/>
+<DataValueMember Name="PortGi1_4Threshold" DataType="BOOL" Value="0"/>
+<DataValueMember Name="PortGi1_5Threshold" DataType="BOOL" Value="0"/>
+<DataValueMember Name="PortGi1_6Threshold" DataType="BOOL" Value="0"/>
+<DataValueMember Name="PortGi1_7Threshold" DataType="BOOL" Value="0"/>
+<DataValueMember Name="PortGi1_8Threshold" DataType="BOOL" Value="0"/>
+<DataValueMember Name="PortGi1_9Threshold" DataType="BOOL" Value="0"/>
+<DataValueMember Name="PortGi1_10Threshold" DataType="BOOL" Value="0"/>
+<DataValueMember Name="AllPortsUtilization" DataType="SINT" Radix="Decimal" Value="0"/>
+<DataValueMember Name="PortGi1_1Utilization" DataType="SINT" Radix="Decimal" Value="0"/>
+<DataValueMember Name="PortGi1_2Utilization" DataType="SINT" Radix="Decimal" Value="0"/>
+<DataValueMember Name="PortGi1_3Utilization" DataType="SINT" Radix="Decimal" Value="0"/>
+<DataValueMember Name="PortGi1_4Utilization" DataType="SINT" Radix="Decimal" Value="0"/>
+<DataValueMember Name="PortGi1_5Utilization" DataType="SINT" Radix="Decimal" Value="0"/>
+<DataValueMember Name="PortGi1_6Utilization" DataType="SINT" Radix="Decimal" Value="0"/>
+<DataValueMember Name="PortGi1_7Utilization" DataType="SINT" Radix="Decimal" Value="0"/>
+<DataValueMember Name="PortGi1_8Utilization" DataType="SINT" Radix="Decimal" Value="0"/>
+<DataValueMember Name="PortGi1_9Utilization" DataType="SINT" Radix="Decimal" Value="0"/>
+<DataValueMember Name="PortGi1_10Utilization" DataType="SINT" Radix="Decimal" Value="0"/>
+<DataValueMember Name="MajorAlarmRelay" DataType="BOOL" Value="0"/>
+<DataValueMember Name="MulticastGroupActive" DataType="DINT" Radix="Binary" Value="2#0000_0000_0000_0000_0000_0000_0000_0001"/>
+</Structure>
+</Data>
+</InputTag>
+</Connection>
+</Connections>
+</Communications>
+<ExtendedProperties>
+<public><Vendor>Rockwell Automation/Allen-Bradley</Vendor><CatNum>1783-CMS10P</CatNum><ConfigID>861</ConfigID></public>
+</ExtendedProperties>
+</Module>
+</Modules>
+</Controller>
+</RSLogix5000Content>

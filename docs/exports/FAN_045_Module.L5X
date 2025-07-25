@@ -1,0 +1,1161 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!--MCC-1 Bucket 7L EXHAUST FAN 
+-->
+<RSLogix5000Content SchemaRevision="1.0" SoftwareRevision="35.01" TargetName="FAN_045" TargetType="Module" ContainsContext="true" ExportDate="Thu Jul 24 23:27:13 2025" ExportOptions="References NoRawData L5KData DecoratedData Context Dependencies ForceProtectedEncoding AllProjDocTrans">
+<Controller Use="Context" Name="PLC100_Mashing">
+<Modules Use="Context">
+<Module Use="Target" Name="FAN_045" CatalogNumber="193-ECM-ETR/A" Vendor="1" ProductType="3" ProductCode="651" Major="6" Minor="198" ParentModule="PLC100_EN4TR" ParentModPortId="2" Inhibited="false"
+ MajorFault="false" SafetyEnabled="false" AutoDiagsEnabled="true">
+<Description>
+<![CDATA[MCC-1 Bucket 7L EXHAUST FAN 
+]]>
+</Description>
+<EKey State="CompatibleModule"/>
+<Ports>
+<Port Id="2" Address="10.4.0.62" Type="Ethernet" Upstream="true"/>
+</Ports>
+<Communications>
+<ConfigTag ConfigSize="408" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[EXHAUST FAN]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[[412,120,0,2,2,760,760,10,18,75,85,[3,0,0,0,0,0,8649,0,0,0],[-1,-11,63,63,4095,4095,10239,7942,4095,4095],4091,2,9,0,4128
+		,4096,0,2,0,600,0,0,500,10000,100,1,10,5,0,250,200,0,10,10,0,600,10,50,250,150,10,50,50,70,10,50,35,20,5,5,10,10,35,40,10
+		,35,40,10,35,40,10,10,100,90,10,100,90,10,100,90,10,10,10,10,[2,3,28,29,30,31,38,39],0,3072,0,480,480,0,10,10,10,1000,4000
+		,10,10,5000,4900,10,10,15,10,10,10,57,58,10,10,63,62,15,1,10,10,10,10,0,0,0,0,10,10,10,10,0,0,0,0,10,10,10,10,0,0,0,0,10,10,10
+		,10,0,0,0,0,10,10,-90,-95,10,10,-95,-90,10,10,90,95,10,10,95,90,1,50,2,3,51,52,38,39,300,0,[10,10,10,0,0,0,0,0,0,0,0,0,0,0,0,0],[10,10
+		,10,0,0,0,0,0,0,0,0,0,0,0,0,0],[10,10,10,0,0,0,0,0,0,0,0,0,0,0,0,0],[10,10,10,0,0,0,0,0,0,0,0,0,0,0,0,0]]]]>
+</Data>
+<Data Format="Decorated">
+<Structure DataType="AB:E300:C:3">
+<DataValueMember Name="FLA1" DataType="DINT" Radix="Decimal" Value="760"/>
+<DataValueMember Name="FLA2" DataType="DINT" Radix="Decimal" Value="760"/>
+<DataValueMember Name="TripClass" DataType="SINT" Radix="Decimal" Value="10"/>
+<DataValueMember Name="OverloadResetMode" DataType="BOOL" Value="0"/>
+<DataValueMember Name="ThreePhase" DataType="BOOL" Value="1"/>
+<DataValueMember Name="GroundFaultFilterEn" DataType="BOOL" Value="0"/>
+<DataValueMember Name="GroundFaultMaxInhibitEn" DataType="BOOL" Value="0"/>
+<DataValueMember Name="PhaseRotationTripType_0" DataType="BOOL" Value="1"/>
+<DataValueMember Name="PhaseRotationTripType_1" DataType="BOOL" Value="0"/>
+<DataValueMember Name="PowerScale" DataType="BOOL" Value="0"/>
+<DataValueMember Name="VoltageScale" DataType="BOOL" Value="0"/>
+<DataValueMember Name="OverloadResetLevel" DataType="SINT" Radix="Decimal" Value="75"/>
+<DataValueMember Name="OverloadWarningLimit" DataType="SINT" Radix="Decimal" Value="85"/>
+<StructureMember Name="Protection" DataType="AB:E300_Protection_Struct:C:3">
+<DataValueMember Name="OverloadTripEn" DataType="BOOL" Value="1"/>
+<DataValueMember Name="PhaseLossTripEn" DataType="BOOL" Value="1"/>
+<DataValueMember Name="GroundFaultTripEn" DataType="BOOL" Value="0"/>
+<DataValueMember Name="StallTripEn" DataType="BOOL" Value="0"/>
+<DataValueMember Name="JamTripEn" DataType="BOOL" Value="0"/>
+<DataValueMember Name="UnderloadTripEn" DataType="BOOL" Value="0"/>
+<DataValueMember Name="CurrentImbalanceTripEn" DataType="BOOL" Value="0"/>
+<DataValueMember Name="L1UnderCurrentTripEn" DataType="BOOL" Value="0"/>
+<DataValueMember Name="L2UnderCurrentTripEn" DataType="BOOL" Value="0"/>
+<DataValueMember Name="L3UnderCurrentTripEn" DataType="BOOL" Value="0"/>
+<DataValueMember Name="L1OverCurrentTripEn" DataType="BOOL" Value="0"/>
+<DataValueMember Name="L2OverCurrentTripEn" DataType="BOOL" Value="0"/>
+<DataValueMember Name="L3OverCurrentTripEn" DataType="BOOL" Value="0"/>
+<DataValueMember Name="L1LineLossTripEn" DataType="BOOL" Value="0"/>
+<DataValueMember Name="L2LineLossTripEn" DataType="BOOL" Value="0"/>
+<DataValueMember Name="L3LineLossTripEn" DataType="BOOL" Value="0"/>
+<DataValueMember Name="OverloadWarningEn" DataType="BOOL" Value="0"/>
+<DataValueMember Name="GroundFaultWarningEn" DataType="BOOL" Value="0"/>
+<DataValueMember Name="JamWarningEn" DataType="BOOL" Value="0"/>
+<DataValueMember Name="UnderloadWarningEn" DataType="BOOL" Value="0"/>
+<DataValueMember Name="CurrentImbalanceWarningEn" DataType="BOOL" Value="0"/>
+<DataValueMember Name="L1UnderCurrentWarningEn" DataType="BOOL" Value="0"/>
+<DataValueMember Name="L2UnderCurrentWarningEn" DataType="BOOL" Value="0"/>
+<DataValueMember Name="L3UnderCurrentWarningEn" DataType="BOOL" Value="0"/>
+<DataValueMember Name="L1OverCurrentWarningEn" DataType="BOOL" Value="0"/>
+<DataValueMember Name="L2OverCurrentWarningEn" DataType="BOOL" Value="0"/>
+<DataValueMember Name="L3OverCurrentWarningEn" DataType="BOOL" Value="0"/>
+<DataValueMember Name="L1LineLossWarningEn" DataType="BOOL" Value="0"/>
+<DataValueMember Name="L2LineLossWarningEn" DataType="BOOL" Value="0"/>
+<DataValueMember Name="L3LineLossWarningEn" DataType="BOOL" Value="0"/>
+<DataValueMember Name="UnderVoltageTripEn" DataType="BOOL" Value="0"/>
+<DataValueMember Name="OverVoltageTripEn" DataType="BOOL" Value="0"/>
+<DataValueMember Name="VoltageImbalanceTripEn" DataType="BOOL" Value="0"/>
+<DataValueMember Name="PhaseRotationTripEn" DataType="BOOL" Value="0"/>
+<DataValueMember Name="UnderFrequencyTripEn" DataType="BOOL" Value="0"/>
+<DataValueMember Name="OverFrequencyTripEn" DataType="BOOL" Value="0"/>
+<DataValueMember Name="UnderVoltageWarningEn" DataType="BOOL" Value="0"/>
+<DataValueMember Name="OverVoltageWarningEn" DataType="BOOL" Value="0"/>
+<DataValueMember Name="VoltageImbalanceWarningEn" DataType="BOOL" Value="0"/>
+<DataValueMember Name="PhaseRotationWarningEn" DataType="BOOL" Value="0"/>
+<DataValueMember Name="UnderFrequencyWarningEn" DataType="BOOL" Value="0"/>
+<DataValueMember Name="OverFrequencyWarningEn" DataType="BOOL" Value="0"/>
+<DataValueMember Name="UnderRealPowerTripEn" DataType="BOOL" Value="0"/>
+<DataValueMember Name="OverRealPowerTripEn" DataType="BOOL" Value="0"/>
+<DataValueMember Name="UnderReactivePowerConsumedTripEn" DataType="BOOL" Value="0"/>
+<DataValueMember Name="OverReactivePowerConsumedTripEn" DataType="BOOL" Value="0"/>
+<DataValueMember Name="UnderReactivePowerGeneratedTripEn" DataType="BOOL" Value="0"/>
+<DataValueMember Name="OverReactivePowerGeneratedTripEn" DataType="BOOL" Value="0"/>
+<DataValueMember Name="UnderApparentPowerTripEn" DataType="BOOL" Value="0"/>
+<DataValueMember Name="OverApparentPowerTripEn" DataType="BOOL" Value="0"/>
+<DataValueMember Name="UnderPowerFactorLaggingTripEn" DataType="BOOL" Value="0"/>
+<DataValueMember Name="OverPowerFactorLaggingTripEn" DataType="BOOL" Value="0"/>
+<DataValueMember Name="UnderPowerFactorLeadingTripEn" DataType="BOOL" Value="0"/>
+<DataValueMember Name="OverPowerFactorLeadingTripEn" DataType="BOOL" Value="0"/>
+<DataValueMember Name="UnderRealPowerWarningEn" DataType="BOOL" Value="0"/>
+<DataValueMember Name="OverRealPowerWarningEn" DataType="BOOL" Value="0"/>
+<DataValueMember Name="UnderReactivePowerConsumedWarningEn" DataType="BOOL" Value="0"/>
+<DataValueMember Name="OverReactivePowerConsumedWarningEn" DataType="BOOL" Value="0"/>
+<DataValueMember Name="UnderReactivePowerGeneratedWarningEn" DataType="BOOL" Value="0"/>
+<DataValueMember Name="OverReactivePowerGeneratedWarningEn" DataType="BOOL" Value="0"/>
+<DataValueMember Name="UnderApparentPowerWarningEn" DataType="BOOL" Value="0"/>
+<DataValueMember Name="OverApparentPowerWarningEn" DataType="BOOL" Value="0"/>
+<DataValueMember Name="UnderPowerFactorLaggingWarningEn" DataType="BOOL" Value="0"/>
+<DataValueMember Name="OverPowerFactorLaggingWarningEn" DataType="BOOL" Value="0"/>
+<DataValueMember Name="UnderPowerFactorLeadingWarningEn" DataType="BOOL" Value="0"/>
+<DataValueMember Name="OverPowerFactorLeadingWarningEn" DataType="BOOL" Value="0"/>
+<DataValueMember Name="TestTripEn" DataType="BOOL" Value="1"/>
+<DataValueMember Name="PTCTripEn" DataType="BOOL" Value="0"/>
+<DataValueMember Name="DeviceLogixTripEn" DataType="BOOL" Value="0"/>
+<DataValueMember Name="OperatorStationTripEn" DataType="BOOL" Value="1"/>
+<DataValueMember Name="RemoteTripEn" DataType="BOOL" Value="0"/>
+<DataValueMember Name="BlockedStartTripEn" DataType="BOOL" Value="0"/>
+<DataValueMember Name="FeedbackTimeoutTripEn" DataType="BOOL" Value="0"/>
+<DataValueMember Name="ExpansionBusTripEn" DataType="BOOL" Value="0"/>
+<DataValueMember Name="MCCTestPositionTripEn" DataType="BOOL" Value="0"/>
+<DataValueMember Name="PTCWarningEn" DataType="BOOL" Value="0"/>
+<DataValueMember Name="DeviceLogixWarningEn" DataType="BOOL" Value="0"/>
+<DataValueMember Name="FeedbackTimeoutWarningEn" DataType="BOOL" Value="0"/>
+<DataValueMember Name="ExpansionBusWarningEn" DataType="BOOL" Value="0"/>
+<DataValueMember Name="NumberOfStartsWarningEn" DataType="BOOL" Value="0"/>
+<DataValueMember Name="OperatingHoursWarningEn" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Analog1Ch00TripEn" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Analog1Ch01TripEn" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Analog1Ch02TripEn" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Analog2Ch00TripEn" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Analog2Ch01TripEn" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Analog2Ch02TripEn" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Analog3Ch00TripEn" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Analog3Ch01TripEn" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Analog3Ch02TripEn" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Analog4Ch00TripEn" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Analog4Ch01TripEn" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Analog4Ch02TripEn" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Analog1Ch00WarningEn" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Analog1Ch01WarningEn" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Analog1Ch02WarningEn" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Analog2Ch00WarningEn" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Analog2Ch01WarningEn" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Analog2Ch02WarningEn" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Analog3Ch00WarningEn" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Analog3Ch01WarningEn" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Analog3Ch02WarningEn" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Analog4Ch00WarningEn" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Analog4Ch01WarningEn" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Analog4Ch02WarningEn" DataType="BOOL" Value="0"/>
+</StructureMember>
+<StructureMember Name="History" DataType="AB:E300_History_Struct:C:3">
+<DataValueMember Name="OverloadTripEn" DataType="BOOL" Value="1"/>
+<DataValueMember Name="PhaseLossTripEn" DataType="BOOL" Value="1"/>
+<DataValueMember Name="GroundFaultTripEn" DataType="BOOL" Value="1"/>
+<DataValueMember Name="StallTripEn" DataType="BOOL" Value="1"/>
+<DataValueMember Name="JamTripEn" DataType="BOOL" Value="1"/>
+<DataValueMember Name="UnderloadTripEn" DataType="BOOL" Value="1"/>
+<DataValueMember Name="CurrentImbalanceTripEn" DataType="BOOL" Value="1"/>
+<DataValueMember Name="L1UnderCurrentTripEn" DataType="BOOL" Value="1"/>
+<DataValueMember Name="L2UnderCurrentTripEn" DataType="BOOL" Value="1"/>
+<DataValueMember Name="L3UnderCurrentTripEn" DataType="BOOL" Value="1"/>
+<DataValueMember Name="L1OverCurrentTripEn" DataType="BOOL" Value="1"/>
+<DataValueMember Name="L2OverCurrentTripEn" DataType="BOOL" Value="1"/>
+<DataValueMember Name="L3OverCurrentTripEn" DataType="BOOL" Value="1"/>
+<DataValueMember Name="L1LineLossTripEn" DataType="BOOL" Value="1"/>
+<DataValueMember Name="L2LineLossTripEn" DataType="BOOL" Value="1"/>
+<DataValueMember Name="L3LineLossTripEn" DataType="BOOL" Value="1"/>
+<DataValueMember Name="OverloadWarningEn" DataType="BOOL" Value="1"/>
+<DataValueMember Name="GroundFaultWarningEn" DataType="BOOL" Value="1"/>
+<DataValueMember Name="JamWarningEn" DataType="BOOL" Value="1"/>
+<DataValueMember Name="UnderloadWarningEn" DataType="BOOL" Value="1"/>
+<DataValueMember Name="CurrentImbalanceWarningEn" DataType="BOOL" Value="1"/>
+<DataValueMember Name="L1UnderCurrentWarningEn" DataType="BOOL" Value="1"/>
+<DataValueMember Name="L2UnderCurrentWarningEn" DataType="BOOL" Value="1"/>
+<DataValueMember Name="L3UnderCurrentWarningEn" DataType="BOOL" Value="1"/>
+<DataValueMember Name="L1OverCurrentWarningEn" DataType="BOOL" Value="1"/>
+<DataValueMember Name="L2OverCurrentWarningEn" DataType="BOOL" Value="1"/>
+<DataValueMember Name="L3OverCurrentWarningEn" DataType="BOOL" Value="1"/>
+<DataValueMember Name="L1LineLossWarningEn" DataType="BOOL" Value="1"/>
+<DataValueMember Name="L2LineLossWarningEn" DataType="BOOL" Value="1"/>
+<DataValueMember Name="L3LineLossWarningEn" DataType="BOOL" Value="1"/>
+<DataValueMember Name="UnderVoltageTripEn" DataType="BOOL" Value="1"/>
+<DataValueMember Name="OverVoltageTripEn" DataType="BOOL" Value="1"/>
+<DataValueMember Name="VoltageImbalanceTripEn" DataType="BOOL" Value="1"/>
+<DataValueMember Name="PhaseRotationTripEn" DataType="BOOL" Value="1"/>
+<DataValueMember Name="UnderFrequencyTripEn" DataType="BOOL" Value="1"/>
+<DataValueMember Name="OverFrequencyTripEn" DataType="BOOL" Value="1"/>
+<DataValueMember Name="UnderVoltageWarningEn" DataType="BOOL" Value="1"/>
+<DataValueMember Name="OverVoltageWarningEn" DataType="BOOL" Value="1"/>
+<DataValueMember Name="VoltageImbalanceWarningEn" DataType="BOOL" Value="1"/>
+<DataValueMember Name="PhaseRotationWarningEn" DataType="BOOL" Value="1"/>
+<DataValueMember Name="UnderFrequencyWarningEn" DataType="BOOL" Value="1"/>
+<DataValueMember Name="OverFrequencyWarningEn" DataType="BOOL" Value="1"/>
+<DataValueMember Name="UnderRealPowerTripEn" DataType="BOOL" Value="1"/>
+<DataValueMember Name="OverRealPowerTripEn" DataType="BOOL" Value="1"/>
+<DataValueMember Name="UnderReactivePowerConsumedTripEn" DataType="BOOL" Value="1"/>
+<DataValueMember Name="OverReactivePowerConsumedTripEn" DataType="BOOL" Value="1"/>
+<DataValueMember Name="UnderReactivePowerGeneratedTripEn" DataType="BOOL" Value="1"/>
+<DataValueMember Name="OverReactivePowerGeneratedTripEn" DataType="BOOL" Value="1"/>
+<DataValueMember Name="UnderApparentPowerTripEn" DataType="BOOL" Value="1"/>
+<DataValueMember Name="OverApparentPowerTripEn" DataType="BOOL" Value="1"/>
+<DataValueMember Name="UnderPowerFactorLaggingTripEn" DataType="BOOL" Value="1"/>
+<DataValueMember Name="OverPowerFactorLaggingTripEn" DataType="BOOL" Value="1"/>
+<DataValueMember Name="UnderPowerFactorLeadingTripEn" DataType="BOOL" Value="1"/>
+<DataValueMember Name="OverPowerFactorLeadingTripEn" DataType="BOOL" Value="1"/>
+<DataValueMember Name="UnderRealPowerWarningEn" DataType="BOOL" Value="1"/>
+<DataValueMember Name="OverRealPowerWarningEn" DataType="BOOL" Value="1"/>
+<DataValueMember Name="UnderReactivePowerConsumedWarningEn" DataType="BOOL" Value="1"/>
+<DataValueMember Name="OverReactivePowerConsumedWarningEn" DataType="BOOL" Value="1"/>
+<DataValueMember Name="UnderReactivePowerGeneratedWarningEn" DataType="BOOL" Value="1"/>
+<DataValueMember Name="OverReactivePowerGeneratedWarningEn" DataType="BOOL" Value="1"/>
+<DataValueMember Name="UnderApparentPowerWarningEn" DataType="BOOL" Value="1"/>
+<DataValueMember Name="OverApparentPowerWarningEn" DataType="BOOL" Value="1"/>
+<DataValueMember Name="UnderPowerFactorLaggingWarningEn" DataType="BOOL" Value="1"/>
+<DataValueMember Name="OverPowerFactorLaggingWarningEn" DataType="BOOL" Value="1"/>
+<DataValueMember Name="UnderPowerFactorLeadingWarningEn" DataType="BOOL" Value="1"/>
+<DataValueMember Name="OverPowerFactorLeadingWarningEn" DataType="BOOL" Value="1"/>
+<DataValueMember Name="TestTripEn" DataType="BOOL" Value="1"/>
+<DataValueMember Name="PTCTripEn" DataType="BOOL" Value="1"/>
+<DataValueMember Name="DeviceLogixTripEn" DataType="BOOL" Value="1"/>
+<DataValueMember Name="OperatorStationTripEn" DataType="BOOL" Value="1"/>
+<DataValueMember Name="RemoteTripEn" DataType="BOOL" Value="1"/>
+<DataValueMember Name="BlockedStartTripEn" DataType="BOOL" Value="1"/>
+<DataValueMember Name="HardwareFaultTripEn" DataType="BOOL" Value="1"/>
+<DataValueMember Name="ConfigurationTripEn" DataType="BOOL" Value="1"/>
+<DataValueMember Name="FeedbackTimeoutTripEn" DataType="BOOL" Value="1"/>
+<DataValueMember Name="ExpansionBusTripEn" DataType="BOOL" Value="1"/>
+<DataValueMember Name="NVMErrorTripEn" DataType="BOOL" Value="1"/>
+<DataValueMember Name="MCCTestPositionTripEn" DataType="BOOL" Value="0"/>
+<DataValueMember Name="PTCWarningEn" DataType="BOOL" Value="1"/>
+<DataValueMember Name="DeviceLogixWarningEn" DataType="BOOL" Value="1"/>
+<DataValueMember Name="FeedbackTimeoutWarningEn" DataType="BOOL" Value="1"/>
+<DataValueMember Name="ExpansionBusWarningEn" DataType="BOOL" Value="1"/>
+<DataValueMember Name="NumberOfStartsWarningEn" DataType="BOOL" Value="1"/>
+<DataValueMember Name="OperatingHoursWarningEn" DataType="BOOL" Value="1"/>
+<DataValueMember Name="Analog1Ch00TripEn" DataType="BOOL" Value="1"/>
+<DataValueMember Name="Analog1Ch01TripEn" DataType="BOOL" Value="1"/>
+<DataValueMember Name="Analog1Ch02TripEn" DataType="BOOL" Value="1"/>
+<DataValueMember Name="Analog2Ch00TripEn" DataType="BOOL" Value="1"/>
+<DataValueMember Name="Analog2Ch01TripEn" DataType="BOOL" Value="1"/>
+<DataValueMember Name="Analog2Ch02TripEn" DataType="BOOL" Value="1"/>
+<DataValueMember Name="Analog3Ch00TripEn" DataType="BOOL" Value="1"/>
+<DataValueMember Name="Analog3Ch01TripEn" DataType="BOOL" Value="1"/>
+<DataValueMember Name="Analog3Ch02TripEn" DataType="BOOL" Value="1"/>
+<DataValueMember Name="Analog4Ch00TripEn" DataType="BOOL" Value="1"/>
+<DataValueMember Name="Analog4Ch01TripEn" DataType="BOOL" Value="1"/>
+<DataValueMember Name="Analog4Ch02TripEn" DataType="BOOL" Value="1"/>
+<DataValueMember Name="Analog1Ch00WarningEn" DataType="BOOL" Value="1"/>
+<DataValueMember Name="Analog1Ch01WarningEn" DataType="BOOL" Value="1"/>
+<DataValueMember Name="Analog1Ch02WarningEn" DataType="BOOL" Value="1"/>
+<DataValueMember Name="Analog2Ch00WarningEn" DataType="BOOL" Value="1"/>
+<DataValueMember Name="Analog2Ch01WarningEn" DataType="BOOL" Value="1"/>
+<DataValueMember Name="Analog2Ch02WarningEn" DataType="BOOL" Value="1"/>
+<DataValueMember Name="Analog3Ch00WarningEn" DataType="BOOL" Value="1"/>
+<DataValueMember Name="Analog3Ch01WarningEn" DataType="BOOL" Value="1"/>
+<DataValueMember Name="Analog3Ch02WarningEn" DataType="BOOL" Value="1"/>
+<DataValueMember Name="Analog4Ch00WarningEn" DataType="BOOL" Value="1"/>
+<DataValueMember Name="Analog4Ch01WarningEn" DataType="BOOL" Value="1"/>
+<DataValueMember Name="Analog4Ch02WarningEn" DataType="BOOL" Value="1"/>
+</StructureMember>
+<DataValueMember Name="Pt00InputFunction_0" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Pt00InputFunction_1" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Pt00InputFunction_2" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Pt00InputFunction_3" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Pt01InputFunction_0" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Pt01InputFunction_1" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Pt01InputFunction_2" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Pt01InputFunction_3" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Pt02InputFunction_0" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Pt02InputFunction_1" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Pt02InputFunction_2" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Pt02InputFunction_3" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Pt03InputFunction_0" DataType="BOOL" Value="1"/>
+<DataValueMember Name="Pt03InputFunction_1" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Pt03InputFunction_2" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Pt03InputFunction_3" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Pt04InputFunction_0" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Pt04InputFunction_1" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Pt04InputFunction_2" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Pt04InputFunction_3" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Pt05InputFunction_0" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Pt05InputFunction_1" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Pt05InputFunction_2" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Pt05InputFunction_3" DataType="BOOL" Value="0"/>
+<DataValueMember Name="FLA2Select_0" DataType="BOOL" Value="0"/>
+<DataValueMember Name="FLA2Select_1" DataType="BOOL" Value="0"/>
+<DataValueMember Name="FLA2Select_2" DataType="BOOL" Value="0"/>
+<DataValueMember Name="FLA2Select_3" DataType="BOOL" Value="0"/>
+<DataValueMember Name="EmergencyStartEn" DataType="BOOL" Value="0"/>
+<DataValueMember Name="StartsPerHourLimit" DataType="SINT" Radix="Decimal" Value="2"/>
+<DataValueMember Name="Pt00OutputFaultFinalState" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Pt01OutputFaultFinalState" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Pt02OutputFaultFinalState" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Digital1FaultFinalState" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Digital2FaultFinalState" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Digital3FaultFinalState" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Digital4FaultFinalState" DataType="BOOL" Value="0"/>
+<DataValueMember Name="LogicDefinedDataFaultFinalState" DataType="BOOL" Value="0"/>
+<DataValueMember Name="StartsIntervalLimit" DataType="INT" Radix="Decimal" Value="600"/>
+<DataValueMember Name="TotalStartsLimit" DataType="INT" Radix="Decimal" Value="0"/>
+<DataValueMember Name="OperatingHoursLimit" DataType="INT" Radix="Decimal" Value="0"/>
+<DataValueMember Name="FeedbackTimeout" DataType="INT" Radix="Decimal" Value="500"/>
+<DataValueMember Name="StarterTransitionDelay" DataType="INT" Radix="Decimal" Value="10000"/>
+<DataValueMember Name="StarterInterlockDelay" DataType="INT" Radix="Decimal" Value="100"/>
+<DataValueMember Name="GroundFaultType" DataType="SINT" Radix="Decimal" Value="1"/>
+<DataValueMember Name="GroundFaultInhibitTime" DataType="SINT" Radix="Decimal" Value="10"/>
+<DataValueMember Name="GroundFaultTripDelay" DataType="SINT" Radix="Decimal" Value="5"/>
+<DataValueMember Name="GroundFaultWarnDelay" DataType="SINT" Radix="Decimal" Value="0"/>
+<DataValueMember Name="GroundFaultTripLimit" DataType="INT" Radix="Decimal" Value="250"/>
+<DataValueMember Name="GroundFaultWarnLimit" DataType="INT" Radix="Decimal" Value="200"/>
+<DataValueMember Name="PhaseLossInhibitTime" DataType="SINT" Radix="Decimal" Value="0"/>
+<DataValueMember Name="PhaseLossTripDelay" DataType="SINT" Radix="Decimal" Value="10"/>
+<DataValueMember Name="StallEnabledTime" DataType="SINT" Radix="Decimal" Value="10"/>
+<DataValueMember Name="FaultValueStateDuration" DataType="SINT" Radix="Decimal" Value="0"/>
+<DataValueMember Name="StallTripLimit" DataType="INT" Radix="Decimal" Value="600"/>
+<DataValueMember Name="JamInhibitTime" DataType="SINT" Radix="Decimal" Value="10"/>
+<DataValueMember Name="JamTripDelay" DataType="SINT" Radix="Decimal" Value="50"/>
+<DataValueMember Name="JamTripLimit" DataType="INT" Radix="Decimal" Value="250"/>
+<DataValueMember Name="JamWarnLimit" DataType="INT" Radix="Decimal" Value="150"/>
+<DataValueMember Name="UnderloadInhibitTime" DataType="SINT" Radix="Decimal" Value="10"/>
+<DataValueMember Name="UnderloadTripDelay" DataType="SINT" Radix="Decimal" Value="50"/>
+<DataValueMember Name="UnderloadTripLimit" DataType="SINT" Radix="Decimal" Value="50"/>
+<DataValueMember Name="UnderloadWarnLimit" DataType="SINT" Radix="Decimal" Value="70"/>
+<DataValueMember Name="CurrentImbalanceInhibitTime" DataType="SINT" Radix="Decimal" Value="10"/>
+<DataValueMember Name="CurrentImbalanceTripDelay" DataType="SINT" Radix="Decimal" Value="50"/>
+<DataValueMember Name="CurrentImbalanceTripLimit" DataType="SINT" Radix="Decimal" Value="35"/>
+<DataValueMember Name="CurrentImbalanceWarnLimit" DataType="SINT" Radix="Decimal" Value="20"/>
+<DataValueMember Name="CTPrimary" DataType="INT" Radix="Decimal" Value="5"/>
+<DataValueMember Name="CTSecondary" DataType="INT" Radix="Decimal" Value="5"/>
+<DataValueMember Name="UnderCurrentInhibitTime" DataType="SINT" Radix="Decimal" Value="10"/>
+<DataValueMember Name="L1UnderCurrentTripDelay" DataType="SINT" Radix="Decimal" Value="10"/>
+<DataValueMember Name="L1UnderCurrentTripLimit" DataType="SINT" Radix="Decimal" Value="35"/>
+<DataValueMember Name="L1UnderCurrentWarnLimit" DataType="SINT" Radix="Decimal" Value="40"/>
+<DataValueMember Name="L2UnderCurrentTripDelay" DataType="SINT" Radix="Decimal" Value="10"/>
+<DataValueMember Name="L2UnderCurrentTripLimit" DataType="SINT" Radix="Decimal" Value="35"/>
+<DataValueMember Name="L2UnderCurrentWarnLimit" DataType="SINT" Radix="Decimal" Value="40"/>
+<DataValueMember Name="L3UnderCurrentTripDelay" DataType="SINT" Radix="Decimal" Value="10"/>
+<DataValueMember Name="L3UnderCurrentTripLimit" DataType="SINT" Radix="Decimal" Value="35"/>
+<DataValueMember Name="L3UnderCurrentWarnLimit" DataType="SINT" Radix="Decimal" Value="40"/>
+<DataValueMember Name="OverCurrentInhibitTime" DataType="SINT" Radix="Decimal" Value="10"/>
+<DataValueMember Name="L1OverCurrentTripDelay" DataType="SINT" Radix="Decimal" Value="10"/>
+<DataValueMember Name="L1OverCurrentTripLimit" DataType="SINT" Radix="Decimal" Value="100"/>
+<DataValueMember Name="L1OverCurrentWarnLimit" DataType="SINT" Radix="Decimal" Value="90"/>
+<DataValueMember Name="L2OverCurrentTripDelay" DataType="SINT" Radix="Decimal" Value="10"/>
+<DataValueMember Name="L2OverCurrentTripLimit" DataType="SINT" Radix="Decimal" Value="100"/>
+<DataValueMember Name="L2OverCurrentWarnLimit" DataType="SINT" Radix="Decimal" Value="90"/>
+<DataValueMember Name="L3OverCurrentTripDelay" DataType="SINT" Radix="Decimal" Value="10"/>
+<DataValueMember Name="L3OverCurrentTripLimit" DataType="SINT" Radix="Decimal" Value="100"/>
+<DataValueMember Name="L3OverCurrentWarnLimit" DataType="SINT" Radix="Decimal" Value="90"/>
+<DataValueMember Name="LineLossInhibitTime" DataType="SINT" Radix="Decimal" Value="10"/>
+<DataValueMember Name="L1LineLossTripDelay" DataType="SINT" Radix="Decimal" Value="10"/>
+<DataValueMember Name="L2LineLossTripDelay" DataType="SINT" Radix="Decimal" Value="10"/>
+<DataValueMember Name="L3LineLossTripDelay" DataType="SINT" Radix="Decimal" Value="10"/>
+<DataValueMember Name="Pt00OutputProtectionFaultMode" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Pt00OutputProtectionFaultValue" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Pt00OutputFaultMode" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Pt00OutputFaultValue" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Pt00OutputProgMode" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Pt00OutputProgValue" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Pt01OutputProtectionFaultMode" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Pt01OutputProtectionFaultValue" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Pt01OutputFaultMode" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Pt01OutputFaultValue" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Pt01OutputProgMode" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Pt01OutputProgValue" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Pt02OutputProtectionFaultMode" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Pt02OutputProtectionFaultValue" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Pt02OutputFaultMode" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Pt02OutputFaultValue" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Pt02OutputProgMode" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Pt02OutputProgValue" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Digital1ProtectionFaultMode" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Digital1ProtectionFaultValue" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Digital1FaultMode" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Digital1FaultValue" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Digital1ProgMode" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Digital1ProgValue" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Digital2ProtectionFaultMode" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Digital2ProtectionFaultValue" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Digital2FaultMode" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Digital2FaultValue" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Digital2ProgMode" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Digital2ProgValue" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Digital3ProtectionFaultMode" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Digital3ProtectionFaultValue" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Digital3FaultMode" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Digital3FaultValue" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Digital3ProgMode" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Digital3ProgValue" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Digital4ProtectionFaultMode" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Digital4ProtectionFaultValue" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Digital4FaultMode" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Digital4FaultValue" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Digital4ProgMode" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Digital4ProgValue" DataType="BOOL" Value="0"/>
+<DataValueMember Name="LocalControlOnCommFaultEn" DataType="BOOL" Value="1"/>
+<DataValueMember Name="LocalControlOnNetworkFaultEn" DataType="BOOL" Value="1"/>
+<DataValueMember Name="LogicDefinedDataFaultMode" DataType="BOOL" Value="0"/>
+<DataValueMember Name="LogicDefinedDataFaultValue" DataType="BOOL" Value="0"/>
+<DataValueMember Name="LogicDefinedDataProgMode" DataType="BOOL" Value="0"/>
+<DataValueMember Name="LogicDefinedDataProgValue" DataType="BOOL" Value="0"/>
+<DataValueMember Name="PTPrimary" DataType="INT" Radix="Decimal" Value="480"/>
+<DataValueMember Name="PTSecondary" DataType="INT" Radix="Decimal" Value="480"/>
+<DataValueMember Name="VoltageMode" DataType="SINT" Radix="Decimal" Value="0"/>
+<DataValueMember Name="PhaseRotationInhibitTime" DataType="SINT" Radix="Decimal" Value="10"/>
+<DataValueMember Name="UnderVoltageInhibitTime" DataType="SINT" Radix="Decimal" Value="10"/>
+<DataValueMember Name="UnderVoltageTripDelay" DataType="SINT" Radix="Decimal" Value="10"/>
+<DataValueMember Name="UnderVoltageTripLimit" DataType="INT" Radix="Decimal" Value="1000"/>
+<DataValueMember Name="UnderVoltageWarnLimit" DataType="INT" Radix="Decimal" Value="4000"/>
+<DataValueMember Name="OverVoltageInhibitTime" DataType="SINT" Radix="Decimal" Value="10"/>
+<DataValueMember Name="OverVoltageTripDelay" DataType="SINT" Radix="Decimal" Value="10"/>
+<DataValueMember Name="OverVoltageTripLimit" DataType="INT" Radix="Decimal" Value="5000"/>
+<DataValueMember Name="OverVoltageWarnLimit" DataType="INT" Radix="Decimal" Value="4900"/>
+<DataValueMember Name="VoltageImbalanceInhibitTime" DataType="SINT" Radix="Decimal" Value="10"/>
+<DataValueMember Name="VoltageImbalanceTripDelay" DataType="SINT" Radix="Decimal" Value="10"/>
+<DataValueMember Name="VoltageImbalanceTripLimit" DataType="SINT" Radix="Decimal" Value="15"/>
+<DataValueMember Name="VoltageImbalanceWarnLimit" DataType="SINT" Radix="Decimal" Value="10"/>
+<DataValueMember Name="UnderFrequencyInhibitTime" DataType="SINT" Radix="Decimal" Value="10"/>
+<DataValueMember Name="UnderFrequencyTripDelay" DataType="SINT" Radix="Decimal" Value="10"/>
+<DataValueMember Name="UnderFrequencyTripLimit" DataType="SINT" Radix="Decimal" Value="57"/>
+<DataValueMember Name="UnderFrequencyWarnLimit" DataType="SINT" Radix="Decimal" Value="58"/>
+<DataValueMember Name="OverFrequencyInhibitTime" DataType="SINT" Radix="Decimal" Value="10"/>
+<DataValueMember Name="OverFrequencyTripDelay" DataType="SINT" Radix="Decimal" Value="10"/>
+<DataValueMember Name="OverFrequencyTripLimit" DataType="SINT" Radix="Decimal" Value="63"/>
+<DataValueMember Name="OverFrequencyWarnLimit" DataType="SINT" Radix="Decimal" Value="62"/>
+<DataValueMember Name="DemandPeriod" DataType="SINT" Radix="Decimal" Value="15"/>
+<DataValueMember Name="NumberOfDemandPeriods" DataType="SINT" Radix="Decimal" Value="1"/>
+<DataValueMember Name="UnderRealPowerInhibitTime" DataType="SINT" Radix="Decimal" Value="10"/>
+<DataValueMember Name="UnderRealPowerTripDelay" DataType="SINT" Radix="Decimal" Value="10"/>
+<DataValueMember Name="OverRealPowerInhibitTime" DataType="SINT" Radix="Decimal" Value="10"/>
+<DataValueMember Name="OverRealPowerTripDelay" DataType="SINT" Radix="Decimal" Value="10"/>
+<DataValueMember Name="UnderRealPowerTripLimit" DataType="DINT" Radix="Decimal" Value="0"/>
+<DataValueMember Name="UnderRealPowerWarnLimit" DataType="DINT" Radix="Decimal" Value="0"/>
+<DataValueMember Name="OverRealPowerTripLimit" DataType="DINT" Radix="Decimal" Value="0"/>
+<DataValueMember Name="OverRealPowerWarnLimit" DataType="DINT" Radix="Decimal" Value="0"/>
+<DataValueMember Name="UnderReactivePowerConsumedInhibitTime" DataType="SINT" Radix="Decimal" Value="10"/>
+<DataValueMember Name="UnderReactivePowerConsumedTripDelay" DataType="SINT" Radix="Decimal" Value="10"/>
+<DataValueMember Name="OverReactivePowerConsumedInhibitTime" DataType="SINT" Radix="Decimal" Value="10"/>
+<DataValueMember Name="OverReactivePowerConsumedTripDelay" DataType="SINT" Radix="Decimal" Value="10"/>
+<DataValueMember Name="UnderReactivePowerConsumedTripLimit" DataType="DINT" Radix="Decimal" Value="0"/>
+<DataValueMember Name="UnderReactivePowerConsumedWarnLimit" DataType="DINT" Radix="Decimal" Value="0"/>
+<DataValueMember Name="OverReactivePowerConsumedTripLimit" DataType="DINT" Radix="Decimal" Value="0"/>
+<DataValueMember Name="OverReactivePowerConsumedWarnLimit" DataType="DINT" Radix="Decimal" Value="0"/>
+<DataValueMember Name="UnderReactivePowerGeneratedInhibitTime" DataType="SINT" Radix="Decimal" Value="10"/>
+<DataValueMember Name="UnderReactivePowerGeneratedTripDelay" DataType="SINT" Radix="Decimal" Value="10"/>
+<DataValueMember Name="OverReactivePowerGeneratedInhibitTime" DataType="SINT" Radix="Decimal" Value="10"/>
+<DataValueMember Name="OverReactivePowerGeneratedTripDelay" DataType="SINT" Radix="Decimal" Value="10"/>
+<DataValueMember Name="UnderReactivePowerGeneratedTripLimit" DataType="DINT" Radix="Decimal" Value="0"/>
+<DataValueMember Name="UnderReactivePowerGeneratedWarnLimit" DataType="DINT" Radix="Decimal" Value="0"/>
+<DataValueMember Name="OverReactivePowerGeneratedTripLimit" DataType="DINT" Radix="Decimal" Value="0"/>
+<DataValueMember Name="OverReactivePowerGeneratedWarnLimit" DataType="DINT" Radix="Decimal" Value="0"/>
+<DataValueMember Name="UnderApparentPowerInhibitTime" DataType="SINT" Radix="Decimal" Value="10"/>
+<DataValueMember Name="UnderApparentPowerTripDelay" DataType="SINT" Radix="Decimal" Value="10"/>
+<DataValueMember Name="OverApparentPowerInhibitTime" DataType="SINT" Radix="Decimal" Value="10"/>
+<DataValueMember Name="OverApparentPowerTripDelay" DataType="SINT" Radix="Decimal" Value="10"/>
+<DataValueMember Name="UnderApparentPowerTripLimit" DataType="DINT" Radix="Decimal" Value="0"/>
+<DataValueMember Name="UnderApparentPowerWarnLimit" DataType="DINT" Radix="Decimal" Value="0"/>
+<DataValueMember Name="OverApparentPowerTripLimit" DataType="DINT" Radix="Decimal" Value="0"/>
+<DataValueMember Name="OverApparentPowerWarnLimit" DataType="DINT" Radix="Decimal" Value="0"/>
+<DataValueMember Name="UnderPowerFactorLaggingInhibitTime" DataType="SINT" Radix="Decimal" Value="10"/>
+<DataValueMember Name="UnderPowerFactorLaggingTripDelay" DataType="SINT" Radix="Decimal" Value="10"/>
+<DataValueMember Name="UnderPowerFactorLaggingTripLimit" DataType="SINT" Radix="Decimal" Value="-90"/>
+<DataValueMember Name="UnderPowerFactorLaggingWarnLimit" DataType="SINT" Radix="Decimal" Value="-95"/>
+<DataValueMember Name="OverPowerFactorLaggingInhibitTime" DataType="SINT" Radix="Decimal" Value="10"/>
+<DataValueMember Name="OverPowerFactorLaggingTripDelay" DataType="SINT" Radix="Decimal" Value="10"/>
+<DataValueMember Name="OverPowerFactorLaggingTripLimit" DataType="SINT" Radix="Decimal" Value="-95"/>
+<DataValueMember Name="OverPowerFactorLaggingWarnLimit" DataType="SINT" Radix="Decimal" Value="-90"/>
+<DataValueMember Name="UnderPowerFactorLeadingInhibitTime" DataType="SINT" Radix="Decimal" Value="10"/>
+<DataValueMember Name="UnderPowerFactorLeadingTripDelay" DataType="SINT" Radix="Decimal" Value="10"/>
+<DataValueMember Name="UnderPowerFactorLeadingTripLimit" DataType="SINT" Radix="Decimal" Value="90"/>
+<DataValueMember Name="UnderPowerFactorLeadingWarnLimit" DataType="SINT" Radix="Decimal" Value="95"/>
+<DataValueMember Name="OverPowerFactorLeadingInhibitTime" DataType="SINT" Radix="Decimal" Value="10"/>
+<DataValueMember Name="OverPowerFactorLeadingTripDelay" DataType="SINT" Radix="Decimal" Value="10"/>
+<DataValueMember Name="OverPowerFactorLeadingTripLimit" DataType="SINT" Radix="Decimal" Value="95"/>
+<DataValueMember Name="OverPowerFactorLeadingWarnLimit" DataType="SINT" Radix="Decimal" Value="90"/>
+<DataValueMember Name="Screen1ParameterSelect1" DataType="INT" Radix="Decimal" Value="1"/>
+<DataValueMember Name="Screen1ParameterSelect2" DataType="INT" Radix="Decimal" Value="50"/>
+<DataValueMember Name="Screen2ParameterSelect1" DataType="INT" Radix="Decimal" Value="2"/>
+<DataValueMember Name="Screen2ParameterSelect2" DataType="INT" Radix="Decimal" Value="3"/>
+<DataValueMember Name="Screen3ParameterSelect1" DataType="INT" Radix="Decimal" Value="51"/>
+<DataValueMember Name="Screen3ParameterSelect2" DataType="INT" Radix="Decimal" Value="52"/>
+<DataValueMember Name="Screen4ParameterSelect1" DataType="INT" Radix="Decimal" Value="38"/>
+<DataValueMember Name="Screen4ParameterSelect2" DataType="INT" Radix="Decimal" Value="39"/>
+<DataValueMember Name="OperatorStationDisplayTimeout" DataType="INT" Radix="Decimal" Value="300"/>
+<StructureMember Name="Analog1" DataType="AB:E300_Analog_Struct:C:1">
+<DataValueMember Name="Ch00InputTripDelay" DataType="SINT" Radix="Decimal" Value="10"/>
+<DataValueMember Name="Ch01InputTripDelay" DataType="SINT" Radix="Decimal" Value="10"/>
+<DataValueMember Name="Ch02InputTripDelay" DataType="SINT" Radix="Decimal" Value="10"/>
+<DataValueMember Name="Ch00InputTripLimit" DataType="INT" Radix="Decimal" Value="0"/>
+<DataValueMember Name="Ch00InputWarnLimit" DataType="INT" Radix="Decimal" Value="0"/>
+<DataValueMember Name="Ch01InputTripLimit" DataType="INT" Radix="Decimal" Value="0"/>
+<DataValueMember Name="Ch01InputWarnLimit" DataType="INT" Radix="Decimal" Value="0"/>
+<DataValueMember Name="Ch02InputTripLimit" DataType="INT" Radix="Decimal" Value="0"/>
+<DataValueMember Name="Ch02InputWarnLimit" DataType="INT" Radix="Decimal" Value="0"/>
+<DataValueMember Name="Ch00InputRangeType_0" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Ch00InputRangeType_1" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Ch00InputRangeType_2" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Ch00InputRangeType_3" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Ch00InputRangeType_4" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Ch01InputRangeType_0" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Ch01InputRangeType_1" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Ch01InputRangeType_2" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Ch01InputRangeType_3" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Ch01InputRangeType_4" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Ch02InputRangeType_0" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Ch02InputRangeType_1" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Ch02InputRangeType_2" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Ch02InputRangeType_3" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Ch02InputRangeType_4" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Ch00OutputMode" DataType="SINT" Radix="Decimal" Value="0"/>
+<DataValueMember Name="Ch00InputFormat_0" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Ch00InputFormat_1" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Ch00InputFormat_2" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Ch00InputFilter_0" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Ch00InputFilter_1" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Ch00InputFilter_2" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Ch00InputOpenWire_0" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Ch00InputOpenWire_1" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Ch01InputFormat_0" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Ch01InputFormat_1" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Ch01InputFormat_2" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Ch01InputFilter_0" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Ch01InputFilter_1" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Ch01InputFilter_2" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Ch01InputOpenWire_0" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Ch01InputOpenWire_1" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Ch02InputFormat_0" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Ch02InputFormat_1" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Ch02InputFormat_2" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Ch02InputFilter_0" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Ch02InputFilter_1" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Ch02InputFilter_2" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Ch02InputOpenWire_0" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Ch02InputOpenWire_1" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Ch00InputTempMode" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Ch00InputTwoWireRTD" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Ch01InputTempMode" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Ch01InputTwoWireRTD" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Ch02InputTempMode" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Ch02InputTwoWireRTD" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Ch00OutputFaultMode_0" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Ch00OutputFaultMode_1" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Ch00OutputProtectionFaultMode_0" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Ch00OutputProtectionFaultMode_1" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Ch00OutputRangeType_0" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Ch00OutputRangeType_1" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Ch00OutputRangeType_2" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Ch00OutputRangeType_3" DataType="BOOL" Value="0"/>
+</StructureMember>
+<StructureMember Name="Analog2" DataType="AB:E300_Analog_Struct:C:1">
+<DataValueMember Name="Ch00InputTripDelay" DataType="SINT" Radix="Decimal" Value="10"/>
+<DataValueMember Name="Ch01InputTripDelay" DataType="SINT" Radix="Decimal" Value="10"/>
+<DataValueMember Name="Ch02InputTripDelay" DataType="SINT" Radix="Decimal" Value="10"/>
+<DataValueMember Name="Ch00InputTripLimit" DataType="INT" Radix="Decimal" Value="0"/>
+<DataValueMember Name="Ch00InputWarnLimit" DataType="INT" Radix="Decimal" Value="0"/>
+<DataValueMember Name="Ch01InputTripLimit" DataType="INT" Radix="Decimal" Value="0"/>
+<DataValueMember Name="Ch01InputWarnLimit" DataType="INT" Radix="Decimal" Value="0"/>
+<DataValueMember Name="Ch02InputTripLimit" DataType="INT" Radix="Decimal" Value="0"/>
+<DataValueMember Name="Ch02InputWarnLimit" DataType="INT" Radix="Decimal" Value="0"/>
+<DataValueMember Name="Ch00InputRangeType_0" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Ch00InputRangeType_1" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Ch00InputRangeType_2" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Ch00InputRangeType_3" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Ch00InputRangeType_4" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Ch01InputRangeType_0" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Ch01InputRangeType_1" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Ch01InputRangeType_2" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Ch01InputRangeType_3" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Ch01InputRangeType_4" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Ch02InputRangeType_0" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Ch02InputRangeType_1" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Ch02InputRangeType_2" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Ch02InputRangeType_3" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Ch02InputRangeType_4" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Ch00OutputMode" DataType="SINT" Radix="Decimal" Value="0"/>
+<DataValueMember Name="Ch00InputFormat_0" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Ch00InputFormat_1" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Ch00InputFormat_2" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Ch00InputFilter_0" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Ch00InputFilter_1" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Ch00InputFilter_2" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Ch00InputOpenWire_0" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Ch00InputOpenWire_1" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Ch01InputFormat_0" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Ch01InputFormat_1" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Ch01InputFormat_2" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Ch01InputFilter_0" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Ch01InputFilter_1" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Ch01InputFilter_2" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Ch01InputOpenWire_0" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Ch01InputOpenWire_1" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Ch02InputFormat_0" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Ch02InputFormat_1" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Ch02InputFormat_2" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Ch02InputFilter_0" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Ch02InputFilter_1" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Ch02InputFilter_2" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Ch02InputOpenWire_0" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Ch02InputOpenWire_1" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Ch00InputTempMode" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Ch00InputTwoWireRTD" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Ch01InputTempMode" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Ch01InputTwoWireRTD" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Ch02InputTempMode" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Ch02InputTwoWireRTD" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Ch00OutputFaultMode_0" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Ch00OutputFaultMode_1" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Ch00OutputProtectionFaultMode_0" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Ch00OutputProtectionFaultMode_1" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Ch00OutputRangeType_0" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Ch00OutputRangeType_1" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Ch00OutputRangeType_2" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Ch00OutputRangeType_3" DataType="BOOL" Value="0"/>
+</StructureMember>
+<StructureMember Name="Analog3" DataType="AB:E300_Analog_Struct:C:1">
+<DataValueMember Name="Ch00InputTripDelay" DataType="SINT" Radix="Decimal" Value="10"/>
+<DataValueMember Name="Ch01InputTripDelay" DataType="SINT" Radix="Decimal" Value="10"/>
+<DataValueMember Name="Ch02InputTripDelay" DataType="SINT" Radix="Decimal" Value="10"/>
+<DataValueMember Name="Ch00InputTripLimit" DataType="INT" Radix="Decimal" Value="0"/>
+<DataValueMember Name="Ch00InputWarnLimit" DataType="INT" Radix="Decimal" Value="0"/>
+<DataValueMember Name="Ch01InputTripLimit" DataType="INT" Radix="Decimal" Value="0"/>
+<DataValueMember Name="Ch01InputWarnLimit" DataType="INT" Radix="Decimal" Value="0"/>
+<DataValueMember Name="Ch02InputTripLimit" DataType="INT" Radix="Decimal" Value="0"/>
+<DataValueMember Name="Ch02InputWarnLimit" DataType="INT" Radix="Decimal" Value="0"/>
+<DataValueMember Name="Ch00InputRangeType_0" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Ch00InputRangeType_1" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Ch00InputRangeType_2" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Ch00InputRangeType_3" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Ch00InputRangeType_4" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Ch01InputRangeType_0" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Ch01InputRangeType_1" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Ch01InputRangeType_2" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Ch01InputRangeType_3" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Ch01InputRangeType_4" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Ch02InputRangeType_0" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Ch02InputRangeType_1" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Ch02InputRangeType_2" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Ch02InputRangeType_3" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Ch02InputRangeType_4" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Ch00OutputMode" DataType="SINT" Radix="Decimal" Value="0"/>
+<DataValueMember Name="Ch00InputFormat_0" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Ch00InputFormat_1" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Ch00InputFormat_2" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Ch00InputFilter_0" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Ch00InputFilter_1" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Ch00InputFilter_2" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Ch00InputOpenWire_0" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Ch00InputOpenWire_1" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Ch01InputFormat_0" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Ch01InputFormat_1" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Ch01InputFormat_2" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Ch01InputFilter_0" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Ch01InputFilter_1" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Ch01InputFilter_2" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Ch01InputOpenWire_0" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Ch01InputOpenWire_1" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Ch02InputFormat_0" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Ch02InputFormat_1" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Ch02InputFormat_2" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Ch02InputFilter_0" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Ch02InputFilter_1" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Ch02InputFilter_2" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Ch02InputOpenWire_0" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Ch02InputOpenWire_1" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Ch00InputTempMode" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Ch00InputTwoWireRTD" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Ch01InputTempMode" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Ch01InputTwoWireRTD" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Ch02InputTempMode" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Ch02InputTwoWireRTD" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Ch00OutputFaultMode_0" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Ch00OutputFaultMode_1" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Ch00OutputProtectionFaultMode_0" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Ch00OutputProtectionFaultMode_1" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Ch00OutputRangeType_0" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Ch00OutputRangeType_1" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Ch00OutputRangeType_2" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Ch00OutputRangeType_3" DataType="BOOL" Value="0"/>
+</StructureMember>
+<StructureMember Name="Analog4" DataType="AB:E300_Analog_Struct:C:1">
+<DataValueMember Name="Ch00InputTripDelay" DataType="SINT" Radix="Decimal" Value="10"/>
+<DataValueMember Name="Ch01InputTripDelay" DataType="SINT" Radix="Decimal" Value="10"/>
+<DataValueMember Name="Ch02InputTripDelay" DataType="SINT" Radix="Decimal" Value="10"/>
+<DataValueMember Name="Ch00InputTripLimit" DataType="INT" Radix="Decimal" Value="0"/>
+<DataValueMember Name="Ch00InputWarnLimit" DataType="INT" Radix="Decimal" Value="0"/>
+<DataValueMember Name="Ch01InputTripLimit" DataType="INT" Radix="Decimal" Value="0"/>
+<DataValueMember Name="Ch01InputWarnLimit" DataType="INT" Radix="Decimal" Value="0"/>
+<DataValueMember Name="Ch02InputTripLimit" DataType="INT" Radix="Decimal" Value="0"/>
+<DataValueMember Name="Ch02InputWarnLimit" DataType="INT" Radix="Decimal" Value="0"/>
+<DataValueMember Name="Ch00InputRangeType_0" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Ch00InputRangeType_1" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Ch00InputRangeType_2" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Ch00InputRangeType_3" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Ch00InputRangeType_4" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Ch01InputRangeType_0" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Ch01InputRangeType_1" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Ch01InputRangeType_2" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Ch01InputRangeType_3" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Ch01InputRangeType_4" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Ch02InputRangeType_0" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Ch02InputRangeType_1" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Ch02InputRangeType_2" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Ch02InputRangeType_3" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Ch02InputRangeType_4" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Ch00OutputMode" DataType="SINT" Radix="Decimal" Value="0"/>
+<DataValueMember Name="Ch00InputFormat_0" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Ch00InputFormat_1" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Ch00InputFormat_2" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Ch00InputFilter_0" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Ch00InputFilter_1" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Ch00InputFilter_2" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Ch00InputOpenWire_0" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Ch00InputOpenWire_1" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Ch01InputFormat_0" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Ch01InputFormat_1" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Ch01InputFormat_2" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Ch01InputFilter_0" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Ch01InputFilter_1" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Ch01InputFilter_2" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Ch01InputOpenWire_0" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Ch01InputOpenWire_1" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Ch02InputFormat_0" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Ch02InputFormat_1" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Ch02InputFormat_2" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Ch02InputFilter_0" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Ch02InputFilter_1" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Ch02InputFilter_2" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Ch02InputOpenWire_0" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Ch02InputOpenWire_1" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Ch00InputTempMode" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Ch00InputTwoWireRTD" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Ch01InputTempMode" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Ch01InputTwoWireRTD" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Ch02InputTempMode" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Ch02InputTwoWireRTD" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Ch00OutputFaultMode_0" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Ch00OutputFaultMode_1" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Ch00OutputProtectionFaultMode_0" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Ch00OutputProtectionFaultMode_1" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Ch00OutputRangeType_0" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Ch00OutputRangeType_1" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Ch00OutputRangeType_2" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Ch00OutputRangeType_3" DataType="BOOL" Value="0"/>
+</StructureMember>
+</Structure>
+</Data>
+</ConfigTag>
+<ConfigScript Size="468">
+<Data Format="L5K">
+<![CDATA[[-48,1,0,0,4,0,0,0,0,0,0,0,0,0,0,0,-66,1,0,0,11,1,0,0,0,1,0,0,0,2,0,0,0,-96,1,0,0,16,3,32,4,36,120,48,3,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+		,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+		,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+		,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+		,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+		,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,-72,12,0,0,8,0,0,0,72,0,0,0,0,0]]]>
+</Data>
+</ConfigScript>
+<Connections>
+<Connection Name="Standard" RPI="100000" Type="StandardDataDriven" OutputSize="8" InputSize="156" EventID="0" ProgrammaticallySendEventTrigger="false" Priority="Scheduled" InputConnectionType="Unicast" InputProductionTrigger="Cyclic" ConnectionPath="20 04 24 78 2c 90 2c c7"
+ InputTagSuffix="I" OutputTagSuffix="O">
+<InputTag ExternalAccess="Read/Write">
+<Description>
+<![CDATA[EXHAUST FAN]]>
+</Description>
+<Data Format="Decorated">
+<Structure DataType="AB:E300:I:3">
+<DataValueMember Name="Fault" DataType="DINT" Radix="Binary" Value="2#0000_0000_0000_0000_0000_0000_0000_0000"/>
+<DataValueMember Name="TripPresent" DataType="BOOL" Value="0"/>
+<DataValueMember Name="WarningPresent" DataType="BOOL" Value="0"/>
+<DataValueMember Name="InvalidConfiguration" DataType="BOOL" Value="0"/>
+<DataValueMember Name="MotorCurrentPresent" DataType="BOOL" Value="0"/>
+<DataValueMember Name="GroundFaultCurrentPresent" DataType="BOOL" Value="0"/>
+<DataValueMember Name="MotorVoltagePresent" DataType="BOOL" Value="0"/>
+<DataValueMember Name="EmergencyStartEnabled" DataType="BOOL" Value="0"/>
+<DataValueMember Name="DeviceLogixEnabled" DataType="BOOL" Value="1"/>
+<DataValueMember Name="FeedbackTimeoutEnabled" DataType="BOOL" Value="0"/>
+<DataValueMember Name="OperatorStationPresent" DataType="BOOL" Value="0"/>
+<DataValueMember Name="VoltageSensingPresent" DataType="BOOL" Value="0"/>
+<DataValueMember Name="InternalGroundFaultSensingPresent" DataType="BOOL" Value="0"/>
+<DataValueMember Name="ExternalGroundFaultSensingPresent" DataType="BOOL" Value="0"/>
+<DataValueMember Name="PTCSensingPresent" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Ready" DataType="BOOL" Value="1"/>
+<DataValueMember Name="ContolModule24VDCPresent" DataType="BOOL" Value="0"/>
+<DataValueMember Name="ControlModule120VACPresent" DataType="BOOL" Value="1"/>
+<DataValueMember Name="ControlModule240VACPresent" DataType="BOOL" Value="0"/>
+<DataValueMember Name="SensingModule30APresent" DataType="BOOL" Value="1"/>
+<DataValueMember Name="SensingModule60APresent" DataType="BOOL" Value="0"/>
+<DataValueMember Name="SensingModule100APresent" DataType="BOOL" Value="0"/>
+<DataValueMember Name="SensingModule200APresent" DataType="BOOL" Value="0"/>
+<DataValueMember Name="DigitalModule1Present" DataType="BOOL" Value="0"/>
+<DataValueMember Name="DigitalModule2Present" DataType="BOOL" Value="0"/>
+<DataValueMember Name="DigitalModule3Present" DataType="BOOL" Value="0"/>
+<DataValueMember Name="DigitalModule4Present" DataType="BOOL" Value="0"/>
+<DataValueMember Name="AnalogModule1Present" DataType="BOOL" Value="0"/>
+<DataValueMember Name="AnalogModule2Present" DataType="BOOL" Value="0"/>
+<DataValueMember Name="AnalogModule3Present" DataType="BOOL" Value="0"/>
+<DataValueMember Name="AnalogModule4Present" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Pt00Data" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Pt01Data" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Pt02Data" DataType="BOOL" Value="1"/>
+<DataValueMember Name="Pt03Data" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Pt04Data" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Pt05Data" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Digital1Pt00Data" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Digital1Pt01Data" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Digital1Pt02Data" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Digital1Pt03Data" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Digital2Pt00Data" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Digital2Pt01Data" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Digital2Pt02Data" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Digital2Pt03Data" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Digital3Pt00Data" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Digital3Pt01Data" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Digital3Pt02Data" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Digital3Pt03Data" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Digital4Pt00Data" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Digital4Pt01Data" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Digital4Pt02Data" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Digital4Pt03Data" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Pt00Readback" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Pt01Readback" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Pt02Readback" DataType="BOOL" Value="1"/>
+<DataValueMember Name="Digital1Pt00Readback" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Digital1Pt01Readback" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Digital2Pt00Readback" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Digital2Pt01Readback" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Digital3Pt00Readback" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Digital3Pt01Readback" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Digital4Pt00Readback" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Digital4Pt01Readback" DataType="BOOL" Value="0"/>
+<DataValueMember Name="OperatorStation" DataType="INT" Radix="Decimal" Value="0"/>
+<DataValueMember Name="OperatorStationI" DataType="BOOL" Value="0"/>
+<DataValueMember Name="OperatorStationII" DataType="BOOL" Value="0"/>
+<DataValueMember Name="OperatorStationLocalRemote" DataType="BOOL" Value="0"/>
+<DataValueMember Name="OperatorStationO" DataType="BOOL" Value="0"/>
+<DataValueMember Name="OperatorStationReset" DataType="BOOL" Value="0"/>
+<DataValueMember Name="OperatorStationILEDReadback" DataType="BOOL" Value="0"/>
+<DataValueMember Name="OperatorStationIILEDReadback" DataType="BOOL" Value="0"/>
+<DataValueMember Name="OperatorStationLocalLEDReadback" DataType="BOOL" Value="0"/>
+<DataValueMember Name="OperatorStationRemoteLEDReadback" DataType="BOOL" Value="0"/>
+<DataValueMember Name="OperatorStationOLEDReadback" DataType="BOOL" Value="0"/>
+<StructureMember Name="Protection" DataType="AB:E300_Protection_Struct:I:3">
+<DataValueMember Name="CurrentTripStatus" DataType="INT" Radix="Decimal" Value="0"/>
+<DataValueMember Name="OverloadTrip" DataType="BOOL" Value="0"/>
+<DataValueMember Name="PhaseLossTrip" DataType="BOOL" Value="0"/>
+<DataValueMember Name="GroundFaultCurrentTrip" DataType="BOOL" Value="0"/>
+<DataValueMember Name="StallTrip" DataType="BOOL" Value="0"/>
+<DataValueMember Name="JamTrip" DataType="BOOL" Value="0"/>
+<DataValueMember Name="UnderloadTrip" DataType="BOOL" Value="0"/>
+<DataValueMember Name="CurrentImbalanceTrip" DataType="BOOL" Value="0"/>
+<DataValueMember Name="L1UnderCurrentTrip" DataType="BOOL" Value="0"/>
+<DataValueMember Name="L2UnderCurrentTrip" DataType="BOOL" Value="0"/>
+<DataValueMember Name="L3UnderCurrentTrip" DataType="BOOL" Value="0"/>
+<DataValueMember Name="L1OverCurrentTrip" DataType="BOOL" Value="0"/>
+<DataValueMember Name="L2OverCurrentTrip" DataType="BOOL" Value="0"/>
+<DataValueMember Name="L3OverCurrentTrip" DataType="BOOL" Value="0"/>
+<DataValueMember Name="L1LineLossTrip" DataType="BOOL" Value="0"/>
+<DataValueMember Name="L2LineLossTrip" DataType="BOOL" Value="0"/>
+<DataValueMember Name="L3LineLossTrip" DataType="BOOL" Value="0"/>
+<DataValueMember Name="CurrentWarningStatus" DataType="INT" Radix="Decimal" Value="0"/>
+<DataValueMember Name="OverloadWarning" DataType="BOOL" Value="0"/>
+<DataValueMember Name="PhaseLossWarning" DataType="BOOL" Value="0"/>
+<DataValueMember Name="GroundFaultCurrentWarning" DataType="BOOL" Value="0"/>
+<DataValueMember Name="StallWarning" DataType="BOOL" Value="0"/>
+<DataValueMember Name="JamWarning" DataType="BOOL" Value="0"/>
+<DataValueMember Name="UnderloadWarning" DataType="BOOL" Value="0"/>
+<DataValueMember Name="CurrentImbalanceWarning" DataType="BOOL" Value="0"/>
+<DataValueMember Name="L1UnderCurrentWarning" DataType="BOOL" Value="0"/>
+<DataValueMember Name="L2UnderCurrentWarning" DataType="BOOL" Value="0"/>
+<DataValueMember Name="L3UnderCurrentWarning" DataType="BOOL" Value="0"/>
+<DataValueMember Name="L1OverCurrentWarning" DataType="BOOL" Value="0"/>
+<DataValueMember Name="L2OverCurrentWarning" DataType="BOOL" Value="0"/>
+<DataValueMember Name="L3OverCurrentWarning" DataType="BOOL" Value="0"/>
+<DataValueMember Name="L1LineLossWarning" DataType="BOOL" Value="0"/>
+<DataValueMember Name="L2LineLossWarning" DataType="BOOL" Value="0"/>
+<DataValueMember Name="L3LineLossWarning" DataType="BOOL" Value="0"/>
+<DataValueMember Name="VoltageTripStatus" DataType="INT" Radix="Decimal" Value="0"/>
+<DataValueMember Name="UnderVoltageTrip" DataType="BOOL" Value="0"/>
+<DataValueMember Name="OverVoltageTrip" DataType="BOOL" Value="0"/>
+<DataValueMember Name="VoltageImbalanceTrip" DataType="BOOL" Value="0"/>
+<DataValueMember Name="PhaseRotationMismatchTrip" DataType="BOOL" Value="0"/>
+<DataValueMember Name="UnderFrequencyTrip" DataType="BOOL" Value="0"/>
+<DataValueMember Name="OverFrequencyTrip" DataType="BOOL" Value="0"/>
+<DataValueMember Name="VoltageWarningStatus" DataType="INT" Radix="Decimal" Value="0"/>
+<DataValueMember Name="UnderVoltageWarning" DataType="BOOL" Value="0"/>
+<DataValueMember Name="OverVoltageWarning" DataType="BOOL" Value="0"/>
+<DataValueMember Name="VoltageImbalanceWarning" DataType="BOOL" Value="0"/>
+<DataValueMember Name="PhaseRotationMismatchWarning" DataType="BOOL" Value="0"/>
+<DataValueMember Name="UnderFrequencyWarning" DataType="BOOL" Value="0"/>
+<DataValueMember Name="OverFrequencyWarning" DataType="BOOL" Value="0"/>
+<DataValueMember Name="PowerTripStatus" DataType="INT" Radix="Decimal" Value="0"/>
+<DataValueMember Name="UnderRealPowerTrip" DataType="BOOL" Value="0"/>
+<DataValueMember Name="OverRealPowerTrip" DataType="BOOL" Value="0"/>
+<DataValueMember Name="UnderReactivePowerConsumedTrip" DataType="BOOL" Value="0"/>
+<DataValueMember Name="OverReactivePowerConsumedTrip" DataType="BOOL" Value="0"/>
+<DataValueMember Name="UnderReactivePowerGeneratedTrip" DataType="BOOL" Value="0"/>
+<DataValueMember Name="OverReactivePowerGeneratedTrip" DataType="BOOL" Value="0"/>
+<DataValueMember Name="UnderApparentPowerTrip" DataType="BOOL" Value="0"/>
+<DataValueMember Name="OverApparentPowerTrip" DataType="BOOL" Value="0"/>
+<DataValueMember Name="UnderPowerFactorLaggingTrip" DataType="BOOL" Value="0"/>
+<DataValueMember Name="OverPowerFactorLaggingTrip" DataType="BOOL" Value="0"/>
+<DataValueMember Name="UnderPowerFactorLeadingTrip" DataType="BOOL" Value="0"/>
+<DataValueMember Name="OverPowerFactorLeadingTrip" DataType="BOOL" Value="0"/>
+<DataValueMember Name="PowerWarningStatus" DataType="INT" Radix="Decimal" Value="0"/>
+<DataValueMember Name="UnderRealPowerWarning" DataType="BOOL" Value="0"/>
+<DataValueMember Name="OverRealPowerWarning" DataType="BOOL" Value="0"/>
+<DataValueMember Name="UnderReactivePowerConsumedWarning" DataType="BOOL" Value="0"/>
+<DataValueMember Name="OverReactivePowerConsumedWarning" DataType="BOOL" Value="0"/>
+<DataValueMember Name="UnderReactivePowerGeneratedWarning" DataType="BOOL" Value="0"/>
+<DataValueMember Name="OverReactivePowerGeneratedWarning" DataType="BOOL" Value="0"/>
+<DataValueMember Name="UnderApparentPowerWarning" DataType="BOOL" Value="0"/>
+<DataValueMember Name="OverApparentPowerWarning" DataType="BOOL" Value="0"/>
+<DataValueMember Name="UnderPowerFactorLaggingWarning" DataType="BOOL" Value="0"/>
+<DataValueMember Name="OverPowerFactorLaggingWarning" DataType="BOOL" Value="0"/>
+<DataValueMember Name="UnderPowerFactorLeadingWarning" DataType="BOOL" Value="0"/>
+<DataValueMember Name="OverPowerFactorLeadingWarning" DataType="BOOL" Value="0"/>
+<DataValueMember Name="ControlTripStatus" DataType="INT" Radix="Decimal" Value="0"/>
+<DataValueMember Name="TestTrip" DataType="BOOL" Value="0"/>
+<DataValueMember Name="PTCTrip" DataType="BOOL" Value="0"/>
+<DataValueMember Name="DeviceLogixTrip" DataType="BOOL" Value="0"/>
+<DataValueMember Name="OperatorStationTrip" DataType="BOOL" Value="0"/>
+<DataValueMember Name="RemoteTrip" DataType="BOOL" Value="0"/>
+<DataValueMember Name="BlockedStartTrip" DataType="BOOL" Value="0"/>
+<DataValueMember Name="HardwareFaultTrip" DataType="BOOL" Value="0"/>
+<DataValueMember Name="ConfigurationTrip" DataType="BOOL" Value="0"/>
+<DataValueMember Name="ModuleMismatchTrip" DataType="BOOL" Value="0"/>
+<DataValueMember Name="FeedbackTimeoutTrip" DataType="BOOL" Value="0"/>
+<DataValueMember Name="ExpansionBusTrip" DataType="BOOL" Value="0"/>
+<DataValueMember Name="NVMErrorTrip" DataType="BOOL" Value="0"/>
+<DataValueMember Name="MCCTestPositionTrip" DataType="BOOL" Value="0"/>
+<DataValueMember Name="ControlWarningStatus" DataType="INT" Radix="Decimal" Value="0"/>
+<DataValueMember Name="PTCWarning" DataType="BOOL" Value="0"/>
+<DataValueMember Name="DeviceLogixWarning" DataType="BOOL" Value="0"/>
+<DataValueMember Name="ModuleMismatchWarning" DataType="BOOL" Value="0"/>
+<DataValueMember Name="FeedbackTimeoutWarning" DataType="BOOL" Value="0"/>
+<DataValueMember Name="ExpansionBusWarning" DataType="BOOL" Value="0"/>
+<DataValueMember Name="NumberOfStartsWarning" DataType="BOOL" Value="0"/>
+<DataValueMember Name="OperatingHoursWarning" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Analog1Ch00Trip" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Analog1Ch01Trip" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Analog1Ch02Trip" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Analog2Ch00Trip" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Analog2Ch01Trip" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Analog2Ch02Trip" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Analog3Ch00Trip" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Analog3Ch01Trip" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Analog3Ch02Trip" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Analog4Ch00Trip" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Analog4Ch01Trip" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Analog4Ch02Trip" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Analog1Ch00Warning" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Analog1Ch01Warning" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Analog1Ch02Warning" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Analog2Ch00Warning" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Analog2Ch01Warning" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Analog2Ch02Warning" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Analog3Ch00Warning" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Analog3Ch01Warning" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Analog3Ch02Warning" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Analog4Ch00Warning" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Analog4Ch01Warning" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Analog4Ch02Warning" DataType="BOOL" Value="0"/>
+<DataValueMember Name="ControlModuleMismatch" DataType="BOOL" Value="0"/>
+<DataValueMember Name="SensingModuleMismatch" DataType="BOOL" Value="0"/>
+<DataValueMember Name="OperatorStationMismatch" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Digital1Mismatch" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Digital2Mismatch" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Digital3Mismatch" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Digital4Mismatch" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Analog1Mismatch" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Analog2Mismatch" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Analog3Mismatch" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Analog4Mismatch" DataType="BOOL" Value="0"/>
+</StructureMember>
+<DataValueMember Name="PercentTCU" DataType="SINT" Radix="Decimal" Value="0"/>
+<DataValueMember Name="CurrentImbalance" DataType="SINT" Radix="Decimal" Value="0"/>
+<DataValueMember Name="AvgPercentFLA" DataType="INT" Radix="Decimal" Value="0"/>
+<DataValueMember Name="AvgCurrent" DataType="DINT" Radix="Decimal" Value="0"/>
+<DataValueMember Name="L1Current" DataType="DINT" Radix="Decimal" Value="0"/>
+<DataValueMember Name="L2Current" DataType="DINT" Radix="Decimal" Value="0"/>
+<DataValueMember Name="L3Current" DataType="DINT" Radix="Decimal" Value="0"/>
+<DataValueMember Name="GroundFaultCurrent" DataType="INT" Radix="Decimal" Value="0"/>
+<DataValueMember Name="AvgLLVoltage" DataType="INT" Radix="Decimal" Value="0"/>
+<DataValueMember Name="L1L2Voltage" DataType="INT" Radix="Decimal" Value="0"/>
+<DataValueMember Name="L2L3Voltage" DataType="INT" Radix="Decimal" Value="0"/>
+<DataValueMember Name="L3L1Voltage" DataType="INT" Radix="Decimal" Value="0"/>
+<DataValueMember Name="TotalRealPower" DataType="DINT" Radix="Decimal" Value="0"/>
+<DataValueMember Name="TotalReactivePower" DataType="DINT" Radix="Decimal" Value="0"/>
+<DataValueMember Name="TotalApparentPower" DataType="DINT" Radix="Decimal" Value="0"/>
+<DataValueMember Name="PowerFactor" DataType="INT" Radix="Decimal" Value="0"/>
+<ArrayMember Name="UserDefinedData" DataType="DINT" Dimensions="8" Radix="Decimal">
+<Element Index="[0]" Value="9999"/>
+<Element Index="[1]" Value="0"/>
+<Element Index="[2]" Value="41"/>
+<Element Index="[3]" Value="108"/>
+<Element Index="[4]" Value="2"/>
+<Element Index="[5]" Value="0"/>
+<Element Index="[6]" Value="0"/>
+<Element Index="[7]" Value="0"/>
+</ArrayMember>
+<DataValueMember Name="Pt00DeviceOut" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Pt01DeviceOut" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Pt02DeviceOut" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Pt03DeviceOut" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Pt04DeviceOut" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Pt05DeviceOut" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Pt06DeviceOut" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Pt07DeviceOut" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Pt08DeviceOut" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Pt09DeviceOut" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Pt10DeviceOut" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Pt11DeviceOut" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Pt12DeviceOut" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Pt13DeviceOut" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Pt14DeviceOut" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Pt15DeviceOut" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Int00DeviceOut" DataType="INT" Radix="Decimal" Value="0"/>
+<StructureMember Name="Analog1" DataType="AB:E300_Analog_Struct:I:1">
+<DataValueMember Name="Ch00Data" DataType="INT" Radix="Decimal" Value="0"/>
+<DataValueMember Name="Ch01Data" DataType="INT" Radix="Decimal" Value="0"/>
+<DataValueMember Name="Ch02Data" DataType="INT" Radix="Decimal" Value="0"/>
+<DataValueMember Name="Ch00InputOpenWire" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Ch00InputOverrange" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Ch00InputUnderrange" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Ch01InputOpenWire" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Ch01InputOverrange" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Ch01InputUnderrange" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Ch02InputOpenWire" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Ch02InputOverrange" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Ch02InputUnderrange" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Ch00OutputOpenWire" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Ch00OutputInHold" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Ch00OutputOverrange" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Ch00OutputUnderrange" DataType="BOOL" Value="0"/>
+<DataValueMember Name="AddressChanged" DataType="BOOL" Value="0"/>
+<DataValueMember Name="SelftestFailed" DataType="BOOL" Value="0"/>
+</StructureMember>
+<StructureMember Name="Analog2" DataType="AB:E300_Analog_Struct:I:1">
+<DataValueMember Name="Ch00Data" DataType="INT" Radix="Decimal" Value="0"/>
+<DataValueMember Name="Ch01Data" DataType="INT" Radix="Decimal" Value="0"/>
+<DataValueMember Name="Ch02Data" DataType="INT" Radix="Decimal" Value="0"/>
+<DataValueMember Name="Ch00InputOpenWire" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Ch00InputOverrange" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Ch00InputUnderrange" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Ch01InputOpenWire" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Ch01InputOverrange" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Ch01InputUnderrange" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Ch02InputOpenWire" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Ch02InputOverrange" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Ch02InputUnderrange" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Ch00OutputOpenWire" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Ch00OutputInHold" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Ch00OutputOverrange" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Ch00OutputUnderrange" DataType="BOOL" Value="0"/>
+<DataValueMember Name="AddressChanged" DataType="BOOL" Value="0"/>
+<DataValueMember Name="SelftestFailed" DataType="BOOL" Value="0"/>
+</StructureMember>
+<StructureMember Name="Analog3" DataType="AB:E300_Analog_Struct:I:1">
+<DataValueMember Name="Ch00Data" DataType="INT" Radix="Decimal" Value="0"/>
+<DataValueMember Name="Ch01Data" DataType="INT" Radix="Decimal" Value="0"/>
+<DataValueMember Name="Ch02Data" DataType="INT" Radix="Decimal" Value="0"/>
+<DataValueMember Name="Ch00InputOpenWire" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Ch00InputOverrange" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Ch00InputUnderrange" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Ch01InputOpenWire" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Ch01InputOverrange" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Ch01InputUnderrange" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Ch02InputOpenWire" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Ch02InputOverrange" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Ch02InputUnderrange" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Ch00OutputOpenWire" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Ch00OutputInHold" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Ch00OutputOverrange" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Ch00OutputUnderrange" DataType="BOOL" Value="0"/>
+<DataValueMember Name="AddressChanged" DataType="BOOL" Value="0"/>
+<DataValueMember Name="SelftestFailed" DataType="BOOL" Value="0"/>
+</StructureMember>
+<StructureMember Name="Analog4" DataType="AB:E300_Analog_Struct:I:1">
+<DataValueMember Name="Ch00Data" DataType="INT" Radix="Decimal" Value="0"/>
+<DataValueMember Name="Ch01Data" DataType="INT" Radix="Decimal" Value="0"/>
+<DataValueMember Name="Ch02Data" DataType="INT" Radix="Decimal" Value="0"/>
+<DataValueMember Name="Ch00InputOpenWire" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Ch00InputOverrange" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Ch00InputUnderrange" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Ch01InputOpenWire" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Ch01InputOverrange" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Ch01InputUnderrange" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Ch02InputOpenWire" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Ch02InputOverrange" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Ch02InputUnderrange" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Ch00OutputOpenWire" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Ch00OutputInHold" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Ch00OutputOverrange" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Ch00OutputUnderrange" DataType="BOOL" Value="0"/>
+<DataValueMember Name="AddressChanged" DataType="BOOL" Value="0"/>
+<DataValueMember Name="SelftestFailed" DataType="BOOL" Value="0"/>
+</StructureMember>
+</Structure>
+</Data>
+</InputTag>
+<OutputTag ExternalAccess="Read/Write">
+<Description>
+<![CDATA[EXHAUST FAN]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[[0,0,0,0]]]>
+</Data>
+<Data Format="Decorated">
+<Structure DataType="AB:E300:O:1">
+<DataValueMember Name="Pt00Data" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Pt01Data" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Pt02Data" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Digital1Pt00Data" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Digital1Pt01Data" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Digital2Pt00Data" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Digital2Pt01Data" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Digital3Pt00Data" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Digital3Pt01Data" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Digital4Pt00Data" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Digital4Pt01Data" DataType="BOOL" Value="0"/>
+<DataValueMember Name="LogicDefinedPt00Data" DataType="BOOL" Value="0"/>
+<DataValueMember Name="LogicDefinedPt01Data" DataType="BOOL" Value="0"/>
+<DataValueMember Name="TripReset" DataType="BOOL" Value="0"/>
+<DataValueMember Name="EmergencyStartEn" DataType="BOOL" Value="0"/>
+<DataValueMember Name="RemoteTrip" DataType="BOOL" Value="0"/>
+<DataValueMember Name="OperatorStationILED" DataType="BOOL" Value="0"/>
+<DataValueMember Name="OperatorStationIILED" DataType="BOOL" Value="0"/>
+<DataValueMember Name="OperatorStationLocalLED" DataType="BOOL" Value="0"/>
+<DataValueMember Name="OperatorStationRemoteLED" DataType="BOOL" Value="0"/>
+<DataValueMember Name="OperatorStationOLED" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Pt00DeviceIn" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Pt01DeviceIn" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Pt02DeviceIn" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Pt03DeviceIn" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Pt04DeviceIn" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Pt05DeviceIn" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Pt06DeviceIn" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Pt07DeviceIn" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Pt08DeviceIn" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Pt09DeviceIn" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Pt10DeviceIn" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Pt11DeviceIn" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Pt12DeviceIn" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Pt13DeviceIn" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Pt14DeviceIn" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Pt15DeviceIn" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Int00DeviceIn" DataType="INT" Radix="Decimal" Value="0"/>
+</Structure>
+</Data>
+</OutputTag>
+</Connection>
+</Connections>
+</Communications>
+<ExtendedProperties>
+<public><Vendor>Rockwell Automation/Allen-Bradley</Vendor><CatNum>193-ECM-ETR</CatNum><ControlModuleType>2</ControlModuleType><ControlModuleMismatchTripEn>2</ControlModuleMismatchTripEn><SensingModuleType>9</SensingModuleType><SensingModuleMismatchTripEn>2</SensingModuleMismatchTripEn><Digital1Type>0</Digital1Type><Digital1MismatchTripEn>2</Digital1MismatchTripEn><Digital2Type>0</Digital2Type><Digital2MismatchTripEn>2</Digital2MismatchTripEn><Digital3Type>0</Digital3Type><Digital3MismatchTripEn>2</Digital3MismatchTripEn><Digital4Type>0</Digital4Type><Digital4MismatchTripEn>2</Digital4MismatchTripEn><Analog1Type>0</Analog1Type><Analog1MismatchTripEn>2</Analog1MismatchTripEn><Analog2Type>0</Analog2Type><Analog2MismatchTripEn>2</Analog2MismatchTripEn><Analog3Type>0</Analog3Type><Analog3MismatchTripEn>2</Analog3MismatchTripEn><Analog4Type>0</Analog4Type><Analog4MismatchTripEn>2</Analog4MismatchTripEn><OperatorStationType>0</OperatorStationType><OperatorStationMismatchTripEn>2</OperatorStationMismatchTripEn><UserDefinedData0>2</UserDefinedData0><UserDefinedData1>3</UserDefinedData1><UserDefinedData2>28</UserDefinedData2><UserDefinedData3>29</UserDefinedData3><UserDefinedData4>30</UserDefinedData4><UserDefinedData5>31</UserDefinedData5><UserDefinedData6>38</UserDefinedData6><UserDefinedData7>39</UserDefinedData7><OperatingMode>2</OperatingMode><Pt00OutputFunction>2</Pt00OutputFunction><Pt01OutputFunction>0</Pt01OutputFunction><Pt02OutputFunction>1</Pt02OutputFunction><OperatingModeChanged>1</OperatingModeChanged><ConfigID>600</ConfigID><ADDAVersion>1</ADDAVersion></public>
+</ExtendedProperties>
+</Module>
+</Modules>
+</Controller>
+</RSLogix5000Content>

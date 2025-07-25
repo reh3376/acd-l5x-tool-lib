@@ -1,0 +1,59 @@
+{
+  "controller_name": "PLC100_Mashing",
+  "acd_stats": {
+    "programs": 38,
+    "tags": 1058,
+    "datatypes": 361
+  },
+  "l5x_stats": {
+    "programs": 38,
+    "modules": 79,
+    "aois": 3,
+    "datatypes": 2
+  },
+  "comparison": {
+    "matched_programs": 38,
+    "acd_only_programs": 0,
+    "l5x_only_programs": 0,
+    "matched_program_names": [
+      "Cooker_1_AutoLogic",
+      "Cooker_1_DeviceLogic",
+      "Cooker_2_AutoLogic",
+      "Cooker_2_DeviceLogic",
+      "Cooker_AutoLogic",
+      "Cooker_DeviceLogic",
+      "Cookers_Device_Config",
+      "Cookers_Device_Logic",
+      "Cookers_PID_Logic",
+      "DropTub_AutoLogic",
+      "DropTub_DeviceLogic",
+      "DropTub_Device_Config",
+      "DropTub_Device_Logic",
+      "DropTub_PID_Logic",
+      "GrainLoadin_Device_Config",
+      "GrainLoadin_Device_Logic",
+      "GrainLoadin_PID_Logic",
+      "Main",
+      "MashCooler_AutoLogic",
+      "MashCooler_DeviceLogic",
+      "MashCooler_Device_Config",
+      "MashCooler_Device_Logic",
+      "MashCooler_PID_Logic",
+      "MashWater_AutoLogic",
+      "MashWater_DeviceLogic",
+      "MashWater_Device_Config",
+      "MashWater_Device_Logic",
+      "MashWater_PID_Logic",
+      "Mashing01_FBD01",
+      "Master_Main",
+      "Milling_AutoLogic",
+      "Milling_DeviceLogic",
+      "Milling_Device_Config",
+      "Milling_Device_Logic",
+      "Milling_PID_Logic",
+      "Receiving_AutoLogic",
+      "Receiving_DeviceLogic",
+      "SafetyProgram"
+    ]
+  }
+}

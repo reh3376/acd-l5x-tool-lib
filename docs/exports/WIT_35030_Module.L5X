@@ -1,0 +1,121 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<RSLogix5000Content SchemaRevision="1.0" SoftwareRevision="35.01" TargetName="WIT_35030" TargetType="Module" ContainsContext="true" ExportDate="Thu Jul 24 23:20:58 2025" ExportOptions="References NoRawData L5KData DecoratedData Context Dependencies ForceProtectedEncoding AllProjDocTrans">
+<Controller Use="Context" Name="PLC100_Mashing">
+<Modules Use="Context">
+<Module Use="Target" Name="WIT_35030" CatalogNumber="ACT350-2P EtherNet/IP/A" Vendor="666" ProductType="12" ProductCode="13058" Major="1" Minor="1" ParentModule="PLC100_EN4TR" ParentModPortId="2" Inhibited="false"
+ MajorFault="false">
+<EKey State="CompatibleModule"/>
+<Ports>
+<Port Id="1" Address="10.4.0.23" Type="Ethernet" Upstream="true"/>
+</Ports>
+<Communications>
+<ConfigData ConfigSize="0">
+<Data Format="L5K">
+<![CDATA[[4,1]]]>
+</Data>
+</ConfigData>
+<Connections>
+<Connection Name="Output" RPI="10000" Type="Output" EventID="0" ProgrammaticallySendEventTrigger="false" Unicast="true">
+<InputTag ExternalAccess="Read/Write">
+<Data Format="Decorated">
+<Structure DataType="ME:ACT350_2P_Enet_Block2R:I:0">
+<DataValueMember Name="MB1_Measuring_Value" DataType="REAL" Radix="Float" Value="1819.2"/>
+<DataValueMember Name="MB1_Device_Status" DataType="INT" Radix="Binary" Value="2#0000_0000_0100_1000"/>
+<DataValueMember Name="Sequence_Bit_0" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Sequence_Bit_1" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Heart_Beat" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Data_Okay" DataType="BOOL" Value="1"/>
+<DataValueMember Name="Alarm_Condition" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Center_of_Zero" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Motion" DataType="BOOL" Value="1"/>
+<DataValueMember Name="Net_Mode" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Alternate_Weight_Unit" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Device_Specific_Bit_1" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Device_Specific_Bit_2" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Device_Specific_Bit_3" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Device_Specific_Bit_4" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Device_Specific_Bit_5" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Device_Specific_Bit_6" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Device_Specific_Bit_7" DataType="BOOL" Value="0"/>
+<DataValueMember Name="MB1_Response" DataType="INT" Radix="Binary" Value="2#0000_0000_0000_0000"/>
+<DataValueMember Name="CmdStatus0" DataType="BOOL" Value="0"/>
+<DataValueMember Name="CmdStatus1" DataType="BOOL" Value="0"/>
+<DataValueMember Name="CmdStatus2" DataType="BOOL" Value="0"/>
+<DataValueMember Name="CmdStatus3" DataType="BOOL" Value="0"/>
+<DataValueMember Name="CmdStatus4" DataType="BOOL" Value="0"/>
+<DataValueMember Name="CmdStatus5" DataType="BOOL" Value="0"/>
+<DataValueMember Name="CmdStatus6" DataType="BOOL" Value="0"/>
+<DataValueMember Name="CmdStatus7" DataType="BOOL" Value="0"/>
+<DataValueMember Name="CmdStatus8" DataType="BOOL" Value="0"/>
+<DataValueMember Name="CmdStatus9" DataType="BOOL" Value="0"/>
+<DataValueMember Name="CmdStatus10" DataType="BOOL" Value="0"/>
+<DataValueMember Name="ChNumber11" DataType="BOOL" Value="0"/>
+<DataValueMember Name="ChNumber12" DataType="BOOL" Value="0"/>
+<DataValueMember Name="ChNumber13" DataType="BOOL" Value="0"/>
+<DataValueMember Name="ChNumber14" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Reserved15" DataType="BOOL" Value="0"/>
+<DataValueMember Name="SB1_Status_Group_1" DataType="INT" Radix="Decimal" Value="0"/>
+<DataValueMember Name="SB1_Status_Group_2" DataType="INT" Radix="Decimal" Value="1026"/>
+<DataValueMember Name="SB1_Status_Group_3" DataType="INT" Radix="Decimal" Value="7"/>
+<DataValueMember Name="SB1_Response" DataType="INT" Radix="Decimal" Value="0"/>
+</Structure>
+</Data>
+</InputTag>
+<OutputTag ExternalAccess="Read/Write">
+<Data Format="L5K">
+<![CDATA[[0.00000000e+000,0,0,0,0,0,0]]]>
+</Data>
+<Data Format="Decorated">
+<Structure DataType="ME:ACT350_2P_Enet_Block2W:O:0">
+<DataValueMember Name="MB1_Command_Value" DataType="REAL" Radix="Float" Value="0.0"/>
+<DataValueMember Name="MB1_Channel_Mask" DataType="INT" Radix="Binary" Value="2#0000_0000_0000_0000"/>
+<DataValueMember Name="Apply_command_to_Channel_1" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Apply_command_to_Channel_2" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Apply_command_to_Channel_3" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Apply_command_to_Channel_4" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Apply_command_to_Channel_5" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Apply_command_to_Channel_6" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Apply_command_to_Channel_7" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Apply_command_to_Channel_8" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Apply_command_to_Channel_9" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Apply_command_to_Channel_10" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Apply_command_to_Channel_11" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Apply_command_to_Channel_12" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Apply_command_to_Channel_13" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Apply_command_to_Channel_14" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Apply_command_to_Channel_15" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Apply_command_to_Channel_16" DataType="BOOL" Value="0"/>
+<DataValueMember Name="MB1_Command" DataType="INT" Radix="Binary" Value="2#0000_0000_0000_0000"/>
+<DataValueMember Name="CmdNumber0" DataType="BOOL" Value="0"/>
+<DataValueMember Name="CmdNumber1" DataType="BOOL" Value="0"/>
+<DataValueMember Name="CmdNumber2" DataType="BOOL" Value="0"/>
+<DataValueMember Name="CmdNumber3" DataType="BOOL" Value="0"/>
+<DataValueMember Name="CmdNumber4" DataType="BOOL" Value="0"/>
+<DataValueMember Name="CmdNumber5" DataType="BOOL" Value="0"/>
+<DataValueMember Name="CmdNumber6" DataType="BOOL" Value="0"/>
+<DataValueMember Name="CmdNumber7" DataType="BOOL" Value="0"/>
+<DataValueMember Name="CmdNumber8" DataType="BOOL" Value="0"/>
+<DataValueMember Name="CmdNumber9" DataType="BOOL" Value="0"/>
+<DataValueMember Name="CmdNumber10" DataType="BOOL" Value="0"/>
+<DataValueMember Name="ChNumber11" DataType="BOOL" Value="0"/>
+<DataValueMember Name="ChNumber12" DataType="BOOL" Value="0"/>
+<DataValueMember Name="ChNumber13" DataType="BOOL" Value="0"/>
+<DataValueMember Name="ChNumber14" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Reserved15" DataType="BOOL" Value="0"/>
+<DataValueMember Name="SB1_Reserved_1" DataType="INT" Radix="Decimal" Value="0"/>
+<DataValueMember Name="SB1_Reserved_2" DataType="INT" Radix="Decimal" Value="0"/>
+<DataValueMember Name="SB1_Reserved_3" DataType="INT" Radix="Decimal" Value="0"/>
+<DataValueMember Name="SB1_Command" DataType="INT" Radix="Decimal" Value="0"/>
+</Structure>
+</Data>
+</OutputTag>
+</Connection>
+</Connections>
+</Communications>
+<ExtendedProperties>
+<public><ConfigID>201</ConfigID><Vendor>Mettler-Toledo</Vendor><CatNum>ACT350-2P EtherNet/IP</CatNum></public>
+</ExtendedProperties>
+</Module>
+</Modules>
+</Controller>
+</RSLogix5000Content>

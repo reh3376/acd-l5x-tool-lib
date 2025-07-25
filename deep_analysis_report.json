@@ -1,0 +1,218 @@
+{
+  "summary": {
+    "total_size": 9804866,
+    "strings_found": 541,
+    "patterns_found": 1514,
+    "headers_found": 6
+  },
+  "components": {},
+  "plc_data_summary": {
+    "tag_definitions": 0,
+    "routine_names": 0,
+    "program_names": 0,
+    "data_types": 0
+  },
+  "sample_strings": [
+    {
+      "offset": "0x23D",
+      "length": 6,
+      "text": "FC!DEF"
+    },
+    {
+      "offset": "0x441",
+      "length": 78,
+      "text": "C:\\Users\\RogerHenley\\AppData\\Local\\Temp\\RSLogix5000.Temp\\AB_301B\\AB_7CBD\\Comps"
+    },
+    {
+      "offset": "0x510",
+      "length": 7,
+      "text": "CompUId"
+    },
+    {
+      "offset": "0x518",
+      "length": 8,
+      "text": "CompName"
+    },
+    {
+      "offset": "0x521",
+      "length": 7,
+      "text": "CompIOI"
+    },
+    {
+      "offset": "0x529",
+      "length": 18,
+      "text": "AlternateParentUId"
+    },
+    {
+      "offset": "0x53C",
+      "length": 7,
+      "text": "Ordinal"
+    },
+    {
+      "offset": "0x133F",
+      "length": 14,
+      "text": "PLC100_Mashing"
+    },
+    {
+      "offset": "0x50BC",
+      "length": 13,
+      "text": "\fCTRL_FLT_1_1"
+    },
+    {
+      "offset": "0x50E5",
+      "length": 10,
+      "text": "\tLGX-01-01"
+    },
+    {
+      "offset": "0x529E",
+      "length": 18,
+      "text": "DiagnosticsMessage"
+    },
+    {
+      "offset": "0x5414",
+      "length": 9,
+      "text": "LocalName"
+    },
+    {
+      "offset": "0x558A",
+      "length": 11,
+      "text": "EnglishName"
+    },
+    {
+      "offset": "0x5700",
+      "length": 10,
+      "text": "SupportsLS"
+    },
+    {
+      "offset": "0x5876",
+      "length": 10,
+      "text": "SupportsPT"
+    },
+    {
+      "offset": "0x59EC",
+      "length": 11,
+      "text": "SupportsPTC"
+    },
+    {
+      "offset": "0x5B62",
+      "length": 12,
+      "text": "SupportsPTFP"
+    },
+    {
+      "offset": "0x5CD8",
+      "length": 11,
+      "text": "SupportsCTI"
+    },
+    {
+      "offset": "0x5E4E",
+      "length": 12,
+      "text": "SupportsMVFB"
+    },
+    {
+      "offset": "0x5FC4",
+      "length": 14,
+      "text": "AppliesToComps"
+    }
+  ],
+  "sample_patterns": [
+    {
+      "type": "pascal_string",
+      "offset": "0x441",
+      "length": 67,
+      "value": ":\\Users\\RogerHenley\\AppData\\Local\\Temp\\RSLogix5000.Temp\\AB_301B\\AB_"
+    },
+    {
+      "type": "pascal_string",
+      "offset": "0x442",
+      "length": 58,
+      "value": "\\Users\\RogerHenley\\AppData\\Local\\Temp\\RSLogix5000.Temp\\AB_"
+    },
+    {
+      "type": "pascal_string",
+      "offset": "0x239D",
+      "length": 6,
+      "value": "JIh"
+    },
+    {
+      "type": "pascal_string",
+      "offset": "0x3293",
+      "length": 5,
+      "value": "I"
+    },
+    {
+      "type": "pascal_string",
+      "offset": "0x50BC",
+      "length": 12,
+      "value": "CTRL_FLT_1_1"
+    },
+    {
+      "type": "pascal_string",
+      "offset": "0x50E5",
+      "length": 9,
+      "value": "LGX-01-01"
+    },
+    {
+      "type": "pascal_string",
+      "offset": "0x5EE6",
+      "length": 6,
+      "value": "nbYA"
+    },
+    {
+      "type": "pascal_string",
+      "offset": "0x691F",
+      "length": 7,
+      "value": "*bYL"
+    },
+    {
+      "type": "pascal_string",
+      "offset": "0x6E5E",
+      "length": 13,
+      "value": "CTRL_FLT_1_16"
+    },
+    {
+      "type": "pascal_string",
+      "offset": "0x6E87",
+      "length": 9,
+      "value": "LGX-01-16"
+    }
+  ],
+  "headers": [
+    {
+      "offset": "0x48A",
+      "type": "Comps Database",
+      "hex": "43 6F 6D 70 73 00 00 00 00 00 00 00 00 00 00 00"
+    },
+    {
+      "offset": "0x5FCD",
+      "type": "Comps Database",
+      "hex": "43 6F 6D 70 73 00 00 00 00 00 00 00 00 00 00 00"
+    },
+    {
+      "offset": "0x544",
+      "type": "Data Section",
+      "hex": "2E 64 61 74 00 00 00 00 2E 69 64 78 00 00 00 00"
+    },
+    {
+      "offset": "0x54C",
+      "type": "Index Section",
+      "hex": "2E 69 64 78 00 00 00 00 00 00 00 00 00 00 00 00"
+    },
+    {
+      "offset": "0x469",
+      "type": "RSLogix Marker",
+      "hex": "52 53 4C 6F 67 69 78 35 30 30 30 2E 54 65 6D 70"
+    },
+    {
+      "offset": "0x470",
+      "type": "Studio 5000 Marker",
+      "hex": "35 30 30 30 2E 54 65 6D 70 5C 41 42 5F 33 30 31"
+    }
+  ],
+  "sample_components": {},
+  "sample_plc_data": {
+    "tag_definitions": [],
+    "routine_names": [],
+    "program_names": [],
+    "data_types": []
+  }
+}

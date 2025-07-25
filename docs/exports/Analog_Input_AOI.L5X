@@ -1,0 +1,1044 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<RSLogix5000Content SchemaRevision="1.0" SoftwareRevision="35.01" TargetName="Analog_Input" TargetType="AddOnInstructionDefinition" TargetClass="Standard" TargetRevision="1.1 " TargetLastEdited="2024-12-10T11:22:27.492Z" ContainsContext="true" ExportDate="Thu Jul 24 23:16:20 2025" ExportOptions="NoRawData L5KData DecoratedData Context Dependencies ForceProtectedEncoding AllProjDocTrans">
+<Controller Use="Context" Name="PLC100_Mashing">
+<AddOnInstructionDefinitions Use="Context">
+<AddOnInstructionDefinition Use="Target" Name="Analog_Input" Class="Standard" Revision="1.1" ExecutePrescan="false" ExecutePostscan="false" ExecuteEnableInFalse="false" CreatedDate="2013-02-15T17:03:12.045Z" CreatedBy="WDSTAR-887A5359\ICEAS" EditedDate="2024-12-10T11:22:27.492Z" EditedBy="AzureAD\RogerHenley"
+ SoftwareRevision="v34.03">
+<RevisionNote>
+<![CDATA[AOI performs analog input scaling, alarming, filtering, and raw input out of range status.
+Cfg = Programmer entered
+In = Input parameter
+Out = Output parameter
+HMI = HMI to or from
+L = Local to AOI
+Added Emulation mode]]>
+</RevisionNote>
+<Parameters>
+<Parameter Name="EnableIn" TagType="Base" DataType="BOOL" Usage="Input" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read Only"/>
+<Parameter Name="EnableOut" TagType="Base" DataType="BOOL" Usage="Output" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read Only"/>
+<Parameter Name="In_Raw" TagType="Base" DataType="REAL" Usage="Input" Radix="Float" Required="true" Visible="true" ExternalAccess="Read/Write">
+<DefaultData Format="Decorated">
+<DataValue DataType="REAL" Radix="Float" Value="0.0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="In_PreScaledPV" TagType="Base" DataType="REAL" Usage="Input" Radix="Float" Required="false" Visible="false" ExternalAccess="Read/Write">
+<DefaultData Format="Decorated">
+<DataValue DataType="REAL" Radix="Float" Value="0.0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="Cfg_PreScaledPV" TagType="Base" DataType="BOOL" Usage="Input" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Set to 1 if PV is Already Scaled]]>
+</Description>
+<DefaultData Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="Cfg_RawMax" TagType="Base" DataType="REAL" Usage="Input" Radix="Float" Required="false" Visible="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Enter Raw Max Value]]>
+</Description>
+<DefaultData Format="Decorated">
+<DataValue DataType="REAL" Radix="Float" Value="32000.0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="Cfg_RawMin" TagType="Base" DataType="REAL" Usage="Input" Radix="Float" Required="false" Visible="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Enter Raw Min Value]]>
+</Description>
+<DefaultData Format="Decorated">
+<DataValue DataType="REAL" Radix="Float" Value="0.0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="Cfg_EUMax" TagType="Base" DataType="REAL" Usage="Input" Radix="Float" Required="false" Visible="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Enter EU Max Value]]>
+</Description>
+<DefaultData Format="Decorated">
+<DataValue DataType="REAL" Radix="Float" Value="100.0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="Cfg_EUMin" TagType="Base" DataType="REAL" Usage="Input" Radix="Float" Required="false" Visible="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Enter EU Min Value]]>
+</Description>
+<DefaultData Format="Decorated">
+<DataValue DataType="REAL" Radix="Float" Value="0.0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="CfgHoldFaultVal" TagType="Base" DataType="BOOL" Usage="Input" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Set to 1 to Hold Value When Faulted]]>
+</Description>
+<DefaultData Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="1"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="CfgUDefFaultVal" TagType="Base" DataType="REAL" Usage="Input" Radix="Float" Required="false" Visible="false" ExternalAccess="Read/Write">
+<DefaultData Format="Decorated">
+<DataValue DataType="REAL" Radix="Float" Value="-25.0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="Cfg_Filter" TagType="Base" DataType="BOOL" Usage="Input" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Set to 1 to Filter AI Signal]]>
+</Description>
+<DefaultData Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="1"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="HMI_ManualPV" TagType="Base" DataType="REAL" Usage="Input" Radix="Float" Required="false" Visible="false" ExternalAccess="Read/Write">
+<DefaultData Format="Decorated">
+<DataValue DataType="REAL" Radix="Float" Value="0.0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="Sts_ORFault" TagType="Base" DataType="BOOL" Usage="Output" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read Only">
+<Description>
+<![CDATA[Input Value Over Range]]>
+</Description>
+<DefaultData Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="Sts_URFault" TagType="Base" DataType="BOOL" Usage="Output" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read Only">
+<Description>
+<![CDATA[Input Value Under Range]]>
+</Description>
+<DefaultData Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="PVInRange" TagType="Base" DataType="BOOL" Usage="Input" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Process Variable In Range]]>
+</Description>
+<DefaultData Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="CfgEnableBypTime" TagType="Base" DataType="BOOL" Usage="Input" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Set to 1 to Enable Bypass Timeout]]>
+</Description>
+<DefaultData Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="1"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="Cfg_EnableOOSTime" TagType="Base" DataType="BOOL" Usage="Input" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Set to 1 to Enable OOS Timeout]]>
+</Description>
+<DefaultData Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="1"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="HMI_BypResetMin" TagType="Base" DataType="DINT" Usage="Input" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read/Write">
+<DefaultData Format="Decorated">
+<DataValue DataType="DINT" Radix="Decimal" Value="60"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="HMI_OOSResetHR" TagType="Base" DataType="DINT" Usage="Input" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read/Write">
+<DefaultData Format="Decorated">
+<DataValue DataType="DINT" Radix="Decimal" Value="12"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="Cfg_ENAlmHiHi" TagType="Base" DataType="BOOL" Usage="Input" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Enable High High Alarm]]>
+</Description>
+<DefaultData Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="1"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="HMI_SPHiHi" TagType="Base" DataType="REAL" Usage="Input" Radix="Float" Required="false" Visible="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[High High Alarm Setpoint]]>
+</Description>
+<DefaultData Format="Decorated">
+<DataValue DataType="REAL" Radix="Float" Value="80.0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="HMI_TimeDBHiHi" TagType="Base" DataType="REAL" Usage="Input" Radix="Float" Required="false" Visible="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[High High Alarm Debounce Timer]]>
+</Description>
+<DefaultData Format="Decorated">
+<DataValue DataType="REAL" Radix="Float" Value="1.5"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="HMI_ReqResetHiHi" TagType="Base" DataType="BOOL" Usage="Input" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[High High Alarm Reset]]>
+</Description>
+<DefaultData Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="1"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="Cfg_ENAlmHi" TagType="Base" DataType="BOOL" Usage="Input" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Enable High Alarm]]>
+</Description>
+<DefaultData Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="1"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="HMI_SPHi" TagType="Base" DataType="REAL" Usage="Input" Radix="Float" Required="false" Visible="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[High Alarm Setpoint]]>
+</Description>
+<DefaultData Format="Decorated">
+<DataValue DataType="REAL" Radix="Float" Value="60.0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="HMI_TimeDBHi" TagType="Base" DataType="REAL" Usage="Input" Radix="Float" Required="false" Visible="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[High Alarm Debounce Timer]]>
+</Description>
+<DefaultData Format="Decorated">
+<DataValue DataType="REAL" Radix="Float" Value="1.5"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="HMI_ReqResetHi" TagType="Base" DataType="BOOL" Usage="Input" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[High Alarm Reset]]>
+</Description>
+<DefaultData Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="1"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="Cfg_ENAlmLo" TagType="Base" DataType="BOOL" Usage="Input" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Low Alarm Enable]]>
+</Description>
+<DefaultData Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="1"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="HMI_SPLo" TagType="Base" DataType="REAL" Usage="Input" Radix="Float" Required="false" Visible="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Low Alarm Setpoint]]>
+</Description>
+<DefaultData Format="Decorated">
+<DataValue DataType="REAL" Radix="Float" Value="40.0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="HMI_TimeDBLo" TagType="Base" DataType="REAL" Usage="Input" Radix="Float" Required="false" Visible="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Low Alarm Debounce Timer]]>
+</Description>
+<DefaultData Format="Decorated">
+<DataValue DataType="REAL" Radix="Float" Value="1.5"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="HMI_ReqResetLo" TagType="Base" DataType="BOOL" Usage="Input" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Low Alarm Reset]]>
+</Description>
+<DefaultData Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="1"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="Cfg_ENAlmLoLo" TagType="Base" DataType="BOOL" Usage="Input" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Enable Low Low Alarm]]>
+</Description>
+<DefaultData Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="1"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="HMI_SPLoLo" TagType="Base" DataType="REAL" Usage="Input" Radix="Float" Required="false" Visible="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Low Low Alarm Setpoint]]>
+</Description>
+<DefaultData Format="Decorated">
+<DataValue DataType="REAL" Radix="Float" Value="20.0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="HMI_TimeDBLoLo" TagType="Base" DataType="REAL" Usage="Input" Radix="Float" Required="false" Visible="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Low Low Alarm Debounce Timer]]>
+</Description>
+<DefaultData Format="Decorated">
+<DataValue DataType="REAL" Radix="Float" Value="1.5"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="HMI_ReqResetLoLo" TagType="Base" DataType="BOOL" Usage="Input" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Low Low Alarm Reset]]>
+</Description>
+<DefaultData Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="1"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="Cfg_ENAlmFault" TagType="Base" DataType="BOOL" Usage="Input" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Enable Fault Alarm]]>
+</Description>
+<DefaultData Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="1"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="HMI_TimeDBFault" TagType="Base" DataType="REAL" Usage="Input" Radix="Float" Required="false" Visible="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Fault Alarm Debounce Timer]]>
+</Description>
+<DefaultData Format="Decorated">
+<DataValue DataType="REAL" Radix="Float" Value="1.5"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="HMI_ReqResetFault" TagType="Base" DataType="BOOL" Usage="Input" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Fault Alarm Reset]]>
+</Description>
+<DefaultData Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="1"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="HMI_PBAlmByp" TagType="Base" DataType="BOOL" Usage="Input" Radix="Decimal" Required="false" Visible="true" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Alarm Bypass HMI Pushbutton]]>
+</Description>
+<DefaultData Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="HMI_PBAlmOOS" TagType="Base" DataType="BOOL" Usage="Input" Radix="Decimal" Required="false" Visible="true" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Alarm Out of Service HMI Pushbutton]]>
+</Description>
+<DefaultData Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="HMI_PBReset" TagType="Base" DataType="BOOL" Usage="Input" Radix="Decimal" Required="true" Visible="true" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Alarm Reset HMI Pushbutton]]>
+</Description>
+<DefaultData Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="HMI_BypOOSReset" TagType="Base" DataType="BOOL" Usage="Input" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Alarm Bypass/OOS Reset HMI Pushbutton]]>
+</Description>
+<DefaultData Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="Out_AlmHiHi" TagType="Base" DataType="BOOL" Usage="Output" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read Only">
+<Description>
+<![CDATA[High High Alarm]]>
+</Description>
+<DefaultData Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="Out_AlmHi" TagType="Base" DataType="BOOL" Usage="Output" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read Only">
+<Description>
+<![CDATA[High Alarm]]>
+</Description>
+<DefaultData Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="Out_AlmLo" TagType="Base" DataType="BOOL" Usage="Output" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read Only">
+<Description>
+<![CDATA[Low Alarm]]>
+</Description>
+<DefaultData Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="Out_AlmLoLo" TagType="Base" DataType="BOOL" Usage="Output" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read Only">
+<Description>
+<![CDATA[Low Low Alarm]]>
+</Description>
+<DefaultData Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="Out_AlmFault" TagType="Base" DataType="BOOL" Usage="Output" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read Only">
+<Description>
+<![CDATA[Fault Alarm]]>
+</Description>
+<DefaultData Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="Sts_AlmBypOn" TagType="Base" DataType="BOOL" Usage="Output" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read Only">
+<Description>
+<![CDATA[Alarms in Bypass]]>
+</Description>
+<DefaultData Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="Sts_OOSOn" TagType="Base" DataType="BOOL" Usage="Output" Radix="Decimal" Required="false" Visible="true" ExternalAccess="Read Only">
+<Description>
+<![CDATA[Alarms in Out of Service]]>
+</Description>
+<DefaultData Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="Sts_AlmHiHi" TagType="Base" DataType="BOOL" Usage="Output" Radix="Decimal" Required="false" Visible="true" ExternalAccess="Read Only">
+<DefaultData Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="Sts_AlmHi" TagType="Base" DataType="BOOL" Usage="Output" Radix="Decimal" Required="false" Visible="true" ExternalAccess="Read Only">
+<DefaultData Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="Sts_AlmLo" TagType="Base" DataType="BOOL" Usage="Output" Radix="Decimal" Required="false" Visible="true" ExternalAccess="Read Only">
+<DefaultData Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="Sts_AlmLoLo" TagType="Base" DataType="BOOL" Usage="Output" Radix="Decimal" Required="false" Visible="true" ExternalAccess="Read Only">
+<DefaultData Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="Sts_FaultAlm" TagType="Base" DataType="BOOL" Usage="Output" Radix="Decimal" Required="false" Visible="true" ExternalAccess="Read Only">
+<DefaultData Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="Sts_BypWarnToReset" TagType="Base" DataType="BOOL" Usage="Output" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read Only">
+<DefaultData Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="Sts_OOSWarnToReset" TagType="Base" DataType="BOOL" Usage="Output" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read Only">
+<DefaultData Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="Sts_BypTimeRemaining" TagType="Base" DataType="DINT" Usage="Output" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read Only">
+<DefaultData Format="Decorated">
+<DataValue DataType="DINT" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="Sts_OutRemaining" TagType="Base" DataType="DINT" Usage="Output" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read Only">
+<DefaultData Format="Decorated">
+<DataValue DataType="DINT" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="L_OOSTimeAcc" TagType="Base" DataType="DINT" Usage="Output" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read Only">
+<DefaultData Format="Decorated">
+<DataValue DataType="DINT" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="Sts_OOSTimeRemaining" TagType="Base" DataType="DINT" Usage="Output" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read Only">
+<DefaultData Format="Decorated">
+<DataValue DataType="DINT" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="Cfg_FilterCoefficient" TagType="Base" DataType="REAL" Usage="Input" Radix="Float" Required="false" Visible="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Configured Filter Coefficient]]>
+</Description>
+<DefaultData Format="Decorated">
+<DataValue DataType="REAL" Radix="Float" Value="0.0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="Cfg_FCConstorPct" TagType="Base" DataType="BOOL" Usage="Input" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Set to 1 for Filter Coefficient Percent and 0 for Fixed]]>
+</Description>
+<DefaultData Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="Out_PV" TagType="Base" DataType="REAL" Usage="Output" Radix="Float" Required="false" Visible="true" ExternalAccess="Read Only">
+<Description>
+<![CDATA[Output Process Variable]]>
+</Description>
+<DefaultData Format="Decorated">
+<DataValue DataType="REAL" Radix="Float" Value="0.0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="L_FilterCoefficient" TagType="Base" DataType="REAL" Usage="Input" Radix="Float" Required="false" Visible="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Calculated Filter Coeffiecient]]>
+</Description>
+<DefaultData Format="Decorated">
+<DataValue DataType="REAL" Radix="Float" Value="0.0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="L_LowLimit" TagType="Base" DataType="REAL" Usage="Input" Radix="Float" Required="false" Visible="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Filter Low Limit]]>
+</Description>
+<DefaultData Format="Decorated">
+<DataValue DataType="REAL" Radix="Float" Value="0.0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="L_HighLimit" TagType="Base" DataType="REAL" Usage="Input" Radix="Float" Required="false" Visible="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Filter High Limit]]>
+</Description>
+<DefaultData Format="Decorated">
+<DataValue DataType="REAL" Radix="Float" Value="0.0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="In_AlmHiHiPerm" TagType="Base" DataType="BOOL" Usage="Input" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[High High Alarm Permissive from Logic]]>
+</Description>
+<DefaultData Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="In_AlmHiPerm" TagType="Base" DataType="BOOL" Usage="Input" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[High Alarm Permissive from Logic]]>
+</Description>
+<DefaultData Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="In_AlmLoPerm" TagType="Base" DataType="BOOL" Usage="Input" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Low Alarm Permissive from Logic]]>
+</Description>
+<DefaultData Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="In_AlmLoLoPerm" TagType="Base" DataType="BOOL" Usage="Input" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Low Low Alarm Permissive from Logic]]>
+</Description>
+<DefaultData Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="In_AlmOORPerm" TagType="Base" DataType="BOOL" Usage="Input" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[PV OOR Alarm Permissive from Logic]]>
+</Description>
+<DefaultData Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="HMI_Load_HiRaw" TagType="Base" DataType="BOOL" Usage="Input" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read/Write">
+<DefaultData Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="HMI_Load_LoRaw" TagType="Base" DataType="BOOL" Usage="Input" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read/Write">
+<DefaultData Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="Emulation_Enable" TagType="Base" DataType="BOOL" Usage="Input" Radix="Decimal" Required="true" Visible="true" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Zone Master Emulation Mode Enable]]>
+</Description>
+<DefaultData Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="Config_Emulation_Mode" TagType="Base" DataType="BOOL" Usage="Input" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Configure Whether to Simulate Running When Output ON]]>
+</Description>
+<DefaultData Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+</Parameters>
+<LocalTags>
+<LocalTag Name="Sts_OOSOutRemaining" DataType="DINT" Radix="Decimal" ExternalAccess="None">
+<DefaultData Format="Decorated">
+<DataValue DataType="DINT" Radix="Decimal" Value="0"/>
+</DefaultData>
+</LocalTag>
+<LocalTag Name="L_LoLoAlmDBTimer" DataType="TIMER" ExternalAccess="None">
+<DefaultData Format="Decorated">
+<Structure DataType="TIMER">
+<DataValueMember Name="PRE" DataType="DINT" Radix="Decimal" Value="0"/>
+<DataValueMember Name="ACC" DataType="DINT" Radix="Decimal" Value="0"/>
+<DataValueMember Name="EN" DataType="BOOL" Value="0"/>
+<DataValueMember Name="TT" DataType="BOOL" Value="0"/>
+<DataValueMember Name="DN" DataType="BOOL" Value="0"/>
+</Structure>
+</DefaultData>
+</LocalTag>
+<LocalTag Name="L_LoAlmDBTimer" DataType="TIMER" ExternalAccess="None">
+<DefaultData Format="Decorated">
+<Structure DataType="TIMER">
+<DataValueMember Name="PRE" DataType="DINT" Radix="Decimal" Value="0"/>
+<DataValueMember Name="ACC" DataType="DINT" Radix="Decimal" Value="0"/>
+<DataValueMember Name="EN" DataType="BOOL" Value="0"/>
+<DataValueMember Name="TT" DataType="BOOL" Value="0"/>
+<DataValueMember Name="DN" DataType="BOOL" Value="0"/>
+</Structure>
+</DefaultData>
+</LocalTag>
+<LocalTag Name="L_HiHiAlmDBTimer" DataType="TIMER" ExternalAccess="None">
+<DefaultData Format="Decorated">
+<Structure DataType="TIMER">
+<DataValueMember Name="PRE" DataType="DINT" Radix="Decimal" Value="0"/>
+<DataValueMember Name="ACC" DataType="DINT" Radix="Decimal" Value="0"/>
+<DataValueMember Name="EN" DataType="BOOL" Value="0"/>
+<DataValueMember Name="TT" DataType="BOOL" Value="0"/>
+<DataValueMember Name="DN" DataType="BOOL" Value="0"/>
+</Structure>
+</DefaultData>
+</LocalTag>
+<LocalTag Name="L_HiAlmDBTimer" DataType="TIMER" ExternalAccess="None">
+<DefaultData Format="Decorated">
+<Structure DataType="TIMER">
+<DataValueMember Name="PRE" DataType="DINT" Radix="Decimal" Value="0"/>
+<DataValueMember Name="ACC" DataType="DINT" Radix="Decimal" Value="0"/>
+<DataValueMember Name="EN" DataType="BOOL" Value="0"/>
+<DataValueMember Name="TT" DataType="BOOL" Value="0"/>
+<DataValueMember Name="DN" DataType="BOOL" Value="0"/>
+</Structure>
+</DefaultData>
+</LocalTag>
+<LocalTag Name="L_FaultAlmDBTimer" DataType="TIMER" ExternalAccess="None">
+<DefaultData Format="Decorated">
+<Structure DataType="TIMER">
+<DataValueMember Name="PRE" DataType="DINT" Radix="Decimal" Value="0"/>
+<DataValueMember Name="ACC" DataType="DINT" Radix="Decimal" Value="0"/>
+<DataValueMember Name="EN" DataType="BOOL" Value="0"/>
+<DataValueMember Name="TT" DataType="BOOL" Value="0"/>
+<DataValueMember Name="DN" DataType="BOOL" Value="0"/>
+</Structure>
+</DefaultData>
+</LocalTag>
+<LocalTag Name="L_ApprovedSPLoLo" DataType="REAL" Radix="Float" ExternalAccess="Read/Write">
+<DefaultData Format="Decorated">
+<DataValue DataType="REAL" Radix="Float" Value="20.0"/>
+</DefaultData>
+</LocalTag>
+<LocalTag Name="L_ApprovedSPLo" DataType="REAL" Radix="Float" ExternalAccess="Read/Write">
+<DefaultData Format="Decorated">
+<DataValue DataType="REAL" Radix="Float" Value="40.0"/>
+</DefaultData>
+</LocalTag>
+<LocalTag Name="L_ApprovedSPHiHi" DataType="REAL" Radix="Float" ExternalAccess="Read/Write">
+<DefaultData Format="Decorated">
+<DataValue DataType="REAL" Radix="Float" Value="80.0"/>
+</DefaultData>
+</LocalTag>
+<LocalTag Name="L_ApprovedSPHi" DataType="REAL" Radix="Float" ExternalAccess="Read/Write">
+<DefaultData Format="Decorated">
+<DataValue DataType="REAL" Radix="Float" Value="60.0"/>
+</DefaultData>
+</LocalTag>
+<LocalTag Name="L_AlmOOSToggle" DataType="BOOL" Radix="Decimal" ExternalAccess="None">
+<DefaultData Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</DefaultData>
+</LocalTag>
+<LocalTag Name="L_AlmOOSTime" DataType="TIMER" ExternalAccess="None">
+<DefaultData Format="Decorated">
+<Structure DataType="TIMER">
+<DataValueMember Name="PRE" DataType="DINT" Radix="Decimal" Value="5000"/>
+<DataValueMember Name="ACC" DataType="DINT" Radix="Decimal" Value="0"/>
+<DataValueMember Name="EN" DataType="BOOL" Value="0"/>
+<DataValueMember Name="TT" DataType="BOOL" Value="0"/>
+<DataValueMember Name="DN" DataType="BOOL" Value="0"/>
+</Structure>
+</DefaultData>
+</LocalTag>
+<LocalTag Name="L_AlmBypToggle" DataType="BOOL" Radix="Decimal" ExternalAccess="Read/Write">
+<DefaultData Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</DefaultData>
+</LocalTag>
+<LocalTag Name="L_AlmBypTime" DataType="TIMER" ExternalAccess="None">
+<DefaultData Format="Decorated">
+<Structure DataType="TIMER">
+<DataValueMember Name="PRE" DataType="DINT" Radix="Decimal" Value="5000"/>
+<DataValueMember Name="ACC" DataType="DINT" Radix="Decimal" Value="0"/>
+<DataValueMember Name="EN" DataType="BOOL" Value="0"/>
+<DataValueMember Name="TT" DataType="BOOL" Value="0"/>
+<DataValueMember Name="DN" DataType="BOOL" Value="0"/>
+</Structure>
+</DefaultData>
+</LocalTag>
+<LocalTag Name="L_ScaledPV" DataType="REAL" Radix="Float" ExternalAccess="Read Only">
+<DefaultData Format="Decorated">
+<DataValue DataType="REAL" Radix="Float" Value="0.0"/>
+</DefaultData>
+</LocalTag>
+<LocalTag Name="L_OutOfRange_Fault" DataType="BOOL" Radix="Decimal" ExternalAccess="Read Only">
+<DefaultData Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</DefaultData>
+</LocalTag>
+<LocalTag Name="L_ONS" DataType="BOOL" Dimensions="32" Radix="Decimal" ExternalAccess="None">
+<DefaultData Format="Decorated">
+<Array DataType="BOOL" Dimensions="32" Radix="Decimal">
+<Element Index="[0]" Value="0"/>
+<Element Index="[1]" Value="0"/>
+<Element Index="[2]" Value="0"/>
+<Element Index="[3]" Value="0"/>
+<Element Index="[4]" Value="0"/>
+<Element Index="[5]" Value="0"/>
+<Element Index="[6]" Value="0"/>
+<Element Index="[7]" Value="0"/>
+<Element Index="[8]" Value="0"/>
+<Element Index="[9]" Value="0"/>
+<Element Index="[10]" Value="0"/>
+<Element Index="[11]" Value="0"/>
+<Element Index="[12]" Value="0"/>
+<Element Index="[13]" Value="0"/>
+<Element Index="[14]" Value="0"/>
+<Element Index="[15]" Value="0"/>
+<Element Index="[16]" Value="0"/>
+<Element Index="[17]" Value="0"/>
+<Element Index="[18]" Value="0"/>
+<Element Index="[19]" Value="0"/>
+<Element Index="[20]" Value="0"/>
+<Element Index="[21]" Value="0"/>
+<Element Index="[22]" Value="0"/>
+<Element Index="[23]" Value="0"/>
+<Element Index="[24]" Value="0"/>
+<Element Index="[25]" Value="0"/>
+<Element Index="[26]" Value="0"/>
+<Element Index="[27]" Value="0"/>
+<Element Index="[28]" Value="0"/>
+<Element Index="[29]" Value="0"/>
+<Element Index="[30]" Value="0"/>
+<Element Index="[31]" Value="0"/>
+</Array>
+</DefaultData>
+</LocalTag>
+<LocalTag Name="L_AlmBypDN" DataType="BOOL" Radix="Decimal" ExternalAccess="Read Only">
+<DefaultData Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</DefaultData>
+</LocalTag>
+<LocalTag Name="L_BypTimeAcc" DataType="DINT" Radix="Decimal" ExternalAccess="Read Only">
+<DefaultData Format="Decorated">
+<DataValue DataType="DINT" Radix="Decimal" Value="0"/>
+</DefaultData>
+</LocalTag>
+<LocalTag Name="L_ComputedValue" DataType="REAL" Radix="Float" ExternalAccess="Read Only">
+<Description>
+<![CDATA[Computed Process Variable]]>
+</Description>
+<DefaultData Format="Decorated">
+<DataValue DataType="REAL" Radix="Float" Value="0.0"/>
+</DefaultData>
+</LocalTag>
+<LocalTag Name="L_FilterorNot" DataType="BOOL" Radix="Decimal" ExternalAccess="Read/Write">
+<DefaultData Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</DefaultData>
+</LocalTag>
+<LocalTag Name="L_HiHiSPGood" DataType="BOOL" Radix="Decimal" ExternalAccess="Read/Write">
+<DefaultData Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</DefaultData>
+</LocalTag>
+<LocalTag Name="L_HiSPGood" DataType="BOOL" Radix="Decimal" ExternalAccess="Read/Write">
+<DefaultData Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</DefaultData>
+</LocalTag>
+<LocalTag Name="L_LoLoSPGood" DataType="BOOL" Radix="Decimal" ExternalAccess="Read/Write">
+<DefaultData Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</DefaultData>
+</LocalTag>
+<LocalTag Name="L_LoSPGood" DataType="BOOL" Radix="Decimal" ExternalAccess="Read/Write">
+<DefaultData Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</DefaultData>
+</LocalTag>
+<LocalTag Name="L_OOSDN" DataType="BOOL" Radix="Decimal" ExternalAccess="Read Only">
+<DefaultData Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</DefaultData>
+</LocalTag>
+<LocalTag Name="L_ORFaultSetpoint" DataType="REAL" Radix="Float" ExternalAccess="Read Only">
+<Description>
+<![CDATA[Over Range Fault Setpoint]]>
+</Description>
+<DefaultData Format="Decorated">
+<DataValue DataType="REAL" Radix="Float" Value="0.0"/>
+</DefaultData>
+</LocalTag>
+<LocalTag Name="L_ScaledValue" DataType="REAL" Radix="Float" ExternalAccess="Read Only">
+<DefaultData Format="Decorated">
+<DataValue DataType="REAL" Radix="Float" Value="0.0"/>
+</DefaultData>
+</LocalTag>
+<LocalTag Name="L_PrevValueIn" DataType="REAL" Radix="Float" ExternalAccess="Read/Write">
+<DefaultData Format="Decorated">
+<DataValue DataType="REAL" Radix="Float" Value="0.0"/>
+</DefaultData>
+</LocalTag>
+<LocalTag Name="L_PVOverRange" DataType="BOOL" Radix="Decimal" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Process Variable Over Range]]>
+</Description>
+<DefaultData Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</DefaultData>
+</LocalTag>
+<LocalTag Name="L_PVUnderRange" DataType="BOOL" Radix="Decimal" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Process Variable Under Range]]>
+</Description>
+<DefaultData Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</DefaultData>
+</LocalTag>
+<LocalTag Name="L_URFaultSetpoint" DataType="REAL" Radix="Float" ExternalAccess="Read Only">
+<Description>
+<![CDATA[Under Range Fault Setpoint]]>
+</Description>
+<DefaultData Format="Decorated">
+<DataValue DataType="REAL" Radix="Float" Value="0.0"/>
+</DefaultData>
+</LocalTag>
+<LocalTag Name="Emulation_Mode" DataType="BOOL" Radix="Decimal" ExternalAccess="Read Only">
+<Description>
+<![CDATA[AOI Has Been Configured for Emulation Mode]]>
+</Description>
+<DefaultData Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</DefaultData>
+</LocalTag>
+</LocalTags>
+<Routines>
+<Routine Name="Logic" Type="RLL">
+<RLLContent>
+<Rung Number="0" Type="N">
+<Comment>
+<![CDATA[AI Scaling]]>
+</Comment>
+<Text>
+<![CDATA[NOP();]]>
+</Text>
+</Rung>
+<Rung Number="1" Type="N">
+<Text>
+<![CDATA[XIC(HMI_Load_HiRaw)MOV(In_Raw,Cfg_RawMax);]]>
+</Text>
+</Rung>
+<Rung Number="2" Type="N">
+<Text>
+<![CDATA[XIC(HMI_Load_LoRaw)MOV(In_Raw,Cfg_RawMin);]]>
+</Text>
+</Rung>
+<Rung Number="3" Type="N">
+<Text>
+<![CDATA[[XIO(Cfg_PreScaledPV) [CPT(L_ComputedValue,((In_Raw - Cfg_RawMin)/(Cfg_RawMax - Cfg_RawMin))*(Cfg_EUMax - Cfg_EUMin) + Cfg_EUMin) ,MOV(L_ComputedValue,L_ScaledValue) ] ,XIC(Cfg_PreScaledPV) MOV(In_PreScaledPV,L_ScaledValue) ,XIO(CfgHoldFaultVal) XIO(PVInRange) MOV(CfgUDefFaultVal,L_ScaledValue) ];]]>
+</Text>
+</Rung>
+<Rung Number="4" Type="N">
+<Text>
+<![CDATA[[XIO(Cfg_PreScaledPV) LEQ(L_ComputedValue,L_URFaultSetpoint) ,XIC(Cfg_PreScaledPV) LEQ(In_PreScaledPV,L_URFaultSetpoint) ]OTE(L_PVUnderRange);]]>
+</Text>
+</Rung>
+<Rung Number="5" Type="N">
+<Text>
+<![CDATA[[XIO(Cfg_PreScaledPV) GEQ(L_ComputedValue,L_ORFaultSetpoint) ,XIC(Cfg_PreScaledPV) GEQ(In_PreScaledPV,L_ORFaultSetpoint) ]OTE(L_PVOverRange);]]>
+</Text>
+</Rung>
+<Rung Number="6" Type="N">
+<Text>
+<![CDATA[[XIO(Emulation_Mode) LEQ(L_ScaledPV,L_URFaultSetpoint) ,XIC(Emulation_Mode) XIC(L_PVUnderRange) ]OTE(Sts_URFault);]]>
+</Text>
+</Rung>
+<Rung Number="7" Type="N">
+<Text>
+<![CDATA[[XIO(Emulation_Mode) GEQ(L_ScaledPV,L_ORFaultSetpoint) ,XIC(Emulation_Mode) XIC(L_PVOverRange) ]OTE(Sts_ORFault);]]>
+</Text>
+</Rung>
+<Rung Number="8" Type="N">
+<Text>
+<![CDATA[XIO(L_PVUnderRange)XIO(L_PVOverRange)OTE(PVInRange);]]>
+</Text>
+</Rung>
+<Rung Number="9" Type="N">
+<Comment>
+<![CDATA[Emulation Mode Enable Logic]]>
+</Comment>
+<Text>
+<![CDATA[XIC(Emulation_Enable)XIC(Config_Emulation_Mode)OTE(Emulation_Mode);]]>
+</Text>
+</Rung>
+<Rung Number="10" Type="N">
+<Text>
+<![CDATA[XIO(Emulation_Enable)OTU(Config_Emulation_Mode);]]>
+</Text>
+</Rung>
+<Rung Number="11" Type="N">
+<Text>
+<![CDATA[[XIC(Emulation_Mode) MOV(HMI_ManualPV,L_ScaledPV) ,XIO(Emulation_Mode) MOV(L_ScaledValue,L_ScaledPV) ];]]>
+</Text>
+</Rung>
+<Rung Number="12" Type="N">
+<Text>
+<![CDATA[CPT(L_ORFaultSetpoint,((Cfg_EUMax - Cfg_EUMin) * 1.0625) + (Cfg_EUMin));]]>
+</Text>
+</Rung>
+<Rung Number="13" Type="N">
+<Text>
+<![CDATA[CPT(L_URFaultSetpoint,((Cfg_EUMax - Cfg_EUMin) * (-0.0625)) + (Cfg_EUMin));]]>
+</Text>
+</Rung>
+<Rung Number="14" Type="N">
+<Text>
+<![CDATA[[XIC(Sts_ORFault) ,XIC(Sts_URFault) ]OTE(L_OutOfRange_Fault);]]>
+</Text>
+</Rung>
+<Rung Number="15" Type="N">
+<Comment>
+<![CDATA[AI PV Filter]]>
+</Comment>
+<Text>
+<![CDATA[NOP();]]>
+</Text>
+</Rung>
+<Rung Number="16" Type="N">
+<Text>
+<![CDATA[XIC(Cfg_Filter)[XIO(Cfg_FCConstorPct) MOV(Cfg_FilterCoefficient,L_FilterCoefficient) ,XIC(Cfg_FCConstorPct) CPT(L_FilterCoefficient,Cfg_FilterCoefficient * (Cfg_EUMax - Cfg_EUMin) / 100) ];]]>
+</Text>
+</Rung>
+<Rung Number="17" Type="N">
+<Text>
+<![CDATA[[CPT(L_HighLimit,L_PrevValueIn + L_FilterCoefficient) ,CPT(L_LowLimit,L_PrevValueIn - L_FilterCoefficient) ];]]>
+</Text>
+</Rung>
+<Rung Number="18" Type="N">
+<Text>
+<![CDATA[LIM(L_LowLimit,L_ScaledPV,L_HighLimit)OTE(L_FilterorNot);]]>
+</Text>
+</Rung>
+<Rung Number="19" Type="N">
+<Text>
+<![CDATA[XIC(Cfg_Filter)[XIO(L_FilterorNot) [MOV(L_ScaledPV,Out_PV) ,MOV(L_ScaledPV,L_PrevValueIn) ] ,XIC(L_FilterorNot) MOV(Out_PV,Out_PV) ];]]>
+</Text>
+</Rung>
+<Rung Number="20" Type="N">
+<Text>
+<![CDATA[XIO(Cfg_Filter)MOV(L_ScaledPV,Out_PV);]]>
+</Text>
+</Rung>
+<Rung Number="21" Type="N">
+<Comment>
+<![CDATA[AI Alarming]]>
+</Comment>
+<Text>
+<![CDATA[NOP();]]>
+</Text>
+</Rung>
+<Rung Number="22" Type="N">
+<Text>
+<![CDATA[MUL(HMI_TimeDBHiHi,1000,L_HiHiAlmDBTimer.PRE)MUL(HMI_TimeDBHi,1000,L_HiAlmDBTimer.PRE)MUL(HMI_TimeDBLo,1000,L_LoAlmDBTimer.PRE)MUL(HMI_TimeDBLoLo,1000,L_LoLoAlmDBTimer.PRE)MUL(HMI_TimeDBFault,1000,L_FaultAlmDBTimer.PRE);]]>
+</Text>
+</Rung>
+<Rung Number="23" Type="N">
+<Text>
+<![CDATA[[XIC(HMI_PBAlmOOS) ,XIC(L_OOSDN) ]XIC(Cfg_EnableOOSTime)ONS(L_ONS[6])[XIO(Sts_OOSOn) OTL(Sts_OOSOn) OTE(L_AlmOOSToggle) ,XIO(L_AlmOOSToggle) XIC(Sts_OOSOn) OTU(Sts_OOSOn) ];]]>
+</Text>
+</Rung>
+<Rung Number="24" Type="N">
+<Comment>
+<![CDATA[Alarm SP Verification]]>
+</Comment>
+<Text>
+<![CDATA[LIM(HMI_SPHi,HMI_SPHiHi,Cfg_EUMax)[OTE(L_HiHiSPGood) ,MOV(HMI_SPHiHi,L_ApprovedSPHiHi) ];]]>
+</Text>
+</Rung>
+<Rung Number="25" Type="N">
+<Text>
+<![CDATA[XIO(L_HiHiSPGood)MOV(L_ApprovedSPHiHi,HMI_SPHiHi);]]>
+</Text>
+</Rung>
+<Rung Number="26" Type="N">
+<Text>
+<![CDATA[LIM(HMI_SPLo,HMI_SPHi,HMI_SPHiHi)[OTE(L_HiSPGood) ,MOV(HMI_SPHi,L_ApprovedSPHi) ];]]>
+</Text>
+</Rung>
+<Rung Number="27" Type="N">
+<Text>
+<![CDATA[XIO(L_HiSPGood)MOV(L_ApprovedSPHi,HMI_SPHi);]]>
+</Text>
+</Rung>
+<Rung Number="28" Type="N">
+<Text>
+<![CDATA[LIM(HMI_SPLoLo,HMI_SPLo,HMI_SPHi)[OTE(L_LoSPGood) ,MOV(HMI_SPLo,L_ApprovedSPLo) ];]]>
+</Text>
+</Rung>
+<Rung Number="29" Type="N">
+<Text>
+<![CDATA[XIO(L_LoSPGood)MOV(L_ApprovedSPLo,HMI_SPLo);]]>
+</Text>
+</Rung>
+<Rung Number="30" Type="N">
+<Text>
+<![CDATA[LIM(Cfg_EUMin,HMI_SPLoLo,HMI_SPLo)[OTE(L_LoLoSPGood) ,MOV(HMI_SPLoLo,L_ApprovedSPLoLo) ];]]>
+</Text>
+</Rung>
+<Rung Number="31" Type="N">
+<Text>
+<![CDATA[XIO(L_LoLoSPGood)MOV(L_ApprovedSPLoLo,HMI_SPLoLo);]]>
+</Text>
+</Rung>
+<Rung Number="32" Type="N">
+<Text>
+<![CDATA[[GEQ(Out_PV,HMI_SPHiHi) XIC(In_AlmHiHiPerm) ,XIC(Out_AlmHiHi) XIO(HMI_PBReset) XIC(HMI_ReqResetHiHi) ]XIC(Cfg_ENAlmHiHi)[TON(L_HiHiAlmDBTimer,?,?) ,XIC(L_HiHiAlmDBTimer.DN) [XIO(Sts_OOSOn) OTE(Sts_AlmHiHi) ,XIO(Sts_AlmBypOn) XIO(Sts_OOSOn) OTE(Out_AlmHiHi) ] ];]]>
+</Text>
+</Rung>
+<Rung Number="33" Type="N">
+<Text>
+<![CDATA[[GEQ(Out_PV,HMI_SPHi) XIC(In_AlmHiPerm) ,XIC(Out_AlmHi) XIO(HMI_PBReset) XIC(HMI_ReqResetHi) ]XIC(Cfg_ENAlmHi)[TON(L_HiAlmDBTimer,?,?) ,XIC(L_HiAlmDBTimer.DN) [XIO(Sts_OOSOn) OTE(Sts_AlmHi) ,XIO(Sts_AlmBypOn) XIO(Sts_OOSOn) OTE(Out_AlmHi) ] ];]]>
+</Text>
+</Rung>
+<Rung Number="34" Type="N">
+<Text>
+<![CDATA[[LEQ(Out_PV,HMI_SPLo) XIC(In_AlmLoPerm) ,XIC(Out_AlmLo) XIO(HMI_PBReset) XIC(HMI_ReqResetLo) ]XIC(Cfg_ENAlmLo)[TON(L_LoAlmDBTimer,?,?) ,XIC(L_LoAlmDBTimer.DN) [XIO(Sts_OOSOn) OTE(Sts_AlmLo) ,XIO(Sts_AlmBypOn) XIO(Sts_OOSOn) OTE(Out_AlmLo) ] ];]]>
+</Text>
+</Rung>
+<Rung Number="35" Type="N">
+<Text>
+<![CDATA[[LEQ(Out_PV,HMI_SPLoLo) XIC(In_AlmLoLoPerm) ,XIC(Out_AlmLoLo) XIO(HMI_PBReset) XIC(HMI_ReqResetLoLo) ]XIC(Cfg_ENAlmLoLo)[TON(L_LoLoAlmDBTimer,?,?) ,XIC(L_LoLoAlmDBTimer.DN) [XIO(Sts_OOSOn) OTE(Sts_AlmLoLo) ,XIO(Sts_AlmBypOn) XIO(Sts_OOSOn) OTE(Out_AlmLoLo) ] ];]]>
+</Text>
+</Rung>
+<Rung Number="36" Type="N">
+<Text>
+<![CDATA[[XIC(L_OutOfRange_Fault) XIC(In_AlmOORPerm) ,XIC(Out_AlmFault) XIO(HMI_PBReset) XIC(HMI_ReqResetFault) ]XIC(Cfg_ENAlmFault)[TON(L_FaultAlmDBTimer,?,?) ,XIC(L_FaultAlmDBTimer.DN) [XIO(Sts_OOSOn) OTE(Sts_FaultAlm) ,XIO(Sts_AlmBypOn) XIO(Sts_OOSOn) OTE(Out_AlmFault) ] ];]]>
+</Text>
+</Rung>
+<Rung Number="37" Type="N">
+<Text>
+<![CDATA[[MUL(HMI_OOSResetHR,3600000,L_AlmOOSTime.PRE) ,XIC(Cfg_EnableOOSTime) XIC(Sts_OOSOn) XIO(HMI_BypOOSReset) TON(L_AlmOOSTime,?,?) ,XIC(L_AlmOOSTime.DN) NEQ(HMI_OOSResetHR,0) OTE(L_OOSDN) ,XIC(L_AlmOOSTime.TT) SUB(L_AlmOOSTime.PRE,L_AlmOOSTime.ACC,Sts_OOSOutRemaining) ,XIC(L_AlmOOSTime.TT) LEQ(Sts_OOSOutRemaining,300000) NEQ(HMI_OOSResetHR,0) OTE(Sts_OOSWarnToReset) ,XIC(Cfg_EnableOOSTime) XIO(L_OOSDN) DIV(L_AlmOOSTime.ACC,3600000,L_OOSTimeAcc) DIV(Sts_OOSOutRemaining,3600000,Sts_OOSTimeRemaining) ,[XIC(L_OOSDN) ,XIC(L_AlmBypDN) ,XIO(Cfg_EnableOOSTime) ] ONS(L_ONS[0]) MOV(0,L_OOSTimeAcc) MOV(0,Sts_OOSTimeRemaining) ,[XIC(Sts_OOSOn) ,XIO(CfgEnableBypTime) ] ONS(L_ONS[1]) OTU(Sts_AlmBypOn) ];]]>
+</Text>
+</Rung>
+<Rung Number="38" Type="N">
+<Text>
+<![CDATA[[MUL(HMI_BypResetMin,60000,L_AlmBypTime.PRE) ,XIC(CfgEnableBypTime) XIC(Sts_AlmBypOn) XIO(HMI_BypOOSReset) TON(L_AlmBypTime,?,?) ,XIC(L_AlmBypTime.DN) OTE(L_AlmBypDN) ,XIC(L_AlmBypTime.TT) SUB(L_AlmBypTime.PRE,L_AlmBypTime.ACC,Sts_OutRemaining) ,XIC(L_AlmBypTime.TT) LEQ(Sts_OutRemaining,300000) OTE(Sts_BypWarnToReset) ,XIC(CfgEnableBypTime) XIO(L_AlmBypDN) DIV(L_AlmBypTime.ACC,60000,L_BypTimeAcc) DIV(Sts_OutRemaining,60000,Sts_BypTimeRemaining) ,[XIC(L_AlmBypDN) ,XIC(L_OOSDN) ,XIO(CfgEnableBypTime) ] ONS(L_ONS[2]) MOV(0,L_BypTimeAcc) MOV(0,Sts_BypTimeRemaining) ,[XIC(Sts_AlmBypOn) ,XIO(Cfg_EnableOOSTime) ] ONS(L_ONS[3]) OTU(Sts_OOSOn) ];]]>
+</Text>
+</Rung>
+<Rung Number="39" Type="N">
+<Text>
+<![CDATA[[XIC(HMI_PBAlmByp) ,XIC(L_OOSDN) ,XIC(L_AlmBypDN) ]XIC(CfgEnableBypTime)ONS(L_ONS[4])[XIO(Sts_AlmBypOn) OTL(Sts_AlmBypOn) OTE(L_AlmBypToggle) ,XIO(L_AlmBypToggle) XIC(Sts_AlmBypOn) OTU(Sts_AlmBypOn) ];]]>
+</Text>
+</Rung>
+<Rung Number="40" Type="N">
+<Text>
+<![CDATA[XIC(HMI_BypOOSReset)OTU(HMI_BypOOSReset);]]>
+</Text>
+</Rung>
+</RLLContent>
+</Routine>
+</Routines>
+</AddOnInstructionDefinition>
+</AddOnInstructionDefinitions>
+</Controller>
+</RSLogix5000Content>

@@ -1,0 +1,25 @@
+{
+  "total_modules": 1692,
+  "modules_with_config": 41,
+  "modules_with_ports": 79,
+  "modules_by_catalog": {
+    "5094-IB32/A": 10,
+    "193-ECM-ETR/A": 6,
+    "Promag_300_500": 2,
+    "PowerFlex 525-EENET": 15,
+    "5094-AENTR/A": 6,
+    "5094-OF8/A": 3,
+    "5094-OB16/A": 10,
+    "5094-IY8/B": 7,
+    "1756-EN4TR": 4,
+    "5094-IB16/A": 1,
+    "PowerFlex 755-EENET": 5,
+    "ACT350-2P EtherNet/IP/A": 3,
+    "5094-OW8I/A": 2,
+    "1783-CMS10P": 2,
+    "5094-AENSFPR/A": 1,
+    "5094-OB16S/A": 1,
+    "5094-IB16S/A": 1,
+    "Unknown": 1613
+  }
+}

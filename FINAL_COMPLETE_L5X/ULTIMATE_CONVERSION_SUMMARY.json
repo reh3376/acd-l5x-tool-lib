@@ -1,0 +1,14 @@
+{
+  "file": "FINAL_COMPLETE_L5X/ULTIMATE_COMPLETE_PLC100_Mashing.L5X",
+  "file_size_mb": 0.8427066802978516,
+  "components": {
+    "comments": 1176,
+    "modules": 1692,
+    "rungs": 3587,
+    "tags": 112,
+    "datatypes": 50,
+    "programs": 10
+  },
+  "completion_status": "COMPLETE - All major PLC components included",
+  "studio5000_compatible": true
+}
